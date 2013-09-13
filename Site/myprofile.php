@@ -20,7 +20,7 @@
             </div>
             <br class="clear"/>
             <div class="grid_3">
-            <a href="#" class="button orange ic-edit image-right">Edit profile</a>
+            <a href="edit-profile.php" class="button orange ic-edit image-right">Edit profile</a>
             </div>
         </div><!--end profile -->
         <div id="billing-account" class="grid_12">
