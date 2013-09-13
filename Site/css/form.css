@@ -1,0 +1,115 @@
+.text-green{
+	color:#036D67;
+}
+.text-lightgreen{
+	color:#129793;
+}
+.text-lightgreen2{
+	color:#6DA32C;
+}
+.text-orange{
+	color:#EB500B;
+}
+.text-lightorange{
+	color:#ED723D;
+}
+.text-white{
+	color:white;
+}
+.text-nav{
+	font-size:0.79em;
+}
+.text-tag{
+	margin-bottom:5px;
+	font-weight:bold;
+}
+.text-title-report{
+	font-size:1.15em;
+}
+/* ---------- FORMS ---------- */
+form label {
+	display: block;
+	text-transform: uppercase;
+	color: #2a2e36;
+	margin: 0 0 0.3125em 0;
+}
+form select{
+	margin-top:2em;
+}
+form select{
+	width:318px;
+	padding: 0.625em 0.625em;
+	color:#333;
+}
+form label.alt-label { text-transform: none; }
+
+form input[type="text"], input[type="password"], textarea {
+	border: 1px solid #d9dbdd;
+	padding: 0.625em 0.625em; /* 16/16 10/16 */
+	outline: none;
+	width: 200px;
+}
+	form input[type="text"]:hover, input[type="password"]:hover, textarea:hover,
+	form input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
+		/*border: 1px solid #bbbdbe;*/
+	}
+	
+form input[type="checkbox"], form input[type="radio"] { margin-right: 0.833em; /* 10/12 */ }
+
+form input[type="submit"] {
+	border: none;
+	cursor: pointer;
+}
+
+form#search-form input {
+	border: none;
+	/* The inner text overflows on the BG image, so we're setting a right padding to stop that */
+	padding-right: 3em; /* 36/12 */
+}
+form#search-form input[type="submit"] {
+	border: none;
+	cursor: pointer;
+	padding: 0.533em 1.2em; /* 10/12 */
+	background-position: center;
+	background-repeat: no-repeat;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+form#search-form input:focus {
+	/*
+	background-color: #EAEAEA;
+	color: black;
+	border: 1px solid #C7C8C9;
+	*/
+}
+form#advancesearch-form input[type="text"]{
+	width: 300px;
+}
+form p em {
+	margin-top: 0.833em; /* 10/12 */
+	display: block;
+}
+
+form p.form-error, form p.form-error label { color: #cf4425; }
+
+form p.form-error em {
+	background: transparent url('../images/icons/message-boxes/error.png') no-repeat left center;
+	padding-left: 2em; /* 24/12 */
+}
+
+form input.error-input { border: 1px solid #ff876f; }
+	form input.error-input:hover { border: 1px solid #b03e27; }
+
+/* Styling the HTML5 placeholders */
+/* So far they don't work in: IE, Opera 10 and below, Firefox 3.6 and below */
+::-webkit-input-placeholder { color: #858d9c; }
+:-moz-placeholder { color: #858d9c; }
+
+.icSearch {
+	background-image: url(../images/icons/ic_zoom.png);
+	background-repeat: no-repeat;
+	margin-left: 7px;
+}
+#psd {
+	margin-top: 10px;
+}
