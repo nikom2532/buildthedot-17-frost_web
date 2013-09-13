@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 13, 2013 at 04:01 PM
+-- Generation Time: Sep 14, 2013 at 03:12 AM
 -- Server version: 5.1.67
 -- PHP Version: 5.3.24
 
@@ -96,6 +96,32 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV4` (
   `GROUP_LV3_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_GROUP_LV4_GROUP_LV31_idx` (`GROUP_LV3_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `GROUP_LV5`
+--
+
+CREATE TABLE IF NOT EXISTS `GROUP_LV5` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` int(11) NOT NULL,
+  `GROUP_LV4_ID` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `GROUP_LV6`
+--
+
+CREATE TABLE IF NOT EXISTS `GROUP_LV6` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` int(11) NOT NULL,
+  `GROUP_LV5_ID` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
