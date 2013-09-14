@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 14, 2013 at 03:12 AM
+-- Generation Time: Sep 15, 2013 at 02:21 AM
 -- Server version: 5.1.67
 -- PHP Version: 5.3.24
 
@@ -54,7 +54,15 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV1` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `GROUP_LV1`
+--
+
+INSERT INTO `GROUP_LV1` (`ID`, `NAME`) VALUES
+(1, 'Knowledge'),
+(2, 'Best Practice');
 
 -- --------------------------------------------------------
 
@@ -68,7 +76,22 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV2` (
   `GROUP_LV1_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_GROUP_LV2_GROUP_LV11_idx` (`GROUP_LV1_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `GROUP_LV2`
+--
+
+INSERT INTO `GROUP_LV2` (`ID`, `NAME`, `GROUP_LV1_ID`) VALUES
+(1, 'Technology', 1),
+(2, 'Strategy', 1),
+(3, 'Around Asian', 1),
+(4, 'E-Business', 2),
+(5, 'Customer Experience Management', 2),
+(6, 'Value Innovation', 2),
+(7, 'Process Improvement', 2),
+(8, 'Go to Market', 2),
+(9, 'Competitive Analysis', 2);
 
 -- --------------------------------------------------------
 
@@ -82,7 +105,25 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV3` (
   `GROUP_LV2_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_GROUP_LV3_GROUP_LV21_idx` (`GROUP_LV2_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+
+--
+-- Dumping data for table `GROUP_LV3`
+--
+
+INSERT INTO `GROUP_LV3` (`ID`, `NAME`, `GROUP_LV2_ID`) VALUES
+(1, 'Research Thailand', 1),
+(2, 'Global Trend', 1),
+(3, 'E-Business', 2),
+(4, 'Customer Experience Management', 2),
+(5, 'Value Innovation', 2),
+(6, 'Process Improvement', 2),
+(7, 'Go to Market', 2),
+(8, 'Competitive Analysis', 2),
+(9, 'Update AEC News', 3),
+(10, 'Competency Index', 3),
+(11, 'Country Profile', 3),
+(12, 'Company', 4);
 
 -- --------------------------------------------------------
 
@@ -96,7 +137,21 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV4` (
   `GROUP_LV3_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_GROUP_LV4_GROUP_LV31_idx` (`GROUP_LV3_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `GROUP_LV4`
+--
+
+INSERT INTO `GROUP_LV4` (`ID`, `NAME`, `GROUP_LV3_ID`) VALUES
+(1, 'Telecom Market Data', 1),
+(2, 'ICT Industry Outlook', 1),
+(3, 'ICT Technology', 2),
+(4, 'Highlight of the month', 2),
+(5, 'World Economic Index', 10),
+(6, 'ICT Competency Index', 10),
+(7, 'Country', 11),
+(8, 'Year', 12);
 
 -- --------------------------------------------------------
 
@@ -106,10 +161,28 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV4` (
 
 CREATE TABLE IF NOT EXISTS `GROUP_LV5` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `NAME` int(11) NOT NULL,
+  `NAME` varchar(60) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `GROUP_LV4_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+
+--
+-- Dumping data for table `GROUP_LV5`
+--
+
+INSERT INTO `GROUP_LV5` (`ID`, `NAME`, `GROUP_LV4_ID`) VALUES
+(1, 'Fixed Line -Voice', 1),
+(2, 'Fixed Line -Data', 1),
+(3, 'Mobile - Voice', 1),
+(4, 'Mobile - Data', 1),
+(5, 'Application', 2),
+(6, 'ICT Service', 2),
+(7, 'Infrastructure', 2),
+(8, 'Sector Focus', 2),
+(9, 'Consumer Market', 2),
+(10, 'Application', 3),
+(11, 'Infrastructure', 3),
+(12, 'ICT Service', 3);
 
 -- --------------------------------------------------------
 
