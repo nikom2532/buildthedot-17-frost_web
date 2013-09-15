@@ -46,25 +46,16 @@ include ("include/top-menu.php");
 						Tags
 					</p>
 					<ul class="report-tag">
-						<li class="button orange">
-							Technology
-						</li>
-						<li class="button orange">
-							E-business
-						</li>
-						<li class="button orange">
-							Strategy
-						</li>
-						<li class="button orange">
-							Cloud
-						</li>
-						<li class="button orange">
-							Technology
-						</li>
-						<li class="button orange">
-							E-business
-						</li>
-
+						
+						<?php
+						$tagResult = mysql_query("SELECT * FROM  tag_relationship WHERE PDF_ID =".$id) or die(mysql_error());
+				
+						while ($tagRow = mysql_fetch_array($tagResult)) {
+							echo "<li class='button orange'>";
+							echo $tagRow['TAG_ID'];
+							echo "</li>";
+						}
+						?>
 					</ul>
 
 				</div>
