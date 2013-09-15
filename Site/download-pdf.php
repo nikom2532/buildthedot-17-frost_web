@@ -16,7 +16,6 @@
 		
 		$filepath="pdf/";
 		$filename=$filepath.$file_name;
-		echo $file_name;
 		//$filename=$filepath.$file_name.".pdf";
 		
 		
