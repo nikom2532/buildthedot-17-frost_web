@@ -48,12 +48,19 @@ include ("include/top-menu.php");
 					<ul class="report-tag">
 						
 						<?php
-						$tagResult = mysql_query("SELECT * FROM  tag_relationship WHERE PDF_ID =".$id) or die(mysql_error());
+						$tagResult = mysql_query("
+						SELECT *
+						FROM  tag_relationship AS a
+						INNER JOIN tag AS b
+						ON a.TAG_ID = b.ID
+						WHERE PDF_ID =".$id) or die(mysql_error());
 				
 						while ($tagRow = mysql_fetch_array($tagResult)) {
+							echo "<a href='search.php?tagId=". $tagRow['TAG_ID'] ."'>";
 							echo "<li class='button orange'>";
-							echo $tagRow['TAG_ID'];
+							echo $tagRow['NAME'];
 							echo "</li>";
+							echo "</a>";
 						}
 						?>
 					</ul>
@@ -65,6 +72,8 @@ include ("include/top-menu.php");
 				</div>
 			
 				<?php } ?>
+				
+				
 			</div><!--end content-middle -->
 		</div>
 	</div><!--end container_12 -->
