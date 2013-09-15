@@ -14,13 +14,23 @@
                 	 <p>Result include one or more of the words</p>
                 </div>
                 <br class="clear"/>
-                
+                               
                 <div class="grid_5">
+        	    <?php
+            		$strSQL = "SELECT * FROM  group_lv1 ORDER BY ID ";
+					$cmdQuery =  mysql_query($strSQL);
+					
+		        ?>        
+
                       <select id="category">
                             <option selected="selected">Select a category</option>
-                            <option value="technology">Technology</option>
-                            <option value="strategy">Strategy</option>
-                            <option value="aroundasean">Around Asean</option>
+                      <?php while($fetchArray=mysql_fetch_array($cmdQuery)){
+
+                      ?>
+                            <option value="<?=$fetchArray['NAME']?>">
+		                    <?=$fetchArray['NAME']?>
+		                    </option>
+		          <?php } ?>
                       </select>
                 </div>
                 <div class="grid_6" id="advancesearch-cat">
