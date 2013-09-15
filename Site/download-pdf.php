@@ -1,15 +1,13 @@
 <?
 				
-		$id=$_GET['id'];
+		$pdfId=$_GET['pdfId'];
 		
 		// connect to the database
-        session_start();
-		include ($rootpath . "lib/func_date.php");
-		include ($rootpath . "lib/db.php");
-		include ($rootpath . "lib/conn.inc.php");
-	 
+		$rootpath = "./";
+		include ($rootpath . "include/header.php");
+        
         // get results from database
-        $result = mysql_query("SELECT * FROM PDF WHERE item_id = ".$id) or die(mysql_error()); 
+        $result = mysql_query("SELECT * FROM PDF WHERE ID = ".$pdfId) or die(mysql_error()); 
 		
 		// loop through results of database query
         while($row = mysql_fetch_array( $result )) {
@@ -18,6 +16,7 @@
 		
 		$filepath="pdf/";
 		$filename=$filepath.$file_name;
+		echo $file_name;
 		//$filename=$filepath.$file_name.".pdf";
 		
 		

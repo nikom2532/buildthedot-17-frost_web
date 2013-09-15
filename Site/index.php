@@ -40,14 +40,21 @@ include ("include/top-menu.php");
 
 		<div id="new-release">
 			<?php
-			// Add by fon
+			
+			//-- get current month
+			$current_month =  date('m');
+			$current_month_all =  date('M');
+			$current_year_all =  date('Y');
+			
 			$result = mysql_query("
-SELECT *
-FROM  PDF
-ORDER BY UPDATE_DATE DESC") or die(mysql_error());
+			SELECT *
+			FROM PDF
+			WHERE MONTH(UPDATE_DATE) = ". $current_month ." AND YEAR(UPDATE_DATE) = ". $current_year_all ."
+			ORDER BY UPDATE_DATE DESC
+			LIMIT 5") or die(mysql_error());
 			?>
 
-			<h2 class="text-lightgreen2 uppercase">New release August 2013</h2>
+			<h2 class="text-lightgreen2 uppercase">New release <?php echo $current_month_all;?>, <?php echo $current_year_all;?></h2>
 
 			<?php
 			//-- Add by Fon

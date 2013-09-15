@@ -17,13 +17,16 @@ include ("include/top-menu.php");
 				$result = mysql_query($query) OR die(mysql_error());
 				$count = mysql_num_rows($result);
 
+				$current_month_all =  date('M');
+				$current_year_all =  date('Y');
+			
 				if($count > 0) {
 					$row = mysql_fetch_array($result);
 				
 				?>
 				<ul class="nav-title">
 					<li>
-						<a href="index.php">New release August 2013</a>
+						<a href="index.php">New release <?php echo $current_month_all;?>, <?php echo $current_year_all;?></a>
 					</li>
 					<li class="text-orange bold text-nav">
 						<?php echo $row['NAME']; ?>
@@ -68,7 +71,11 @@ include ("include/top-menu.php");
 				</div>
 				<div class="grid_1 center" id="price-box">
 					<b class="center">฿ <?php echo $row['PRICE']; ?></b>
-					<b class="button darkgreen" id="download-button">Download</b>
+					<?php
+					echo "<a href='download-pdf.php?pdfId=". $id ."'>";
+					?>
+						<b class="button darkgreen" id="download-button">Download</b>
+					</a>
 				</div>
 			
 				<?php } ?>
