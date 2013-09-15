@@ -1,46 +1,44 @@
 <?php
+$rootpath="./";
 include ("include/header.php");
 ?>
 <?php
-include ("include/top-menu.php");
+	include ("include/top-menu.php");
 ?>
 <div id="content">
 	<div class="container_12" id="container">
 		<h1 id="head-title" class="text-orange uppercase grid_12">Welcome to Mckansys</h1>
 		<br class="clear"/>
-
 		<div id="icon">
 			<div class="grid_3 center">
-				<a href="#"> <img src="images/icon-technology.png" width="123" height="123" alt="Technology">
+				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=1&glvl=2"><img src="images/icon-technology.png" width="123" height="123" alt="Technology">
 				<p class="text-blue bold">
 					Technology
 				</p> </a>
 			</div>
 			<div class="grid_3 center">
-				<a href="#"> <img src="images/icon-strategy.png" width="124" height="123" alt="Strategy">
+				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=2&glvl=2"> <img src="images/icon-strategy.png" width="124" height="123" alt="Strategy">
 				<p class="text-blue bold">
 					Strategy
 				</p> </a>
 			</div>
 			<div class="grid_3 center">
-				<a href="#"> <img src="images/icon-asean.png" width="127" height="127" alt="Around Asean">
+				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=3&glvl=2"> <img src="images/icon-asean.png" width="127" height="127" alt="Around Asean">
 				<p class="text-blue bold">
 					Around Asean
 				</p> </a>
 			</div>
 			<div class="grid_3 center">
-				<a href="#"> <img src="images/icon-best-practice.png" width="124" height="123" alt="Best Practice">
+				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=2"> <img src="images/icon-best-practice.png" width="124" height="123" alt="Best Practice">
 				<p class="text-blue bold">
 					Best Practice
 				</p> </a>
 			</div>
-
 		</div><!--end icon -->
 
 		<br class="clear"/>
 
 		<div id="new-release">
-
 			<?php
 			// Add by fon
 			$result = mysql_query("
@@ -63,6 +61,7 @@ ORDER BY UPDATE_DATE DESC") or die(mysql_error());
 				echo "</section>";
 			}
 			?>
+
 		</div><!--end new-release -->
 	</div><!--end container_12 -->
 </div><!--end content -->
