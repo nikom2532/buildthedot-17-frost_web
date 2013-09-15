@@ -53,7 +53,7 @@ ORDER BY UPDATE_DATE DESC") or die(mysql_error());
 			//-- Add by Fon
 			while ($row = mysql_fetch_array($result)) {
 				echo "<section>";
-				echo "<a href='report-detail.php'>";
+				echo "<a href='report-detail-no-sidemenu.php?id=". $row['ID'] ."'>";
 				echo "<h3>" . $row['NAME'] . "</h3>";
 				echo "<p>" . substr_replace($row['DESCRIPTION'],'...',220) . "</p>";
 				echo "</a>";
