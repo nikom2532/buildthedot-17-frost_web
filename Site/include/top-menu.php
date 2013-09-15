@@ -16,7 +16,35 @@
     <div class="container">
          <ul id="topnav" class="grid_6">
             <li><a href="index.php">Home</a></li>
-            <li>
+<?php
+			$SQL="
+				SELECT *
+				FROM `GROUP_LV1`
+			;";
+			$db->query($SQL);
+			//unset($SQL);
+			while($rs=$db->fetchAssoc()){
+?>
+       			<li>
+       				<a href=""><?php echo $rs["NAME"]; ?></a>
+       				<span>
+<?php
+						$SQL="
+							SELECT *
+							FROM `GROUP_LV2`
+							WHERE `GROUP_LV1_ID` = '{$rs["ID"]}'
+						;";
+						$result2 = @mysql_query($SQL);
+						while($rs2=@mysql_fetch_assoc($result2)){
+							?><a href=""><?php echo $rs2["NAME"]; ?></a> | <?php
+						}
+?>
+					</span>
+       			</li>
+<?php
+			}
+?>
+            <!-- <li>
                 <a href="">Knowledge</a>
                 <span>
                     <a href="">Technology</a> |
@@ -24,7 +52,10 @@
                     <a href="">Around Asean</a>
                 </span>
             </li>
-            <li><a href="best-practice.php">Best Practice</a></li>
+            <li>
+            	<a href="best-practice.php">Best Practice</a>
+            </li> -->
+            
          </ul>
          <div class="right">
              <ul id="top-nav-search" class="grid_4">
