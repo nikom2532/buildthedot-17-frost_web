@@ -1,10 +1,10 @@
 ﻿<?php
 class DB
         {
-                var $host='';
-                var $user ='';
-                var $password='';
-                var $database='';
+                var $host='localhost';
+                var $user ='root';
+                var $password='root';
+                var $database='buildthe_frost';
                 var $optionname='';
                 var $persistent=false;
                 var $conn=NULL;
