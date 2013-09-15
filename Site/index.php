@@ -1,9 +1,9 @@
 <?php
-$rootpath="./";
-include ($rootpath."include/header.php");
+$rootpath = "./";
+include ($rootpath . "include/header.php");
 ?>
 <?php
-	include ("include/top-menu.php");
+include ("include/top-menu.php");
 ?>
 <div id="content">
 	<div class="container_12" id="container">
@@ -42,7 +42,7 @@ include ($rootpath."include/header.php");
 			<?php
 			// Add by fon
 			$result = mysql_query("
-SELECT *g
+SELECT *
 FROM  PDF
 ORDER BY UPDATE_DATE DESC") or die(mysql_error());
 			?>
@@ -55,16 +55,15 @@ ORDER BY UPDATE_DATE DESC") or die(mysql_error());
 				echo "<section>";
 				echo "<a href='report-detail.php'>";
 				echo "<h3>" . $row['NAME'] . "</h3>";
-				echo "<p>" . $row['DESCRIPTION'] . "</p>";
+				echo "<p>" . substr_replace($row['DESCRIPTION'],'...',220) . "</p>";
 				echo "</a>";
 				echo "</section>";
 			}
 			?>
-
 		</div><!--end new-release -->
 	</div><!--end container_12 -->
 </div><!--end content -->
 
 <?php
-	include ("include/footer.php");
+include ("include/footer.php");
 ?>
