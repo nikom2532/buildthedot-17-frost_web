@@ -1,6 +1,6 @@
 <?php
 $rootpath="./";
-include ("include/header.php");
+include ($rootpath."include/header.php");
 ?>
 <?php
 	include ("include/top-menu.php");
@@ -42,8 +42,7 @@ include ("include/header.php");
 			<?php
 			// Add by fon
 			$result = mysql_query("
-
-SELECT *
+SELECT *g
 FROM  PDF
 ORDER BY UPDATE_DATE DESC") or die(mysql_error());
 			?>
