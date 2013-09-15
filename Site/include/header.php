@@ -1,11 +1,12 @@
 <?php
 session_start();
 include ($rootpath . "lib/func_date.php");
-include ($rootpath . "lib/db.php");
-include ($rootpath . "lib/conn.inc.php");
-if (!$db -> open()) {
-	die($db -> error());
-}
+include ($rootpath."lib/connect-db-fon.php");
+// include ($rootpath . "lib/db.php");
+// include ($rootpath . "lib/conn.inc.php");
+// // if (!$db -> open()) {
+	// die($db -> error());
+// }
 ?>
 <!doctype html>
 <html>
