@@ -26,7 +26,7 @@
 			while($rs=$db->fetchAssoc()){
 ?>
        			<li>
-       				<a href=""><?php echo $rs["NAME"]; ?></a>
+       				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=<?php echo $rs["ID"]; ?>"><?php echo $rs["NAME"]; ?></a>
        				<span>
 <?php
 						$SQL="
@@ -36,7 +36,7 @@
 						;";
 						$result2 = @mysql_query($SQL);
 						while($rs2=@mysql_fetch_assoc($result2)){
-							?><a href=""><?php echo $rs2["NAME"]; ?></a> | <?php
+							?><a href="<?php echo $rootpath; ?>main-knowledge.php?id=<?php echo $rs2["ID"]; ?>&glvl=2"><?php echo $rs2["NAME"]; ?></a> | <?php
 						}
 ?>
 					</span>
