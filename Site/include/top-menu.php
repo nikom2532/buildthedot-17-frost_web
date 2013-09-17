@@ -17,6 +17,7 @@
          <ul id="topnav" class="grid_6">
             <li><a href="index.php">Home</a></li>
 <?php
+			//query menu
 			$SQL="
 				SELECT *
 				FROM `GROUP_LV1`
@@ -26,7 +27,7 @@
 			while($rs=$db->fetchAssoc()){
 ?>
        			<li>
-       				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=<?php echo $rs["ID"]; ?>"><?php echo $rs["NAME"]; ?></a>
+       				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=<?php echo $rs["ID"]; ?>&glvl=1"><?php echo $rs["NAME"]; ?></a>
        				<span>
 <?php
 						$SQL="
