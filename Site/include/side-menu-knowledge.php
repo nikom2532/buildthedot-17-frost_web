@@ -16,11 +16,12 @@
 		$SQL="
     		SELECT * 
 			FROM  `GROUP_LV2`
+			WHERE `GROUP_LV1_ID` = {$temp_id}
     	;";
 		$db->query($SQL);
 		while($rs=$db->fetchAssoc()){
 ?>
-			<li id="link-main"><a href="#" class="bold"><?php echo $rs["NAME"]; ?></a>
+			<li id="link-main"><a href="./main-knowledge.php?id=<?php echo $rs["ID"]?>&glvl=2" class="bold"><?php echo $rs["NAME"]; ?></a>
 <?php
 				if($_GET["glvl"]>=3){
 					$SQL2="
@@ -32,7 +33,7 @@
 					while($rs2=@mysql_fetch_array($result2)){
 ?>
 			            <ul>
-			                <li><a href="#" class="bold text-green"><?php echo $rs2["NAME"]; ?></a>
+			                <li><a href="./main-knowledge.php?id=&glvl=<?php echo $rs2["GROUP_LV2_ID"]?>" class="bold text-green"><?php echo $rs2["NAME"]; ?></a>
 <?php
 								if($_GET["glvl"]>=4){
 									$SQL3="
@@ -165,6 +166,6 @@
 	            </ul>
 	        
 	        </li><!--end Around Asean -->
-	        */ ?>
+<?php		*/ ?>
     </ul>
 </nav>	
