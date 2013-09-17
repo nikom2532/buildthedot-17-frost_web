@@ -90,7 +90,7 @@
 											}
 											
 											//if($rs3["GROUP_LV3_ID"]==$parentGroup){
-											if($rs3["GROUP_LV3_ID"]==2){
+											if($rs3["GROUP_LV3_ID"]==1){
 ?>
 							                    <ul> 
 							                        <li><a href="./main-knowledge.php?id=<?php echo $rs3["ID"]; ?>&glvl=4" class="bold"><?php echo $rs3["NAME"]; ?></a>
@@ -115,7 +115,7 @@
 																}
 																
 																//if($rs4["GROUP_LV4_ID"]==$parentGroup){
-																if($rs4["GROUP_LV4_ID"]==2){
+																if($rs4["GROUP_LV4_ID"]==1){
 ?>
 										                            <ul>
 										                                <li><a href="./main-knowledge.php?id=<?php echo $rs4["ID"]; ?>&glvl=5"><?php echo $rs4["NAME"]; ?></a>
@@ -141,7 +141,7 @@
 																					}
 																					
 																					//if($rs5["GROUP_LV5_ID"]==$parentGroup){
-																					if($rs5["GROUP_LV5_ID"]==2){
+																					if($rs5["GROUP_LV5_ID"]==1){
 ?>
 															                            <ul>
 															                                <li><a href="./main-knowledge.php?id=<?php echo $rs5["ID"]; ?>&glvl=6"><?php echo $rs5["NAME"]; ?></a>
