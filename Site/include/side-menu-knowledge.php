@@ -54,6 +54,17 @@
 					$result2=@mysql_query($SQL2);
 															//&& $rs2["GROUP_LV2_ID"]==$rs["ID"]
 					while($rs2=@mysql_fetch_array($result2)){
+						$SQLparentGroup="
+							SELECT * 
+							FROM  `GROUP_LV2`
+							WHERE `ID` = '{$_GET["id"]}' 
+						";
+						$resultParentGroup=@mysql_query($SQLparentGroup);
+						if($rsPG=@mysql_fetch_array($resultParentGroup)){
+							$parentGroup=$rsPG["ID"];
+						}
+						
+						//if($rs2["GROUP_LV2_ID"]==$parentGroup){
 						if($rs2["GROUP_LV2_ID"]==1){
 ?>
 				            <ul>
@@ -67,7 +78,19 @@
 										";
 										$result3=@mysql_query($SQL3);
 										while($rs3=@mysql_fetch_array($result3)){
-											if($rs3["GROUP_LV3_ID"]==1){
+												
+											$SQLparentGroup="
+												SELECT * 
+												FROM  `GROUP_LV3`
+												WHERE `ID` = '{$_GET["id"]}' 
+											";
+											$resultParentGroup=@mysql_query($SQLparentGroup);
+											if($rsPG=@mysql_fetch_array($resultParentGroup)){
+												$parentGroup=$rsPG["ID"];
+											}
+											
+											//if($rs3["GROUP_LV3_ID"]==$parentGroup){
+											if($rs3["GROUP_LV3_ID"]==2){
 ?>
 							                    <ul> 
 							                        <li><a href="./main-knowledge.php?id=<?php echo $rs3["ID"]; ?>&glvl=4" class="bold"><?php echo $rs3["NAME"]; ?></a>
@@ -80,7 +103,19 @@
 															";
 															$result4=@mysql_query($SQL4);
 															while($rs4=@mysql_fetch_array($result4)){
-																if($rs4["GROUP_LV4_ID"]==1){
+																
+																$SQLparentGroup="
+																	SELECT * 
+																	FROM  `GROUP_LV4`
+																	WHERE `ID` = '{$_GET["id"]}' 
+																";
+																$resultParentGroup=@mysql_query($SQLparentGroup);
+																if($rsPG=@mysql_fetch_array($resultParentGroup)){
+																	$parentGroup=$rsPG["ID"];
+																}
+																
+																//if($rs4["GROUP_LV4_ID"]==$parentGroup){
+																if($rs4["GROUP_LV4_ID"]==2){
 ?>
 										                            <ul>
 										                                <li><a href="./main-knowledge.php?id=<?php echo $rs4["ID"]; ?>&glvl=5"><?php echo $rs4["NAME"]; ?></a>
@@ -94,7 +129,19 @@
 																				";
 																				$result5=@mysql_query($SQL5);
 																				while($rs5=@mysql_fetch_array($result5)){
-																					if($rs5["GROUP_LV5_ID"]==1){
+																					
+																					$SQLparentGroup="
+																						SELECT * 
+																						FROM  `GROUP_LV5`
+																						WHERE `ID` = '{$_GET["id"]}' 
+																					";
+																					$resultParentGroup=@mysql_query($SQLparentGroup);
+																					if($rsPG=@mysql_fetch_array($resultParentGroup)){
+																						$parentGroup=$rsPG["ID"];
+																					}
+																					
+																					//if($rs5["GROUP_LV5_ID"]==$parentGroup){
+																					if($rs5["GROUP_LV5_ID"]==2){
 ?>
 															                            <ul>
 															                                <li><a href="./main-knowledge.php?id=<?php echo $rs5["ID"]; ?>&glvl=6"><?php echo $rs5["NAME"]; ?></a>
