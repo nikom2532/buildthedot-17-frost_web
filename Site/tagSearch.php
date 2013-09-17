@@ -21,8 +21,8 @@ include ("include/header.php");
 				
 				$result = mysql_query("
 						SELECT *
-						FROM  tag_relationship AS a
-						INNER JOIN pdf AS b
+						FROM  TAG_RELATIONSHIP AS a
+						INNER JOIN PDF AS b
 						ON a.PDF_ID = b.ID
 						WHERE a.TAG_ID =".$tagId) or die(mysql_error());
 				

@@ -53,8 +53,8 @@ include ("include/top-menu.php");
 						<?php
 						$tagResult = mysql_query("
 						SELECT *
-						FROM  tag_relationship AS a
-						INNER JOIN tag AS b
+						FROM  TAG_RELATIONSHIP AS a
+						INNER JOIN TAG AS b
 						ON a.TAG_ID = b.ID
 						WHERE PDF_ID =".$id) or die(mysql_error());
 				
