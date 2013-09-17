@@ -23,7 +23,7 @@
 ?>
 			<li id="link-main"><a href="./main-knowledge.php?id=<?php echo $rs["ID"]?>&glvl=2" class="bold"><?php echo $rs["NAME"]; ?></a>
 <?php
-				if($_GET["glvl"]>=3){
+				if($_GET["glvl"]>=2){
 					$SQL2="
 						SELECT * 
 						FROM  `GROUP_LV3`
@@ -33,9 +33,9 @@
 					while($rs2=@mysql_fetch_array($result2)){
 ?>
 			            <ul>
-			                <li><a href="./main-knowledge.php?id=&glvl=<?php echo $rs2["GROUP_LV2_ID"]?>" class="bold text-green"><?php echo $rs2["NAME"]; ?></a>
+			                <li><a href="./main-knowledge.php?id=<?php echo $rs2["ID"]; ?>&glvl=3" class="bold text-green"><?php echo $rs2["NAME"]; ?></a>
 <?php
-								if($_GET["glvl"]>=4){
+								if($_GET["glvl"]>=3){
 									$SQL3="
 										SELECT * 
 										FROM  `GROUP_LV4`
@@ -45,9 +45,9 @@
 									while($rs3=@mysql_fetch_array($result3)){
 ?>
 					                    <ul> 
-					                        <li><a href="#" class="bold"><?php echo $rs3["NAME"]; ?></a>
+					                        <li><a href="./main-knowledge.php?id=<?php echo $rs3["ID"]; ?>&glvl=3" class="bold"><?php echo $rs3["NAME"]; ?></a>
 <?php
-												if($_GET["glvl"]>=5){
+												if($_GET["glvl"]>=4){
 													$SQL4="
 														SELECT * 
 														FROM  `GROUP_LV5`
@@ -57,10 +57,10 @@
 													while($rs4=@mysql_fetch_array($result4)){
 ?>
 							                            <ul>
-							                                <li><a href="#"><?php echo $rs4["NAME"]; ?></a>
+							                                <li><a href="./main-knowledge.php?id=<?php echo $rs4["ID"]; ?>&glvl=4"><?php echo $rs4["NAME"]; ?></a>
 							                                	
 <?php
-																if($_GET["glvl"]>=6){
+																if($_GET["glvl"]>=5){
 																	$SQL5="
 																		SELECT * 
 																		FROM  `GROUP_LV6`
@@ -70,7 +70,7 @@
 																	while($rs5=@mysql_fetch_array($result5)){
 ?>
 											                            <ul>
-											                                <li><a href="#"><?php echo $rs5["NAME"]; ?></a>
+											                                <li><a href="./main-knowledge.php?id=<?php echo $rs5["ID"]; ?>&glvl=5"><?php echo $rs5["NAME"]; ?></a>
 											                                </li>
 											                            </ul>
 <?php
