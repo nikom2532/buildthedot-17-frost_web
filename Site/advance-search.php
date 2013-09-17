@@ -6,9 +6,9 @@
 
        	  		<h1 id="head-title" class="text-green grid_12">Advanced Search</h1>
           	
-        		<form action="#" method="POST" id="advancesearch-form" class="fr">
+        		<form action="advance-search-result.php" method="GET"  id="search" class="fr">
                 <div class="grid_5">
-                     <input type="text" id="search-keyword" class="" placeholder="Keyword.." />
+                     <input type="text" id="keyword" name="keyword" placeholder="Keyword.." />
                 </div>
                 <div class="grid_6" id="advancesearch-kw">
                 	 <p>Result include one or more of the words</p>
@@ -22,12 +22,12 @@
 					
 		        ?>        
 
-                      <select id="category">
-                            <option selected="selected">Select a category</option>
+                      <select id="category_id" name="category_id">
+                            <option selected="selected" value="">Select a category</option>
                       <?php while($fetchArray=mysql_fetch_array($cmdQuery)){
 
                       ?>
-                            <option value="<?=$fetchArray['NAME']?>">
+                            <option value="<?=$fetchArray['ID']?>">
 		                    <?=$fetchArray['NAME']?>
 		                    </option>
 		          <?php } ?>
@@ -38,15 +38,17 @@
                 </div>
                 <br class="clear"/>   
 				 <div class="grid_5">
-                      <select id="year">
-                            <option selected="selected">Select a year</option>
+                      <select id="year" name="year">
+                            <option selected="selected" value="">Select a year</option>
                             <option value="2006">2006</option>
                             <option value="2007">2007</option>
                             <option value="2008">2008</option>
                             <option value="2009">2009</option>
                             <option value="2010">2010</option>
                             <option value="2011">2011</option>
-                            <option value="2011">2012</option>
+                            <option value="2012">2012</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
                         </select>
                 </div>
                 <div class="grid_6" id="advancesearch-year">
@@ -58,63 +60,7 @@
                 </div>
               </form>
               <br class="clear"/>
-              <div id="advancesearch-result">
-              		<h2 class="text-lightgreen2 grid_12">Search results</h1>
-              		<section class="grid_11">
-                    	<h3>Benchmarking Technology's Effect On Employee Engagement</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                    </section>
-                    <section class="grid_11">
-                    	<h3>Benchmarking Technology's Effect On Employee Engagement</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                    </section>
-                    <section class="grid_11">
-                    	<h3>Benchmarking Technology's Effect On Employee Engagement</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                    </section>
-                    <section class="grid_11">
-                    	<h3>Benchmarking Technology's Effect On Employee Engagement</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                    </section>
-                    <section class="grid_11">
-                    	<h3>Benchmarking Technology's Effect On Employee Engagement</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                    </section>
-                   <div class="grid_12" id="page-num">
-                    <ul class="left">
-                        <li class="active-page">
-                            <a href="#">1</a>
-                        </li>
-                        <li>
-                            <a href="#">2</a>
-                        </li>
-                        <li>
-                            <a href="#">3</a>
-                        </li>
-                        <li>
-                            <a href="#">4</a>
-                        </li>
-                        <li>
-                            <a href="#">5</a>
-                        </li>
-                        <li>
-                            <a href="#">6</a>
-                        </li>
-                        <li>
-                            <a href="#">7</a>
-                        </li>
-                        <li>
-                            <a href="#">8</a>
-                        </li>
-                        <li>
-                            <a href="#">></a>
-                        </li>
-                         <li>
-                            <a href="#">>></a>
-                        </li>
-                    </ul>
-			</div>
-                    
+              
               </div>
         </div><!--end content-middle -->
     	</div><!--end container_12 -->
