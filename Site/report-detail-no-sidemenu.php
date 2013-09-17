@@ -6,7 +6,7 @@ include ("include/top-menu.php");
 ?>
 <div id="content">
 	<div class="container_12">
-		<div id="container" class="left">
+		<div id="container-detail" class="left">
 			<div id="content-middle" class="grid_8">
 
 				<?php
@@ -59,7 +59,7 @@ include ("include/top-menu.php");
 						WHERE PDF_ID =".$id) or die(mysql_error());
 				
 						while ($tagRow = mysql_fetch_array($tagResult)) {
-							echo "<a href='search.php?tagId=". $tagRow['TAG_ID'] ."'>";
+							echo "<a href='tagSearch.php?tagId=". $tagRow['TAG_ID'] ."&tagName=".$tagRow['NAME']."'>";
 							echo "<li class='button orange'>";
 							echo $tagRow['NAME'];
 							echo "</li>";

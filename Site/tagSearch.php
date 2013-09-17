@@ -8,14 +8,16 @@ include ("include/header.php");
 	<div class="container_12" id="container">
 		<div id="content-middle" class="grid_12">
 
-			<h1 id="head-title" class="text-green grid_12">Search results</h1>
+			<?php
+				$tagId   = $_GET["tagId"];
+				$tagName = $_GET["tagName"];
+			?>
+			<h1 id="head-title" class="text-green grid_12"><?php echo $tagName; ?></h1>
 
 			<br class="clear"/>
 			<div id="advancesearch-result">
 				
 				<?php
-				
-				$tagId = $_GET["tagId"];
 				
 				$result = mysql_query("
 						SELECT *
