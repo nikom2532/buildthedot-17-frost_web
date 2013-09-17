@@ -17,30 +17,6 @@
          <ul id="topnav" class="grid_6">
             <li><a href="index.php">Home</a></li>
 <?php
-			
-			//find lvl1 page
-			$temp_glvl = $_GET["glvl"];
-			$temp_id = $_GET["id"];
-			while($temp_glvl!=1){
-				$SQL="
-					SELECT *
-					FROM `GROUP_LV".$temp_glvl."`
-					WHERE `ID` = ".$temp_id."
-				;";
-				$db->query($SQL);
-				//unset($SQL);
-				while($rs=$db->fetchAssoc()){
-					//$GROUP_LV_name = "GROUP_LV".($temp_glvl-1)."_ID";
-					$temp_id = $rs["GROUP_LV".($temp_glvl-1)."_ID"];
-					//$temp_id = $rs[$GROUP_LV_name];
-					//$temp_id = $rs["GROUP_LV"."1"."_ID"];
-					$temp_glvl--;
-					//echo "temp_glvl=".$temp_glvl." temp_id=".$temp_id;
-				}
-			}
-			//echo "temp_glvl=".$temp_glvl." temp_id=".$temp_id;
-			
-			
 			//query menu
 			$SQL="
 				SELECT *
