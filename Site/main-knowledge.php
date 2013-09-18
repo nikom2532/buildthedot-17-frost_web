@@ -67,18 +67,83 @@ include ("include/top-menu.php");
 					</li> -->
 				</ul>
 				<h2 class="text-lightgreen2">Lasted Update</h2>
-				<section>
-					<p class="bold text-title-report">
-						<span class="text-lightgreen head-desc">Title: </span><a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<span id="ic-lock"><img src="images/icons/ic_lock.png" width="16" height="16"></span></a>
-					</p>
-					<p>
-						<span class="text-lightgreen bold head-desc">Update: </span><span class="date">Sep, 16 2013</span>
-					</p>
-					<p class="text-desc">
-						<span class="text-lightgreen bold head-desc">Description: </span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-					</p>
-				</section>
-				<section>
+				
+<?php
+					//####### Query List ##########
+					$c_NAME = array();
+					$c_UPDATE_DATE = array();
+					$c_DESCRIPTION = array();
+				 $SQLcontent="
+					SELECT * 
+					FROM  `PDF`
+					INNER JOIN `PDF_CATEGORY`  
+					WHERE `PDF_CATEGORY`.`GROUP_LEVEL_NAME` = '{$_GET["glvl"]}'
+					AND `PDF_CATEGORY`.`GROUP_LEVEL_ID` = '{$_GET["id"]}'
+					AND `PDF_CATEGORY`.`PDF_ID` = `PDF`.`ID`
+				;";
+				$resultcontent = @mysql_query($SQLcontent);
+				while ($rscontent = @mysql_fetch_array($resultcontent)) {
+					$c_NAME[] = $rscontent["NAME"];
+					$c_UPDATE_DATE[] = $rscontent["UPDATE_DATE"];
+					$c_DESCRIPTION[] = $rscontent["DESCRIPTION"];
+				}
+				
+				//####### Query 2nd List ##########
+				while ($temp_glvl_content < 2) {
+					$temp_glvl_content = $_GET["glvl"];
+					$temp_id_content = $_GET["id"];
+					$SQLcontent="
+						SELECT * 
+						FROM  `PDF`
+						INNER JOIN `PDF_CATEGORY`  
+						WHERE `PDF_CATEGORY`.`GROUP_LEVEL_NAME` = '".($temp_glvl_content-1)."'
+						AND `PDF_CATEGORY`.`GROUP_LEVEL_ID` = 
+						(
+							SELECT `GROUP_LV".($temp_glvl_content-1)."`.`ID`
+							FROM  `GROUP_LV{$temp_glvl_content}` 
+							INNER JOIN  `GROUP_LV".($temp_glvl_content-1)."` 
+							WHERE  `GROUP_LV4`.`GROUP_LV3_ID` =  `GROUP_LV3`.`ID` 
+							AND  `GROUP_LV4`.`ID` =  '{$temp_id_content}'
+						)
+						AND `PDF_CATEGORY`.`PDF_ID` = `PDF`.`ID`
+					;";
+					
+					$resultcontent = @mysql_query($SQLcontent);
+					while ($rscontent = @mysql_fetch_array($resultcontent)) {
+						$c_NAME[] = $rscontent["NAME"];
+						$c_UPDATE_DATE[] = $rscontent["UPDATE_DATE"];
+						$c_DESCRIPTION[] = $rscontent["DESCRIPTION"];
+					}
+				echo	$SQLcontent="
+						SELECT * 
+						FROM  `GROUP_LV{$temp_glvl_content}`
+						WHERE `ID` = '{$temp_id_content}'
+					";
+					$resultcontent = @mysql_query($SQLcontent);
+					while ($rscontent = @mysql_fetch_array($resultcontent)) {
+						$temp_id_content = $rscontent["GROUP_LV".($temp_glvl_content-1)."_ID"];
+						$temp_glvl_content--;
+					}
+				}//end while
+				
+				//Display List content from Above query
+				for ($i=0; $i < count($c_NAME); $i++) {
+?>
+					<section>
+						<p class="bold text-title-report">
+							<span class="text-lightgreen head-desc">Title: </span><a href="#"><?php echo $c_NAME["$i"]; ?><span id="ic-lock"><img src="images/icons/ic_lock.png" width="16" height="16"></span></a>
+						</p>
+						<p>
+							<span class="text-lightgreen bold head-desc">Update: </span><span class="date"><?php echo $c_UPDATE_DATE["$i"]; ?></span>
+						</p>
+						<p class="text-desc">
+							<span class="text-lightgreen bold head-desc">Description: </span><?php echo $c_DESCRIPTION["$i"]; ?>
+						</p>
+					</section>
+<?php
+				}
+?>
+				<!-- <section>
 					<p class="bold">
 						<span class="text-lightgreen head-desc">Title: </span><a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<span id="ic-lock"><img src="images/icons/ic_lock.png" width="16" height="16"></span></a>
 					</p>
@@ -88,7 +153,7 @@ include ("include/top-menu.php");
 					<p>
 						<span class="text-lightgreen bold head-desc">Description: </span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
 					</p>
-				</section>
+				</section> -->
 
 				<div class="grid_12" id="page-num">
 					<ul class="left">
