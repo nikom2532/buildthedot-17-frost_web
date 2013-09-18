@@ -15,6 +15,7 @@ include ("include/top-menu.php");
 <?php
 					$temp_glvl__ = $_GET["glvl"];
 					$temp_id__ = $_GET["id"];
+					$str = array();
 					while ($temp_glvl__ >= 2) {
 						$SQLnav = "
 							SELECT *
@@ -33,24 +34,29 @@ include ("include/top-menu.php");
 							$resultnav2 = @mysql_query($SQLnav2);
 							if ($rsnav2 = @mysql_fetch_array($resultnav2)) {
 								if($temp_glvl__>2)
-								{ 
-?>
-									<li>
-										<a href="#"><?php echo $rsnav2["NAME"]." "; ?></a>
-									</li>
-<?php
+								{
+									$str[]="
+										<li class=\"text-lightorange bold  text-nav\">
+											{$rsnav2["NAME"]}
+										</li>
+									";
 								}
 								else{
-?>
-									<li class="text-lightorange bold  text-nav">
-										<?php echo $rsnav2["NAME"]." "; ?>
-									</li>
-<?php
+									$str[]="
+										<li>
+											<a href=\"#\">".$rsnav2["NAME"]."</a>
+										</li>
+									";
 								}
 							}//end query2
 						}//end query
 					}//end while
 					unset($SQLnav);
+					$temp_glvl__ = $_GET["glvl"];
+					for($i=$temp_glvl__;$i>=0;$i--){
+						echo $str[$i];
+					}
+					//end display Body Nav
 ?>
 					<!-- <li>
 					<a href="#">Technology</a>
