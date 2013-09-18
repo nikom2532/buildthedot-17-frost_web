@@ -55,8 +55,8 @@ ORDER BY UPDATE_DATE DESC") or die(mysql_error());
 				echo "<section>";
 				echo "<a href='report-detail.php'>";
 				echo "<h3>" . $row['NAME'] . "</h3>";
-				echo "<p>" . substr_replace($row['DESCRIPTION'],'...',220) . "</p>";
 				echo "</a>";
+				echo "<p>" . substr_replace($row['DESCRIPTION'],'...',220) . "</p>";
 				echo "</section>";
 			}
 			?>
