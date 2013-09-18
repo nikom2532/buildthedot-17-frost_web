@@ -6,7 +6,7 @@
 		$temp_glvl = $_GET["glvl"];
 		$temp_id = $_GET["id"];
 		while($temp_glvl!=1){
-		echo	$SQL="
+			$SQL="
 				SELECT *
 				FROM `GROUP_LV".$temp_glvl."`
 				WHERE `ID` = ".$temp_id."
