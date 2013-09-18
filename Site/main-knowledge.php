@@ -126,8 +126,28 @@ include ("include/top-menu.php");
 					}
 				}//end while
 				
+				//#####################################
 				//Display List content from Above query
-				for ($i=0; $i < count($c_NAME); $i++) {
+				//#####################################
+				
+				//Start Page = 1
+				if(!isset($_GET["page"])){
+					$_GET["page"]=1;
+				}
+				$page = $_GET["page"];
+				$page_limit = 10;
+				$number_of_items = count($c_NAME);
+				$number_of_pages = ((int)($number_of_items/$page_limit)) + 1; 
+				
+				if($number_of_pages==$page){	//means the last page
+					$page_runing = $number_of_items;
+				}
+				else{	//not the last page
+					$page_runing = $page_limit*$page;
+				}
+				
+				//for ($i=0; $i < count($c_NAME); $i++) {	//for all Pages
+				for ($i = ($page_limit*($page-1)); $i < $page_runing; $i++) { //for each Page
 ?>
 					<section>
 						<p class="bold text-title-report">
@@ -143,6 +163,21 @@ include ("include/top-menu.php");
 <?php
 				}
 ?>
+				<ul class="pagination">
+					<li class="details">Page <?php echo $_GET["page"]; ?> of <?php echo $number_of_pages; ?></li>
+<?php
+					for($i=1;$i<=$number_of_pages;$i++){
+?>
+						<li><a href="main-knowledge.php?id=<?php echo $_GET["id"]; ?>&glvl=<?php echo $_GET["glvl"]; ?>&page=<?php echo $i; ?>" <?php if($page==$i){ ?>class="current" <?php } ?>><?php echo $i; ?></a></li>
+<?php
+					}
+					if($_GET["page"]<$number_of_pages){
+?>
+						<li><a href="main-knowledge.php?id=<?php echo $_GET["id"]; ?>&glvl=<?php echo $_GET["glvl"]; ?>&page=<?php echo ($_GET["page"]+1); ?>">Next</a></li>
+<?php
+					}
+?>
+				</ul>
 				<!-- <section>
 					<p class="bold">
 						<span class="text-lightgreen head-desc">Title: </span><a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<span id="ic-lock"><img src="images/icons/ic_lock.png" width="16" height="16"></span></a>
