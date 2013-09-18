@@ -13,6 +13,7 @@ include ("include/top-menu.php");
 			<div id="content-middle" class="grid_8">
 				<ul class="nav-title">
 <?php
+					//####### Display Body Nav ########
 					$temp_glvl__ = $_GET["glvl"];
 					$temp_id__ = $_GET["id"];
 					$str = array();
@@ -44,7 +45,7 @@ include ("include/top-menu.php");
 								else{
 									$str[]="
 										<li>
-											<a href=\"#\">".$rsnav2["NAME"]."</a>
+											<a href=\"menu-knowledge.php?id={$rsnav2["ID"]}&glvl={$temp_glvl__}\">".$rsnav2["NAME"]."</a>
 										</li>
 									";
 								}
@@ -56,7 +57,7 @@ include ("include/top-menu.php");
 					for($i=$temp_glvl__;$i>=0;$i--){
 						echo $str[$i];
 					}
-					//end display Body Nav
+					//####### end display Body Nav ###########
 ?>
 					<!-- <li>
 					<a href="#">Technology</a>
