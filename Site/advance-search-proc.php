@@ -4,9 +4,9 @@ include("include/header.php");
 $keyword = $_GET['keyword'];
 $categoryID = $_GET['category_id'];
 $year = $_GET['year'];
-echo $keyword. "<br/>";
-echo $categoryID. "<br/>";
-echo $year. "<br/>";
+// echo $keyword. "<br/>";
+// echo $categoryID. "<br/>";
+// echo $year. "<br/>";
 
 $strQuery = "";
 
@@ -43,5 +43,5 @@ $Num_Rows = mysql_num_rows($cmdQuerySearch);
 //$strQuery .= "LIMIT $Page_Start , $Per_Page";
 $strQuery .= "LIMIT $start , $limit";
 $cmdQuerySearch =  mysql_query($strQuery);
-echo "$strQuery";
+//echo "$strQuery";
 ?>
