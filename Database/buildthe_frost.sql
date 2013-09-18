@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 15, 2013 at 02:21 AM
+-- Generation Time: Sep 18, 2013 at 05:15 PM
 -- Server version: 5.1.67
 -- PHP Version: 5.3.24
 
@@ -236,7 +236,18 @@ CREATE TABLE IF NOT EXISTS `PDF` (
   `COMPANY_ID` int(11) DEFAULT NULL,
   `PATH` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `PDF`
+--
+
+INSERT INTO `PDF` (`ID`, `NAME`, `DESCRIPTION`, `PRICE`, `UPDATE_DATE`, `COMPANY_ID`, `PATH`) VALUES
+(1, 'test1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 1', '100', '2013-09-01 00:00:00', 1, 'TestPdf1.pdf'),
+(2, 'test2', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 2', '200', '2013-09-02 00:00:00', 2, 'TestPdf2.pdf'),
+(3, 'test3', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 3', '300', '2013-09-03 00:00:00', 3, 'TestPdf3.pdf'),
+(4, 'test4', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 4', '400', '2013-09-04 00:00:00', 4, 'TestPdf4.pdf'),
+(5, 'test5', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 5', '500', '2013-09-05 00:00:00', 5, 'TestPdf5.pdf');
 
 -- --------------------------------------------------------
 
@@ -278,7 +289,18 @@ CREATE TABLE IF NOT EXISTS `TAG` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `TAG`
+--
+
+INSERT INTO `TAG` (`ID`, `NAME`) VALUES
+(1, 'tag1'),
+(2, 'tag2'),
+(3, 'tag3'),
+(4, 'tag4'),
+(5, 'tag5');
 
 -- --------------------------------------------------------
 
@@ -293,6 +315,17 @@ CREATE TABLE IF NOT EXISTS `TAG_RELATIONSHIP` (
   KEY `fk_PDF_has_TAG_TAG1_idx` (`TAG_ID`),
   KEY `fk_PDF_has_TAG_PDF1_idx` (`PDF_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `TAG_RELATIONSHIP`
+--
+
+INSERT INTO `TAG_RELATIONSHIP` (`PDF_ID`, `TAG_ID`) VALUES
+(1, 1),
+(2, 1),
+(1, 2),
+(2, 2),
+(1, 3);
 
 -- --------------------------------------------------------
 
