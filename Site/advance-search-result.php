@@ -63,9 +63,10 @@
                 	<input type="submit" value="Search" class="button orange image-right ic-search"/>
                 </div>
               </form>
-              <br class="clear"/>
+              <br class="clear"/>      
               <div id="advancesearch-result">
               		<?php include("advance-search-proc.php");?>
+              		<?php if($Num_Rows != 0){?>
               		<h2 class="text-lightgreen2 grid_12"><span class="text-orange"><?=$Num_Rows?> </span> results founds </h1>
               		 <?php 
               		 	while($fetchArraySearch =mysql_fetch_array($cmdQuerySearch)){
@@ -88,9 +89,10 @@
 					 echo pagination($limit,$page,"advance-search-result.php?keyword=$keyword&categoryID=$categoryID&year=$year&page=",$Num_Rows); //call function to show pagination
 					?>		
                     </ul>
-			</div>
-                    
-              </div>
+					</div><!--end page-num -->
+                    <?php }?>
+              </div><!--end advancesearch-year -->
+             
         </div><!--end content-middle -->
     	</div><!--end container_12 -->
     </div><!--end content -->

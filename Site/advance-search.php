@@ -1,14 +1,19 @@
 <?php include("include/header.php");?>
 <?php include("include/top-menu.php");?>
+<?php include("lib/func_search.php");?>
+<?php require("lib/func_pagination.php");?>
+
+
+
 	<div id="content">
     	<div class="container_12" id="container">
         <div id="content-middle" class="grid_12">
 
        	  		<h1 id="head-title" class="text-green grid_12">Advanced Search</h1>
           	
-        		<form action="advance-search-result.php" method="GET"  id="search" class="fr">
+        		<form action="advance-search.php" method="GET" id="advancesearch-form" class="fr">
                 <div class="grid_5">
-                     <input type="text" id="keyword" name="keyword" placeholder="Keyword.." />
+                     <input type="text" id="keyword" name="keyword" value="<?=$keyword?>" class="" placeholder="Keyword.." />
                 </div>
                 <div class="grid_6" id="advancesearch-kw">
                 	 <p>Result include one or more of the words</p>
@@ -18,13 +23,13 @@
                 <div class="grid_5">
         	    <?php
             		$strSQL = "SELECT * FROM  group_lv1 ORDER BY ID ";
-					$cmdQuery =  mysql_query($strSQL);
+					$cmdQueryCat =  mysql_query($strSQL);
 					
 		        ?>        
 
-                      <select id="category_id" name="category_id">
+                      <select id="category_id" name="category_id" >
                             <option selected="selected" value="">Select a category</option>
-                      <?php while($fetchArray=mysql_fetch_array($cmdQuery)){
+                      <?php while($fetchArray=mysql_fetch_array($cmdQueryCat)){
 
                       ?>
                             <option value="<?=$fetchArray['ID']?>">
@@ -46,9 +51,8 @@
                             <option value="2009">2009</option>
                             <option value="2010">2010</option>
                             <option value="2011">2011</option>
-                            <option value="2012">2012</option>
+                            <option value="2011">2012</option>
                             <option value="2013">2013</option>
-                            <option value="2014">2014</option>
                         </select>
                 </div>
                 <div class="grid_6" id="advancesearch-year">
@@ -59,9 +63,36 @@
                 	<input type="submit" value="Search" class="button orange image-right ic-search"/>
                 </div>
               </form>
-              <br class="clear"/>
-              
-              </div>
+              <br class="clear"/>      
+              <div id="advancesearch-result">
+              		<?php include("advance-search-proc.php");?>
+              		<?php if($Num_Rows != 0){?>
+              		<h2 class="text-lightgreen2 grid_12"><span class="text-orange"><?=$Num_Rows?> </span> results founds </h1>
+              		 <?php 
+              		 	while($fetchArraySearch =mysql_fetch_array($cmdQuerySearch)){
+				
+                      ?>	
+              		<section class="grid_11">
+                    	<h3>Title : <?=highlightkeyword($fetchArraySearch['NAME'],$keyword)?></h3>
+                    	<?php $date= $fetchArraySearch['UPDATE_DATE'];
+                    		 $date = date('F d, Y', strtotime($date));
+                    	?>
+                    	<h3>Date :<?=highlightkeyword($date,$year)?></h3>
+                        <p>Description :<?=highlightkeyword($fetchArraySearch['DESCRIPTION'],$keyword)?> </p>
+                    </section>
+                   <?php } 
+      ?>
+                   <div class="grid_12" id="page-num">
+                    <ul class="left">
+
+					<?php		
+					 echo pagination($limit,$page,"advance-search-result.php?keyword=$keyword&categoryID=$categoryID&year=$year&page=",$Num_Rows); //call function to show pagination
+					?>		
+                    </ul>
+					</div><!--end page-num -->
+                    <?php }?>
+              </div><!--end advancesearch-year -->
+             
         </div><!--end content-middle -->
     	</div><!--end container_12 -->
     </div><!--end content -->
