@@ -1,26 +1,41 @@
 <?php include("include/header.php");?>
 <?php include("include/top-menu.php");?>
+<?php include("lib/func_search.php");?>
+<?php require("lib/func_pagination.php");?>
+
+
+
 	<div id="content">
     	<div class="container_12" id="container">
         <div id="content-middle" class="grid_12">
 
        	  		<h1 id="head-title" class="text-green grid_12">Advanced Search</h1>
           	
-        		<form action="#" method="POST" id="advancesearch-form" class="fr">
+        		<form action="advance-search.php" method="GET" id="advancesearch-form" class="fr">
                 <div class="grid_5">
-                     <input type="text" id="search-keyword" class="" placeholder="Keyword.." />
+                     <input type="text" id="keyword" name="keyword" value="<?=$keyword?>" class="" placeholder="Keyword.." />
                 </div>
                 <div class="grid_6" id="advancesearch-kw">
                 	 <p>Result include one or more of the words</p>
                 </div>
                 <br class="clear"/>
-                
+                               
                 <div class="grid_5">
-                      <select id="category">
-                            <option selected="selected">Select a category</option>
-                            <option value="technology">Technology</option>
-                            <option value="strategy">Strategy</option>
-                            <option value="aroundasean">Around Asean</option>
+        	    <?php
+            		$strSQL = "SELECT * FROM  group_lv1 ORDER BY ID ";
+					$cmdQueryCat =  mysql_query($strSQL);
+					
+		        ?>        
+
+                      <select id="category_id" name="category_id" >
+                            <option selected="selected" value="">Select a category</option>
+                      <?php while($fetchArray=mysql_fetch_array($cmdQueryCat)){
+
+                      ?>
+                            <option value="<?=$fetchArray['ID']?>">
+		                    <?=$fetchArray['NAME']?>
+		                    </option>
+		          <?php } ?>
                       </select>
                 </div>
                 <div class="grid_6" id="advancesearch-cat">
@@ -28,8 +43,8 @@
                 </div>
                 <br class="clear"/>   
 				 <div class="grid_5">
-                      <select id="year">
-                            <option selected="selected">Select a year</option>
+                      <select id="year" name="year">
+                            <option selected="selected" value="">Select a year</option>
                             <option value="2006">2006</option>
                             <option value="2007">2007</option>
                             <option value="2008">2008</option>
@@ -37,6 +52,7 @@
                             <option value="2010">2010</option>
                             <option value="2011">2011</option>
                             <option value="2011">2012</option>
+                            <option value="2013">2013</option>
                         </select>
                 </div>
                 <div class="grid_6" id="advancesearch-year">
@@ -47,65 +63,36 @@
                 	<input type="submit" value="Search" class="button orange image-right ic-search"/>
                 </div>
               </form>
-              <br class="clear"/>
+              <br class="clear"/>      
               <div id="advancesearch-result">
-              		<h2 class="text-lightgreen2 grid_12">Search results</h1>
+              		<?php include("advance-search-proc.php");?>
+              		<?php if($Num_Rows != 0){?>
+              		<h2 class="text-lightgreen2 grid_12"><span class="text-orange"><?=$Num_Rows?> </span> results founds </h1>
+              		 <?php 
+              		 	while($fetchArraySearch =mysql_fetch_array($cmdQuerySearch)){
+				
+                      ?>	
               		<section class="grid_11">
-                    	<h3>Benchmarking Technology's Effect On Employee Engagement</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                    	<h3>Title : <?=highlightkeyword($fetchArraySearch['NAME'],$keyword)?></h3>
+                    	<?php $date= $fetchArraySearch['UPDATE_DATE'];
+                    		 $date = date('F d, Y', strtotime($date));
+                    	?>
+                    	<h3>Date :<?=highlightkeyword($date,$year)?></h3>
+                        <p>Description :<?=highlightkeyword($fetchArraySearch['DESCRIPTION'],$keyword)?> </p>
                     </section>
-                    <section class="grid_11">
-                    	<h3>Benchmarking Technology's Effect On Employee Engagement</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                    </section>
-                    <section class="grid_11">
-                    	<h3>Benchmarking Technology's Effect On Employee Engagement</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                    </section>
-                    <section class="grid_11">
-                    	<h3>Benchmarking Technology's Effect On Employee Engagement</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                    </section>
-                    <section class="grid_11">
-                    	<h3>Benchmarking Technology's Effect On Employee Engagement</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                    </section>
+                   <?php } 
+      ?>
                    <div class="grid_12" id="page-num">
                     <ul class="left">
-                        <li class="active-page">
-                            <a href="#">1</a>
-                        </li>
-                        <li>
-                            <a href="#">2</a>
-                        </li>
-                        <li>
-                            <a href="#">3</a>
-                        </li>
-                        <li>
-                            <a href="#">4</a>
-                        </li>
-                        <li>
-                            <a href="#">5</a>
-                        </li>
-                        <li>
-                            <a href="#">6</a>
-                        </li>
-                        <li>
-                            <a href="#">7</a>
-                        </li>
-                        <li>
-                            <a href="#">8</a>
-                        </li>
-                        <li>
-                            <a href="#">></a>
-                        </li>
-                         <li>
-                            <a href="#">>></a>
-                        </li>
+
+					<?php		
+					 echo pagination($limit,$page,"advance-search-result.php?keyword=$keyword&categoryID=$categoryID&year=$year&page=",$Num_Rows); //call function to show pagination
+					?>		
                     </ul>
-			</div>
-                    
-              </div>
+					</div><!--end page-num -->
+                    <?php }?>
+              </div><!--end advancesearch-year -->
+             
         </div><!--end content-middle -->
     	</div><!--end container_12 -->
     </div><!--end content -->
