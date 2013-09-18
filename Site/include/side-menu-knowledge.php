@@ -87,7 +87,7 @@
 											
 											
 											//if($rs3["GROUP_LV3_ID"]==$parentGroup3){
-											if($rs3["GROUP_LV3_ID"]==$_GET["id"]){
+											//if($rs3["GROUP_LV3_ID"]==$_GET["id"]){
 											//if($rs3["GROUP_LV3_ID"]==1){
 ?>
 							                    <ul> 
@@ -113,7 +113,7 @@
 																// }
 																
 																//if($rs4["GROUP_LV4_ID"]==$parentGroup4){
-																if($rs4["GROUP_LV4_ID"]==$_GET["id"]){
+																//if($rs4["GROUP_LV4_ID"]==$_GET["id"]){
 																//if($rs4["GROUP_LV4_ID"]==1){
 ?>
 										                            <ul>
@@ -140,7 +140,7 @@
 																					// }
 																					
 																					//if($rs5["GROUP_LV5_ID"]==$parentGroup5){
-																					if($rs5["GROUP_LV5_ID"]==$_GET["id"]){
+																					//if($rs5["GROUP_LV5_ID"]==$_GET["id"]){
 																					//if($rs5["GROUP_LV5_ID"]==1){
 ?>
 															                            <ul>
@@ -148,21 +148,21 @@
 															                                </li>
 															                            </ul>
 <?php
-																					}
+																					//}
 																				}
 																			}
 ?>
 										                                </li>
 										                            </ul>
 <?php
-																}
+																//}
 															}
 														}
 ?>
 							                        </li><!--end Telecom Market Data -->
 							                    </ul>
 <?php
-											}
+											//}
 										}
 									}
 ?>
