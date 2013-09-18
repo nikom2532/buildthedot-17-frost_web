@@ -1,5 +1,4 @@
 <?php 
-include("include/header.php");
 
 $keyword = $_GET['keyword'];
 $categoryID = $_GET['category_id'];
@@ -36,6 +35,7 @@ if(isset($_GET['page']) && $_GET['page']!=''){
 $page=$_GET['page'];
 }
 $start=($page-1)*$limit;
+/*---------end Paging------------*/
 
 $cmdQuerySearch =  mysql_query($strQuery);
 $Num_Rows = mysql_num_rows($cmdQuerySearch);

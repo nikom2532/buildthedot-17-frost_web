@@ -60,9 +60,9 @@
          </ul>
          <div class="right">
              <ul id="top-nav-search" class="grid_4">
-                <form action="#" method="POST" id="search-form" class="fr">
+                <form action="search-result.php" method="GET" id="search-form" class="fr">
                     <fieldset>
-                        <input type="text" id="search-keyword" class="" placeholder="Search..." />
+                        <input type="text" id="keyword" name ="keyword" class="" placeholder="Search..." />
                         <input type="submit" value="" class="orange icSearch" />
                     </fieldset>
                    
