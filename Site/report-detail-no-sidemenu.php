@@ -59,11 +59,11 @@ include ("include/top-menu.php");
 						WHERE PDF_ID =".$id) or die(mysql_error());
 				
 						while ($tagRow = mysql_fetch_array($tagResult)) {
-							echo "<a href='tagSearch.php?tagId=". $tagRow['TAG_ID'] ."&tagName=".$tagRow['NAME']."'>";
+							echo "<a href='tagSearch.php?tagId=". $tagRow['TAG_ID'] ."&tagName=".$tagRow['NAME']."'></a>";
 							echo "<li class='button orange'>";
 							echo $tagRow['NAME'];
 							echo "</li>";
-							echo "</a>";
+							
 						}
 						?>
 					</ul>
