@@ -6,7 +6,7 @@
 		$temp_glvl = $_GET["glvl"];
 		$temp_id = $_GET["id"];
 		while($temp_glvl!=1){
-			$SQL="
+		echo	$SQL="
 				SELECT *
 				FROM `GROUP_LV".$temp_glvl."`
 				WHERE `ID` = ".$temp_id."
@@ -15,6 +15,20 @@
 			//unset($SQL);
 			while($rs=$db->fetchAssoc()){
 				$temp_id = $rs["GROUP_LV".($temp_glvl-1)."_ID"];
+				
+				if($temp_glvl==5){
+					$parentGroup5 = $temp_id;
+				}
+				elseif($temp_glvl==4){
+					$parentGroup4 = $temp_id;
+				}
+				elseif($temp_glvl==3){
+					$parentGroup3 = $temp_id;
+				}
+				elseif($temp_glvl==2){
+					$parentGroup2 = $temp_id;
+				}
+				
 				$temp_glvl--;
 				//echo "temp_glvl=".$temp_glvl." temp_id=".$temp_id;
 			}
@@ -54,18 +68,10 @@
 					$result2=@mysql_query($SQL2);
 															//&& $rs2["GROUP_LV2_ID"]==$rs["ID"]
 					while($rs2=@mysql_fetch_array($result2)){
-						$SQLparentGroup="
-							SELECT * 
-							FROM  `GROUP_LV2`
-							WHERE `ID` = '{$_GET["id"]}' 
-						";
-						$resultParentGroup=@mysql_query($SQLparentGroup);
-						if($rsPG=@mysql_fetch_array($resultParentGroup)){
-							$parentGroup=$rsPG["ID"];
-						}
 						
-						//if($rs2["GROUP_LV2_ID"]==$parentGroup){
-						if($rs2["GROUP_LV2_ID"]==1){
+						//if($rs2["GROUP_LV2_ID"]==$parentGroup)2{
+						//if($rs2["GROUP_LV2_ID"]==$_GET["id"]){
+						//if($rs2["GROUP_LV2_ID"]==1){
 ?>
 				            <ul>
 				                <li><a href="./main-knowledge.php?id=<?php echo $rs2["ID"]; ?>&glvl=3" class="bold text-green"><?php echo $rs2["NAME"]; ?></a>
@@ -78,19 +84,11 @@
 										";
 										$result3=@mysql_query($SQL3);
 										while($rs3=@mysql_fetch_array($result3)){
-												
-											$SQLparentGroup="
-												SELECT * 
-												FROM  `GROUP_LV3`
-												WHERE `ID` = '{$_GET["id"]}' 
-											";
-											$resultParentGroup=@mysql_query($SQLparentGroup);
-											if($rsPG=@mysql_fetch_array($resultParentGroup)){
-												$parentGroup=$rsPG["ID"];
-											}
 											
-											//if($rs3["GROUP_LV3_ID"]==$parentGroup){
-											if($rs3["GROUP_LV3_ID"]==1){
+											
+											//if($rs3["GROUP_LV3_ID"]==$parentGroup3){
+											if($rs3["GROUP_LV3_ID"]==$_GET["id"]){
+											//if($rs3["GROUP_LV3_ID"]==1){
 ?>
 							                    <ul> 
 							                        <li><a href="./main-knowledge.php?id=<?php echo $rs3["ID"]; ?>&glvl=4" class="bold"><?php echo $rs3["NAME"]; ?></a>
@@ -104,18 +102,19 @@
 															$result4=@mysql_query($SQL4);
 															while($rs4=@mysql_fetch_array($result4)){
 																
-																$SQLparentGroup="
-																	SELECT * 
-																	FROM  `GROUP_LV4`
-																	WHERE `ID` = '{$_GET["id"]}' 
-																";
-																$resultParentGroup=@mysql_query($SQLparentGroup);
-																if($rsPG=@mysql_fetch_array($resultParentGroup)){
-																	$parentGroup=$rsPG["ID"];
-																}
+																// $SQLparentGroup4="
+																	// SELECT * 
+																	// FROM  `GROUP_LV4`
+																	// WHERE `ID` = '{$_GET["id"]}' 
+																// ";
+																// $resultParentGroup4=@mysql_query($SQLparentGroup4);
+																// if($rsPG4=@mysql_fetch_array($resultParentGroup4)){
+																	// $parentGroup4=$rsPG4["ID"];
+																// }
 																
-																//if($rs4["GROUP_LV4_ID"]==$parentGroup){
-																if($rs4["GROUP_LV4_ID"]==1){
+																//if($rs4["GROUP_LV4_ID"]==$parentGroup4){
+																if($rs4["GROUP_LV4_ID"]==$_GET["id"]){
+																//if($rs4["GROUP_LV4_ID"]==1){
 ?>
 										                            <ul>
 										                                <li><a href="./main-knowledge.php?id=<?php echo $rs4["ID"]; ?>&glvl=5"><?php echo $rs4["NAME"]; ?></a>
@@ -130,18 +129,19 @@
 																				$result5=@mysql_query($SQL5);
 																				while($rs5=@mysql_fetch_array($result5)){
 																					
-																					$SQLparentGroup="
-																						SELECT * 
-																						FROM  `GROUP_LV5`
-																						WHERE `ID` = '{$_GET["id"]}' 
-																					";
-																					$resultParentGroup=@mysql_query($SQLparentGroup);
-																					if($rsPG=@mysql_fetch_array($resultParentGroup)){
-																						$parentGroup=$rsPG["ID"];
-																					}
+																					// $SQLparentGroup5="
+																						// SELECT * 
+																						// FROM  `GROUP_LV5`
+																						// WHERE `ID` = '{$_GET["id"]}' 
+																					// ";
+																					// $resultParentGroup5=@mysql_query($SQLparentGroup5);
+																					// if($rsPG5=@mysql_fetch_array($resultParentGroup5)){
+																						// $parentGroup5=$rsPG5["ID"];
+																					// }
 																					
-																					//if($rs5["GROUP_LV5_ID"]==$parentGroup){
-																					if($rs5["GROUP_LV5_ID"]==1){
+																					//if($rs5["GROUP_LV5_ID"]==$parentGroup5){
+																					if($rs5["GROUP_LV5_ID"]==$_GET["id"]){
+																					//if($rs5["GROUP_LV5_ID"]==1){
 ?>
 															                            <ul>
 															                                <li><a href="./main-knowledge.php?id=<?php echo $rs5["ID"]; ?>&glvl=6"><?php echo $rs5["NAME"]; ?></a>
@@ -169,81 +169,12 @@
 				                </li><!--end Research Thailand(2)-->
 							</ul>
 <?php
-						}
+						//}
 					}
 				}
 ?>
 	        </li><!--end Technology--><?php
 		}
 ?>
-<?php
-			//Old HTML from Noi
-			/*
-?>
-	        <li id="link-main"><a href="#" class="bold">Technology</a>
-	            <ul>
-	                <li><a href="#" class="bold text-green">Research Thailand(2)</a>
-	                    <ul> 
-	                        <li><a href="#" class="bold">Telecom Market Data</a>
-	                            <ul>
-	                                <li><a href="#">Fixed-line voice</a></li>
-	                                <li><a href="#">Fixed-line data</a></li>
-	                                <li><a href="#">Mobile voice</a></li>
-	                                <li><a href="#">Mobile data</a></li>
-	                            </ul>
-	                        </li><!--end Telecom Market Data -->
-	                        <li><a href="#" class="bold">ICT Industry Outlook</a>
-	                            <ul>
-	                                <li><a href="#">Application</a></li>
-	                                <li><a href="#">Service</a></li>
-	                                <li><a href="#">Infrastructure</a></li>
-	                                <li><a href="#">Sector focus</a></li>
-	                                <li><a href="#">Consumer market</a></li>
-	                            </ul>
-	                        </li><!--end ICT Industry Outlook-->
-	                    </ul>
-	                </li><!--end Research Thailand(2)-->
-	             </ul>
-	            <ul>
-	                <li><a href="#" class="text-lightblue bold">Global Trend(2)</a>
-	                <ul> 
-	                        <li><a href="#" class="bold">ICT Technology</a>
-	                            <ul>
-	                                <li><a href="#">Application</a></li>
-	                                <li><a href="#">Service</a></li>
-	                                <li><a href="#">Infrastructure</a></li>
-	                            </ul>
-	                        </li><!--end ICT Technology-->
-	                        <li><a href="#" class="bold">Highlight of the Month</a></li>
-	                    </ul>
-	                </li><!--end Global Trend(2) -->
-	            </ul>
-	        </li><!--end Technology-->
-	        
-	        <li class="break-menu"><a href="#" class="bold">Strategy</a>
-	            <ul> 
-	                <li><a href="#">E-business</a></li>
-	                <li><a href="#">Customer </a></li>
-	                <li><a href="#">Infrastructure Experience</a></li>
-	                <li><a href="#">Value innovation</a></li>
-	                <li><a href="#">Process Improvement </a></li>
-	                <li><a href="#">Go to Market</a></li>
-	                <li><a href="#">Competitive analysis</a></li>
-	            </ul>
-	        </li><!--end Strategy -->
-	        <li class="break-menu"><a href="#" class="bold">Around Asean</a>
-	            <ul>
-	                <li><a href="#" class="bold">Update AEC News</a></li>
-	                <li><a href="#" class="bold">Competency Index</a>
-	                    <ul> 
-	                        <li><a href="#">World Economic Index</a></li>
-	                        <li><a href="#">Competency Index</a></li>
-	                        <li><a href="#">Country Profile</a></li>
-	                    </ul>
-	                 </li>
-	            </ul>
-	        
-	        </li><!--end Around Asean -->
-<?php		*/ ?>
     </ul>
 </nav>	
