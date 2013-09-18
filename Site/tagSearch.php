@@ -2,15 +2,18 @@
 include ("include/header.php");
 ?>
 <?php
-	include ("include/top-menu.php");
+include ("include/top-menu.php");
+?>
+<?php
+include ("lib/func_pagination.php");
 ?>
 <div id="content">
 	<div class="container_12" id="container">
 		<div id="content-middle" class="grid_12">
 
 			<?php
-				$tagId   = $_GET["tagId"];
-				$tagName = $_GET["tagName"];
+			$tagId = $_GET["tagId"];
+			$tagName = $_GET["tagName"];
 			?>
 			<h1 id="head-title" class="text-green grid_12"><?php echo $tagName; ?></h1>
 
@@ -18,14 +21,27 @@ include ("include/header.php");
 			<div id="advancesearch-result">
 				
 				<?php
-				
-				$result = mysql_query("
-						SELECT *
+				/*---------Paging------------*/
+				$page = 1;
+				//Default page
+				$limit = 1;
+				//Records per page
+				$start = 0;
+				//starts displaying records from 0
+				if (isset($_GET['page']) && $_GET['page'] != '') {
+					$page = $_GET['page'];
+				}
+				$start = ($page - 1) * $limit;
+				/*---------end Paging------------*/
+				$strQuery = "SELECT *
 						FROM  TAG_RELATIONSHIP AS a
 						INNER JOIN PDF AS b
 						ON a.PDF_ID = b.ID
-						WHERE a.TAG_ID =".$tagId) or die(mysql_error());
-				
+						WHERE a.TAG_ID =" . $tagId;
+				$result = mysql_query($strQuery);
+				$Num_Rows = mysql_num_rows($result);
+				$strQuery .= " LIMIT $start , $limit";
+				$result =  mysql_query($strQuery);
 				while ($row = mysql_fetch_array($result)) {
 					echo "<section class='grid_11'>";
 					echo "<a href='report-detail-no-sidemenu.php?id=" . $row['ID'] . "'>";
@@ -38,36 +54,9 @@ include ("include/header.php");
 
 				<div class="grid_12" id="page-num">
 					<ul class="left">
-						<li class="active-page">
-							<a href="#">1</a>
-						</li>
-						<li>
-							<a href="#">2</a>
-						</li>
-						<li>
-							<a href="#">3</a>
-						</li>
-						<li>
-							<a href="#">4</a>
-						</li>
-						<li>
-							<a href="#">5</a>
-						</li>
-						<li>
-							<a href="#">6</a>
-						</li>
-						<li>
-							<a href="#">7</a>
-						</li>
-						<li>
-							<a href="#">8</a>
-						</li>
-						<li>
-							<a href="#">></a>
-						</li>
-						<li>
-							<a href="#">>></a>
-						</li>
+						<?php		
+					 echo pagination($limit,$page,"tagSearch.php?tagId=$tagId&tagName=$tagName&page=",$Num_Rows); //call function to show pagination
+					?>		
 					</ul>
 				</div>
 			</div>
@@ -75,5 +64,5 @@ include ("include/header.php");
 	</div><!--end container_12 -->
 </div><!--end content -->
 <?php
-	include ("include/footer.php");
+include ("include/footer.php");
 ?>
