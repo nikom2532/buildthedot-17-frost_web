@@ -37,7 +37,9 @@
 						;";
 						$result2 = @mysql_query($SQL);
 						while($rs2=@mysql_fetch_assoc($result2)){
+							if($rs["ID"]==1){
 							?><a href="<?php echo $rootpath; ?>main-knowledge.php?id=<?php echo $rs2["ID"]; ?>&glvl=2"><?php echo $rs2["NAME"]; ?></a> | <?php
+							}
 						}
 ?>
 					</span>
