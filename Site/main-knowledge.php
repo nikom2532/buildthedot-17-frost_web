@@ -114,7 +114,7 @@ include ("include/top-menu.php");
 						$c_UPDATE_DATE[] = $rscontent["UPDATE_DATE"];
 						$c_DESCRIPTION[] = $rscontent["DESCRIPTION"];
 					}
-				echo	$SQLcontent="
+					$SQLcontent="
 						SELECT * 
 						FROM  `GROUP_LV{$temp_glvl_content}`
 						WHERE `ID` = '{$temp_id_content}'
