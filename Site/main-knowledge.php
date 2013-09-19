@@ -2,13 +2,6 @@
 $rootpath = "./";
 include ($rootpath."include/header.php");
 
-if($_SESSION["userid"]==""){
-	include ($rootpath . "include/login.php");
-	include ("include/footer.php");
-}
-else{
-
-
 	include ($rootpath."include/top-menu.php");
 	?>
 	<div id="content">
@@ -287,5 +280,4 @@ else{
 
 <?php
 	include ("include/footer.php");
-}
 ?>
