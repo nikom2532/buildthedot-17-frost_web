@@ -1,9 +1,9 @@
 <?php
 $rootpath = "./";
-include ("include/header.php");
+include ($rootpath."include/header.php");
 ?>
 <?php
-include ("include/top-menu.php");
+include ($rootpath."include/top-menu.php");
 ?>
 <div id="content">
 	<div class="container_12">
@@ -71,6 +71,7 @@ include ("include/top-menu.php");
 				
 <?php
 					//####### Query List ##########
+					$c_ID = array();
 					$c_NAME = array();
 					$c_UPDATE_DATE = array();
 					$c_DESCRIPTION = array();
@@ -84,6 +85,7 @@ include ("include/top-menu.php");
 				;";
 				$resultcontent = @mysql_query($SQLcontent);
 				while ($rscontent = @mysql_fetch_array($resultcontent)) {
+					$c_ID[] = $rscontent["ID"];
 					$c_NAME[] = $rscontent["NAME"];
 					$c_UPDATE_DATE[] = $rscontent["UPDATE_DATE"];
 					$c_DESCRIPTION[] = $rscontent["DESCRIPTION"];
@@ -149,6 +151,7 @@ include ("include/top-menu.php");
 					;";
 					$resultcontent = @mysql_query($SQLcontent);
 					while ($rscontent = @mysql_fetch_array($resultcontent)) {
+						$c_ID[] = $rscontent["ID"];
 						$c_NAME[] = $rscontent["NAME"];
 						$c_UPDATE_DATE[] = $rscontent["UPDATE_DATE"];
 						$c_DESCRIPTION[] = $rscontent["DESCRIPTION"];
@@ -190,7 +193,7 @@ include ("include/top-menu.php");
 ?>
 					<section>
 						<p class="bold text-title-report">
-							<span class="text-lightgreen head-desc">Title: </span><a href="#"><?php echo $c_NAME["$i"]; ?><span id="ic-lock"><img src="images/icons/ic_lock.png" width="16" height="16"></span></a>
+							<span class="text-lightgreen head-desc">Title: </span><a href="<?php echo $rootpath; ?>report-detail.php?id=<?php echo $c_ID["$i"]; ?>"><?php echo $c_NAME["$i"]; ?><span id="ic-lock"><img src="images/icons/ic_lock.png" width="16" height="16"></span></a>
 						</p>
 						<p>
 							<span class="text-lightgreen bold head-desc">Update: </span><span class="date"><?php echo $c_UPDATE_DATE["$i"]; ?></span>
@@ -202,22 +205,26 @@ include ("include/top-menu.php");
 <?php
 				}
 				//############ Paging ############
+				if($number_of_pages>1){
 ?>
-				<ul class="pagination">
-					<li class="details">Page <?php echo $_GET["page"]; ?> of <?php echo $number_of_pages; ?></li>
+					<ul class="pagination">
+						<li class="details">Page <?php echo $_GET["page"]; ?> of <?php echo $number_of_pages; ?></li>
 <?php
-					for($i=1;$i<=$number_of_pages;$i++){
+						for($i=1;$i<=$number_of_pages;$i++){
 ?>
-						<li><a href="main-knowledge.php?id=<?php echo $_GET["id"]; ?>&glvl=<?php echo $_GET["glvl"]; ?>&page=<?php echo $i; ?>" <?php if($page==$i){ ?>class="current" <?php } ?>><?php echo $i; ?></a></li>
+							<li><a href="main-knowledge.php?id=<?php echo $_GET["id"]; ?>&glvl=<?php echo $_GET["glvl"]; ?>&page=<?php echo $i; ?>" <?php if($page==$i){ ?>class="current" <?php } ?>><?php echo $i; ?></a></li>
 <?php
-					}
-					if($_GET["page"]<$number_of_pages){
+						}
+						if($_GET["page"]<$number_of_pages){
 ?>
-						<li><a href="main-knowledge.php?id=<?php echo $_GET["id"]; ?>&glvl=<?php echo $_GET["glvl"]; ?>&page=<?php echo ($_GET["page"]+1); ?>">Next</a></li>
+							<li><a href="main-knowledge.php?id=<?php echo $_GET["id"]; ?>&glvl=<?php echo $_GET["glvl"]; ?>&page=<?php echo ($_GET["page"]+1); ?>">Next</a></li>
 <?php
-					}
+						}
 ?>
-				</ul>
+					</ul>
+<?php
+				}
+?>
 				<!-- <section>
 					<p class="bold">
 						<span class="text-lightgreen head-desc">Title: </span><a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<span id="ic-lock"><img src="images/icons/ic_lock.png" width="16" height="16"></span></a>
@@ -230,7 +237,7 @@ include ("include/top-menu.php");
 					</p>
 				</section> -->
 
-				<div class="grid_12" id="page-num">
+				<!-- <div class="grid_12" id="page-num">
 					<ul class="left">
 						<li class="active-page">
 							<a href="#">1</a>
@@ -263,7 +270,7 @@ include ("include/top-menu.php");
 							<a href="#">>></a>
 						</li>
 					</ul>
-				</div>
+				</div> -->
 				<!--end page num -->
 
 			</div><!--end content-middle -->
