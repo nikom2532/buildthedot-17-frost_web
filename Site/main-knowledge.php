@@ -89,11 +89,16 @@ include ("include/top-menu.php");
 					$c_DESCRIPTION[] = $rscontent["DESCRIPTION"];
 				}
 				
+				//#################################
 				//####### Query 2nd List ##########
+				//#################################
 				$temp_glvl_content = $_GET["glvl"];
 				$temp_id_content = $_GET["id"];
+				/*
+				//############## Find Parents ################
+				
 				while ($temp_glvl_content > 2) {
-				echo	$SQLcontent="
+					$SQLcontent="
 						SELECT * 
 						FROM  `PDF`
 						INNER JOIN `PDF_CATEGORY`  
@@ -107,8 +112,7 @@ include ("include/top-menu.php");
 							AND  `GROUP_LV".($temp_glvl_content)."`.`ID` =  '{$temp_id_content}'
 						)
 						AND `PDF_CATEGORY`.`PDF_ID` = `PDF`.`ID`
-					;";
-					
+					;";	
 					$resultcontent = @mysql_query($SQLcontent);
 					while ($rscontent = @mysql_fetch_array($resultcontent)) {
 						$c_NAME[] = $rscontent["NAME"];
@@ -125,6 +129,40 @@ include ("include/top-menu.php");
 						$temp_id_content = $rscontent2["GROUP_LV".($temp_glvl_content-1)."_ID"];
 					}
 					$temp_glvl_content--;
+				}//end while
+				*/
+				
+				//############## Find Children ####################
+				while ($temp_glvl_content < 6) {
+					$SQLcontent="
+						SELECT * 
+						FROM  `PDF`
+						INNER JOIN `PDF_CATEGORY`  
+						WHERE `PDF_CATEGORY`.`GROUP_LEVEL_NAME` = '".($temp_glvl_content+1)."'
+						AND `PDF_CATEGORY`.`GROUP_LEVEL_ID` IN 
+						(
+							SELECT `GROUP_LV".($temp_glvl_content+1)."`.`ID`
+							FROM  `GROUP_LV".($temp_glvl_content+1)."` 
+							WHERE  `GROUP_LV{$temp_glvl_content}_ID` = '{$temp_id_content}'
+						)
+						AND `PDF_CATEGORY`.`PDF_ID` = `PDF`.`ID`
+					;";
+					$resultcontent = @mysql_query($SQLcontent);
+					while ($rscontent = @mysql_fetch_array($resultcontent)) {
+						$c_NAME[] = $rscontent["NAME"];
+						$c_UPDATE_DATE[] = $rscontent["UPDATE_DATE"];
+						$c_DESCRIPTION[] = $rscontent["DESCRIPTION"];
+					}
+					$SQLcontent2="
+						SELECT * 
+						FROM  `GROUP_LV{$temp_glvl_content}`
+						WHERE `ID` = '{$temp_id_content}'
+					";
+					$resultcontent2 = @mysql_query($SQLcontent2);
+					while ($rscontent2 = @mysql_fetch_array($resultcontent2)) {
+						$temp_id_content = $rscontent2["GROUP_LV".($temp_glvl_content-1)."_ID"];
+					}
+					$temp_glvl_content++;
 				}//end while
 				
 				//#####################################
@@ -163,6 +201,7 @@ include ("include/top-menu.php");
 					</section>
 <?php
 				}
+				//############ Paging ############
 ?>
 				<ul class="pagination">
 					<li class="details">Page <?php echo $_GET["page"]; ?> of <?php echo $number_of_pages; ?></li>
