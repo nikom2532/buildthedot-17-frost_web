@@ -93,7 +93,7 @@ include ("include/top-menu.php");
 				$temp_glvl_content = $_GET["glvl"];
 				$temp_id_content = $_GET["id"];
 				while ($temp_glvl_content > 2) {
-					$SQLcontent="
+				echo	$SQLcontent="
 						SELECT * 
 						FROM  `PDF`
 						INNER JOIN `PDF_CATEGORY`  
@@ -103,8 +103,8 @@ include ("include/top-menu.php");
 							SELECT `GROUP_LV".($temp_glvl_content-1)."`.`ID`
 							FROM  `GROUP_LV{$temp_glvl_content}` 
 							INNER JOIN  `GROUP_LV".($temp_glvl_content-1)."` 
-							WHERE  `GROUP_LV4`.`GROUP_LV3_ID` =  `GROUP_LV3`.`ID` 
-							AND  `GROUP_LV4`.`ID` =  '{$temp_id_content}'
+							WHERE  `GROUP_LV".($temp_glvl_content)."`.`GROUP_LV".($temp_glvl_content-1)."_ID` =  `GROUP_LV".($temp_glvl_content-1)."`.`ID` 
+							AND  `GROUP_LV".($temp_glvl_content)."`.`ID` =  '{$temp_id_content}'
 						)
 						AND `PDF_CATEGORY`.`PDF_ID` = `PDF`.`ID`
 					;";
@@ -115,16 +115,16 @@ include ("include/top-menu.php");
 						$c_UPDATE_DATE[] = $rscontent["UPDATE_DATE"];
 						$c_DESCRIPTION[] = $rscontent["DESCRIPTION"];
 					}
-					$SQLcontent="
+					$SQLcontent2="
 						SELECT * 
 						FROM  `GROUP_LV{$temp_glvl_content}`
 						WHERE `ID` = '{$temp_id_content}'
 					";
-					$resultcontent = @mysql_query($SQLcontent);
-					while ($rscontent = @mysql_fetch_array($resultcontent)) {
-						$temp_id_content = $rscontent["GROUP_LV".($temp_glvl_content-1)."_ID"];
-						$temp_glvl_content--;
+					$resultcontent2 = @mysql_query($SQLcontent2);
+					while ($rscontent2 = @mysql_fetch_array($resultcontent2)) {
+						$temp_id_content = $rscontent2["GROUP_LV".($temp_glvl_content-1)."_ID"];
 					}
+					$temp_glvl_content--;
 				}//end while
 				
 				//#####################################
