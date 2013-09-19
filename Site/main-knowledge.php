@@ -35,7 +35,7 @@ include ($rootpath."include/top-menu.php");
 							$resultnav2 = @mysql_query($SQLnav2);
 							if($rsnav2 = @mysql_fetch_array($resultnav2)) {
 								//echo $temp_glvl__;
-								if($temp_glvl__>2)
+								if($temp_glvl__==$_GET["glvl"])
 								{
 									$str[]="
 										<li class=\"text-lightorange bold  text-nav\">{$rsnav2["NAME"]}</li>
