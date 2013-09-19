@@ -1,4 +1,4 @@
-@charset "utf-8";
+
 /* ---------- CLEARFIX ---------- */
 /* For modern browsers */
 .cf:before,
@@ -136,9 +136,16 @@ body {
 	font-family:Arial,Helvetica,sans-serif;
 	font-size:0.85em;
 }
-
+#wrapper{
+	margin-top:-24px;
+}
 section{
 	line-height: 1.325em; 
+	color:#000000;
+}
+section a{
+	line-height: 1.325em; 
+	color:#000000;
 }
 #top-bar {
 	background-color: #FFF; /* 10/16 */
@@ -268,7 +275,6 @@ ul#topnav li span a:hover {text-decoration: none; color:#484949;}
 }
 #new-release {
 	margin-top: 30px;
-	color:#000000;
 }
 #new-release section {
 	margin-bottom: 15px;
@@ -298,9 +304,12 @@ ul#topnav li span a:hover {text-decoration: none; color:#484949;}
 	color:#666;
 	font-size:1em;
 }
-#content-middle section a{
+#content-middle section{
 	font-size:0.89em;
 	color:#333;	
+}
+#new-release{
+	color:#000000;
 }
 .report-detail{
 	text-align:justify;
@@ -611,4 +620,35 @@ span.inactive {
 #container-detail {
 	width: 960px;
 	
+}
+/*----------login------------*/
+#header { padding: 1.25em 0; background-color:#FFF;/* 20/16 */ }
+.page-full-width { padding: 0 1.875em; /* 30/16 */ }
+#content-login {
+	background: #f8f9fa url('../images/artwork-pattern.png') repeat-x left bottom;
+	border: 1px solid #eeefef;
+	padding-top: 110px; /* 30/16 */
+	height:355px;
+	margin: 0 auto;
+}
+#login-form {
+	width: 18.75em; /* 300/16 */
+	margin: 0 auto;
+}
+#login-form p{
+	line-height: 2.1em;
+	font-size: 0.9em;
+}
+#forgot-pass {
+	margin-top:10px;
+}
+#forgot-pass a{	
+	color:#2069B4;	
+}
+#forgot-pass a:hover{
+	margin-top:10px;
+	color:#2069B4;	
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #2069B4;
 }
