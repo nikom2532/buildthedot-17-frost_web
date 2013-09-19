@@ -193,7 +193,13 @@ include ($rootpath."include/header.php");
 	?>
 						<section>
 							<p class="bold text-title-report">
-								<span class="text-lightgreen head-desc">Title: </span><a href="<?php echo $rootpath; ?>report-detail.php?id=<?php echo $c_ID["$i"]; ?>&glvl=<?php echo $_GET["glvl"]; ?>"><?php echo $c_NAME["$i"]; ?><span id="ic-lock"><img src="images/icons/ic_lock.png" width="16" height="16"></span></a>
+								<span class="text-lightgreen head-desc">Title: </span>
+								<a href="<?php echo $rootpath; ?>report-detail.php?id=<?php echo $c_ID["$i"]; ?>&glvl=<?php echo $_GET["glvl"]; ?>">
+									<?php echo $c_NAME["$i"]; ?>
+									<span id="ic-lock">
+										<img src="images/icons/ic_lock.png" width="16" height="16">
+									</span>
+								</a>
 							</p>
 							<p>
 								<span class="text-lightgreen bold head-desc">Update: </span><span class="date"><?php echo convertDate2String($c_UPDATE_DATE["$i"]); ?></span>
@@ -204,6 +210,15 @@ include ($rootpath."include/header.php");
 						</section>
 	<?php
 					}
+					
+					//#############################
+					//####### test ##########
+					//echo $_SESSION["userid"];
+					// print_r($c_ID);
+					// print_r($c_NAME);
+					//#############################
+					
+					
 					//############ Paging ############
 					if($number_of_pages>1){
 	?>
