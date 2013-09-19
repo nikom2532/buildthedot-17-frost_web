@@ -2,11 +2,7 @@
 include ("include/header.php");
 include ("lib/func_search.php");
 require ("lib/func_pagination.php");
-if($_SESSION["userid"]==""){
-	include ($rootpath . "include/login.php");
-	include ("include/footer.php");
-}
-else{
+
 	include ("include/top-menu.php");
 ?>
 
@@ -110,5 +106,5 @@ else{
 	</div><!--end content -->
 <?php
 	include ("include/footer.php");
-}
+
 ?>
