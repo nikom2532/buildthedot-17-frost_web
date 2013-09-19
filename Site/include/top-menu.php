@@ -7,7 +7,7 @@
         <!-- member login-->
       	<ul class="right">
     		<li id="button-myprofile"><a href="myprofile.php" class="ic-user link grid_2 text-orange uppercase">My Profile</a></li>
-            <li id="button-signout"><a href="#" class="grid_2 uppercase" >Sign out</a></li>
+            <li id="button-signout"><a href="logout.php" class="grid_2 uppercase" onclick="" >Sign out</a></li>
         </ul>
         <!-- -->
       </div>
