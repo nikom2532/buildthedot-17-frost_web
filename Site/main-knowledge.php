@@ -193,7 +193,7 @@ include ($rootpath."include/top-menu.php");
 ?>
 					<section>
 						<p class="bold text-title-report">
-							<span class="text-lightgreen head-desc">Title: </span><a href="<?php echo $rootpath; ?>report-detail.php?id=<?php echo $c_ID["$i"]; ?>"><?php echo $c_NAME["$i"]; ?><span id="ic-lock"><img src="images/icons/ic_lock.png" width="16" height="16"></span></a>
+							<span class="text-lightgreen head-desc">Title: </span><a href="<?php echo $rootpath; ?>report-detail.php?id=<?php echo $c_ID["$i"]; ?>&glvl=<?php echo $_GET["glvl"]; ?>"><?php echo $c_NAME["$i"]; ?><span id="ic-lock"><img src="images/icons/ic_lock.png" width="16" height="16"></span></a>
 						</p>
 						<p>
 							<span class="text-lightgreen bold head-desc">Update: </span><span class="date"><?php echo $c_UPDATE_DATE["$i"]; ?></span>
@@ -210,12 +210,12 @@ include ($rootpath."include/top-menu.php");
 					<ul class="pagination">
 						<li class="details">Page <?php echo $_GET["page"]; ?> of <?php echo $number_of_pages; ?></li>
 <?php
-						for($i=1;$i<=$number_of_pages;$i++){
+						for($i=1;$i<=$number_of_pages;$i++){	//Page Button
 ?>
 							<li><a href="main-knowledge.php?id=<?php echo $_GET["id"]; ?>&glvl=<?php echo $_GET["glvl"]; ?>&page=<?php echo $i; ?>" <?php if($page==$i){ ?>class="current" <?php } ?>><?php echo $i; ?></a></li>
 <?php
 						}
-						if($_GET["page"]<$number_of_pages){
+						if($_GET["page"]<$number_of_pages){	//Next Button
 ?>
 							<li><a href="main-knowledge.php?id=<?php echo $_GET["id"]; ?>&glvl=<?php echo $_GET["glvl"]; ?>&page=<?php echo ($_GET["page"]+1); ?>">Next</a></li>
 <?php
