@@ -92,7 +92,7 @@ include ("include/top-menu.php");
 				//####### Query 2nd List ##########
 				$temp_glvl_content = $_GET["glvl"];
 				$temp_id_content = $_GET["id"];
-				while ($temp_glvl_content < 2) {
+				while ($temp_glvl_content > 2) {
 					$SQLcontent="
 						SELECT * 
 						FROM  `PDF`
