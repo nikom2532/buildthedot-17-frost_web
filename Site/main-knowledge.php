@@ -49,7 +49,7 @@ include ($rootpath."include/top-menu.php");
 									";
 								}
 							}//end query2
-								$temp_glvl__--;
+							$temp_glvl__--;
 						}//end query
 					}//end while
 					
@@ -197,7 +197,7 @@ include ($rootpath."include/top-menu.php");
 							<span class="text-lightgreen head-desc">Title: </span><a href="<?php echo $rootpath; ?>report-detail.php?id=<?php echo $c_ID["$i"]; ?>&glvl=<?php echo $_GET["glvl"]; ?>"><?php echo $c_NAME["$i"]; ?><span id="ic-lock"><img src="images/icons/ic_lock.png" width="16" height="16"></span></a>
 						</p>
 						<p>
-							<span class="text-lightgreen bold head-desc">Update: </span><span class="date"><?php echo $c_UPDATE_DATE["$i"]; ?></span>
+							<span class="text-lightgreen bold head-desc">Update: </span><span class="date"><?php echo convertDate2String($c_UPDATE_DATE["$i"]); ?></span>
 						</p>
 						<p class="text-desc">
 							<span class="text-lightgreen bold head-desc">Description: </span><?php echo $c_DESCRIPTION["$i"]; ?>
