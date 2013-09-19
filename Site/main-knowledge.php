@@ -1,4 +1,5 @@
 <?php
+$rootpath = "./";
 include ("include/header.php");
 ?>
 <?php
@@ -7,7 +8,7 @@ include ("include/top-menu.php");
 <div id="content">
 	<div class="container_12">
 		<?php
-		include ("include/side-menu-knowledge.php");
+			include ("include/side-menu-knowledge.php");
 		?>
 		<div id="container" class="left">
 			<div id="content-middle" class="grid_8">
@@ -89,9 +90,9 @@ include ("include/top-menu.php");
 				}
 				
 				//####### Query 2nd List ##########
+				$temp_glvl_content = $_GET["glvl"];
+				$temp_id_content = $_GET["id"];
 				while ($temp_glvl_content < 2) {
-					$temp_glvl_content = $_GET["glvl"];
-					$temp_id_content = $_GET["id"];
 					$SQLcontent="
 						SELECT * 
 						FROM  `PDF`
