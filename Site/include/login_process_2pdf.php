@@ -21,11 +21,11 @@ if(($email!="")&&($password!="")) {
 	$db->query($SQL);
 	if($rs=$db->fetchAssoc()){
 		$_SESSION["userid"]=$rs["ID"];
-		header("location: {$rootpath}index.php");
+		header("location: {$rootpath}download-pdf.php?pdfId=".$_POST["pdfId"]);
 	}
 	else{
 ?>
-		<form id="login_false_message" action="<?php echo $rootpath; ?>index.php" method="POST">
+		<form id="login_false_message" action="<?php echo $rootpath; ?>download-pdf.php?pdfId=<?php echo $_POST["pdfId"]; ?>" method="POST">
 			<input type="hidden" id="login_messaage" name="login_messaage" value="login_false" />
 		</form>
 		<script>
@@ -35,7 +35,7 @@ if(($email!="")&&($password!="")) {
 	}
 }
 else{
-	header("location: {$rootpath}index.php");
+	header("location: {$rootpath}download-pdf.php?pdfId=".$_POST["pdfId"]);
 }
 
 include($rootpath."include/footer.php");
