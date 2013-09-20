@@ -15,11 +15,14 @@ if ($_SESSION["userid"] == "") {
     <div id="content-middle" class="grid_12">
          <div id="profile" >
             <h1 id="head-title" class="text-green grid_12">My Profile</h1>
-            <div class="grid_2">
-            <img src="images/test-pic.jpg"  alt="profile">
-            </div>
+            
             <div class="grid_8" id="profile-detail">
             	<?php while($fetchArray=mysql_fetch_array($cmdQueryMyprofile)){?>
+            		
+            		<div>
+						<img src="images/user_images/<?=$fetchArray['PHOTO_NAME'] ?>"  alt="profile">
+					</div><br>
+							
             		<p>Name</p>
 	                <p><?=$fetchArray['FIRSTNAME'] ?><span class="indent"><?=$fetchArray['LASTNAME'] ?></span></p><br>
 	                <p>Email</p>

@@ -22,15 +22,19 @@ $Num_Rows = mysql_num_rows($cmdQueryMyprofile);
 		<div id="content-middle" class="grid_12">
 			<div id="profile" >
 				<h1 id="head-title" class="text-green grid_12">Edit profile</h1>
-				<div class="grid_2">
-					<img src="images/test-pic.jpg"  alt="profile">
-				</div>
+				
 				<form action="edit-profile-update.php" name="editprofile-form" id="editprofile-form" method="POST">
 					
 					<div class="grid_8" id="profile-detail">
 						<fieldset>
 							<?php while($fetchArray=mysql_fetch_array($cmdQueryMyprofile)){?>
 							
+							<div>
+								<p>Profile Picture</p>
+								<img src="images/user_images/<?=$fetchArray['PHOTO_NAME'] ?>"  alt="profile">
+								<br><br>
+								<input type="file" name="file" id="file"><br>
+							</div>
 							<p>
 								<p>Name</p>
 								<input type="text" id="firstname" name="firstname" value="<?=$fetchArray['FIRSTNAME'] ?>" />
@@ -154,9 +158,6 @@ $Num_Rows = mysql_num_rows($cmdQueryMyprofile);
 								<p>Fax</p>
 								<input type="text" id="fax" name="fax" value="<?=$fetchArray['FAX'] ?>" />
 							</p>
-
-							
-							
 							<?php } ?>
 						</fieldset>
 						<p id="edit-password">
