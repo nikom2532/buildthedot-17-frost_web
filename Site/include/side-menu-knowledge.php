@@ -1,7 +1,6 @@
 <nav id="side-menu" class="grid_3">
-    <ul>
+	<ul>
 <?php
-		
 		//find lvl1 page
 		$temp_glvl = $_GET["glvl"];
 		$temp_id = $_GET["id"];
@@ -73,8 +72,8 @@
 						//if($rs2["GROUP_LV2_ID"]==$_GET["id"]){
 						//if($rs2["GROUP_LV2_ID"]==1){
 ?>
-				            <ul>
-				                <li><a href="./main-knowledge.php?id=<?php echo $rs2["ID"]; ?>&glvl=3" class="bold text-green"><?php echo $rs2["NAME"]; ?></a>
+							<ul>
+								<li><a href="./main-knowledge.php?id=<?php echo $rs2["ID"]; ?>&glvl=3" class="bold text-green"><?php echo $rs2["NAME"]; ?></a>
 <?php
 									if($_GET["glvl"]>=3){ //&& $_GET["id"]==$rs2["ID"]
 										$SQL3="
@@ -90,8 +89,8 @@
 											//if($rs3["GROUP_LV3_ID"]==$_GET["id"]){
 											//if($rs3["GROUP_LV3_ID"]==1){
 ?>
-							                    <ul> 
-							                        <li><a href="./main-knowledge.php?id=<?php echo $rs3["ID"]; ?>&glvl=4" class="bold"><?php echo $rs3["NAME"]; ?></a>
+												<ul> 
+													<li><a href="./main-knowledge.php?id=<?php echo $rs3["ID"]; ?>&glvl=4" class="bold"><?php echo $rs3["NAME"]; ?></a>
 <?php
 														if($_GET["glvl"]>=4){
 															$SQL4="
@@ -116,8 +115,8 @@
 																//if($rs4["GROUP_LV4_ID"]==$_GET["id"]){
 																//if($rs4["GROUP_LV4_ID"]==1){
 ?>
-										                            <ul>
-										                                <li><a href="./main-knowledge.php?id=<?php echo $rs4["ID"]; ?>&glvl=5"><?php echo $rs4["NAME"]; ?></a>
+																<ul>
+																	<li><a href="./main-knowledge.php?id=<?php echo $rs4["ID"]; ?>&glvl=5"><?php echo $rs4["NAME"]; ?></a>
 										                                	
 <?php
 																			if($_GET["glvl"]>=5){
@@ -143,38 +142,38 @@
 																					//if($rs5["GROUP_LV5_ID"]==$_GET["id"]){
 																					//if($rs5["GROUP_LV5_ID"]==1){
 ?>
-															                            <ul>
-															                                <li><a href="./main-knowledge.php?id=<?php echo $rs5["ID"]; ?>&glvl=6"><?php echo $rs5["NAME"]; ?></a>
-															                                </li>
-															                            </ul>
+																					<ul>
+																						<li><a href="./main-knowledge.php?id=<?php echo $rs5["ID"]; ?>&glvl=6"><?php echo $rs5["NAME"]; ?></a>
+																						</li>
+																					</ul>
 <?php
-																					//}
-																				}
+																				//}
 																			}
+																		}
 ?>
-										                                </li>
-										                            </ul>
+																	</li>
+																</ul>
 <?php
 																//}
 															}
 														}
 ?>
-							                        </li><!--end Telecom Market Data -->
-							                    </ul>
+													</li><!--end Telecom Market Data -->
+												</ul>
 <?php
 											//}
 										}
 									}
 ?>
-				                </li><!--end Research Thailand(2)-->
+								</li><!--end Research Thailand(2)-->
 							</ul>
 <?php
 						//}
 					}
 				}
 ?>
-	        </li><!--end Technology--><?php
+			</li><!--end Technology--><?php
 		}
 ?>
-    </ul>
+ </ul>
 </nav>	
