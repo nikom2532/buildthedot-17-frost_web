@@ -57,7 +57,7 @@ include ($rootpath."include/top-menu.php");
 					unset($SQLnav);
 					$temp_glvl__ = $_GET["glvl"];
 					for($i=$temp_glvl__;$i>=0;$i--){
-						//echo $str[$i];
+						echo $str[$i];
 					}
 					//####### end display Body Nav ###########
 ?>
