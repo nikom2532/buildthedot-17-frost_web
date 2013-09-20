@@ -18,6 +18,8 @@ if(($email!="")&&($password!="")) {
 		AND  `PASSWORD` =  \"{$password}\"
 		AND  `IS_ACTIVE` =  'Y'
 	;";
+	
+	echo $SQL;
 	$db->query($SQL);
 	if($rs=$db->fetchAssoc()){
 		$_SESSION["userid"]=$rs["ID"];
