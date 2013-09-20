@@ -77,7 +77,55 @@ include ("include/header.php");
 						<?php
 						echo "<a href='download-pdf.php?pdfId=". $id ."'>";
 						?>
-							<b class="button darkgreen" id="download-button">Download</b>
+							<b class="button darkgreen" id="download-button"><!-- Download --><?php 
+								//####### Find Lock Download Key ##########
+								$temp_id__ = $_GET["id"];
+								$temp_glvl__ = $_GET["glvl"];
+								$str = array();
+								while ($temp_glvl__ >= 2) {
+									$SQLnav = "
+										SELECT *
+										FROM `GROUP_LV" . $temp_glvl__ . "`
+										WHERE `ID` = '" . $temp_id__ . "'
+									;";
+									$resultnav = @mysql_query($SQLnav);
+									if($rsnav = @mysql_fetch_array($resultnav)) {
+										$temp_id__ = $rsnav["GROUP_LV" . ($temp_glvl__ - 1) . "_ID"];
+										if($temp_glvl__==3){	//find Group Level 2 ID
+											$PERMISSION_glvl2_ID = $temp_id__;
+										}
+										$temp_glvl__--;
+									}//end query
+								}//end while
+								$PERMISSION_Is_Lockkey="";
+								if(!$PERMISSION_glvl2_ID){
+									if($_GET["glvl"]==2){
+										$PERMISSION_glvl2_ID = $_GET["id"];
+									}
+								}
+								//$_SESSION["userid"]="1";
+								$SQLlockKey="
+									SELECT * 
+									FROM  `PERMISSION`
+									WHERE `USER_PROFILE_ID` = '{$_SESSION["userid"]}'
+									AND `GROUP_LV2_ID` = '{$PERMISSION_glvl2_ID}'
+									AND `IS_ACTIVE` = 'Y'
+									AND `END_DATE` > NOW()
+								;";
+								$resultLockKey = @mysql_query($SQLlockKey);
+								if($rsLockKey = @mysql_fetch_array($resultLockKey)) {
+									$PERMISSION_Is_Lockkey = "N";
+								}
+								else{
+									$PERMISSION_Is_Lockkey = "Y";
+								}
+								if($PERMISSION_Is_Lockkey=="Y"){
+									echo "Paid";
+								}
+								elseif($PERMISSION_Is_Lockkey=="N"){
+									echo "Download";
+								}
+							?></b>
 						</a>
 					</div>
 				

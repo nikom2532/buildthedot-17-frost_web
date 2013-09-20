@@ -49,8 +49,6 @@ include ($rootpath."include/header.php");
 									}
 								}//end query2
 								if($temp_glvl__==3){	//find Group Level 2 ID
-									$SQLkeyLock="
-									";
 									$PERMISSION_glvl2_ID = $temp_id__;
 								}
 								$temp_glvl__--;
@@ -94,10 +92,10 @@ include ($rootpath."include/header.php");
 						;";
 						$resultLockKey = @mysql_query($SQLlockKey);
 						if($rsLockKey = @mysql_fetch_array($resultLockKey)) {
-							$PERMISSION_Is_Lockkey = "Y";
+							$PERMISSION_Is_Lockkey = "N";
 						}
 						else{
-							$PERMISSION_Is_Lockkey = "N";
+							$PERMISSION_Is_Lockkey = "Y";
 						}
 						
 						//####### Query List ##########
