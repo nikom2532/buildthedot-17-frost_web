@@ -24,7 +24,7 @@ include ("lib/func_pagination.php");
 				/*---------Paging------------*/
 				$page = 1;
 				//Default page
-				$limit = 1;
+				$limit = 10;
 				//Records per page
 				$start = 0;
 				//starts displaying records from 0

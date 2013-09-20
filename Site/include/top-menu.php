@@ -5,15 +5,23 @@
 				<img src="images/mckansys_logo.png" alt="logo">
 			</div>
 			<!-- member login-->
-			<ul class="right">
+			<ul class="right"> 
 				<li id="button-myprofile">
-					<a href="myprofile.php" class="ic-user link grid_2 text-orange uppercase"><?php 
-						if($_SESSION["userid"]==""){ ?>Login<?php }
-						else{ ?>My Profile<?php } ?></a>
+					<?php $userID = $_SESSION["userid"];?>
+					
+						<?php 
+						if($_SESSION["userid"]==""){ ?>
+							<a href="include/login_2pdf.php" class="link grid_2 text-orange uppercase">Sign In</a>
+						<?php }
+						else{?>
+							<a href="myprofile.php?userID=$userID" class="ic-user link grid_2 text-orange uppercase">My Profile</a>
+						
+					
 				</li>
 				<li id="button-signout">
 					<a href="logout.php" class="grid_2 uppercase" onclick="" >Sign out</a>
 				</li>
+				<?php } ?>
 			</ul>
 			<!-- -->
 		</div>
@@ -47,13 +55,13 @@
 						while($rs2=@mysql_fetch_assoc($result2)){
 							if($rs["ID"]==1){
 								?><a href="<?php echo $rootpath; ?>main-knowledge.php?id=<?php echo $rs2["ID"]; ?>&glvl=2"><?php echo $rs2["NAME"]; ?></a> | <?php
-							}
-						}
-?>
+								}
+								}
+							?>
 					</span>
 				</li>
 <?php
-				}
+}
 ?>
 				<!-- <li>
 				<a href="">Knowledge</a>
