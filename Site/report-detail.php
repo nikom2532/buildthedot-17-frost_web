@@ -11,7 +11,7 @@ else{
 	<div id="content">
 		<div class="container_12">
 			<?php
-				//include ("include/side-menu-knowledge.php");
+				include ("include/side-menu-knowledge.php");
 			?>
 			<div id="container-detail" class="left">
 				<div id="content-middle" class="grid_8">
