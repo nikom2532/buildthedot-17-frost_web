@@ -48,6 +48,11 @@ include ($rootpath."include/header.php");
 										";
 									}
 								}//end query2
+								if($temp_glvl__==3){	//find Group Level 2 ID
+									$SQLkeyLock="
+									";
+									$PERMISSION_glvl2_ID = $temp_id__;
+								}
 								$temp_glvl__--;
 							}//end query
 						}//end while
@@ -55,8 +60,9 @@ include ($rootpath."include/header.php");
 						unset($SQLnav);
 						$temp_glvl__ = $_GET["glvl"];
 						for($i=$temp_glvl__;$i>=0;$i--){
-							echo $str[$i];
+							//echo $str[$i];
 						}
+
 						//unset($str);
 						//####### end display Body Nav ###########
 	?>
@@ -70,6 +76,30 @@ include ($rootpath."include/header.php");
 					<h2 class="text-lightgreen2">Lasted Update</h2>
 					
 	<?php
+						//####### Find Lock Download Key ##########
+						$PERMISSION_Is_Lockkey="";
+						if(!$PERMISSION_glvl2_ID){
+							if($_GET["glvl"]==2){
+								$PERMISSION_glvl2_ID = $_GET["id"];
+							}
+						}
+						//$_SESSION["userid"]="1";
+						$SQLlockKey="
+							SELECT * 
+							FROM  `PERMISSION`
+							WHERE `USER_PROFILE_ID` = '{$_SESSION["userid"]}'
+							AND `GROUP_LV2_ID` = '{$PERMISSION_glvl2_ID}'
+							AND `IS_ACTIVE` = 'Y'
+							AND `END_DATE` > NOW()
+						;";
+						$resultLockKey = @mysql_query($SQLlockKey);
+						if($rsLockKey = @mysql_fetch_array($resultLockKey)) {
+							$PERMISSION_Is_Lockkey = "Y";
+						}
+						else{
+							$PERMISSION_Is_Lockkey = "N";
+						}
+						
 						//####### Query List ##########
 						$c_ID = array();
 						$c_NAME = array();
@@ -197,7 +227,13 @@ include ($rootpath."include/header.php");
 								<a href="<?php echo $rootpath; ?>report-detail.php?id=<?php echo $c_ID["$i"]; ?>&glvl=<?php echo $_GET["glvl"]; ?>">
 									<?php echo $c_NAME["$i"]; ?>
 									<span id="ic-lock">
-										<img src="images/icons/ic_lock.png" width="16" height="16">
+<?php
+										if($PERMISSION_Is_Lockkey=="Y"){
+?>
+											<img src="images/icons/ic_lock.png" width="16" height="16">
+<?php
+										}
+?>
 									</span>
 								</a>
 							</p>
