@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 19, 2013 at 11:06 PM
+-- Generation Time: Sep 20, 2013 at 09:59 PM
 -- Server version: 5.1.67
 -- PHP Version: 5.3.24
 
@@ -27,17 +27,265 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `COUNTRY` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID` int(11) NOT NULL,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `COUNTRY`
 --
 
 INSERT INTO `COUNTRY` (`ID`, `NAME`) VALUES
-(1, 'Thailand');
+(1, 'Afghanistan'),
+(2, 'Albania'),
+(3, 'Algeria'),
+(4, 'American Samoa'),
+(5, 'Andorra'),
+(6, 'Angola'),
+(7, 'Anguilla'),
+(8, 'Antarctica'),
+(9, 'Antigua and Barbuda'),
+(10, 'Argentina'),
+(11, 'Armenia'),
+(12, 'Armenia'),
+(13, 'Aruba'),
+(14, 'Australia'),
+(15, 'Austria'),
+(16, 'Azerbaijan'),
+(17, 'Azerbaijan'),
+(18, 'Bahamas'),
+(19, 'Bahrain'),
+(20, 'Bangladesh'),
+(21, 'Barbados'),
+(22, 'Belarus'),
+(23, 'Belgium'),
+(24, 'Belize'),
+(25, 'Benin'),
+(26, 'Bermuda'),
+(27, 'Bhutan'),
+(28, 'Bolivia'),
+(29, 'Bosnia and Herzegovina'),
+(30, 'Botswana'),
+(31, 'Bouvet Island'),
+(32, 'Brazil'),
+(33, 'British Indian Ocean Territory'),
+(34, 'Brunei Darussalam'),
+(35, 'Bulgaria'),
+(36, 'Burkina Faso'),
+(37, 'Burundi'),
+(38, 'Cambodia'),
+(39, 'Cameroon'),
+(40, 'Canada'),
+(41, 'Cape Verde'),
+(42, 'Cayman Islands'),
+(43, 'Central African Republic'),
+(44, 'Chad'),
+(45, 'Chile'),
+(46, 'China'),
+(47, 'Christmas Island'),
+(48, 'Cocos (Keeling) Islands'),
+(49, 'Colombia'),
+(50, 'Comoros'),
+(51, 'Congo'),
+(52, 'Congo, The Democratic Republic of The'),
+(53, 'Cook Islands'),
+(54, 'Costa Rica'),
+(55, 'Cote D''ivoire'),
+(56, 'Croatia'),
+(57, 'Cuba'),
+(58, 'Cyprus'),
+(60, 'Czech Republic'),
+(61, 'Denmark'),
+(62, 'Djibouti'),
+(63, 'Dominica'),
+(64, 'Dominican Republic'),
+(65, 'Easter Island'),
+(66, 'Ecuador'),
+(67, 'Egypt'),
+(68, 'El Salvador'),
+(69, 'Equatorial Guinea'),
+(70, 'Eritrea'),
+(71, 'Estonia'),
+(72, 'Ethiopia'),
+(73, 'Falkland Islands (Malvinas)'),
+(74, 'Faroe Islands'),
+(75, 'Fiji'),
+(76, 'Finland'),
+(77, 'France'),
+(78, 'French Guiana'),
+(79, 'French Polynesia'),
+(80, 'French Southern Territories'),
+(81, 'Gabon'),
+(82, 'Gambia'),
+(83, 'Georgia'),
+(85, 'Germany'),
+(86, 'Ghana'),
+(87, 'Gibraltar'),
+(88, 'Greece'),
+(89, 'Greenland'),
+(91, 'Grenada'),
+(92, 'Guadeloupe'),
+(93, 'Guam'),
+(94, 'Guatemala'),
+(95, 'Guinea'),
+(96, 'Guinea-bissau'),
+(97, 'Guyana'),
+(98, 'Haiti'),
+(99, 'Heard Island and Mcdonald Islands'),
+(100, 'Honduras'),
+(101, 'Hong Kong'),
+(102, 'Hungary'),
+(103, 'Iceland'),
+(104, 'India'),
+(105, 'Indonesia'),
+(106, 'Indonesia'),
+(107, 'Iran'),
+(108, 'Iraq'),
+(109, 'Ireland'),
+(110, 'Israel'),
+(111, 'Italy'),
+(112, 'Jamaica'),
+(113, 'Japan'),
+(114, 'Jordan'),
+(115, 'Kazakhstan'),
+(116, 'Kazakhstan'),
+(117, 'Kenya'),
+(118, 'Kiribati'),
+(119, 'Korea, North'),
+(120, 'Korea, South'),
+(121, 'Kosovo'),
+(122, 'Kuwait'),
+(123, 'Kyrgyzstan'),
+(124, 'Laos'),
+(125, 'Latvia'),
+(126, 'Lebanon'),
+(127, 'Lesotho'),
+(128, 'Liberia'),
+(129, 'Libyan Arab Jamahiriya'),
+(130, 'Liechtenstein'),
+(131, 'Lithuania'),
+(132, 'Luxembourg'),
+(133, 'Macau'),
+(134, 'Macedonia'),
+(135, 'Madagascar'),
+(136, 'Malawi'),
+(137, 'Malaysia'),
+(138, 'Maldives'),
+(139, 'Mali'),
+(140, 'Malta'),
+(141, 'Marshall Islands'),
+(142, 'Martinique'),
+(143, 'Mauritania'),
+(144, 'Mauritius'),
+(145, 'Mayotte'),
+(146, 'Mexico'),
+(147, 'Micronesia, Federated States of'),
+(148, 'Moldova, Republic of'),
+(149, 'Monaco'),
+(150, 'Mongolia'),
+(151, 'Montenegro'),
+(152, 'Montserrat'),
+(153, 'Morocco'),
+(154, 'Mozambique'),
+(155, 'Myanmar'),
+(156, 'Namibia'),
+(157, 'Nauru'),
+(158, 'Nepal'),
+(159, 'Netherlands'),
+(160, 'Netherlands Antilles'),
+(161, 'New Caledonia'),
+(162, 'New Zealand'),
+(163, 'Nicaragua'),
+(164, 'Niger'),
+(165, 'Nigeria'),
+(166, 'Niue'),
+(167, 'Norfolk Island'),
+(168, 'Northern Mariana Islands'),
+(169, 'Norway'),
+(170, 'Oman'),
+(171, 'Pakistan'),
+(172, 'Palau'),
+(173, 'Palestinian Territory'),
+(174, 'Panama'),
+(175, 'Papua New Guinea'),
+(176, 'Paraguay'),
+(177, 'Peru'),
+(178, 'Philippines'),
+(179, 'Pitcairn'),
+(180, 'Poland'),
+(181, 'Portugal'),
+(182, 'Puerto Rico'),
+(183, 'Qatar'),
+(184, 'Reunion'),
+(185, 'Romania'),
+(186, 'Russia'),
+(187, 'Russia'),
+(188, 'Rwanda'),
+(189, 'Saint Helena'),
+(190, 'Saint Kitts and Nevis'),
+(191, 'Saint Lucia'),
+(192, 'Saint Pierre and Miquelon'),
+(193, 'Saint Vincent and The Grenadines'),
+(194, 'Samoa'),
+(195, 'San Marino'),
+(196, 'Sao Tome and Principe'),
+(197, 'Saudi Arabia'),
+(198, 'Senegal'),
+(199, 'Serbia and Montenegro'),
+(200, 'Seychelles'),
+(201, 'Sierra Leone'),
+(202, 'Singapore'),
+(203, 'Slovakia'),
+(204, 'Slovenia'),
+(205, 'Solomon Islands'),
+(206, 'Somalia'),
+(207, 'South Africa'),
+(208, 'South Georgia and The South Sandwich Islands'),
+(209, 'Spain'),
+(210, 'Sri Lanka'),
+(211, 'Sudan'),
+(212, 'Suriname'),
+(213, 'Svalbard and Jan Mayen'),
+(214, 'Swaziland'),
+(215, 'Sweden'),
+(216, 'Switzerland'),
+(217, 'Syria'),
+(218, 'Taiwan'),
+(219, 'Tajikistan'),
+(220, 'Tanzania, United Republic of'),
+(221, 'Thailand'),
+(222, 'Timor-leste'),
+(223, 'Togo'),
+(224, 'Tokelau'),
+(225, 'Tonga'),
+(226, 'Trinidad and Tobago'),
+(227, 'Tunisia'),
+(228, 'Turkey'),
+(229, 'Turkey'),
+(230, 'Turkmenistan'),
+(231, 'Turks and Caicos Islands'),
+(232, 'Tuvalu'),
+(233, 'Uganda'),
+(234, 'Ukraine'),
+(235, 'United Arab Emirates'),
+(236, 'United Kingdom'),
+(237, 'United States'),
+(238, 'United States Minor Outlying Islands'),
+(239, 'Uruguay'),
+(240, 'Uzbekistan'),
+(241, 'Vanuatu'),
+(242, 'Vatican City'),
+(243, 'Venezuela'),
+(244, 'Vietnam'),
+(245, 'Virgin Islands, British'),
+(246, 'Virgin Islands, U.S.'),
+(247, 'Wallis and Futuna'),
+(248, 'Western Sahara'),
+(249, 'Yemen'),
+(250, 'Yemen'),
+(251, 'Zambia'),
+(252, 'Zimbabwe');
 
 -- --------------------------------------------------------
 
@@ -90,7 +338,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV2` (
   `GROUP_LV1_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_GROUP_LV2_GROUP_LV11_idx` (`GROUP_LV1_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `GROUP_LV2`
@@ -262,6 +510,7 @@ CREATE TABLE IF NOT EXISTS `PDF` (
   `PRICE` decimal(10,0) DEFAULT NULL,
   `UPDATE_DATE` datetime DEFAULT NULL,
   `COMPANY_ID` int(11) DEFAULT NULL,
+  `GROUP_LEVEL1` int(2) NOT NULL,
   `PATH` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
@@ -270,12 +519,12 @@ CREATE TABLE IF NOT EXISTS `PDF` (
 -- Dumping data for table `PDF`
 --
 
-INSERT INTO `PDF` (`ID`, `NAME`, `DESCRIPTION`, `PRICE`, `UPDATE_DATE`, `COMPANY_ID`, `PATH`) VALUES
-(1, 'test1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 1', '100', '2013-09-01 00:00:00', 1, 'TestPdf1.pdf'),
-(2, 'test2', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 2', '200', '2013-09-02 00:00:00', 2, 'TestPdf2.pdf'),
-(3, 'test3', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 3', '300', '2013-09-03 00:00:00', 3, 'TestPdf3.pdf'),
-(4, 'test4', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 4', '400', '2013-09-04 00:00:00', 4, 'TestPdf4.pdf'),
-(5, 'test5', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 5', '500', '2013-09-05 00:00:00', 5, 'TestPdf5.pdf');
+INSERT INTO `PDF` (`ID`, `NAME`, `DESCRIPTION`, `PRICE`, `UPDATE_DATE`, `COMPANY_ID`, `GROUP_LEVEL1`, `PATH`) VALUES
+(1, 'test1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 1', '100', '2013-09-01 00:00:00', 1, 1, 'TestPdf1.pdf'),
+(2, 'test2', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 2', '200', '2013-09-02 00:00:00', 2, 1, 'TestPdf2.pdf'),
+(3, 'test3', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 3', '300', '2013-09-03 00:00:00', 3, 2, 'TestPdf3.pdf'),
+(4, 'test4', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 4', '400', '2013-09-04 00:00:00', 4, 2, 'TestPdf4.pdf'),
+(5, 'test5', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 5', '500', '2013-09-05 00:00:00', 5, 1, 'TestPdf5.pdf');
 
 -- --------------------------------------------------------
 
@@ -316,7 +565,14 @@ CREATE TABLE IF NOT EXISTS `PERMISSION` (
   PRIMARY KEY (`ID`),
   KEY `fk_USER_PROFILE_has_GROUP_LV2_GROUP_LV21_idx` (`GROUP_LV2_ID`),
   KEY `fk_USER_PROFILE_has_GROUP_LV2_USER_PROFILE1_idx` (`USER_PROFILE_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `PERMISSION`
+--
+
+INSERT INTO `PERMISSION` (`ID`, `USER_PROFILE_ID`, `GROUP_LV2_ID`, `IS_ACTIVE`, `START_DATE`, `END_DATE`) VALUES
+(1, 1, 1, 'Y', '2013-09-01 00:00:00', '2013-09-28 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -412,6 +668,7 @@ CREATE TABLE IF NOT EXISTS `USER_PROFILE` (
   `COUNTRY_ID` int(11) NOT NULL,
   `TECHNOLOGY_ID` int(11) NOT NULL,
   `USER_PROFILEcol` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `PHOTO_NAME` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `EMAIL` (`EMAIL`),
   KEY `fk_USER_PROFILE_JOB_LEVEL1_idx` (`JOB_LEVEL`),
@@ -425,8 +682,8 @@ CREATE TABLE IF NOT EXISTS `USER_PROFILE` (
 -- Dumping data for table `USER_PROFILE`
 --
 
-INSERT INTO `USER_PROFILE` (`ID`, `FIRSTNAME`, `LASTNAME`, `EMAIL`, `COMPANY`, `PASSWORD`, `JOB_TITLE`, `ADDRESS`, `CITY`, `ZIP`, `PHONE`, `FAX`, `IS_ACTIVE`, `IS_ADMIN`, `JOB_LEVEL`, `DEPARTMENT_ID`, `INDUSTRY_ID`, `COUNTRY_ID`, `TECHNOLOGY_ID`, `USER_PROFILEcol`) VALUES
-(1, 'A', 'A', 'a@a.com', 'A', '6f9b0a55df8ac28564cb9f63a10be8af6ab3f7c277de54ccf56eb6f7dbf99e4d3be949ab', NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'N', 1, 1, 1, 1, 1, NULL);
+INSERT INTO `USER_PROFILE` (`ID`, `FIRSTNAME`, `LASTNAME`, `EMAIL`, `COMPANY`, `PASSWORD`, `JOB_TITLE`, `ADDRESS`, `CITY`, `ZIP`, `PHONE`, `FAX`, `IS_ACTIVE`, `IS_ADMIN`, `JOB_LEVEL`, `DEPARTMENT_ID`, `INDUSTRY_ID`, `COUNTRY_ID`, `TECHNOLOGY_ID`, `USER_PROFILEcol`, `PHOTO_NAME`) VALUES
+(1, 'A', 'A', 'a@a.com', 'A', '6f9b0a55df8ac28564cb9f63a10be8af6ab3f7c277de54ccf56eb6f7dbf99e4d3be949ab', NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'N', 1, 1, 1, 1, 1, NULL, '');
 
 -- --------------------------------------------------------
 
