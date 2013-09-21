@@ -6,7 +6,7 @@ include ("include/top-menu.php");
 <div id="content">
 	<div class="container_12">
 		<div id="container-detail" class="left">
-			<div id="content-middle" class="grid_8">
+			<div id="content-middle-nomenu" class="grid_10">
 
 				<?php
 
@@ -32,8 +32,8 @@ include ("include/top-menu.php");
 					</li>
 				</ul>
 				<br class="clear"/>
-				<div class="grid_6">
-					<section class="report-detail" class="grid_4">
+				<div class="grid_9">
+					<section class="report-detail" class="grid_9">
 						<p class="text-blue bold">
 							<?php echo $row['NAME']; ?>
 						</p>
@@ -69,7 +69,7 @@ include ("include/top-menu.php");
 
 				</div>
 				<div class="grid_1 center" id="price-box">
-					<b class="center">฿ <?php echo $row['PRICE']; ?></b>
+					<p><b class="center">฿ <?php echo $row['PRICE']; ?></b></p>
 					<?php
 					echo "<a href='download-pdf.php?pdfId=". $id ."'>";
 					?>
