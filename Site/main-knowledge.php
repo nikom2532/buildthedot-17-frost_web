@@ -276,7 +276,10 @@ include ($rootpath."include/top-menu.php");
 <?php
 					}
 ?>
-						<!-- <section>
+<?php
+						/*
+?>
+						<section>
 							<p class="bold">
 								<span class="text-lightgreen head-desc">Title: </span><a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<span id="ic-lock"><img src="images/icons/ic_lock.png" width="16" height="16"></span></a>
 							</p>
@@ -286,7 +289,7 @@ include ($rootpath."include/top-menu.php");
 							<p>
 								<span class="text-lightgreen bold head-desc">Description: </span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
 							</p>
-						</section> -->
+						</section>
 						<div class="grid_12" id="page-num">
 							<ul class="left">
 								<li class="active-page">
@@ -322,6 +325,9 @@ include ($rootpath."include/top-menu.php");
 							</ul>
 						</div>
 						<!--end page num -->
+<?php
+						*/
+?>
 						
 					</div><!--end content-middle -->
 				</div>
