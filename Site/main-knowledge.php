@@ -54,7 +54,7 @@ include ($rootpath."include/top-menu.php");
 								// else{
 									$str[]="
 										<li>
-											<a href=\"main-knowledge.php?id={$rsnav2["ID"]}&glvl={$temp_glvl__}\">".$rsnav2["NAME"]."</a>
+											<a href=\"main-knowledge.php?id={$rsnav2["ID"]}&glvl=".($temp_glvl__-1)."\">".$rsnav2["NAME"]."</a>
 										</li>
 									";
 								// }
