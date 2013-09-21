@@ -17,7 +17,7 @@ include ($rootpath."include/top-menu.php");
 					$temp_id__ = $_GET["id"];
 					$temp_glvl__ = $_GET["glvl"];
 					$str = array();
-					while ($temp_glvl__ >= 2) {
+					while ($temp_glvl__ >= 1) {
 						$SQLnav = "
 							SELECT *
 							FROM `GROUP_LV" . $temp_glvl__ . "`
@@ -26,27 +26,42 @@ include ($rootpath."include/top-menu.php");
 						$resultnav = @mysql_query($SQLnav);
 						if($rsnav = @mysql_fetch_array($resultnav)) {
 							$temp_id__ = $rsnav["GROUP_LV" . ($temp_glvl__ - 1) . "_ID"];
+							//echo $rsnav["NAME"]."-";
+							if($temp_glvl__==$_GET["glvl"]){
+								$str[]="
+									<li class=\"text-lightorange bold  text-nav\">{$rsnav["NAME"]}</li>
+								";
+							}
+							// else{
+								// $str[]="
+									// <li>
+										// <a href=\"main-knowledge.php?id={$rsnav2["ID"]}&glvl={$temp_glvl__}\">".$rsnav["NAME"]."</a>
+									// </li>
+								// ";
+							// }
 							$SQLnav2 = "
 								SELECT *
-								FROM `GROUP_LV" . ($temp_glvl__) . "`
+								FROM `GROUP_LV" . ($temp_glvl__-1) . "`
 								WHERE `ID` = " . $temp_id__ . "
 							;";
 							$resultnav2 = @mysql_query($SQLnav2);
 							if($rsnav2 = @mysql_fetch_array($resultnav2)) {
-								if($temp_glvl__==$_GET["glvl"])
-								{
-									$str[]="
-										<li class=\"text-lightorange bold  text-nav\">{$rsnav2["NAME"]}</li>
-									";
-								}
-								else{
+								// if($temp_glvl__==$_GET["glvl"]){
+									// $str[]="
+										// <li class=\"text-lightorange bold  text-nav\">{$rsnav2["NAME"]}</li>
+									// ";
+								// }
+								// else{
 									$str[]="
 										<li>
 											<a href=\"main-knowledge.php?id={$rsnav2["ID"]}&glvl={$temp_glvl__}\">".$rsnav2["NAME"]."</a>
 										</li>
 									";
-								}
+								// }
 							}//end query2
+							// else{
+								// echo "a";
+							// }
 							if($temp_glvl__==3){	//find Group Level 2 ID
 								$PERMISSION_glvl2_ID = $temp_id__;
 							}

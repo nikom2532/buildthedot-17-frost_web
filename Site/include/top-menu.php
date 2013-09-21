@@ -7,8 +7,9 @@
 			<!-- member login-->
 			<ul class="right"> 
 				<li id="button-myprofile">
-					<?php $userID = $_SESSION["userid"];?>
 					
+					<?php $userID = $_SESSION["userid"];?>
+						
 						<?php 
 						if($_SESSION["userid"]==""){ ?>
 							<a href="myprofile.php" class="link grid_2 text-orange uppercase">Sign In</a>

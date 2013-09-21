@@ -35,22 +35,22 @@
 		
 		//generate the dynamic menu on the LHS
 		if(!isset($_GET["glvl"])){
-	    	$SQL="
-	    		SELECT * 
+  	$SQL="
+  		SELECT * 
 				FROM  `GROUP_LV1` 
-	    	;";
+  	;";
 		}
 		else{
-	    	$SQL="
-	    		SELECT * 
+  	$SQL="
+  		SELECT * 
 				FROM  `GROUP_LV".$_GET["glvl"]."`
-	    	;";
+  	;";
 		}
 		$SQL="
-    		SELECT * 
+ 		SELECT * 
 			FROM  `GROUP_LV2`
 			WHERE `GROUP_LV1_ID` = {$temp_id}
-    	;";
+ 	;";
 		$db->query($SQL);
 		while($rs=$db->fetchAssoc()){
 ?>
@@ -86,7 +86,7 @@
 											
 											
 											//if($rs3["GROUP_LV3_ID"]==$parentGroup3){
-											//if($rs3["GROUP_LV3_ID"]==$_GET["id"]){
+											//if($rs3["GROUP_LV3_ID"]==$_GET["id"] && $_GET["glvl"]==4){
 											//if($rs3["GROUP_LV3_ID"]==1){
 ?>
 												<ul> 
