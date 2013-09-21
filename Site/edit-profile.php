@@ -1,5 +1,6 @@
 <?php 
 include("include/header.php");
+include ("myprofile-proc.php");
 if($_SESSION["userid"]==""){
 	include ($rootpath . "include/login.php");
 	include ("include/footer.php");
@@ -9,16 +10,6 @@ else{
 }
 ?>
 
-<?php
-$userID = $_GET['userID'];
-$strQuery = "";
-
-$strQuery = "SELECT * FROM user_profile WHERE ID ='$userID'";
-//echo "strQuery=>".$strQuery ;
-$cmdQueryMyprofile =  mysql_query($strQuery);
-$Num_Rows = mysql_num_rows($cmdQueryMyprofile);
-
-?>
 	<div id="content">
     	<div class="container_12" id="container">
         <div id="content-middle" class="grid_12">
