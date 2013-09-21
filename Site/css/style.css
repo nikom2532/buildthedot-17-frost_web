@@ -41,7 +41,6 @@ h5 { font-size: 0.625em; /* 10/16 */ }
 
 /* ---------- LINK ---------- */
 	a, a:visited {color:white;text-decoration: none; outline: 0; }
-	a:hover, a:focus { color: #000; }
 	p a, p a:visited { line-height: inherit; }
 
 /* ---------- BUTTONS ---------- */
@@ -135,6 +134,10 @@ body {
 	line-height: 1.725em; 
 	font-family:Arial,Helvetica,sans-serif;
 	font-size:0.85em;
+}
+.seperator{
+	margin-top: 15px;
+	font-weight: bold;
 }
 #wrapper{
 	margin-top:-24px;
@@ -353,8 +356,11 @@ ul.report-tag li {
 	font-weight: bold;
 margin-bottom: 15px; /*10*/
 }
-#profile-detail p{
-	margin-bottom: 10px;
+#profile-detail{
+	margin-bottom: 5px;
+}
+#edit-password{
+	margin-top: 10px;
 }
 #profile-detail #edit-password a{
 	color:#6DA32C;
@@ -622,12 +628,17 @@ span.inactive {
 	
 }
 /*----------login------------*/
-#header { padding: 1.25em 0; background-color:#FFF;/* 20/16 */ }
+#header { 
+	padding: 1.25em 0; 
+	background-color:#FFF;
+	margin-top: -25px;
+}
 .page-full-width { padding: 0 1.875em; /* 30/16 */ }
 #content-login {
 	background: #f8f9fa url('../images/artwork-pattern.png') repeat-x left bottom;
 	border: 1px solid #eeefef;
 	padding-top: 110px; /* 30/16 */
+	padding-bottom:15px;
 	height:355px;
 	margin: 0 auto;
 }

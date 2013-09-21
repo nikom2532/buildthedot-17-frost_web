@@ -18,19 +18,19 @@ if ($_SESSION["userid"] == "") {
             <div class="grid_8" id="profile-detail">
             	<?php while($fetchArray=mysql_fetch_array($cmdQueryMyprofile)){?>
             		
-            		<div>
+            		<div class="seperator">
 						<img src="images/user_images/<?=$fetchArray['PHOTO_NAME'] ?>"  alt="profile">
-					</div><br>
+					</div>
 							
-            		<p>Name</p>
-	                <p><?=$fetchArray['FIRSTNAME'] ?><span class="indent"><?=$fetchArray['LASTNAME'] ?></span></p><br>
-	                <p>Email</p>
-	                <p><?=$fetchArray['EMAIL'] ?></p><br>
-	                <p>Company</p>
-	                <p><?=$fetchArray['COMPANY'] ?></p><br>
-	                <p>Job title</p>
-	                <p><?=$fetchArray['JOB_TITLE'] ?></p><br>
-	                <p>Department</p>
+            		<p class="seperator">Name</p>
+	                <p><?=$fetchArray['FIRSTNAME'] ?><span class="indent"><?=$fetchArray['LASTNAME'] ?></span></p>
+	                <p class="seperator">Email</p>
+	                <p><?=$fetchArray['EMAIL'] ?></p>
+	                <p class="seperator">Company</p>
+	                <p><?=$fetchArray['COMPANY'] ?></p>
+	                <p class="seperator">Job title</p>
+	                <p><?=$fetchArray['JOB_TITLE'] ?></p>
+	                <p class="seperator">Department</p>
 	                <?php
                 		$departmentID = $fetchArray['DEPARTMENT_ID'];
 						$sqlDepartment = "SELECT * FROM DEPARTMENT WHERE ID = '$departmentID'";
@@ -40,8 +40,8 @@ if ($_SESSION["userid"] == "") {
 							echo $rowDepartment['NAME'];
 						}
 						echo "</p>";
-					?><br>
-	                <p>Industry</p>
+					?>
+	                <p class="seperator">Industry</p>
 	                <?php
                 		$industryID = $fetchArray['INDUSTRY_ID'];
 						$sqlIndustry = "SELECT * FROM INDUSTRY WHERE ID = '$industryID'";
@@ -51,18 +51,18 @@ if ($_SESSION["userid"] == "") {
 							echo $rowIndustry['NAME'];
 						}
 						echo "</p>";
-					?><br>
+					?>
 	                <!-- <p>Technology</p>
 	                <p><?=$fetchArray['TECHNOLOGY_ID'] ?></p><br> -->
 	                <!-- <p>Company Size</p>
 	                <p><?=$fetchArray['COMPANY'] ?></p><br> -->
-	                <p>Address</p>
-	                <p><?=$fetchArray['ADDRESS'] ?></p><br>
-	                <p>City</p>
-	                <p><?=$fetchArray['CITY'] ?></p><br>
-	                <p>Zip</p>
-	                <p><?=$fetchArray['ZIP'] ?></p><br>
-	                <p>Country</p>
+	                <p class="seperator">Address</p>
+	                <p><?=$fetchArray['ADDRESS'] ?></p>
+	                <p class="seperator">City</p>
+	                <p><?=$fetchArray['CITY'] ?></p>
+	                <p class="seperator">Zip</p>
+	                <p><?=$fetchArray['ZIP'] ?></p>
+	                <p  class="seperator">Country</p>
 	                <?php
                 		$countryID = $fetchArray['COUNTRY_ID'];
 						$sqlCountry = "SELECT * FROM COUNTRY WHERE ID = '$countryID'";
@@ -72,11 +72,11 @@ if ($_SESSION["userid"] == "") {
 							echo $rowCountry['NAME'];
 						}
 						echo "</p>";
-					?><br>
-	                <p>Phone</p>
-	                <p><?=$fetchArray['PHONE'] ?></p><br>
-	                <p>Fax</p>
-	                <p><?=$fetchArray['FAX'] ?></p><br>
+					?>
+	                <p class="seperator">Phone</p>
+	                <p><?=$fetchArray['PHONE'] ?></p>
+	                <p class="seperator">Fax</p>
+	                <p><?=$fetchArray['FAX'] ?></p>
                 <?php } ?>
             </div>
             <br class="clear"/>

@@ -22,33 +22,31 @@ if ($_SESSION["userid"] == "") {
 							<?php while($fetchArray=mysql_fetch_array($cmdQueryMyprofile)){?>
 							
 							<div>
-								<p>Profile Picture</p>
-								<img src="images/user_images/<?=$fetchArray['PHOTO_NAME'] ?>"  alt="profile">
-								<br><br>
-								<input type="file" name="file" id="file"><br>
+								<img src="images/user_images/<?=$fetchArray['PHOTO_NAME'] ?>"  alt="profile" class="seperator">
+								<p class="seperator"><input type="file" name="file" id="file"></p>
 							</div>
 							<p>
-								<p>Name</p>
+								<p class="seperator">Name</p>
 								<input type="text" id="firstname" name="firstname" value="<?=$fetchArray['FIRSTNAME'] ?>" />
 								<span class="indent"></span>
 								<input type="text" id="lastname" name="lastname"  value="<?=$fetchArray['LASTNAME'] ?>" />
 								</span>
 							</p>
 							<p>
-								<p>Email</p>
+								<p class="seperator">Email</p>
 								<input type="text" id="email" name="email" value="<?=$fetchArray['EMAIL'] ?>" />
 							</p>
 							<p>
-								<p>Company</p>
+								<p class="seperator">Company</p>
 								<input type="text" id="company" name="company" value="<?=$fetchArray['COMPANY'] ?>" />
 							</p>
 							<p>
-								<p>Job title</p>
+								<p class="seperator">Job title</p>
 								<input type="text" id="jobTitle" name="jobTitle" value="<?=$fetchArray['JOB_TITLE'] ?>" />
 							</p>
 							
 							<!-- department -->
-							<p>Department</p>
+							<p class="seperator">Department</p>
 							<?php
 							$sqlDepartment = "SELECT * FROM DEPARTMENT";
 							$resultDepartment = mysql_query($sqlDepartment);
@@ -66,7 +64,7 @@ if ($_SESSION["userid"] == "") {
 							?>
 							
 							<!-- industry -->
-							<p>Industry</p>
+							<p class="seperator">Industry</p>
 							<?php
 							$sqlIndustry = "SELECT * FROM INDUSTRY";
 							$resultIndustry = mysql_query($sqlIndustry);
@@ -109,22 +107,22 @@ if ($_SESSION["userid"] == "") {
 							 ?>
 							
 							<p>
-								<p>Address</p>
+								<p class="seperator">Address</p>
 								<textarea style="resize: none; width: 318px; height: 100px;" id="address" name="address" class="round full-width-textarea"><?=$fetchArray['ADDRESS'] ?></textarea>
 							</p>
 							
 							<p>
-								<p>City</p>
+								<p class="seperator">City</p>
 								<input type="text" id="city" name="city" value="<?=$fetchArray['CITY'] ?>" />
 							</p>
 							
 							<p>
-								<p>Zip</p>
+								<p class="seperator">Zip</p>
 								<input type="text" id="zip" name="zip" value="<?=$fetchArray['ZIP'] ?>" />
 							</p>
 							
 							<!-- country -->
-							<p>Country</p>
+							<p class="seperator">Country</p>
 							<?php
 							$sqlCountry = "SELECT * FROM COUNTRY";
 							$resultCountry = mysql_query($sqlCountry);
@@ -142,12 +140,12 @@ if ($_SESSION["userid"] == "") {
 							?>
 							
 							<p>
-								<p>Phone</p>
+								<p class="seperator">Phone</p>
 								<input type="text" id="phone" name="phone" value="<?=$fetchArray['PHONE'] ?>" />
 							</p>
 							
 							<p>
-								<p>Fax</p>
+								<p class="seperator">Fax</p>
 								<input type="text" id="fax" name="fax" value="<?=$fetchArray['FAX'] ?>" />
 							</p>
 							<?php } ?>

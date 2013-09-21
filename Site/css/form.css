@@ -37,7 +37,7 @@ form label {
 	color: #2a2e36;
 	margin: 0 0 0.3125em 0;
 }
-form select{
+#advancesearch-form select{
 	margin-top:2em;
 }
 form select{
@@ -50,6 +50,7 @@ form label.alt-label { text-transform: none; }
 form input[type="text"], input[type="password"], textarea {
 	border: 1px solid #d9dbdd;
 	padding: 0.625em 0.625em; /* 16/16 10/16 */
+	margin-bottom: 10px;
 	outline: none;
 	width: 200px;
 }
@@ -108,7 +109,10 @@ form input.error-input { border: 1px solid #ff876f; }
 /* So far they don't work in: IE, Opera 10 and below, Firefox 3.6 and below */
 ::-webkit-input-placeholder { color: #858d9c; }
 :-moz-placeholder { color: #858d9c; }
-
+#editprofile-form select{
+	margin-top: 0.5em;
+	padding:0.5em;
+}
 .icSearch {
 	background-image: url(../images/icons/ic_zoom.png);
 	background-repeat: no-repeat;
