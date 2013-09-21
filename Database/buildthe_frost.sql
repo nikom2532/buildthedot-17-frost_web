@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 21, 2013 at 02:15 PM
+-- Generation Time: Sep 21, 2013 at 08:37 PM
 -- Server version: 5.1.67
 -- PHP Version: 5.3.24
 
@@ -676,14 +676,15 @@ CREATE TABLE IF NOT EXISTS `USER_PROFILE` (
   KEY `fk_USER_PROFILE_INDUSTRY_ID1_idx` (`INDUSTRY_ID`),
   KEY `fk_USER_PROFILE_COUNTRY_ID1_idx` (`COUNTRY_ID`),
   KEY `fk_USER_PROFILE_TECHNOLOGY_ID1_idx` (`TECHNOLOGY_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `USER_PROFILE`
 --
 
 INSERT INTO `USER_PROFILE` (`ID`, `FIRSTNAME`, `LASTNAME`, `EMAIL`, `COMPANY`, `PASSWORD`, `JOB_TITLE`, `ADDRESS`, `CITY`, `ZIP`, `PHONE`, `FAX`, `IS_ACTIVE`, `IS_ADMIN`, `JOB_LEVEL`, `DEPARTMENT_ID`, `INDUSTRY_ID`, `COUNTRY_ID`, `TECHNOLOGY_ID`, `USER_PROFILEcol`, `PHOTO_NAME`) VALUES
-(1, 'A', 'A', 'a@a.com', 'A', '6f9b0a55df8ac28564cb9f63a10be8af6ab3f7c277de54ccf56eb6f7dbf99e4d3be949ab', NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'N', 1, 1, 1, 1, 1, NULL, '');
+(1, 'A', 'A', 'a@a.com', 'A', '77de54ccf56eb6f7dbf99e4d3be949ab6f9b0a55df8ac28564cb9f63a10be8af6ab3f7c2', NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'N', 1, 1, 1, 1, 1, NULL, ''),
+(3, '', '', 'b@b.com', '', '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e', NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'N', 1, 1, 1, 1, 1, NULL, '');
 
 -- --------------------------------------------------------
 
