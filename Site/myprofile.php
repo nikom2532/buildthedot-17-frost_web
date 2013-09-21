@@ -84,16 +84,16 @@ if ($_SESSION["userid"] == "") {
             <a href="edit-profile.php?userID=<?=$userID ?>" class="button orange ic-edit image-right">Edit profile</a>
             </div>
         </div><!--end profile -->
+        <br class="clear"/>
         <div id="billing-account" class="grid_12">
-            <h1 id="head-title" class="text-green">Billing account</h1>
-            <div class="grid_2" id="profile-title">
-                <p>Name</p>
-                <p>Company</p>
-                <p>Email</p>
-            </div>
-            <div class="grid_8" id="profile-detail">
+            <h1 id="head-title" class="text-green" class="grid_12">Billing account</h1>
+            
+            <div class="grid_8" id="profile-title">
+                <p class="seperator">Name</p>
                 <p>- </p><!--name -->
+                <p class="seperator">Company</p>
                 <p>- </p><!--Company -->
+                <p class="seperator">Email</p>    
                 <p>- </p><!--Email -->
             </div>
             <br class="clear"/>

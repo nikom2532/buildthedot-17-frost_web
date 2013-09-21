@@ -9,7 +9,7 @@ include ("include/top-menu.php");
 		<?php
 			include ("include/side-menu-knowledge.php");
 		?>
-		<div id="container-detail" class="left">
+		 <div id="container" class="left">
 			<div id="content-middle" class="grid_8">
 
 				<?php
@@ -132,7 +132,7 @@ include ("include/top-menu.php");
 				
 				
 			</div><!--end content-middle -->
-		</div>
+		<!-- </div> -->
 	</div><!--end container_12 -->
 </div><!--end content -->
 

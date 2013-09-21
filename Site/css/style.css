@@ -290,6 +290,7 @@ ul#topnav li span a:hover {text-decoration: none; color:#484949;}
 	line-height: 2.123em;
 }
 #content-middle {
+	background-color: #FFFFFF;
 	height: auto;
 	padding-bottom: 40px;
 }
@@ -351,10 +352,6 @@ ul.report-tag li {
 }
 #ic-lock img{
 	margin-left:10px;
-}
-#profile-title p{
-	font-weight: bold;
-margin-bottom: 15px; /*10*/
 }
 #profile-detail{
 	margin-bottom: 5px;
