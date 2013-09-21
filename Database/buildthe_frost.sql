@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 20, 2013 at 09:59 PM
+-- Generation Time: Sep 21, 2013 at 02:15 PM
 -- Server version: 5.1.67
 -- PHP Version: 5.3.24
 
@@ -654,7 +654,7 @@ CREATE TABLE IF NOT EXISTS `USER_PROFILE` (
   `EMAIL` varchar(60) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `COMPANY` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `PASSWORD` varchar(250) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'md5(sha1($password)) ต่อ String กับ sha1(md5($password))',
-  `JOB_TITLE` varchar(3) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `JOB_TITLE` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `ADDRESS` varchar(60) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `CITY` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `ZIP` varchar(10) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
