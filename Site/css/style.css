@@ -294,7 +294,14 @@ ul#topnav li span a:hover {text-decoration: none; color:#484949;}
 	height: auto;
 	padding-bottom: 40px;
 }
-
+#content-middle-nomenu{
+	width:960px;
+	padding-top:20px;
+	padding-left:40px;
+	background-color: #FFFFFF;
+	height: auto;
+	padding-bottom: 40px;
+}
 #content-middle section{
 	text-align:justify;
 	line-height: 1.73em;
@@ -317,6 +324,9 @@ ul#topnav li span a:hover {text-decoration: none; color:#484949;}
 }
 .report-detail{
 	text-align:justify;
+}
+.report-detail p {
+	margin-bottom: 10px;
 }
 ul.report-tag {
 	list-style-type: none;
