@@ -73,7 +73,7 @@ include ("include/top-menu.php");
 
 				</div>
 				<div class="grid_1 center" id="price-box">
-					<b class="center">฿ <?php echo $row['PRICE']; ?></b>
+					<p><b class="center">฿ <?php echo $row['PRICE']; ?></b></p>
 					<?php
 					echo "<a href='download-pdf.php?pdfId=". $id ."'>";
 					?>

@@ -294,6 +294,9 @@ ul#topnav li span a:hover {text-decoration: none; color:#484949;}
 	height: auto;
 	padding-bottom: 40px;
 }
+#content-middle section a {
+	color: #000000;
+}
 #content-middle-nomenu{
 	width:960px;
 	padding-top:20px;
