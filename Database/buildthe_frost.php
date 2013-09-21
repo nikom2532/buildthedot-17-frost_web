@@ -386,7 +386,8 @@ $TECHNOLOGY_ID = array(
 
 // `buildthe_frost`.`USER_PROFILE`
 $USER_PROFILE = array(
-  array('ID' => '1','FIRSTNAME' => 'A','LASTNAME' => 'A','EMAIL' => 'a@a.com','COMPANY' => 'A','PASSWORD' => '6f9b0a55df8ac28564cb9f63a10be8af6ab3f7c277de54ccf56eb6f7dbf99e4d3be949ab','JOB_TITLE' => NULL,'ADDRESS' => NULL,'CITY' => NULL,'ZIP' => NULL,'PHONE' => NULL,'FAX' => NULL,'IS_ACTIVE' => 'Y','IS_ADMIN' => 'N','JOB_LEVEL' => '1','DEPARTMENT_ID' => '1','INDUSTRY_ID' => '1','COUNTRY_ID' => '1','TECHNOLOGY_ID' => '1','USER_PROFILEcol' => NULL,'PHOTO_NAME' => '')
+  array('ID' => '1','FIRSTNAME' => 'A','LASTNAME' => 'A','EMAIL' => 'a@a.com','COMPANY' => 'A','PASSWORD' => '77de54ccf56eb6f7dbf99e4d3be949ab6f9b0a55df8ac28564cb9f63a10be8af6ab3f7c2','JOB_TITLE' => NULL,'ADDRESS' => NULL,'CITY' => NULL,'ZIP' => NULL,'PHONE' => NULL,'FAX' => NULL,'IS_ACTIVE' => 'Y','IS_ADMIN' => 'N','JOB_LEVEL' => '1','DEPARTMENT_ID' => '1','INDUSTRY_ID' => '1','COUNTRY_ID' => '1','TECHNOLOGY_ID' => '1','USER_PROFILEcol' => NULL,'PHOTO_NAME' => ''),
+  array('ID' => '3','FIRSTNAME' => '','LASTNAME' => '','EMAIL' => 'b@b.com','COMPANY' => '','PASSWORD' => '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e','JOB_TITLE' => NULL,'ADDRESS' => NULL,'CITY' => NULL,'ZIP' => NULL,'PHONE' => NULL,'FAX' => NULL,'IS_ACTIVE' => 'Y','IS_ADMIN' => 'N','JOB_LEVEL' => '1','DEPARTMENT_ID' => '1','INDUSTRY_ID' => '1','COUNTRY_ID' => '1','TECHNOLOGY_ID' => '1','USER_PROFILEcol' => NULL,'PHOTO_NAME' => '')
 );
 
 );
