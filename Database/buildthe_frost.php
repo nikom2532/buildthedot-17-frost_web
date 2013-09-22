@@ -361,6 +361,22 @@ $PERMISSION = array(
   array('ID' => '1','USER_PROFILE_ID' => '1','GROUP_LV2_ID' => '1','IS_ACTIVE' => 'Y','START_DATE' => '2013-09-01 00:00:00','END_DATE' => '2013-09-28 00:00:00')
 );
 
+// `buildthe_frost`.`QUESTION`
+$QUESTION = array(
+  array('ID' => '1','NAME' => 'What was your childhood nickname?'),
+  array('ID' => '2','NAME' => 'What is the name of your favorite childhood friend? '),
+  array('ID' => '3','NAME' => 'What is the middle name of your oldest child?'),
+  array('ID' => '4','NAME' => 'What school did you attend for sixth grade?'),
+  array('ID' => '5','NAME' => 'What was the name of your first stuffed animal?'),
+  array('ID' => '6','NAME' => 'In what city or town did your mother and father meet? '),
+  array('ID' => '7','NAME' => 'In what city does your nearest sibling live? '),
+  array('ID' => '8','NAME' => 'In what city or town was your first job?'),
+  array('ID' => '9','NAME' => 'What is the name of the place your wedding reception was held?'),
+  array('ID' => '10','NAME' => 'What was your favorite place to visit as a child?'),
+  array('ID' => '11','NAME' => 'What is the street number of the house you grew up in?'),
+  array('ID' => '12','NAME' => 'What was your dream job as a child? ')
+);
+
 // `buildthe_frost`.`TAG`
 $TAG = array(
   array('ID' => '1','NAME' => 'tag1'),
@@ -386,8 +402,9 @@ $TECHNOLOGY_ID = array(
 
 // `buildthe_frost`.`USER_PROFILE`
 $USER_PROFILE = array(
-  array('ID' => '1','FIRSTNAME' => 'A','LASTNAME' => 'A','EMAIL' => 'a@a.com','COMPANY' => 'A','PASSWORD' => '77de54ccf56eb6f7dbf99e4d3be949ab6f9b0a55df8ac28564cb9f63a10be8af6ab3f7c2','JOB_TITLE' => NULL,'ADDRESS' => NULL,'CITY' => NULL,'ZIP' => NULL,'PHONE' => NULL,'FAX' => NULL,'IS_ACTIVE' => 'Y','IS_ADMIN' => 'N','JOB_LEVEL' => '1','DEPARTMENT_ID' => '1','INDUSTRY_ID' => '1','COUNTRY_ID' => '1','TECHNOLOGY_ID' => '1','USER_PROFILEcol' => NULL,'PHOTO_NAME' => ''),
-  array('ID' => '3','FIRSTNAME' => '','LASTNAME' => '','EMAIL' => 'b@b.com','COMPANY' => '','PASSWORD' => '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e','JOB_TITLE' => NULL,'ADDRESS' => NULL,'CITY' => NULL,'ZIP' => NULL,'PHONE' => NULL,'FAX' => NULL,'IS_ACTIVE' => 'Y','IS_ADMIN' => 'N','JOB_LEVEL' => '1','DEPARTMENT_ID' => '1','INDUSTRY_ID' => '1','COUNTRY_ID' => '1','TECHNOLOGY_ID' => '1','USER_PROFILEcol' => NULL,'PHOTO_NAME' => '')
+  array('ID' => '1','FIRSTNAME' => 'A','LASTNAME' => 'A','EMAIL' => 'a@a.com','COMPANY' => 'A','PASSWORD' => '77de54ccf56eb6f7dbf99e4d3be949ab6f9b0a55df8ac28564cb9f63a10be8af6ab3f7c2','JOB_TITLE' => '','ADDRESS' => '','CITY' => '','ZIP' => '','PHONE' => '','FAX' => '','IS_ACTIVE' => 'Y','IS_ADMIN' => 'N','JOB_LEVEL' => '1','DEPARTMENT_ID' => '1','INDUSTRY_ID' => '1','COUNTRY_ID' => '1','TECHNOLOGY_ID' => '1','USER_PROFILEcol' => NULL,'PHOTO_NAME' => 'testUserProfile.jpg','QUESTION_ID' => '1','ANSWER' => 'a'),
+  array('ID' => '3','FIRSTNAME' => 'B','LASTNAME' => 'B','EMAIL' => 'b@b.com','COMPANY' => 'B','PASSWORD' => '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e','JOB_TITLE' => NULL,'ADDRESS' => NULL,'CITY' => NULL,'ZIP' => NULL,'PHONE' => NULL,'FAX' => NULL,'IS_ACTIVE' => 'Y','IS_ADMIN' => 'N','JOB_LEVEL' => '1','DEPARTMENT_ID' => '1','INDUSTRY_ID' => '1','COUNTRY_ID' => '1','TECHNOLOGY_ID' => '1','USER_PROFILEcol' => NULL,'PHOTO_NAME' => '','QUESTION_ID' => '2','ANSWER' => 'b'),
+  array('ID' => '4','FIRSTNAME' => 'Voravan','LASTNAME' => 'Charn','EMAIL' => 'wc.fone@yahoo.com','COMPANY' => 'Buildthedot','PASSWORD' => '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e','JOB_TITLE' => NULL,'ADDRESS' => NULL,'CITY' => NULL,'ZIP' => NULL,'PHONE' => NULL,'FAX' => NULL,'IS_ACTIVE' => 'Y','IS_ADMIN' => 'N','JOB_LEVEL' => '1','DEPARTMENT_ID' => '1','INDUSTRY_ID' => '1','COUNTRY_ID' => '1','TECHNOLOGY_ID' => '1','USER_PROFILEcol' => NULL,'PHOTO_NAME' => '','QUESTION_ID' => '3','ANSWER' => 'fon')
 );
 
 );

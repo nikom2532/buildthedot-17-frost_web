@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 21, 2013 at 08:37 PM
+-- Generation Time: Sep 23, 2013 at 01:37 AM
 -- Server version: 5.1.67
 -- PHP Version: 5.3.24
 
@@ -577,6 +577,36 @@ INSERT INTO `PERMISSION` (`ID`, `USER_PROFILE_ID`, `GROUP_LV2_ID`, `IS_ACTIVE`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `QUESTION`
+--
+
+CREATE TABLE IF NOT EXISTS `QUESTION` (
+  `ID` int(100) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(200) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=13 ;
+
+--
+-- Dumping data for table `QUESTION`
+--
+
+INSERT INTO `QUESTION` (`ID`, `NAME`) VALUES
+(1, 'What was your childhood nickname?'),
+(2, 'What is the name of your favorite childhood friend? '),
+(3, 'What is the middle name of your oldest child?'),
+(4, 'What school did you attend for sixth grade?'),
+(5, 'What was the name of your first stuffed animal?'),
+(6, 'In what city or town did your mother and father meet? '),
+(7, 'In what city does your nearest sibling live? '),
+(8, 'In what city or town was your first job?'),
+(9, 'What is the name of the place your wedding reception was held?'),
+(10, 'What was your favorite place to visit as a child?'),
+(11, 'What is the street number of the house you grew up in?'),
+(12, 'What was your dream job as a child? ');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `TAG`
 --
 
@@ -669,6 +699,8 @@ CREATE TABLE IF NOT EXISTS `USER_PROFILE` (
   `TECHNOLOGY_ID` int(11) NOT NULL,
   `USER_PROFILEcol` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `PHOTO_NAME` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `QUESTION_ID` int(50) NOT NULL,
+  `ANSWER` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `EMAIL` (`EMAIL`),
   KEY `fk_USER_PROFILE_JOB_LEVEL1_idx` (`JOB_LEVEL`),
@@ -676,15 +708,16 @@ CREATE TABLE IF NOT EXISTS `USER_PROFILE` (
   KEY `fk_USER_PROFILE_INDUSTRY_ID1_idx` (`INDUSTRY_ID`),
   KEY `fk_USER_PROFILE_COUNTRY_ID1_idx` (`COUNTRY_ID`),
   KEY `fk_USER_PROFILE_TECHNOLOGY_ID1_idx` (`TECHNOLOGY_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `USER_PROFILE`
 --
 
-INSERT INTO `USER_PROFILE` (`ID`, `FIRSTNAME`, `LASTNAME`, `EMAIL`, `COMPANY`, `PASSWORD`, `JOB_TITLE`, `ADDRESS`, `CITY`, `ZIP`, `PHONE`, `FAX`, `IS_ACTIVE`, `IS_ADMIN`, `JOB_LEVEL`, `DEPARTMENT_ID`, `INDUSTRY_ID`, `COUNTRY_ID`, `TECHNOLOGY_ID`, `USER_PROFILEcol`, `PHOTO_NAME`) VALUES
-(1, 'A', 'A', 'a@a.com', 'A', '77de54ccf56eb6f7dbf99e4d3be949ab6f9b0a55df8ac28564cb9f63a10be8af6ab3f7c2', NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'N', 1, 1, 1, 1, 1, NULL, ''),
-(3, '', '', 'b@b.com', '', '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e', NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'N', 1, 1, 1, 1, 1, NULL, '');
+INSERT INTO `USER_PROFILE` (`ID`, `FIRSTNAME`, `LASTNAME`, `EMAIL`, `COMPANY`, `PASSWORD`, `JOB_TITLE`, `ADDRESS`, `CITY`, `ZIP`, `PHONE`, `FAX`, `IS_ACTIVE`, `IS_ADMIN`, `JOB_LEVEL`, `DEPARTMENT_ID`, `INDUSTRY_ID`, `COUNTRY_ID`, `TECHNOLOGY_ID`, `USER_PROFILEcol`, `PHOTO_NAME`, `QUESTION_ID`, `ANSWER`) VALUES
+(1, 'A', 'A', 'a@a.com', 'A', '77de54ccf56eb6f7dbf99e4d3be949ab6f9b0a55df8ac28564cb9f63a10be8af6ab3f7c2', '', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 1, 1, NULL, 'testUserProfile.jpg', 1, 'a'),
+(3, 'B', 'B', 'b@b.com', 'B', '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e', NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'N', 1, 1, 1, 1, 1, NULL, '', 2, 'b'),
+(4, 'Voravan', 'Charn', 'wc.fone@yahoo.com', 'Buildthedot', '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e', NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'N', 1, 1, 1, 1, 1, NULL, '', 3, 'fon');
 
 -- --------------------------------------------------------
 
