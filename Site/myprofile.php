@@ -20,7 +20,12 @@ if ($_SESSION["userid"] == "") {
 					?>
 
 					<div class="seperator">
-						<img src="images/user_images/<?=$fetchArray['PHOTO_NAME'] ?>"  alt="profile">
+						<?php
+							if($fetchArray['PHOTO_NAME'] != ""){?>
+								<img src="images/user_images/<?=$fetchArray['PHOTO_NAME'] ?>"  alt="profile">
+							<?php }
+						?>
+						
 					</div>
 
 					<p class="seperator">
