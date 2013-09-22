@@ -21,12 +21,12 @@
 
 			<p>
 				<label for="login-username">E-mail</label>
-				<input type="text" id="login-username" name="email" class="round full-width-input" autofocus />
+				<input autocomplete="off" type="text" id="login-username" name="email" class="round full-width-input" autofocus />
 			</p>
 
 			<p>
 				<label for="login-password">password</label>
-				<input type="password" id="login-password" name="password" class="round full-width-input" />
+				<input autocomplete="off" type="password" id="login-password" name="password" class="round full-width-input" />
 			</p>
 
 			<a href="#" class="button round orange image-right ic-right-arrow" onclick="document.getElementById('login-form').submit();">LOG IN</a>

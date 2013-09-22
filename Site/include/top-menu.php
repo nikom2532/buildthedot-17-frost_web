@@ -2,7 +2,7 @@
 	<div id="top-bar">
 		<div class="container_12" id="nav-profile">
 			<div class="grid_5">
-				<img src="images/mckansys_logo.png" alt="logo">
+				<a href="./index.php"><img src="images/mckansys_logo.png" alt="logo"></a>
 			</div>
 			<!-- member login-->
 			<ul class="right"> 

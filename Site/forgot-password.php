@@ -25,23 +25,34 @@ if (x==null || x=="")
 <!-- end header -->
 
 <!-- MAIN CONTENT -->
-<div id="content-login" style="text-align: center;">
-
+<div id="content">
+		<div class="container_12" id="container">
+			<div id="content-middle">
+				<div id="profile" >
+					<h1 id="head-title" class="text-green grid_12">Forgot password</h1>
+					<br class="clear"/>
 	<form action="forgot-password-proc.php" method="POST" name="forgot-password-form" id="forgot-password-form" onsubmit="return validateForm()">
 
 		<fieldset>
 
 			<p>
-				<label for="email">E-mail</label>
-				<input type="text" id="email" name="email" class="round full-width-input" autofocus />
+				<label for="email">Please enter yor E-mail</label>
+				<input autocomplete="off" type="text" id="email" name="email" class="round full-width-input" autofocus />
 			</p>
-			<input class="button round orange image-right ic-right-arrow" type="submit" value="SEND EMAIL">
+			<input class="button round orange image-right ic-right-arrow" type="submit" value="NEXT">
 		</fieldset>
 
 	</form>
 	
 
-</div>
+</div><!--end profile -->
+	
+			</div><!--end content-middle -->
+	
+			<br class="clear"/>
+	
+		</div><!--end container_12 -->
+	</div><!--end content -->
 <!-- end content -->
 
 <!-- FOOTER -->
