@@ -25,7 +25,7 @@ if (x==null || x=="")
 <div id="header">
 
 	<div class="page-full-width cf">
-		<img src="images/mckansys_logo.png" width="200" height="27" alt="logo">
+		<a href="index.php"><img src="images/mckansys_logo.png" width="200" height="27" alt="logo"></a>
 		<!-- login-intro -->
 	</div>
 	<!-- end full-width -->
