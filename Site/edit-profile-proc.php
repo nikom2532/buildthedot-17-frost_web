@@ -19,7 +19,7 @@
 	$cmdQuery = mysql_query($strSQL);
 	echo $filename;
 	if ($cmdQuery) {
-		// header("Location: myprofile.php?userID=$userID");
+		header("Location: myprofile.php?userID=$userID");
 	} else {
 		echo "<script>";
 		echo "alert('Update profile failed'); ";
