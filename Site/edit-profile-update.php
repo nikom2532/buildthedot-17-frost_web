@@ -18,33 +18,49 @@ $country_id = $_POST['country'];
 $phone = $_POST['phone'];
 $fax = $_POST['fax'];
 
-
-$strSQL = "UPDATE USER_PROFILE SET 
-FIRSTNAME='$firstname',
-LASTNAME='$lastname',
-EMAIL='$email',
-COMPANY='$company',
-JOB_TITLE='$jobTitle',
-DEPARTMENT_ID='$department_id',
-INDUSTRY_ID='$industry_id',
-ADDRESS='$address',
-CITY='$city',
-ZIP='$zip',
-COUNTRY_ID='$country_id',
-PHONE='$phone',
-FAX='$fax'";
-
-$strSQL .= "WHERE ID='$userID'";
-//echo "strQuery=>".$strSQL ;
-$cmdQuery = mysql_query($strSQL);
-
-if ($cmdQuery) {
-	header("Location: myprofile.php?userID=$userID");
-} else {
-	echo "<script>";
-	echo "alert('Update profile failed'); ";
-	echo "location.href='edit_profile.php?userID=$userID'; ";
-	echo "</script>";
+// upload image
+if(!(!file_exists($_FILES['imagefile']['tmp_name']) || !is_uploaded_file($_FILES['imagefile']['tmp_name']))){
+	
+	if ($_FILES["imagefile"]["error"] > 0) {
+		echo "Error: " . $_FILES["imagefile"]["error"] . "<br>";
+	} else {
+		echo "Upload: " . $_FILES["imagefile"]["name"] . "<br>";
+		echo "Type: " . $_FILES["imagefile"]["type"] . "<br>";
+		echo "Size: " . ($_FILES["imagefile"]["size"] / 1024) . " kB<br>";
+		echo "Stored in: " . $_FILES["imagefile"]["tmp_name"];
+	}
+	?>
+	
+	<?php
+	$target_path = $rootpath."../images/user_images/";
+	$filename = $_POST["sgid"]."_".strtotime("now")."_".basename($_FILES["imagefile"]['name']);
+	$target_path = $target_path . $filename;
+	
+	$allowedExts = array("gif", "jpeg", "jpg", "png");
+	$temp = explode(".", $_FILES["imagefile"]["name"]);
+	$extension = end($temp);
+	if ((($_FILES["imagefile"]["type"] == "image/gif")
+	|| ($_FILES["imagefile"]["type"] == "image/jpeg")
+	|| ($_FILES["imagefile"]["type"] == "image/jpg")
+	|| ($_FILES["imagefile"]["type"] == "image/pjpeg")
+	|| ($_FILES["imagefile"]["type"] == "image/x-png")
+	|| ($_FILES["imagefile"]["type"] == "image/png"))
+	&& in_array($extension, $allowedExts)){
+		if ($_FILES["imagefile"]["error"] > 0) {
+			echo "Error: " . $_FILES["imagefile"]["error"] . "<br />";
+		} else {
+			if (move_uploaded_file($_FILES["imagefile"]['tmp_name'], $target_path)) {
+				echo "The file " . basename($_FILES["imagefile"]['name']) . " has been uploaded";
+				include($rootpath."edit-profile-proc-with-image.php");
+			} else {
+				echo "There was an error uploading the file, please try again!";
+			}
+		}
+	} else {
+		echo "Invalid file";
+	}
+} else{
+	include($rootpath."edit-profile-proc.php");
+	
 }
-?>
 

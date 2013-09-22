@@ -22,8 +22,10 @@ if ($_SESSION["userid"] == "") {
 							<?php while($fetchArray=mysql_fetch_array($cmdQueryMyprofile)){?>
 							
 							<div>
-								<img src="images/user_images/<?=$fetchArray['PHOTO_NAME'] ?>"  alt="profile" class="seperator">
-								<p class="seperator"><input type="file" name="file" id="file"></p>
+								<!-- <img src="images/user_images/<?=$fetchArray['PHOTO_NAME'] ?>"  alt="profile" class="seperator">
+								<p class="seperator"><input type="file" name="file" id="file"></p> -->
+								<h5>Change Image</h5>
+								<input name="imagefile" type="file" />
 							</div>
 							<p>
 								<p class="seperator">Name</p>
