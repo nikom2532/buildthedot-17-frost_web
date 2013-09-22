@@ -24,7 +24,7 @@ if ($_SESSION["userid"] == "") {
 							<div>
 								<!-- <img src="images/user_images/<?=$fetchArray['PHOTO_NAME'] ?>"  alt="profile" class="seperator">
 								<p class="seperator"><input type="file" name="file" id="file"></p> -->
-								<h5>Change Image</h5>
+								<p class="seperator">Change Image</p>
 								<input name="imagefile" type="file" />
 							</div>
 							<p>
