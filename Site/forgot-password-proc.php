@@ -9,6 +9,8 @@ $email = htmlspecialchars(trim($_POST["email"]),ENT_QUOTES);
 	if($count > 0) {
 		$row = mysql_fetch_array($result);
 		
+		$passwordFromDb = md5(sha1($row["PASSWORD"])).sha1(md5($row["PASSWORD"]));
+		
 		$strTo = $row["EMAIL"];
 		$strSubject = "Your Account information username and password.";
 		$strHeader = "Content-type: text/html; charset=windows-874\n"; // or UTF-8 //
@@ -16,7 +18,7 @@ $email = htmlspecialchars(trim($_POST["email"]),ENT_QUOTES);
 		$strMessage = "";
 		$strMessage .= "Welcome : ".$row["FIRSTNAME"]."&nbsp;&nbsp;".$row["LASTNAME"]."<br>";
 		$strMessage .= "Username : ".$email."<br>";
-		$strMessage .= "Password : ".$row["PASSWORD"]."<br>";
+		$strMessage .= "Password : ".$passwordFromDb."<br>";
 		$strMessage .= "=================================<br>";
 		$strMessage .= "Mckansys.Com<br>";
 		$flgSend = mail($strTo,$strSubject,$strMessage,$strHeader);

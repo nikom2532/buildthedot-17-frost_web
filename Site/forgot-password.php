@@ -25,7 +25,7 @@ if (x==null || x=="")
 <!-- end header -->
 
 <!-- MAIN CONTENT -->
-<div id="content-login">
+<div id="content-login" style="text-align: center;">
 
 	<form action="forgot-password-proc.php" method="POST" name="forgot-password-form" id="forgot-password-form" onsubmit="return validateForm()">
 
