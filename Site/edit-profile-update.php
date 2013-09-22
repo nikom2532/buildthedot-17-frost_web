@@ -32,7 +32,7 @@ if(!(!file_exists($_FILES['imagefile']['tmp_name']) || !is_uploaded_file($_FILES
 	?>
 	
 	<?php
-	$target_path = $rootpath."../images/user_images/";
+	$target_path = $rootpath."images/user_images/";
 	$filename = $_POST["sgid"]."_".strtotime("now")."_".basename($_FILES["imagefile"]['name']);
 	$target_path = $target_path . $filename;
 	
