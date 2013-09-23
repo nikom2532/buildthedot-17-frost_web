@@ -171,6 +171,7 @@ include ($rootpath."include/top-menu.php");
 				
 					############## Find Children ####################
 					while ($temp_glvl_content < 6) {
+						$temp_c_ID = array();
 						$SQLcontent="
 							SELECT * 
 							FROM  `PDF`
@@ -196,15 +197,32 @@ include ($rootpath."include/top-menu.php");
 							$c_NAME[] = $rscontent["NAME"];
 							$c_UPDATE_DATE[] = $rscontent["UPDATE_DATE"];
 							$c_DESCRIPTION[] = $rscontent["DESCRIPTION"];
+							
+							$temp_c_ID[] = $rscontent["GROUP_LEVEL_ID"];
 						}
 						$SQLcontent2="
 							SELECT * 
 							FROM  `GROUP_LV{$temp_glvl_content}`
 							WHERE `ID` = '{$temp_id_content}'
 						";
+						$SQLcontent2="
+							SELECT * 
+							FROM  `GROUP_LV".($temp_glvl_content+2)."`
+							WHERE `GROUP_LV".($temp_glvl_content+1)."_ID`
+							IN (";
+						for ($ii=0; $ii < count($temp_c_ID); $ii++) { 
+							$SQLcontent2.=$temp_c_ID[$ii];
+							if($ii<count($temp_c_ID)-1){
+								$SQLcontent2.=",";
+							}
+						}
+						$SQLcontent2=
+						")
+						;";
+						
 						$resultcontent2 = @mysql_query($SQLcontent2);
 						while ($rscontent2 = @mysql_fetch_array($resultcontent2)) {
-							$temp_id_content = $rscontent2["GROUP_LV".($temp_glvl_content-1)."_ID"];
+							$temp_id_content = $rscontent2["GROUP_LV".($temp_glvl_content+1)."_ID"];
 						}
 						$temp_glvl_content++;
 					}//end while
