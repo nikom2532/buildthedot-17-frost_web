@@ -101,6 +101,10 @@ include ($rootpath."include/top-menu.php");
 					}
 					
 					//####### Query List ##########
+					
+					$temp_glvl_content = $_GET["glvl"];
+					$temp_id_content = $_GET["id"];
+					
 					$c_ID = array();
 					$c_NAME = array();
 					$c_UPDATE_DATE = array();
@@ -109,13 +113,15 @@ include ($rootpath."include/top-menu.php");
 						SELECT * 
 						FROM  `PDF`
 						INNER JOIN `PDF_CATEGORY`  
-						WHERE `PDF_CATEGORY`.`GROUP_LEVEL_NAME` = '{$_GET["glvl"]}'
-						AND `PDF_CATEGORY`.`GROUP_LEVEL_ID` = '{$_GET["id"]}'
+						WHERE `PDF_CATEGORY`.`GROUP_LEVEL_NAME` = '{$temp_glvl_content}'
+						AND `PDF_CATEGORY`.`GROUP_LEVEL_ID` = '{$temp_id_content}'
 						AND `PDF_CATEGORY`.`PDF_ID` = `PDF`.`ID`
 					;";
 					$resultcontent = @mysql_query($SQLcontent);
 					while ($rscontent = @mysql_fetch_array($resultcontent)) {
-						$c_ID[] = $rscontent["ID"];
+						$c_ID[] = $temp_id_content;
+						$c_glvl[] = $temp_glvl_content;
+						$c_PDF_CATEGORY_ID[] = $rscontent["ID"];
 						$c_NAME[] = $rscontent["NAME"];
 						$c_UPDATE_DATE[] = $rscontent["UPDATE_DATE"];
 						$c_DESCRIPTION[] = $rscontent["DESCRIPTION"];
@@ -124,8 +130,7 @@ include ($rootpath."include/top-menu.php");
 					//#################################
 					//####### Query 2nd List ##########
 					//#################################
-					$temp_glvl_content = $_GET["glvl"];
-					$temp_id_content = $_GET["id"];
+					
 					/*
 					//############## Find Parents ################
 				
@@ -164,7 +169,7 @@ include ($rootpath."include/top-menu.php");
 					}//end while
 					*/
 				
-					//############## Find Children ####################
+					############## Find Children ####################
 					while ($temp_glvl_content < 6) {
 						$SQLcontent="
 							SELECT * 
@@ -181,7 +186,13 @@ include ($rootpath."include/top-menu.php");
 						;";
 						$resultcontent = @mysql_query($SQLcontent);
 						while ($rscontent = @mysql_fetch_array($resultcontent)) {
-							$c_ID[] = $rscontent["ID"];
+							//print_r($rscontent);
+							//$c_ID[] = $rscontent["ID"];
+							
+							$c_ID[] = $rscontent["GROUP_LEVEL_ID"];
+							//$c_glvl[] = $rscontent["GROUP_LEVEL_NAME"];
+							$c_glvl[] = $temp_glvl_content+1;
+							$c_PDF_CATEGORY_ID[] = $rscontent["ID"];
 							$c_NAME[] = $rscontent["NAME"];
 							$c_UPDATE_DATE[] = $rscontent["UPDATE_DATE"];
 							$c_DESCRIPTION[] = $rscontent["DESCRIPTION"];
@@ -224,7 +235,7 @@ include ($rootpath."include/top-menu.php");
 						<section>
 							<p class="bold text-title-report">
 								<span class="text-lightgreen head-desc">Title: </span>
-								<a href="<?php echo $rootpath; ?>report-detail.php?id=<?php echo $c_ID["$i"]; ?>&glvl=<?php echo $_GET["glvl"]; ?>">
+								<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_CATEGORY_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
 									<?php echo $c_NAME["$i"]; ?>
 									<span id="ic-lock">
 <?php
