@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 23, 2013 at 01:37 AM
+-- Generation Time: Sep 23, 2013 at 03:35 PM
 -- Server version: 5.1.67
 -- PHP Version: 5.3.24
 
@@ -510,7 +510,6 @@ CREATE TABLE IF NOT EXISTS `PDF` (
   `PRICE` decimal(10,0) DEFAULT NULL,
   `UPDATE_DATE` datetime DEFAULT NULL,
   `COMPANY_ID` int(11) DEFAULT NULL,
-  `GROUP_LEVEL1` int(2) NOT NULL,
   `PATH` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
@@ -519,12 +518,12 @@ CREATE TABLE IF NOT EXISTS `PDF` (
 -- Dumping data for table `PDF`
 --
 
-INSERT INTO `PDF` (`ID`, `NAME`, `DESCRIPTION`, `PRICE`, `UPDATE_DATE`, `COMPANY_ID`, `GROUP_LEVEL1`, `PATH`) VALUES
-(1, 'test1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 1', '100', '2013-09-01 00:00:00', 1, 1, 'TestPdf1.pdf'),
-(2, 'test2', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 2', '200', '2013-09-02 00:00:00', 2, 1, 'TestPdf2.pdf'),
-(3, 'test3', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 3', '300', '2013-09-03 00:00:00', 3, 2, 'TestPdf3.pdf'),
-(4, 'test4', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 4', '400', '2013-09-04 00:00:00', 4, 2, 'TestPdf4.pdf'),
-(5, 'test5', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 5', '500', '2013-09-05 00:00:00', 5, 1, 'TestPdf5.pdf');
+INSERT INTO `PDF` (`ID`, `NAME`, `DESCRIPTION`, `PRICE`, `UPDATE_DATE`, `COMPANY_ID`, `PATH`) VALUES
+(1, 'test1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 1', '100', '2013-09-01 00:00:00', 1, 'TestPdf1.pdf'),
+(2, 'test2', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 2', '200', '2013-09-02 00:00:00', 2, 'TestPdf2.pdf'),
+(3, 'test3', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 3', '300', '2013-09-03 00:00:00', 3, 'TestPdf3.pdf'),
+(4, 'test4', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 4', '400', '2013-09-04 00:00:00', 4, 'TestPdf4.pdf'),
+(5, 'test5', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 5', '500', '2013-09-05 00:00:00', 5, 'TestPdf5.pdf');
 
 -- --------------------------------------------------------
 
