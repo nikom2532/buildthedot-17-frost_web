@@ -9,6 +9,13 @@ include ("include/top-menu.php");
 		<br class="clear"/>
 		<div id="icon">
 			<div class="grid_3 center">
+				<!-- <?php echo $rootpath; ?>main-knowledge.php?id=2 -->
+				<a href=#> <img src="images/icon-best-practice.png" width="124" height="123" alt="Market">
+				<p class="text-blue bold">
+					Market
+				</p> </a>
+			</div>
+			<div class="grid_3 center">
 				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=1&glvl=2"><img src="images/icon-technology.png" width="123" height="123" alt="Technology">
 				<p class="text-blue bold">
 					Technology
@@ -24,13 +31,6 @@ include ("include/top-menu.php");
 				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=3&glvl=2"> <img src="images/icon-asean.png" width="127" height="127" alt="Around Asean">
 				<p class="text-blue bold">
 					Around Asean
-				</p> </a>
-			</div>
-			<div class="grid_3 center">
-				<!-- <?php echo $rootpath; ?>main-knowledge.php?id=2 -->
-				<a href=#> <img src="images/icon-best-practice.png" width="124" height="123" alt="Market">
-				<p class="text-blue bold">
-					Market
 				</p> </a>
 			</div>
 		</div><!--end icon -->
