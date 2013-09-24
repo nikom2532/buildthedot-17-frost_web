@@ -74,10 +74,10 @@ include ("include/top-menu.php");
 				</div>
 				<div class="grid_1 center" id="price-box">
 					<p><b class="center">฿ <?php echo $row['PRICE']; ?></b></p>
-					<?php
-					echo "<a href='download-pdf.php?pdfId=". $id ."'>";
-					?>
-						<b class="button darkgreen" id="download-button"><!-- Download --><?php 
+<?php
+					
+?>
+						<!-- Download --><?php 
 							//####### Find Lock Download Key ##########
 							$temp_id__ = $_GET["id"];
 							$temp_glvl__ = $_GET["glvl"];
@@ -119,12 +119,26 @@ include ("include/top-menu.php");
 								$PERMISSION_Is_Lockkey = "Y";
 							}
 							if($PERMISSION_Is_Lockkey=="Y"){
+								echo "<a href='#'>";
+?>
+								<b class="button darkgreen" id="download-button">
+<?php
 								echo "Paid";
+?>
+								</b>
+<?php
 							}
 							elseif($PERMISSION_Is_Lockkey=="N"){
+								echo "<a href='download-pdf.php?pdfId=". $id ."'>";
+?>
+								<b class="button darkgreen" id="download-button">
+<?php
 								echo "Download";
+?>
+								</b>
+<?php
 							}
-						?></b>
+						?>
 					</a>
 				</div>
 			

@@ -210,7 +210,7 @@ include ($rootpath."include/top-menu.php");
 							FROM  `GROUP_LV".($temp_glvl_content+2)."`
 							WHERE `GROUP_LV".($temp_glvl_content+1)."_ID`
 							IN (";
-						for ($ii=0; $ii < count($temp_c_ID); $ii++) { 
+						for ($ii=0; $ii < count($temp_c_ID); $ii++) {
 							$SQLcontent2.=$temp_c_ID[$ii];
 							if($ii<count($temp_c_ID)-1){
 								$SQLcontent2.=",";
