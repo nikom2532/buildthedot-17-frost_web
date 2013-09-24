@@ -177,8 +177,8 @@
 	
 										<select id="group-name">
 											<option value="default">Select Gruop</option>
+                                            <option value="market">Market</option>
                                             <option value="knowledge">Knowledge</option>
-                                            <option value="best-practice">Best Practice</option>
 										</select>
 									</p>
                                     <p class="form-error-input">

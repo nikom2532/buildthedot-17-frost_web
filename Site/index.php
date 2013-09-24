@@ -27,9 +27,10 @@ include ("include/top-menu.php");
 				</p> </a>
 			</div>
 			<div class="grid_3 center">
-				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=2"> <img src="images/icon-best-practice.png" width="124" height="123" alt="Best Practice">
+				<!-- <?php echo $rootpath; ?>main-knowledge.php?id=2 -->
+				<a href=#> <img src="images/icon-best-practice.png" width="124" height="123" alt="Market">
 				<p class="text-blue bold">
-					Best Practice
+					Market
 				</p> </a>
 			</div>
 		</div><!--end icon -->
