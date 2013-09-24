@@ -1,5 +1,5 @@
 <?php
-	$strSQL = "UPDATE USER_PROFILE SET 
+	echo $strSQL = "UPDATE USER_PROFILE SET 
 	FIRSTNAME='$firstname',
 	LASTNAME='$lastname',
 	EMAIL='$email',
@@ -20,7 +20,7 @@
 	$cmdQuery = mysql_query($strSQL);
 	
 	if ($cmdQuery) {
-		header("Location: myprofile.php?userID=$userID");
+		//header("Location: myprofile.php?userID=$userID");
 	} else {
 		echo "<script>";
 		echo "alert('Update profile failed'); ";

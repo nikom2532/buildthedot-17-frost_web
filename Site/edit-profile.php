@@ -157,7 +157,7 @@ if ($_SESSION["userid"] == "") {
 					</div>
 					<br class="clear"/>
 					<div class="grid_2 prefix_4">
-						<input name="userID" type="hidden" value="<?=$userID ?>" />
+						<?php /* <input name="userID" type="hidden" value="<?php echo $userID; ?>" /> */ ?>
 						<input type="submit" value="Save change" class="button orange image-right ic-right-arrow"/>
 					</div>
 				</form>
