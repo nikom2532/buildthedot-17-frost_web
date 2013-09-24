@@ -25,16 +25,6 @@ else {
 	$phone = $_POST['phone'];
 	$fax = $_POST['fax'];
 	
-	
-		if ($_FILES["imagefile"]["error"] > 0) {
-			echo "Error: " . $_FILES["imagefile"]["error"] . "<br>";
-		} else {
-			echo "Upload: " . $_FILES["imagefile"]["name"] . "<br>";
-			echo "Type: " . $_FILES["imagefile"]["type"] . "<br>";
-			echo "Size: " . ($_FILES["imagefile"]["size"] / 1024) . " kB<br>";
-			echo "Stored in: " . $_FILES["imagefile"]["tmp_name"];
-		}
-	
 	// upload image
 	if(!(!file_exists($_FILES['imagefile']['tmp_name']) || !is_uploaded_file($_FILES['imagefile']['tmp_name']))){
 		

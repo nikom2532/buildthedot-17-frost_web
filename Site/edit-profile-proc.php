@@ -14,7 +14,7 @@
 	PHONE='$phone',
 	FAX='$fax'";
 	
-	$strSQL .= "WHERE ID='$userID'";
+	$strSQL .= "WHERE ID='".$_SESSION["userid"]."'";
 	//echo "strQuery=>".$strSQL ;
 	$cmdQuery = mysql_query($strSQL);
 	echo $filename;
