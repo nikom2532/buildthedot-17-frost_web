@@ -1,4 +1,5 @@
 <?php
+$rootpath = "./";
 include ("include/header.php");
 include ("myprofile-proc.php");
 ?>

@@ -1,10 +1,11 @@
 <?php
+$rootpath = "./";
 include ("include/header.php");
-include ("myprofile-proc.php");
 if ($_SESSION["userid"] == "") {
 	include ($rootpath . "include/login.php");
 	include ("include/footer.php");
 } else {
+	include ("myprofile-proc.php");
 	include ("include/top-menu.php");
 ?>
 <div id="content">
@@ -13,7 +14,7 @@ if ($_SESSION["userid"] == "") {
 			<div id="profile" >
 				<h1 id="head-title" class="text-green grid_12">Edit profile</h1>
 				
-				<form action="edit-profile-update.php" name="editprofile-form" id="editprofile-form" method="POST">
+				<form action="edit-profile-update.php" name="editprofile-form" id="editprofile-form" method="POST" enctype="multipart/form-data">
 					
 					<div class="grid_8" id="profile-detail">
 						<fieldset>
