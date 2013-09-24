@@ -6,8 +6,6 @@ if ($_SESSION["userid"] == "") {
 	include ("include/footer.php");
 } else {
 	include ("include/top-menu.php");
-}
-
 ?>
 <div id="content">
 	<div class="container_12" id="container">
@@ -176,4 +174,5 @@ if ($_SESSION["userid"] == "") {
 </div><!--end content -->
 <?php
 include ("include/footer.php");
+}
 ?>
