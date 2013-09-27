@@ -276,19 +276,18 @@ $GROUP_LV1 = array(
 $GROUP_LV2 = array(
   array('ID' => '1','NAME' => 'Technology','GROUP_LV1_ID' => '1'),
   array('ID' => '2','NAME' => 'Strategy','GROUP_LV1_ID' => '1'),
-  array('ID' => '3','NAME' => 'Around Asian','GROUP_LV1_ID' => '1'),
+  array('ID' => '3','NAME' => 'Around Asean','GROUP_LV1_ID' => '1'),
   array('ID' => '4','NAME' => 'E-Business','GROUP_LV1_ID' => '2'),
   array('ID' => '5','NAME' => 'Customer Experience Management','GROUP_LV1_ID' => '2'),
   array('ID' => '6','NAME' => 'Value Innovation','GROUP_LV1_ID' => '2'),
   array('ID' => '7','NAME' => 'Process Improvement','GROUP_LV1_ID' => '2'),
   array('ID' => '8','NAME' => 'Go to Market','GROUP_LV1_ID' => '2'),
-  array('ID' => '9','NAME' => 'Competitive Analysis','GROUP_LV1_ID' => '2')
+  array('ID' => '9','NAME' => 'Competitive Analysis','GROUP_LV1_ID' => '2'),
+  array('ID' => '10','NAME' => 'Market','GROUP_LV1_ID' => '1')
 );
 
 // `buildthe_frost`.`GROUP_LV3`
 $GROUP_LV3 = array(
-  array('ID' => '1','NAME' => 'Research Thailand','GROUP_LV2_ID' => '1'),
-  array('ID' => '2','NAME' => 'Global Trend','GROUP_LV2_ID' => '1'),
   array('ID' => '3','NAME' => 'E-Business','GROUP_LV2_ID' => '2'),
   array('ID' => '4','NAME' => 'Customer Experience Management','GROUP_LV2_ID' => '2'),
   array('ID' => '5','NAME' => 'Value Innovation','GROUP_LV2_ID' => '2'),
@@ -303,30 +302,12 @@ $GROUP_LV3 = array(
 
 // `buildthe_frost`.`GROUP_LV4`
 $GROUP_LV4 = array(
-  array('ID' => '1','NAME' => 'Telecom Market Data','GROUP_LV3_ID' => '1'),
-  array('ID' => '2','NAME' => 'ICT Industry Outlook','GROUP_LV3_ID' => '1'),
-  array('ID' => '3','NAME' => 'ICT Technology','GROUP_LV3_ID' => '2'),
-  array('ID' => '4','NAME' => 'Highlight of the month','GROUP_LV3_ID' => '2'),
   array('ID' => '5','NAME' => 'World Economic Index','GROUP_LV3_ID' => '10'),
   array('ID' => '6','NAME' => 'ICT Competency Index','GROUP_LV3_ID' => '10'),
   array('ID' => '7','NAME' => 'Country','GROUP_LV3_ID' => '11'),
   array('ID' => '8','NAME' => 'Year','GROUP_LV3_ID' => '12')
 );
 
-// `buildthe_frost`.`GROUP_LV5`
-$GROUP_LV5 = array(
-  array('ID' => '1','NAME' => 'Fixed Line -Voice','GROUP_LV4_ID' => '1'),
-  array('ID' => '2','NAME' => 'Fixed Line -Data','GROUP_LV4_ID' => '1'),
-  array('ID' => '3','NAME' => 'Mobile - Voice','GROUP_LV4_ID' => '1'),
-  array('ID' => '4','NAME' => 'Mobile - Data','GROUP_LV4_ID' => '1'),
-  array('ID' => '5','NAME' => 'Application','GROUP_LV4_ID' => '2'),
-  array('ID' => '6','NAME' => 'ICT Service','GROUP_LV4_ID' => '2'),
-  array('ID' => '7','NAME' => 'Infrastructure','GROUP_LV4_ID' => '2'),
-  array('ID' => '8','NAME' => 'Sector Focus','GROUP_LV4_ID' => '2'),
-  array('ID' => '9','NAME' => 'Consumer Market','GROUP_LV4_ID' => '2'),
-  array('ID' => '10','NAME' => 'Application','GROUP_LV4_ID' => '3'),
-  array('ID' => '11','NAME' => 'Infrastructure','GROUP_LV4_ID' => '3'),
-  array('ID' => '12','NAME' => 'ICT Service','GROUP_LV4_ID' => '3')
 );
 
 );
