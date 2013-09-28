@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 28, 2013 at 01:22 AM
+-- Generation Time: Sep 29, 2013 at 02:21 AM
 -- Server version: 5.1.67
 -- PHP Version: 5.3.27
 
@@ -347,7 +347,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV2` (
 INSERT INTO `GROUP_LV2` (`ID`, `NAME`, `GROUP_LV1_ID`) VALUES
 (1, 'Technology', 1),
 (2, 'Strategy', 1),
-(3, 'Around Asean', 1),
+(3, 'Around Asian', 1),
 (4, 'E-Business', 2),
 (5, 'Customer Experience Management', 2),
 (6, 'Value Innovation', 2),
@@ -483,6 +483,7 @@ INSERT INTO `JOB_LEVEL` (`ID`, `NAME`) VALUES
 CREATE TABLE IF NOT EXISTS `PDF` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `PHOTO_NAME` varchar(100) NOT NULL,
   `DESCRIPTION` text CHARACTER SET utf8 COLLATE utf8_bin,
   `PRICE` decimal(10,0) DEFAULT NULL,
   `UPDATE_DATE` datetime DEFAULT NULL,
@@ -495,12 +496,12 @@ CREATE TABLE IF NOT EXISTS `PDF` (
 -- Dumping data for table `PDF`
 --
 
-INSERT INTO `PDF` (`ID`, `NAME`, `DESCRIPTION`, `PRICE`, `UPDATE_DATE`, `COMPANY_ID`, `PATH`) VALUES
-(1, 'test1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 1', '100', '2013-09-01 00:00:00', 1, 'TestPdf1.pdf'),
-(2, 'test2', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 2', '200', '2013-09-02 00:00:00', 2, 'TestPdf2.pdf'),
-(3, 'test3', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 3', '300', '2013-09-03 00:00:00', 3, 'TestPdf3.pdf'),
-(4, 'test4', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 4', '400', '2013-09-04 00:00:00', 4, 'TestPdf4.pdf'),
-(5, 'test5', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 5', '500', '2013-09-05 00:00:00', 5, 'TestPdf5.pdf');
+INSERT INTO `PDF` (`ID`, `NAME`, `PHOTO_NAME`, `DESCRIPTION`, `PRICE`, `UPDATE_DATE`, `COMPANY_ID`, `PATH`) VALUES
+(1, 'test1', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 1', '100', '2013-09-01 00:00:00', 1, 'TestPdf1.pdf'),
+(2, 'test2', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 2', '200', '2013-09-02 00:00:00', 2, 'TestPdf2.pdf'),
+(3, 'test3', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 3', '300', '2013-09-03 00:00:00', 3, 'TestPdf3.pdf'),
+(4, 'test4', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 4', '400', '2013-09-04 00:00:00', 4, 'TestPdf4.pdf'),
+(5, 'test5', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 5', '500', '2013-09-05 00:00:00', 5, 'TestPdf5.pdf');
 
 -- --------------------------------------------------------
 
@@ -522,8 +523,8 @@ CREATE TABLE IF NOT EXISTS `PDF_CATEGORY` (
 --
 
 INSERT INTO `PDF_CATEGORY` (`ID`, `PDF_ID`, `GROUP_LEVEL_NAME`, `GROUP_LEVEL_ID`) VALUES
-(1, 1, '4', 1),
-(2, 2, '3', 1);
+(1, 1, '2', 2),
+(2, 2, '2', 3);
 
 -- --------------------------------------------------------
 
@@ -548,7 +549,7 @@ CREATE TABLE IF NOT EXISTS `PERMISSION` (
 --
 
 INSERT INTO `PERMISSION` (`ID`, `USER_PROFILE_ID`, `GROUP_LV2_ID`, `IS_ACTIVE`, `START_DATE`, `END_DATE`) VALUES
-(1, 1, 1, 'Y', '2013-09-01 00:00:00', '2013-09-28 00:00:00');
+(1, 1, 2, 'Y', '2013-09-01 00:00:00', '2014-09-28 00:00:00');
 
 -- --------------------------------------------------------
 

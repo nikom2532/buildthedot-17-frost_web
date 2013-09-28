@@ -125,6 +125,7 @@ include ($rootpath."include/top-menu.php");
 						$c_NAME[] = $rscontent["NAME"];
 						$c_UPDATE_DATE[] = $rscontent["UPDATE_DATE"];
 						$c_DESCRIPTION[] = $rscontent["DESCRIPTION"];
+						$c_PHOTO_NAME[] = $rscontent["PHOTO_NAME"];
 					}
 				
 					//#################################
@@ -197,6 +198,7 @@ include ($rootpath."include/top-menu.php");
 							$c_NAME[] = $rscontent["NAME"];
 							$c_UPDATE_DATE[] = $rscontent["UPDATE_DATE"];
 							$c_DESCRIPTION[] = $rscontent["DESCRIPTION"];
+							$c_PHOTO_NAME[] = $rscontent["PHOTO_NAME"];
 							
 							$temp_c_ID[] = $rscontent["GROUP_LEVEL_ID"];
 						}
@@ -256,6 +258,7 @@ include ($rootpath."include/top-menu.php");
 							}
 						 ?>>
 							<p class="bold text-title-report">
+								<img src="images/pdf_image/<?php echo $c_PHOTO_NAME["$i"]; ?>" />
 								<span class="text-lightgreen head-desc">Title: </span>
 								<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_CATEGORY_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
 									<?php echo $c_NAME["$i"]; ?>

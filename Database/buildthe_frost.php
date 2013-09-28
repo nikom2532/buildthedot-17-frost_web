@@ -276,7 +276,7 @@ $GROUP_LV1 = array(
 $GROUP_LV2 = array(
   array('ID' => '1','NAME' => 'Technology','GROUP_LV1_ID' => '1'),
   array('ID' => '2','NAME' => 'Strategy','GROUP_LV1_ID' => '1'),
-  array('ID' => '3','NAME' => 'Around Asean','GROUP_LV1_ID' => '1'),
+  array('ID' => '3','NAME' => 'Around Asian','GROUP_LV1_ID' => '1'),
   array('ID' => '4','NAME' => 'E-Business','GROUP_LV1_ID' => '2'),
   array('ID' => '5','NAME' => 'Customer Experience Management','GROUP_LV1_ID' => '2'),
   array('ID' => '6','NAME' => 'Value Innovation','GROUP_LV1_ID' => '2'),
@@ -324,22 +324,22 @@ $JOB_LEVEL = array(
 
 // `buildthe_frost`.`PDF`
 $PDF = array(
-  array('ID' => '1','NAME' => 'test1','DESCRIPTION' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, Lorem 1','PRICE' => '100','UPDATE_DATE' => '2013-09-01 00:00:00','COMPANY_ID' => '1','PATH' => 'TestPdf1.pdf'),
-  array('ID' => '2','NAME' => 'test2','DESCRIPTION' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, Lorem 2','PRICE' => '200','UPDATE_DATE' => '2013-09-02 00:00:00','COMPANY_ID' => '2','PATH' => 'TestPdf2.pdf'),
-  array('ID' => '3','NAME' => 'test3','DESCRIPTION' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, Lorem 3','PRICE' => '300','UPDATE_DATE' => '2013-09-03 00:00:00','COMPANY_ID' => '3','PATH' => 'TestPdf3.pdf'),
-  array('ID' => '4','NAME' => 'test4','DESCRIPTION' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, Lorem 4','PRICE' => '400','UPDATE_DATE' => '2013-09-04 00:00:00','COMPANY_ID' => '4','PATH' => 'TestPdf4.pdf'),
-  array('ID' => '5','NAME' => 'test5','DESCRIPTION' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, Lorem 5','PRICE' => '500','UPDATE_DATE' => '2013-09-05 00:00:00','COMPANY_ID' => '5','PATH' => 'TestPdf5.pdf')
+  array('ID' => '1','NAME' => 'test1','PHOTO_NAME' => 'testPDF.jpg','DESCRIPTION' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, Lorem 1','PRICE' => '100','UPDATE_DATE' => '2013-09-01 00:00:00','COMPANY_ID' => '1','PATH' => 'TestPdf1.pdf'),
+  array('ID' => '2','NAME' => 'test2','PHOTO_NAME' => 'testPDF.jpg','DESCRIPTION' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, Lorem 2','PRICE' => '200','UPDATE_DATE' => '2013-09-02 00:00:00','COMPANY_ID' => '2','PATH' => 'TestPdf2.pdf'),
+  array('ID' => '3','NAME' => 'test3','PHOTO_NAME' => 'testPDF.jpg','DESCRIPTION' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, Lorem 3','PRICE' => '300','UPDATE_DATE' => '2013-09-03 00:00:00','COMPANY_ID' => '3','PATH' => 'TestPdf3.pdf'),
+  array('ID' => '4','NAME' => 'test4','PHOTO_NAME' => 'testPDF.jpg','DESCRIPTION' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, Lorem 4','PRICE' => '400','UPDATE_DATE' => '2013-09-04 00:00:00','COMPANY_ID' => '4','PATH' => 'TestPdf4.pdf'),
+  array('ID' => '5','NAME' => 'test5','PHOTO_NAME' => 'testPDF.jpg','DESCRIPTION' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, Lorem 5','PRICE' => '500','UPDATE_DATE' => '2013-09-05 00:00:00','COMPANY_ID' => '5','PATH' => 'TestPdf5.pdf')
 );
 
 // `buildthe_frost`.`PDF_CATEGORY`
 $PDF_CATEGORY = array(
-  array('ID' => '1','PDF_ID' => '1','GROUP_LEVEL_NAME' => '4','GROUP_LEVEL_ID' => '1'),
-  array('ID' => '2','PDF_ID' => '2','GROUP_LEVEL_NAME' => '3','GROUP_LEVEL_ID' => '1')
+  array('ID' => '1','PDF_ID' => '1','GROUP_LEVEL_NAME' => '2','GROUP_LEVEL_ID' => '2'),
+  array('ID' => '2','PDF_ID' => '2','GROUP_LEVEL_NAME' => '2','GROUP_LEVEL_ID' => '3')
 );
 
 // `buildthe_frost`.`PERMISSION`
 $PERMISSION = array(
-  array('ID' => '1','USER_PROFILE_ID' => '1','GROUP_LV2_ID' => '1','IS_ACTIVE' => 'Y','START_DATE' => '2013-09-01 00:00:00','END_DATE' => '2013-09-28 00:00:00')
+  array('ID' => '1','USER_PROFILE_ID' => '1','GROUP_LV2_ID' => '2','IS_ACTIVE' => 'Y','START_DATE' => '2013-09-01 00:00:00','END_DATE' => '2014-09-28 00:00:00')
 );
 
 // `buildthe_frost`.`QUESTION`
