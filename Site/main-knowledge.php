@@ -75,7 +75,7 @@ include ($rootpath."include/top-menu.php");
 ?>
 				</ul>
 				<h2 class="text-lightgreen2">Lasted Update</h2>
-				
+				<div class="grid_8" style="margin:0">
 <?php
 					//####### Find Lock Download Key ##########
 					$PERMISSION_Is_Lockkey="";
@@ -361,7 +361,7 @@ include ($rootpath."include/top-menu.php");
 <?php
 						*/
 ?>
-						
+						</div>
 					</div><!--end content-middle -->
 				</div>
 			</div><!--end container_12 -->
