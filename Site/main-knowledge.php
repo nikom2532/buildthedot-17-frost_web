@@ -250,7 +250,11 @@ include ($rootpath."include/top-menu.php");
 					//for ($i=0; $i < count($c_NAME); $i++) {	//for all Pages
 					for ($i = ($page_limit*($page-1)); $i < $page_runing; $i++) { //for each Page
 ?>
-						<section>
+						<section <?php 
+							if($i%2==0){
+								echo "class=\"grid_4\"";
+							}
+						 ?>>
 							<p class="bold text-title-report">
 								<span class="text-lightgreen head-desc">Title: </span>
 								<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_CATEGORY_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
