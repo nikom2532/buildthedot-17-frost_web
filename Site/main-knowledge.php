@@ -3,6 +3,16 @@ $rootpath = "./";
 include ($rootpath."include/header.php");
 
 include ($rootpath."include/top-menu.php");
+
+//######## is Best Practice #########
+if ($_GET["id"]==2 && $_GET["glvl"]==1) {
+?>
+	<span class="text-lightgreenhead-desc">Comming Soon</span>
+<?php
+}
+
+//######## is not Best Practice #########
+else{
 ?>
 <div id="content">
 	<div class="container_12">
@@ -253,9 +263,18 @@ include ($rootpath."include/top-menu.php");
 					//for ($i=0; $i < count($c_NAME); $i++) {	//for all Pages
 					for ($i = ($page_limit*($page-1)); $i < $page_runing; $i++) { //for each Page
 						
+						//is Best Practice
+						if ($_GET["id"]==2 && $_GET["glvl"]==1) {
+?>
+							<span class="text-lightgreenhead-desc">Comming Soon</span>
+<?php
+						}
+						
 						//is Country Profile
-						if ($_GET["id"]==11 && $_GET["glvl"]==3) {
-							echo "...put Country here...";
+						elseif ($_GET["id"]==11 && $_GET["glvl"]==3) {
+?>
+							<span class="text-lightgreenhead-desc">Comming Soon</span>
+<?php
 						}
 						
 						//is not Country Profile
@@ -409,5 +428,7 @@ include ($rootpath."include/top-menu.php");
 		</div><!--end content -->
 
 <?php
-		include ("include/footer.php");
+}
+	include ("include/footer.php");
+//######## end is not Best Practice #########
 ?>
