@@ -267,45 +267,45 @@ include ($rootpath."include/top-menu.php");
 								($_GET["id"]==9 && $_GET["glvl"]==3) ||
 								($_GET["id"]==10 && $_GET["glvl"]==3)
 							){
-	?>
+?>
 								<section>
-	<?php
+<?php
 							}
 							//if not Group --> Around Asian
 							else{
-	?>
+?>
 								<section <?php 
 									if($i%2==0){
 										echo "class=\"grid_4\"";
 									}
 							 ?>>
-	<?php
+<?php
 							}
-	?>
+?>
 								<p class="bold text-title-report">
-	<?php
+<?php
 									//if Group --> Around Asian
 									if(!(
 										($_GET["id"]==3 && $_GET["glvl"]==2) ||
 										($_GET["id"]==9 && $_GET["glvl"]==3) ||
 										($_GET["id"]==10 && $_GET["glvl"]==3)
 									)){
-	?>
+?>
 										<img src="images/pdf_image/<?php echo $c_PHOTO_NAME["$i"]; ?>" />
-	<?php
+<?php
 									}
-	?>
+?>
 									<span class="text-lightgreen head-desc">Title: </span>
 									<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_CATEGORY_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
 										<?php echo $c_NAME["$i"]; ?>
 										<span id="ic-lock">
-	<?php
+<?php
 											if($PERMISSION_Is_Lockkey=="Y"){
-	?>
+?>
 												<img src="images/icons/ic_lock.png" width="16" height="16">
-	<?php
+<?php
 											}
-	?>
+?>
 										</span>
 									</a>
 								</p>
