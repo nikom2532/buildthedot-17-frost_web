@@ -248,66 +248,78 @@ include ($rootpath."include/top-menu.php");
 					else{	//not the last page
 						$page_runing = $page_limit*$page;
 					}
-				
+					
+					//############### Display the Body Page #####################
 					//for ($i=0; $i < count($c_NAME); $i++) {	//for all Pages
 					for ($i = ($page_limit*($page-1)); $i < $page_runing; $i++) { //for each Page
-						//if Group --> Around Asian
-						if(
-							($_GET["id"]==3 && $_GET["glvl"]==2) ||
-							($_GET["id"]==9 && $_GET["glvl"]==3) ||
-							($_GET["id"]==10 && $_GET["glvl"]==3)
-						){
-?>
-							<section>
-<?php
+						
+						//is Country Profile
+						if ($_GET["id"]==11 && $_GET["glvl"]==3) {
+							echo "...put Country here...";
 						}
-						//if not Group --> Around Asian
+						
+						//is not Country Profile
 						else{
-?>
-							<section <?php 
-								if($i%2==0){
-									echo "class=\"grid_4\"";
-								}
-						 ?>>
+							
+							//if Group --> Around Asian
+							if(
+								($_GET["id"]==3 && $_GET["glvl"]==2) ||
+								($_GET["id"]==9 && $_GET["glvl"]==3) ||
+								($_GET["id"]==10 && $_GET["glvl"]==3)
+							){
+	?>
+								<section>
+	<?php
+							}
+							//if not Group --> Around Asian
+							else{
+	?>
+								<section <?php 
+									if($i%2==0){
+										echo "class=\"grid_4\"";
+									}
+							 ?>>
+	<?php
+							}
+	?>
+								<p class="bold text-title-report">
+	<?php
+									//if Group --> Around Asian
+									if(!(
+										($_GET["id"]==3 && $_GET["glvl"]==2) ||
+										($_GET["id"]==9 && $_GET["glvl"]==3) ||
+										($_GET["id"]==10 && $_GET["glvl"]==3)
+									)){
+	?>
+										<img src="images/pdf_image/<?php echo $c_PHOTO_NAME["$i"]; ?>" />
+	<?php
+									}
+	?>
+									<span class="text-lightgreen head-desc">Title: </span>
+									<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_CATEGORY_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
+										<?php echo $c_NAME["$i"]; ?>
+										<span id="ic-lock">
+	<?php
+											if($PERMISSION_Is_Lockkey=="Y"){
+	?>
+												<img src="images/icons/ic_lock.png" width="16" height="16">
+	<?php
+											}
+	?>
+										</span>
+									</a>
+								</p>
+								<p>
+									<span class="text-lightgreen bold head-desc">Update: </span><span class="date"><?php echo convertDate2String($c_UPDATE_DATE["$i"]); ?></span>
+								</p>
+								<p class="text-desc">
+									<span class="text-lightgreen bold head-desc">Description: </span><?php echo $c_DESCRIPTION["$i"]; ?>
+								</p>
+							</section>
 <?php
 						}
-?>
-							<p class="bold text-title-report">
-<?php
-								//if Group --> Around Asian
-								if(
-									($_GET["id"]==3 && $_GET["glvl"]==2) ||
-									($_GET["id"]==9 && $_GET["glvl"]==3) ||
-									($_GET["id"]==10 && $_GET["glvl"]==3)
-								){
-?>
-									<img src="images/pdf_image/<?php echo $c_PHOTO_NAME["$i"]; ?>" />
-<?php
-								}
-?>
-								<span class="text-lightgreen head-desc">Title: </span>
-								<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_CATEGORY_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
-									<?php echo $c_NAME["$i"]; ?>
-									<span id="ic-lock">
-<?php
-										if($PERMISSION_Is_Lockkey=="Y"){
-?>
-											<img src="images/icons/ic_lock.png" width="16" height="16">
-<?php
-										}
-?>
-									</span>
-								</a>
-							</p>
-							<p>
-								<span class="text-lightgreen bold head-desc">Update: </span><span class="date"><?php echo convertDate2String($c_UPDATE_DATE["$i"]); ?></span>
-							</p>
-							<p class="text-desc">
-								<span class="text-lightgreen bold head-desc">Description: </span><?php echo $c_DESCRIPTION["$i"]; ?>
-							</p>
-						</section>
-<?php
-				}
+					}
+					//############### End Display the Body Page #####################
 					
 					//#############################
 					//####### test ##########
