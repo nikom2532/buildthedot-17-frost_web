@@ -1,3 +1,13 @@
+<?php
+//session_start();
+$rootpath = "../";
+include ($rootpath . "lib/db.php");
+include ($rootpath . "lib/conn.inc.php");
+include ($rootpath . "lib/func_date.php");
+if (!$db -> open()) {
+	die($db -> error());
+}
+?>
 <!DOCTYPE html>
 
 <html lang="en">

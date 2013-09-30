@@ -41,56 +41,118 @@
 				
 						<div class="half-size-column fl">
 						
-							<form action="#">
-							
+							<form action="edit-customer-update.php" name="editcustomer-form" id="editcustomer-form" method="POST" enctype="multipart/form-data">
+								
 								<fieldset>
+									
+									<?php
+										$userId = $_POST['userId'];
+										
+										$result = mysql_query("
+												SELECT a.FIRSTNAME AS firstname,
+												a.ID AS userId,
+												a.LASTNAME AS lastname,
+												a.COMPANY AS company,
+												a.EMAIL AS email,
+												a.ADDRESS AS address,
+												a.CITY AS city,
+												a.ZIP AS zip,
+												a.COUNTRY_ID AS country,
+												a.PHONE AS phone,
+												a.FAX AS fax,
+												a.JOB_TITLE AS jobTitle,
+												a.DEPARTMENT_ID AS deptId,
+												a.PHOTO_NAME AS photo,
+												b.GROUP_LV2_ID AS permission,
+												a.IS_ACTIVE AS userActive
+												
+												FROM USER_PROFILE AS a
+												INNER JOIN PERMISSION AS b
+												ON a.ID = b.USER_PROFILE_ID
+												WHERE a.ID = $userId");
+												
+												while ($row = mysql_fetch_array($result)) {
+											
+												
+									?>
                                     <p class="form-error-input">
-                                        <label for="picture">Profile Picture</label>
+                                    	
+                                    	<label for="picture">Profile Picture</label>
+                                    	<div class="seperator">
+										<?php
+											if($row['photo'] != ""){?>
+												<img src="../images/user_images/<?=$row['photo'] ?>"  alt="profile">
+											<?php }
+										?>
+										</div>
+                                        
                                         <input type="file" />
                                 	<p>
                                     
 									<p>
 										<label for="name">Name</label>
-										<input type="text" id="name" class="round full-width-input" />
+										<input type="text" id="name" class="round full-width-input" value="<?=$row['firstname'] ?>"/>
+									</p>
+									
+									<p>
+										<label for="name">Lastname</label>
+										<input type="text" id="name" class="round full-width-input" value="<?=$row['lastname'] ?>"/>
 									</p>
 									
 									<p>
 										<label for="email">Email</label>
-										<input type="text" id="email" class="round full-width-input" />
+										<input type="text" id="email" class="round full-width-input" value="<?=$row['email'] ?>"/>
 									</p>
 	
 									<p>
 										<label for="company">Company</label>
-										<input type="text" id="company" class="round full-width-input" />
+										<input type="text" id="company" class="round full-width-input" value="<?=$row['company'] ?>"/>
 									</p>
 	
 									<p>
 										<label for="jobtitle">Job title</label>
-										<input type="text" id="jobtitle" class="round full-width-input" />
+										<input type="text" id="jobtitle" class="round full-width-input" value="<?=$row['jobTitle'] ?>"/>
 									</p>
-                                    <p>
-										<label for="jobtitle">Job title</label>
-										<input type="text" id="jobtitle" class="round full-width-input" />
-									</p>
+									
                                     <p class="form-error-input">
 										<label for="department">Department</label>
-	
+										
+										<?php
+											$sqlDepartment = "SELECT * FROM DEPARTMENT";
+											$resultDepartment = mysql_query($sqlDepartment);
+										?>
 										<select id="department">
-											<option value="test1">test1</option>
-                                            <option value="test2">test2</option>
-                                            <option value="test3">test3</option>
+											<?php
+											while ($rowDepartment = mysql_fetch_array($resultDepartment)) {
+												if ($row['deptId']==$rowDepartment['ID']) {
+													echo "<option value='" . $rowDepartment['ID'] . "' selected>" . $rowDepartment['NAME'] . "</option>";
+												} else {
+													echo "<option value='" . $rowDepartment['ID'] . "'>" . $rowDepartment['NAME'] . "</option>";
+												}
+											}
+											?>
 										</select>
 									</p>
                                     <p class="form-error-input">
 										<label for="industry">Industry</label>
-	
+										
+										<?php
+											$sqlIndustry = "SELECT * FROM INDUSTRY";
+											$resultIndustry = mysql_query($sqlIndustry);
+										?>
 										<select id="industry">
-											<option value="test1">test1</option>
-                                            <option value="test2">test2</option>
-                                            <option value="test3">test3</option>
+											<?php
+											while ($rowIndustry = mysql_fetch_array($resultIndustry)) {
+												if ($row['INDUSTRY_ID']==$rowCountry['ID']) {
+													echo "<option value='" . $rowIndustry['ID'] . "' selected>" . $rowIndustry['NAME'] . "</option>";
+												} else {
+													echo "<option value='" . $rowIndustry['ID'] . "'>" . $rowIndustry['NAME'] . "</option>";
+												}
+											}
+											?>
 										</select>
 									</p>
-                                    <p class="form-error-input">
+                                    <!-- <p class="form-error-input">
 										<label for="technology">Technology</label>
 	
 										<select id="technology">
@@ -98,8 +160,8 @@
                                             <option value="test2">test2</option>
                                             <option value="test3">test3</option>
 										</select>
-									</p>
-                                     <p class="form-error-input">
+									</p> -->
+                                     <!-- <p class="form-error-input">
 										<label for="company size">Company Size</label>
 	
 										<select id="technology">
@@ -107,20 +169,52 @@
                                             <option value="test2">test2</option>
                                             <option value="test3">test3</option>
 										</select>
+									</p> -->
+									
+									<p>
+										<p class="seperator">Address</p>
+										<textarea style="resize: none; width: 318px; height: 100px;" id="address" name="address" class="round full-width-textarea"><?=$row['address'] ?></textarea>
 									</p>
-                                    <p>
-										<label for="address">Address</label>
-										<textarea id="textarea" class="round full-width-textarea"></textarea>
+									
+									<p>
+										<p class="seperator">City</p>
+										<input type="text" id="city" name="city" value="<?=$row['city'] ?>" />
 									</p>
-                                    <p class="form-error-input">
-										<label for="state">State</label>
-	
-										<select id="state">
-											<option value="test1">test1</option>
-                                            <option value="test2">test2</option>
-                                            <option value="test3">test3</option>
-										</select>
+									
+									<p>
+										<p class="seperator">Zip</p>
+										<input type="text" id="zip" name="zip" value="<?=$row['zip'] ?>" />
 									</p>
+									
+									<!-- country -->
+									<p class="seperator">Country</p>
+									<?php
+									$sqlCountry = "SELECT * FROM COUNTRY";
+									$resultCountry = mysql_query($sqlCountry);
+									echo "<p>";
+									echo "<select name='country'>";
+									while ($rowCountry = mysql_fetch_array($resultCountry)) {
+										if ($row['country']==$rowCountry['ID']) {
+											echo "<option value='" . $rowCountry['ID'] . "' selected>" . $rowCountry['NAME'] . "</option>";
+										} else {
+											echo "<option value='" . $rowCountry['ID'] . "'>" . $rowCountry['NAME'] . "</option>";
+										}
+									}
+									echo "</select>";
+									echo "</p>";
+									?>
+									
+									<p>
+										<p class="seperator">Phone</p>
+										<input type="text" id="phone" name="phone" value="<?=$row['phone'] ?>" />
+									</p>
+									
+									<p>
+										<p class="seperator">Fax</p>
+										<input type="text" id="fax" name="fax" value="<?=$row['fax'] ?>" />
+									</p>
+									<?php } ?>
+									<input type="hidden" name="userId" value="<?=$row['userId'] ?>">
                                     <input type="submit" value="Save change" class="round blue ic-right-arrow" />
 									
 								</fieldset>
