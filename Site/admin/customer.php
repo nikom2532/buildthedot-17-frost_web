@@ -75,7 +75,6 @@ else
 							<th>Name</th>
 							<th>Company</th>
 							<th>Username</th>
-							<th>Permission Level</th>
 							<th>Status</th>
 							<th>Actions</th>
 						</tr>
@@ -87,7 +86,7 @@ else
 						<?php
 
 						$result = mysql_query("
-							SELECT a.FIRSTNAME AS firstname,
+							SELECT DISTINCT a.FIRSTNAME AS firstname,
 							a.ID AS userId,
 							a.LASTNAME AS lastname,
 							a.COMPANY AS company,
@@ -98,7 +97,7 @@ else
 							FROM USER_PROFILE AS a
 							INNER JOIN PERMISSION AS b
 							ON a.ID = b.USER_PROFILE_ID
-							ORDER BY a.ID DESC");
+							GROUP BY a.ID");
 
 						$i = 1;
 						while ($row = mysql_fetch_array($result)) {
@@ -107,7 +106,6 @@ else
 							echo "<td>" . $row['firstname'] . "&nbsp;" . $row['lastname'] . "</td>";
 							echo "<td>" . $row['company'] . "</td>";
 							echo "<td>" . $row['email'] . "</td>";
-							echo "<td>" . $row['permission'] . "</td>";
 
 							if ($row['userActive'] == "Y") {
 								echo "<td id='status'><img src='images/icons/message-boxes/confirmation.png' alt='active'></td>";
@@ -120,8 +118,10 @@ else
 							echo " <INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 55px;' ALT='EDIT'> ";
 							echo "</form>";
 							
-							echo "<form method='post' action='edit-customer.php' id='submitform' name='submitform'>";
+							echo "<form method='post' action='permission.php' id='submitform' name='submitform'>";
 							echo "<input type='hidden' name='userId' value=".$row['userId']." > ";
+							echo "<input type='hidden' name='firstName' value=".$row['firstname']." > ";
+							echo "<input type='hidden' name='lastName' value=".$row['lastname']." > ";
 							echo " <INPUT TYPE='image' class='left' SRC='images/icons/table/actions-lock.png' BORDER='0' style='margin:5px 15px 5px 5px;' ALT='PERMISSION'> ";
 							echo "</form>";
 							

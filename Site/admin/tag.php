@@ -67,7 +67,7 @@ function confirmSubmit()
 
 								$result = mysql_query("
 									SELECT ID as tagId ,NAME as tagName
-									FROM Tag 
+									FROM TAG 
 									ORDER BY ID DESC");
 		
 								$i = 1;
