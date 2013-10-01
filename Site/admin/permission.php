@@ -170,13 +170,9 @@
 									echo "<td>" .$newDateEndDate."</td>";
 									
 									$dateNow = date('d M Y');
-									echo "now>".$dateNow."<br>";
 									$dateEnd = $newDateEndDate;
-									echo "End>".$dateEnd."<br>";
 									
 									if (strtotime($dateNow) < strtotime($dateEnd)) {
-										echo "true <br>";
-										
 										$strSQL = "UPDATE PERMISSION SET 
 										IS_ACTIVE='Y'";
 										$strSQL .= "WHERE ID='".$rowPermission['ID']."'";
@@ -184,8 +180,6 @@
 										
 										echo "<td>Active</td>";	
 									} else {
-										echo "fa <br>";
-										
 										$strSQL = "UPDATE PERMISSION SET 
 										IS_ACTIVE='N'";
 										$strSQL .= "WHERE ID='".$rowPermission['ID']."'";
