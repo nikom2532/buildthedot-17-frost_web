@@ -117,12 +117,17 @@ else
 							echo "<td>";
 							echo "<form method='post' action='edit-customer.php' id='submitform' name='submitform'>";
 							echo "<input type='hidden' name='userId' value=".$row['userId'].">";
-							echo " <INPUT TYPE='image' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 0' ALT='SUBMIT'> ";
+							echo " <INPUT TYPE='image' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:8px 0' ALT='EDIT'> ";
+							echo "</form>";
+							
+							echo "<form method='post' action='edit-customer.php' id='submitform' name='submitform'>";
+							echo "<input type='hidden' name='userId' value=".$row['userId'].">";
+							echo " <INPUT TYPE='image' SRC='images/icons/table/actions-lock.png' BORDER='0' style='margin:8px 0' ALT='PERMISSION'> ";
 							echo "</form>";
 							
 							echo "<form method='post' action='customer_delete.php' id='submitform' name='submitform'>";
 							echo "<input type='hidden' name='userId' value=".$row['userId'].">";
-							echo "<INPUT TYPE='image' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0' onClick='return confirmSubmit()'>";
+							echo "<INPUT TYPE='image' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:8px 0'ALT='DELETE'  onClick='return confirmSubmit()'>";
 							echo "</form>";
 							echo "</td>";
 
