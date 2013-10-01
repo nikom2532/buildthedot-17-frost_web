@@ -399,7 +399,7 @@ include ($rootpath."include/top-menu.php");
 										($_GET["id"]==10 && $_GET["glvl"]==3)
 									)){
 ?>
-										<img src="images/pdf_image/<?php echo $c_PHOTO_NAME["$i"]; ?>" />
+										<img src="images/pdf_image/<?php echo $c_PHOTO_NAME["$i"]; ?>" /><br />
 <?php
 									}
 ?>
