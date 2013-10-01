@@ -41,13 +41,12 @@
 				
 						<div class="half-size-column fl">
 						
-							<form action="edit-customer-update.php" name="editcustomer-form" id="editcustomer-form" method="POST" enctype="multipart/form-data">
+							<form action="edit-customer-update.php" method="POST">
 								
 								<fieldset>
 									
 									<?php
 										$userId = $_POST['userId'];
-										
 										$result = mysql_query("
 												SELECT a.FIRSTNAME AS firstname,
 												a.ID AS userId,
@@ -91,27 +90,27 @@
                                     
 									<p>
 										<label for="name">Name</label>
-										<input type="text" id="name" class="round full-width-input" value="<?=$row['firstname'] ?>"/>
+										<input type="text" name= "firstname" id="firstname" class="round full-width-input" value="<?=$row['firstname'] ?>"/>
 									</p>
 									
 									<p>
 										<label for="name">Lastname</label>
-										<input type="text" id="name" class="round full-width-input" value="<?=$row['lastname'] ?>"/>
+										<input type="text" id="lastname" name="lastname" class="round full-width-input" value="<?=$row['lastname'] ?>"/>
 									</p>
 									
 									<p>
 										<label for="email">Email</label>
-										<input type="text" id="email" class="round full-width-input" value="<?=$row['email'] ?>"/>
+										<input type="text" id="email" name="email" class="round full-width-input" value="<?=$row['email'] ?>"/>
 									</p>
 	
 									<p>
 										<label for="company">Company</label>
-										<input type="text" id="company" class="round full-width-input" value="<?=$row['company'] ?>"/>
+										<input type="text" id="company" name="company" class="round full-width-input" value="<?=$row['company'] ?>"/>
 									</p>
 	
 									<p>
 										<label for="jobtitle">Job title</label>
-										<input type="text" id="jobtitle" class="round full-width-input" value="<?=$row['jobTitle'] ?>"/>
+										<input type="text" id="jobTitle" name="jobTitle" class="round full-width-input" value="<?=$row['jobTitle'] ?>"/>
 									</p>
 									
                                     <p class="form-error-input">
@@ -121,7 +120,7 @@
 											$sqlDepartment = "SELECT * FROM DEPARTMENT";
 											$resultDepartment = mysql_query($sqlDepartment);
 										?>
-										<select id="department">
+										<select id="department_id" name="department_id">
 											<?php
 											while ($rowDepartment = mysql_fetch_array($resultDepartment)) {
 												if ($row['deptId']==$rowDepartment['ID']) {
@@ -140,7 +139,7 @@
 											$sqlIndustry = "SELECT * FROM INDUSTRY";
 											$resultIndustry = mysql_query($sqlIndustry);
 										?>
-										<select id="industry">
+										<select id="industry_id" name="industry_id">
 											<?php
 											while ($rowIndustry = mysql_fetch_array($resultIndustry)) {
 												if ($row['INDUSTRY_ID']==$rowCountry['ID']) {
@@ -152,6 +151,8 @@
 											?>
 										</select>
 									</p>
+									
+									
                                     <!-- <p class="form-error-input">
 										<label for="technology">Technology</label>
 	
@@ -214,11 +215,12 @@
 										<input type="text" id="fax" name="fax" value="<?=$row['fax'] ?>" />
 									</p>
 									<?php } ?>
-									<input type="hidden" name="userId" value="<?=$row['userId'] ?>">
-                                    <input type="submit" value="Save change" class="round blue ic-right-arrow" />
 									
 								</fieldset>
-
+								
+								<input type="hidden" name="userId" id="userId" value="<?=$userId ?>">
+								<input type="submit" value="Save change" class="round blue ic-right-arrow" />
+							</form>
 						
 						</div> <!-- end half-size-column -->
 						
