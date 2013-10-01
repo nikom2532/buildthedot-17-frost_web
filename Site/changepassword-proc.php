@@ -35,11 +35,11 @@ echo "renewpassword=>".$renewpassword ."<br/>";
 			
 			echo "strQuery=>".$strSQLUpdatePass ;
 			$cmdQuery = mysql_query($strSQLUpdatePass);
-			$result= mysql_affected_rows($cmdQuery);
-			echo "result=>".$result;
-			
-			header("location: myprofile.php?userID=$userID");
 
+			if(mysql_affected_rows()){
+				header("location: myprofile.php?userID=$userID");
+			}
+			
 			
 		}else {
 			$passnotmatch = "New Password don't match";

@@ -1,6 +1,15 @@
 <?php include("include/header.php");?>
 <?php include("include/top-bar.php");?>
-	
+<script LANGUAGE="JavaScript">
+function confirmSubmit()
+	{
+	var agree=confirm("Are you sure you want to delete?");
+	if (agree)
+		return true ;
+	else
+		return false ;
+	}
+</script>	
 	<!-- HEADER -->
 	<div id="header-with-tabs">
 		
@@ -54,41 +63,37 @@
 						</thead>
 						
 						<tbody>
+							<?php
 
-							<tr>
-								<td>1</td>
-								<td>Technology</td>
-								<td>
-									<a href="edit-tag.php" class="table-actions-button ic-table-edit"></a>
-									<a href="#" class="table-actions-button ic-table-delete"></a>
-								</td>
-							</tr>
-
-							<tr>
-								<td>2</td>
-								<td>E-commerce</td>
-								<td>
-									<a href="edit-tag.php" class="table-actions-button ic-table-edit"></a>
-									<a href="#" class="table-actions-button ic-table-delete"></a>
-								</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>Knowledge</td>
-								<td>
-									<a href="edit-tag.php" class="table-actions-button ic-table-edit"></a>
-									<a href="#" class="table-actions-button ic-table-delete"></a>
-								</td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td>Reserach</td>
-								<td>
-									<a href="edit-tag.php" class="table-actions-button ic-table-edit"></a>
-									<a href="#" class="table-actions-button ic-table-delete"></a>
-								</td>
-							</tr>
-
+								$result = mysql_query("
+									SELECT ID as tagId ,NAME as tagName
+									FROM Tag 
+									ORDER BY ID DESC");
+		
+								$i = 1;
+								while ($row = mysql_fetch_array($result)) {
+									echo "<tr>";
+									echo "<td>" . $i . "</td>";
+									echo "<td>" . $row['tagName']."</td>";
+									
+									echo "<td>";
+									echo "<form method='POST' action='edit-tag.php' id='edittag' name='edittag'>";
+									echo "<input type='hidden' name='tagId' value=".$row['tagId'].">";
+									echo " <INPUT TYPE='image' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 0' ALT='SUBMIT'> ";
+									echo "</form>";
+									
+									echo "<form method='POST' action='delete-tag-proc.php' id='deletetag' name='deletetag'>";
+									echo "<input type='hidden' name='tagId' value=".$row['tagId'].">";
+									echo "<INPUT TYPE='image' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0' onClick='return confirmSubmit()'>";
+									echo "</form>";
+									echo "</td>";
+		
+									echo "</tr>";
+		
+									$i = $i + 1;
+								}
+								?>
+									
 						</tbody>
 						
 					</table>

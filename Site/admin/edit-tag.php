@@ -40,17 +40,29 @@
 				
 						<div class="half-size-column fl">
 						
-							<form action="#">
+							<form method='POST' action='edit-tag-proc.php' id='edittag' name='edittag'>
 							
 								<fieldset>
+									<?php
+										$tagId = $_POST['tagId'];
+					
+										$result = mysql_query("
+												SELECT ID as tagId ,NAME as tagName
+												FROM Tag 
+												WHERE ID = $tagId");
+												
+												while ($row = mysql_fetch_array($result)) {
+											
+												?>
 								
 									<p>
 										<label for="tag-name">Tag Name</label>
-										<input type="text" id="tag-name" class="round default-width-input" />
+										<input type="text" id="tagName" name="tagName" class="round default-width-input" value="<?=$row['tagName'] ?>"/>
 									</p>
-									 
+									 <input type="hidden" name="tagId" value="<?=$row['tagId'] ?>">
                                      <input type="submit" value="Save change" class="round blue ic-right-arrow" />
-				
+									
+									<?}?>
                            		</fieldset>
 							
 							</form>

@@ -40,13 +40,13 @@
 				
 						<div class="half-size-column fl">
 						
-							<form action="#">
+							<form method='POST' action='add-tag-proc.php' id='addtag' name='addtag'>
 							
 								<fieldset>
 								
 									<p>
 										<label for="name">Tag Name</label>
-										<input type="text" id="name" class="round default-width-input" />
+										<input type="text" id="tagName" name="tagName" class="round default-width-input" />
 									</p>
 									 
                                      <input type="submit" value="Submit" class="round blue ic-right-arrow" />
