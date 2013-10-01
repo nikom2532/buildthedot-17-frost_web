@@ -1,26 +1,40 @@
 <?php
 $rootpath = "./";
 include ($rootpath."include/header.php");
-
 include ($rootpath."include/top-menu.php");
-
-//######## is Best Practice #########
-if ($_GET["id"]==2 && $_GET["glvl"]==1) {
-?>
-	<span class="text-lightgreenhead-desc">Comming Soon</span>
-<?php
-}
-
-//######## is not Best Practice #########
-else{
 ?>
 <div id="content">
 	<div class="container_12">
-		<?php
-			include ("include/side-menu-knowledge.php");
+<?php
+/*
+		//######## is Best Practice #########
+		if ($_GET["id"]==2 && $_GET["glvl"]==1) {
 		?>
+			<span class="text-lightgreenhead-desc">Comming Soon</span>
+		<?php
+		}
+		
+		else{
+  */
+
+ 	//######## is Best Practice #########
+		if(!($_GET["id"]==2 && $_GET["glvl"]==1)) {
+			include ("include/side-menu-knowledge.php");
+		}
+?>
 		<div id="container" class="left">
-			<div id="content-middle" class="grid_8">
+			<div id="content-middle" class="grid_<?php if($_GET["id"]==2 && $_GET["glvl"]==1) { echo "12"; } else{ echo "8"; }?>">
+<?php
+				//######## is Best Practice #########
+				if ($_GET["id"]==2 && $_GET["glvl"]==1) {
+?>
+					<span class="text-lightgreenhead-desc">Comming Soon</span>
+<?php
+				}
+				
+				//######## is not Best Practice #########
+				else{
+?>
 				<ul class="nav-title">
 <?php
 					//####### Display Body Nav ########
@@ -273,7 +287,82 @@ else{
 						//is Country Profile
 						elseif ($_GET["id"]==11 && $_GET["glvl"]==3) {
 ?>
-							<span class="text-lightgreenhead-desc">Comming Soon</span>
+							<div class="grid_8" id="wrap-cp">
+								<div class="left" id="cp">
+									<img src="images/coutries/brunei.jpg"  width="120" height="120" alt="Brunei">
+									<p class="center">
+										Brunei
+									</p>
+								</div>
+			
+								<div class="left" id="cp">
+									<img src="images/coutries/cambodia.jpg" width="120" height="120" alt="Cambodia">
+									<p class="center">
+										Cambodia
+									</p>
+								</div>
+			
+								<div class="left" id="cp">
+									<img src="images/coutries/indonesia.jpg" width="120" height="120"  alt="Indonesia">
+									<p class="center">
+										Indonesia
+									</p>
+								</div>
+			
+								<div class="left" id="cp">
+									<img src="images/coutries/lao.jpg" width="120" height="120" alt="Laos">
+									<p class="center">
+										Laos
+									</p>
+								</div>
+							</div>
+							<br class="clear"/>
+							<div class="grid_8" id="wrap-cp">
+								<div class="left" id="cp">
+									<img src="images/coutries/malaysia.jpg"  width="120" height="120" alt="Malaysia">
+									<p class="center">
+										Malaysia
+									</p>
+								</div>
+			
+								<div class="left" id="cp">
+									<img src="images/coutries/myanmar.jpg" width="120" height="120" alt="Myanmar">
+									<p class="center">
+										Myanmar
+									</p>
+								</div>
+			
+								<div class="left" id="cp">
+									<img src="images/coutries/philipine.jpg" width="120" height="120"  alt="Philipine">
+									<p class="center">
+										Philipine
+									</p>
+								</div>
+			
+								<div class="left" id="cp">
+									<img src="images/coutries/singapore.jpg" width="120" height="120" alt="Singapore">
+									<p class="center">
+										Singapore
+									</p>
+								</div>
+							</div>
+							<br class="clear"/>
+							<div class="grid_8" id="wrap-cp">
+								<div class="left" id="cp">
+									<img src="images/coutries/thailand.jpg"  width="120" height="120" alt="Thailand">
+									<p class="center">
+										Thailand
+									</p>
+								</div>
+			
+								<div class="left" id="cp">
+									<img src="images/coutries/vietnam.jpg" width="120" height="120" alt="Vietnam">
+									<p class="center">
+										Vietnam
+									</p>
+								</div>
+							</div>
+							<br class="clear"/>
 <?php
 						}
 						
@@ -422,13 +511,16 @@ else{
 						*/
 ?>
 						</div>
+<?php
+						}
+						//######## end is not Best Practice #########
+?>
 					</div><!--end content-middle -->
-				</div>
+				</div><!-- end container -->
 			</div><!--end container_12 -->
 		</div><!--end content -->
 
 <?php
-}
 	include ("include/footer.php");
 //######## end is not Best Practice #########
 ?>
