@@ -169,11 +169,31 @@
 									$newDateEndDate = date("d M Y", strtotime($originalDateEndDate));
 									echo "<td>" .$newDateEndDate."</td>";
 									
-									if ($rowPermission['STATUS']=="Y") {
+									$dateNow = date('d M Y');
+									echo "now>".$dateNow."<br>";
+									$dateEnd = $newDateEndDate;
+									echo "End>".$dateEnd."<br>";
+									
+									if (strtotime($dateNow) < strtotime($dateEnd)) {
+										echo "true <br>";
+										
+										$strSQL = "UPDATE PERMISSION SET 
+										IS_ACTIVE='Y'";
+										$strSQL .= "WHERE ID='".$rowPermission['ID']."'";
+										$cmdQuery = mysql_query($strSQL);
+										
 										echo "<td>Active</td>";	
 									} else {
-										echo "<td>Inactive</td>";		
+										echo "fa <br>";
+										
+										$strSQL = "UPDATE PERMISSION SET 
+										IS_ACTIVE='N'";
+										$strSQL .= "WHERE ID='".$rowPermission['ID']."'";
+										$cmdQuery = mysql_query($strSQL);
+										
+										echo "<td>Inactive</td>";	
 									}
+									
 									echo "<td>";
 									echo "<form method='post' action='edit-permission.php' id='submitform' name='submitform'>";
 									echo "<input type='hidden' name='userId' value=".$rowPermission['USER_PROFILE_ID'].">";
