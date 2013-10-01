@@ -178,14 +178,14 @@
 										$strSQL .= "WHERE ID='".$rowPermission['ID']."'";
 										$cmdQuery = mysql_query($strSQL);
 										
-										echo "<td>Active</td>";	
+										echo "<td id='status'><img src='images/icons/message-boxes/confirmation.png' alt='active'></td>";
 									} else {
 										$strSQL = "UPDATE PERMISSION SET 
 										IS_ACTIVE='N'";
 										$strSQL .= "WHERE ID='".$rowPermission['ID']."'";
 										$cmdQuery = mysql_query($strSQL);
 										
-										echo "<td>Inactive</td>";	
+										echo "<td id='status'><img src='images/icons/message-boxes/error.png' alt='active'></td>";
 									}
 									
 									echo "<td>";
