@@ -673,3 +673,10 @@ span.inactive {
 	border-bottom-style: dotted;
 	border-bottom-color: #2069B4;
 }
+#wrap-cp{
+	margin-left:20px;
+	margin-top:15px;
+}
+#cp{
+	margin-right:30px;
+}

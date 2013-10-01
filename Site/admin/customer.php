@@ -117,12 +117,12 @@ else
 							echo "<td>";
 							echo "<form method='post' action='edit-customer.php' id='submitform' name='submitform'>";
 							echo "<input type='hidden' name='userId' value=".$row['userId'].">";
-							echo "<input type='Submit' name='Edit' value='Edit'>";
+							echo " <INPUT TYPE='image' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 0' ALT='SUBMIT'> ";
 							echo "</form>";
 							
 							echo "<form method='post' action='customer_delete.php' id='submitform' name='submitform'>";
 							echo "<input type='hidden' name='userId' value=".$row['userId'].">";
-							echo "<input type='Submit' name='Delete' value='Delete' onClick='return confirmSubmit()'>";
+							echo "<INPUT TYPE='image' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0' onClick='return confirmSubmit()'>";
 							echo "</form>";
 							echo "</td>";
 
