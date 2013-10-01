@@ -171,22 +171,28 @@
 									
 									$dateNow = date('d M Y');
 									$dateEnd = $newDateEndDate;
+									$dateStart = $newDateStartDate;
 									
-									if (strtotime($dateNow) < strtotime($dateEnd)) {
+									// if ($rowPermission['STATUS']=="Y") {
+										if (strtotime($dateNow) < strtotime($dateEnd) && strtotime($dateNow) > strtotime($dateStart)) {
 										$strSQL = "UPDATE PERMISSION SET 
 										IS_ACTIVE='Y'";
 										$strSQL .= "WHERE ID='".$rowPermission['ID']."'";
 										$cmdQuery = mysql_query($strSQL);
 										
 										echo "<td id='status'><img src='images/icons/message-boxes/confirmation.png' alt='active'></td>";
-									} else {
-										$strSQL = "UPDATE PERMISSION SET 
-										IS_ACTIVE='N'";
-										$strSQL .= "WHERE ID='".$rowPermission['ID']."'";
-										$cmdQuery = mysql_query($strSQL);
-										
-										echo "<td id='status'><img src='images/icons/message-boxes/error.png' alt='active'></td>";
-									}
+										} else {
+											$strSQL = "UPDATE PERMISSION SET 
+											IS_ACTIVE='N'";
+											$strSQL .= "WHERE ID='".$rowPermission['ID']."'";
+											$cmdQuery = mysql_query($strSQL);
+											
+											echo "<td id='status'><img src='images/icons/message-boxes/error.png' alt='active'></td>";
+										}
+									// } else {
+										// echo "<td id='status'><img src='images/icons/message-boxes/error.png' alt='active'></td>";
+									// }
+									
 									
 									echo "<td>";
 									echo "<form method='post' action='edit-permission.php' id='submitform' name='submitform'>";
