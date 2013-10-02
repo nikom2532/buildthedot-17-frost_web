@@ -41,7 +41,11 @@
 						<a href="upload-pdf.php" class="round button orange ic-add image-left" >Upload PDF</a>
                     </div>
 					
-					<table>
+					<table class="fixed">
+						<col width="2em" />
+	    				<col width="20em" />
+	    				<col width="5em" />
+	    				<col width="5em" />
 					
 						<thead>
 					
@@ -61,8 +65,12 @@
 								<td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </td>
 								<td>Sep 13,2013</td>
 								<td>
-									<a href="edit-pdf.php" class="table-actions-button ic-table-edit"></a>
-									<a href="#" class="table-actions-button ic-table-delete"></a>
+									<form method='post' action='edit-pdf.php' id='submitform' name='submitform'>
+										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 75px;' ALT='EDIT'> 
+									</form>
+									<form method='post' action='#' id='submitform' name='submitform'>
+										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0' ALT='DELETE'  onClick='return confirmSubmit()'>
+									</form>
 								</td>
 							</tr>
 
@@ -71,8 +79,12 @@
 								<td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </td>
 								<td>Sep 13,2013</td>
 								<td>
-									<a href="edit-pdf.php" class="table-actions-button ic-table-edit"></a>
-									<a href="#" class="table-actions-button ic-table-delete"></a>
+									<form method='post' action='edit-pdf.php' id='submitform' name='submitform'>
+										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 75px;' ALT='EDIT'> 
+									</form>
+									<form method='post' action='#' id='submitform' name='submitform'>
+										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0'ALT='DELETE'  onClick='return confirmSubmit()'>
+									</form>
 								</td>
 							</tr>
 							<tr>
@@ -80,8 +92,12 @@
 								<td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </td>
 								<td>Sep 13,2013</td>
 								<td>
-									<a href="edit-pdf.php" class="table-actions-button ic-table-edit"></a>
-									<a href="#" class="table-actions-button ic-table-delete"></a>
+									<form method='post' action='edit-pdf.php' id='submitform' name='submitform'>
+										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 75px;' ALT='EDIT'> 
+									</form>
+									<form method='post' action='#' id='submitform' name='submitform'>
+										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0'ALT='DELETE'  onClick='return confirmSubmit()'>
+									</form>
 								</td>
 							</tr>
 
@@ -90,8 +106,12 @@
 								<td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </td>
 								<td>Sep 13,2013</td>
 								<td>
-									<a href="edit-pdf.php" class="table-actions-button ic-table-edit"></a>
-									<a href="#" class="table-actions-button ic-table-delete"></a>
+									<form method='post' action='edit-pdf.php' id='submitform' name='submitform'>
+										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 75px;' ALT='EDIT'> 
+									</form>
+									<form method='post' action='#' id='submitform' name='submitform'>
+										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0'ALT='DELETE'  onClick='return confirmSubmit()'>
+									</form>
 								</td>
 							</tr>
 
@@ -100,8 +120,12 @@
 								<td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </td>
 								<td>Sep 13,2013</td>
 								<td>
-									<a href="edit-pdf.php" class="table-actions-button ic-table-edit"></a>
-									<a href="#" class="table-actions-button ic-table-delete"></a>
+									<form method='post' action='edit-pdf.php' id='submitform' name='submitform'>
+										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 75px;' ALT='EDIT'> 
+									</form>
+									<form method='post' action='#' id='submitform' name='submitform'>
+										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0'ALT='DELETE'  onClick='return confirmSubmit()'>
+									</form>
 								</td>
 							</tr>
 

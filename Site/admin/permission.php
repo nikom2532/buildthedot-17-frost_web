@@ -1,21 +1,26 @@
 <?php include("include/header.php");?>
 <?php include("include/top-bar.php");?>
-	
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-    <link rel="stylesheet" href="/resources/demos/style.css" />
+
     <script>
-       $(function() {
-          $( "#datepicker" ).datepicker();
-       });
-       
-       $(function() {
-          $( "#datepicker2" ).datepicker();
-       });
-       
+       	$(function() {
+		$( "#datepicker" ).datepicker({
+			changeMonth: true,
+			dateFormat:"dd-mm-yy",
+			onClose: function( selectedDate ) {
+				$( "#datepicker2" ).datepicker( "option", "minDate", selectedDate );
+				
+			}
+		});
+		$( "#datepicker2" ).datepicker({
+			changeMonth: true,
+			dateFormat:"dd-mm-yy",
+			onClose: function( selectedDate ) {
+				$( "#datepicker" ).datepicker( "option", "maxDate", selectedDate );
+			}
+		});
+		 
+	});
+    
        function confirmSubmit()
 		{
 			var agree=confirm("Are you sure you want to delete?");
@@ -158,7 +163,7 @@
 									FROM PERMISSION AS a
 									INNER JOIN GROUP_LV2 as b
 									ON a.GROUP_LV2_ID = b.ID
-									WHERE USER_PROFILE_ID = $userId");
+									WHERE USER_PROFILE_ID = $userId ORDER BY ID DESC");
 		
 								$i = 1;
 								while ($rowPermission = mysql_fetch_array($resultPermission)) {
@@ -177,9 +182,9 @@
 									$dateNow = date('d M Y');
 									$dateEnd = $newDateEndDate;
 									$dateStart = $newDateStartDate;
-									
+
 									// if ($rowPermission['STATUS']=="Y") {
-										if (strtotime($dateNow) < strtotime($dateEnd) && strtotime($dateNow) > strtotime($dateStart)) {
+										if (strtotime($dateNow) < strtotime($dateEnd) && strtotime($dateNow) > strtotime($dateStart) ) {
 										$strSQL = "UPDATE PERMISSION SET 
 										IS_ACTIVE='Y'";
 										$strSQL .= "WHERE ID='".$rowPermission['ID']."'";

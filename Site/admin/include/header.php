@@ -25,11 +25,14 @@ if (!$db -> open()) {
     <link href="css/tagIt/jquery.tagit.css" rel="stylesheet" type="text/css">
     <link href="css/tagIt/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
    	<link href="css/tagIt/jquery-ui.css" rel="stylesheet" type="text/css">
-   
-    <script src="js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/tag-it.js" type="text/javascript" charset="utf-8"></script>
     
-
+	<!--Date picker -->
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/datepicker/jquery.ui.core.js"></script>
+	<script src="js/datepicker/jquery.ui.datepicker.js"></script>
+	<script src="js/datepicker/jquery.ui.widget.js"></script>   
+	<link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
 	
 </head>
 <body>

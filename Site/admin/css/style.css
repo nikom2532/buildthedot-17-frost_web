@@ -362,15 +362,11 @@ table tbody tr:nth-child(odd) { background-color: #f8f9fa; }
 
 /* Push the first cell to the right so it doesn't stick to the table border */
 table td:first-child, table th:first-child {
-	/*width: 4em /* 48/12 */;
 	text-align: center;
 	padding: 0;
-	border: none;
-	border-bottom: 1px solid #f8f9fa;
 }
 	
 table td:last-child, table th:last-child {
-	/*width: 15em; /* 84/12 */
 	text-align: center;
 	padding: 0;
 }
@@ -494,7 +490,6 @@ div.content-module-main { padding: 1em; /* 16/16 */ }
 	text-transform:uppercase;
 	margin-left:75px;
 }
-
 
 
 /* ---------- FOOTER ---------- */
