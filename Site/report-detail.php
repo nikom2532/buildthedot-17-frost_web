@@ -16,7 +16,7 @@ include ("include/top-menu.php");
 
 				$id = $_GET["pdf_id"];
 
-			echo	$query = "SELECT * FROM  PDF WHERE ID =".$id;
+				$query = "SELECT * FROM  PDF WHERE ID =".$id;
 				$result = mysql_query($query) OR die(mysql_error());
 				$count = mysql_num_rows($result);
 
@@ -40,7 +40,12 @@ include ("include/top-menu.php");
 					<section class="report-detail" class="grid_4">
 						<p class="text-blue bold">
 <?php 
-							if(!(
+							if($_GET["id"]==11 && $_GET["glvl"]==3){
+?>
+								<img src="images/coutries/<?php echo $row["PHOTO_NAME"]; ?>" /><br />
+<?php
+							}
+							elseif(!(
 								($_GET["id"]==3 && $_GET["glvl"]==2) ||
 								($_GET["id"]==9 && $_GET["glvl"]==3) ||
 								($_GET["id"]==10 && $_GET["glvl"]==3)
