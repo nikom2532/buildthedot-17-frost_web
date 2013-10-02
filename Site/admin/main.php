@@ -54,60 +54,89 @@ include ("include/header.php");
 			<!-- end content-module-heading -->
 
 			<div class="content-module-main">
-
 				<h2>Group by user</h2>
-
-				<table class="fixed">
-					<col width="2em" />
-					<col width="20em" />
-					<col width="5em" />
-
-					<thead>
-
-						<tr>
-							<th>No.</th>
-							<th>Name</th>
-							<th>Total Downloaded</th>
-						</tr>
-
-					</thead>
-
-					<tfoot>
-
-						<tbody>
-
+					<table class="fixed">
+						<col width="2em" />
+						<col width="20em" />
+						<col width="5em" />
+	
+						<thead>
+	
 							<tr>
-								<td>1</td>
-								<td>Adrian Purdila</td>
-								<td>35</td>
+								<th>No.</th>
+								<th>Name</th>
+								<th>Total Downloaded</th>
 							</tr>
+	
+						</thead>
+	
+						<tfoot>
+							
+							<tbody>
+<?php
+								$i=1;
+								$sql_statistic_by_user="
+									SELECT *
+									FROM  `DOWNLOAD_STATISTICS`
+									GROUP BY `USER_ID`
+									ORDER BY `USER_ID`
+									LIMIT 0,5;
+								";
+								$Result_statistic_by_user=@mysql_query($sql_statistic_by_user);
+								while($rs_statistic_by_user=@mysql_fetch_array($Result_statistic_by_user)){
+?>
+									<tr>
+										<td><?php echo $i++; ?></td>
+										<td><?php 
+											$sql_user="
+												SELECT * 
+												FROM  `USER_PROFILE`
+												WHERE `ID` = '".$rs_statistic_by_user["USER_ID"]."';
+											";
+											$result_user=@mysql_query($sql_user);
+											if($rs_user=@mysql_fetch_array($result_user)){
+												echo $rs_user["FIRSTNAME"]." ".$rs_user["LASTNAME"];
+											}
+										?></td>
+										<td><?php
+										$sql_statistic_each_user="
+											SELECT COUNT(`USER_ID`) AS `number_user`
+											FROM  `DOWNLOAD_STATISTICS`
+											WHERE `USER_ID` = '".$rs_statistic_by_user["USER_ID"]."';
+										";
+										$Result_statistic_each_user=@mysql_query($sql_statistic_each_user);
+										if($rs_statistic_each_user=@mysql_fetch_array($Result_statistic_each_user)){
+											echo $rs_statistic_each_user["number_user"]."";
+										}
+										?></td>
+									</tr>
+									<!-- <tr>
+										<td>2</td>
+										<td>Adrian Purdila</td>
+										<td>32</td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>Adrian Purdila</td>
+										<td>23</td>
+									</tr>
+									<tr>
+										<td>4</td>
+										<td>Adrian Purdila</td>
+										<td>18</td>
+									</tr>
+									<tr>
+										<td>5</td>
+										<td>Adrian Purdila</td>
+										<td>10</td>
+									</tr> -->
+<?php
+								}
+?>
+							</tbody>
+						</tfoot>
+					</table>
 
-							<tr>
-								<td>2</td>
-								<td>Adrian Purdila</td>
-								<td>32</td>
-							</tr>
-
-							<tr>
-								<td>3</td>
-								<td>Adrian Purdila</td>
-								<td>23</td>
-							</tr>
-
-							<tr>
-								<td>4</td>
-								<td>Adrian Purdila</td>
-								<td>18</td>
-							</tr>
-
-							<tr>
-								<td>5</td>
-								<td>Adrian Purdila</td>
-								<td>10</td>
-							</tr>
-						</tbody>
-
-				</table>
 				<a href="#" class="round button orange ic-download image-left">Download Report</a>
 				<div class="stripe-separator">
 					<!--  -->
@@ -134,38 +163,72 @@ include ("include/header.php");
 					<tfoot>
 
 						<tbody>
-
-							<tr>
-								<td>1</td>
-								<td>Adrian Purdila</td>
-								<td>35</td>
-							</tr>
-
-							<tr>
-								<td>2</td>
-								<td>Adrian Purdila</td>
-								<td>32</td>
-							</tr>
-
-							<tr>
-								<td>3</td>
-								<td>Adrian Purdila</td>
-								<td>23</td>
-							</tr>
-
-							<tr>
-								<td>4</td>
-								<td>Adrian Purdila</td>
-								<td>18</td>
-							</tr>
-
-							<tr>
-								<td>5</td>
-								<td>Adrian Purdila</td>
-								<td>10</td>
-							</tr>
+<?php
+							$i=1;
+							$sql_statistic_by_pdf="
+								SELECT *
+								FROM  `DOWNLOAD_STATISTICS`
+								GROUP BY `PDF_ID`
+								ORDER BY `PDF_ID`
+								LIMIT 0,5;
+							";
+							$Result_statistic_by_pdf=@mysql_query($sql_statistic_by_pdf);
+							while($rs_statistic_by_pdf=@mysql_fetch_array($Result_statistic_by_pdf)){
+?>
+								<tr>
+									<td><?php echo $i++; ?></td>
+									<td><?php
+										$sql_pdf="
+											SELECT * 
+											FROM  `PDF`
+											WHERE `ID` = '".$rs_statistic_by_pdf["PDF_ID"]."'; 
+										";
+										$Result_pdf=@mysql_query($sql_pdf);
+										if($rs_pdf=@mysql_fetch_array($Result_pdf)){
+											echo $rs_pdf["NAME"];
+										}
+									?></td>
+									<td><?php
+										$sql_statistic_each_pdf="
+											SELECT COUNT(`PDF_ID`) AS `number_pdf`
+											FROM  `DOWNLOAD_STATISTICS`
+											WHERE `PDF_ID` = '".$rs_statistic_by_pdf["PDF_ID"]."';
+										";
+										$Result_statistic_each_pdf=@mysql_query($sql_statistic_each_pdf);
+										if($rs_statistic_each_pdf=@mysql_fetch_array($Result_statistic_each_pdf)){
+											echo $rs_statistic_each_pdf["number_pdf"]."";
+										}
+									?></td>
+								</tr>
+	
+								<!-- <tr>
+									<td>2</td>
+									<td>Adrian Purdila</td>
+									<td>32</td>
+								</tr>
+	
+								<tr>
+									<td>3</td>
+									<td>Adrian Purdila</td>
+									<td>23</td>
+								</tr>
+	
+								<tr>
+									<td>4</td>
+									<td>Adrian Purdila</td>
+									<td>18</td>
+								</tr>
+	
+								<tr>
+									<td>5</td>
+									<td>Adrian Purdila</td>
+									<td>10</td>
+								</tr> -->
+<?php
+							}
+?>
 						</tbody>
-
+					</tfoot>
 				</table>
 				<a href="#" class="round button orange ic-download image-left">Download Report</a>
 
