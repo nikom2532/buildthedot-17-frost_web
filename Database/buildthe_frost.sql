@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1deb1
+-- version 3.5.8
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 02, 2013 at 08:57 PM
--- Server version: 5.5.32
--- PHP Version: 5.3.10-1ubuntu3.7
+-- Generation Time: Oct 02, 2013 at 09:07 PM
+-- Server version: 5.1.67
+-- PHP Version: 5.3.27
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `buildthedot_17frost`
+-- Database: `buildthe_frost`
 --
 
 -- --------------------------------------------------------
@@ -28,18 +28,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `ASIAN_COUNTRY` (
   `ID` int(3) NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(200) COLLATE utf8_bin NOT NULL,
-  `CAPITAL` varchar(200) COLLATE utf8_bin NOT NULL,
-  `LANGUAGE` varchar(100) COLLATE utf8_bin NOT NULL,
-  `POPULATION` varchar(200) COLLATE utf8_bin NOT NULL,
-  `RELIGION` varchar(200) COLLATE utf8_bin NOT NULL,
-  `CURRENCY` varchar(200) COLLATE utf8_bin NOT NULL,
-  `PARAGRAPH_1` varchar(1000) COLLATE utf8_bin NOT NULL,
-  `PARAGRAPH_2` varchar(1000) COLLATE utf8_bin NOT NULL,
-  `PARAGRAPH_3` varchar(1000) COLLATE utf8_bin NOT NULL,
-  `PHOTO_NAME` varchar(100) COLLATE utf8_bin NOT NULL,
+  `NAME` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `CAPITAL` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `LANGUAGE` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `POPULATION` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `RELIGION` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `CURRENCY` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `PARAGRAPH_1` varchar(1000) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `PARAGRAPH_2` varchar(1000) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `PARAGRAPH_3` varchar(1000) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `PHOTO_NAME` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=11 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `ASIAN_COUNTRY`
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `COUNTRY` (
   `ID` int(11) NOT NULL,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `COUNTRY`
@@ -334,7 +334,7 @@ CREATE TABLE IF NOT EXISTS `DEPARTMENT` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `DEPARTMENT`
@@ -353,7 +353,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV1` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `GROUP_LV1`
@@ -375,7 +375,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV2` (
   `GROUP_LV1_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_GROUP_LV2_GROUP_LV11_idx` (`GROUP_LV1_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `GROUP_LV2`
@@ -405,7 +405,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV3` (
   `GROUP_LV2_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_GROUP_LV3_GROUP_LV21_idx` (`GROUP_LV2_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `GROUP_LV3`
@@ -435,7 +435,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV4` (
   `GROUP_LV3_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_GROUP_LV4_GROUP_LV31_idx` (`GROUP_LV3_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `GROUP_LV4`
@@ -458,7 +458,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV5` (
   `NAME` varchar(60) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `GROUP_LV4_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 -- --------------------------------------------------------
 
@@ -471,7 +471,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV6` (
   `NAME` int(11) NOT NULL,
   `GROUP_LV5_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -483,7 +483,7 @@ CREATE TABLE IF NOT EXISTS `INDUSTRY` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `INDUSTRY`
@@ -502,7 +502,7 @@ CREATE TABLE IF NOT EXISTS `JOB_LEVEL` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `JOB_LEVEL`
@@ -520,7 +520,7 @@ INSERT INTO `JOB_LEVEL` (`ID`, `NAME`) VALUES
 CREATE TABLE IF NOT EXISTS `PDF` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `PHOTO_NAME` varchar(100) NOT NULL,
+  `PHOTO_NAME` varchar(100) CHARACTER SET latin1 NOT NULL,
   `DESCRIPTION` text CHARACTER SET utf8 COLLATE utf8_bin,
   `PRICE` decimal(10,0) DEFAULT NULL,
   `UPDATE_DATE` datetime DEFAULT NULL,
@@ -528,28 +528,28 @@ CREATE TABLE IF NOT EXISTS `PDF` (
   `PATH` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `Is_Asian_country` tinyint(1) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `PDF`
 --
 
 INSERT INTO `PDF` (`ID`, `NAME`, `PHOTO_NAME`, `DESCRIPTION`, `PRICE`, `UPDATE_DATE`, `COMPANY_ID`, `PATH`, `Is_Asian_country`) VALUES
-(1, 'test1', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 1', 100, '2013-09-01 00:00:00', 1, 'TestPdf1.pdf', 0),
-(2, 'test2', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 2', 200, '2013-09-02 00:00:00', 2, 'TestPdf2.pdf', 0),
-(3, 'test3', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 3', 300, '2013-09-03 00:00:00', 3, 'TestPdf3.pdf', 0),
-(4, 'test4', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 4', 400, '2013-09-04 00:00:00', 4, 'TestPdf4.pdf', 0),
-(5, 'test5', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 5', 500, '2013-09-05 00:00:00', 5, 'TestPdf5.pdf', 0),
-(7, 'Brunei Darussalam', 'brunei.jpg', 'asdf', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(8, 'Cambodia', 'cambodia.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(9, 'Indonesia', 'indonesia.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(10, 'Lao PDR', 'lao.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(11, 'Malaysia', 'malaysia.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(12, 'Myanmar', 'myanmar.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(13, 'Philippines', 'philipine.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(14, 'Singapore', 'singapore.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(15, 'Thailand', 'thailand.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(16, 'Viet Nam', 'vietnam.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1);
+(1, 'test1', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 1', '100', '2013-09-01 00:00:00', 1, 'TestPdf1.pdf', 0),
+(2, 'test2', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 2', '200', '2013-09-02 00:00:00', 2, 'TestPdf2.pdf', 0),
+(3, 'test3', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 3', '300', '2013-09-03 00:00:00', 3, 'TestPdf3.pdf', 0),
+(4, 'test4', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 4', '400', '2013-09-04 00:00:00', 4, 'TestPdf4.pdf', 0),
+(5, 'test5', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 5', '500', '2013-09-05 00:00:00', 5, 'TestPdf5.pdf', 0),
+(7, 'Brunei Darussalam', 'brunei.jpg', 'asdf', '100', NULL, NULL, 'TestPdf1.pdf', 1),
+(8, 'Cambodia', 'cambodia.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s', '100', NULL, NULL, 'TestPdf1.pdf', 1),
+(9, 'Indonesia', 'indonesia.jpg', 'aaa', '100', NULL, NULL, 'TestPdf1.pdf', 1),
+(10, 'Lao PDR', 'lao.jpg', 'aaa', '100', NULL, NULL, 'TestPdf1.pdf', 1),
+(11, 'Malaysia', 'malaysia.jpg', 'aaa', '100', NULL, NULL, 'TestPdf1.pdf', 1),
+(12, 'Myanmar', 'myanmar.jpg', 'aaa', '100', NULL, NULL, 'TestPdf1.pdf', 1),
+(13, 'Philippines', 'philipine.jpg', 'aaa', '100', NULL, NULL, 'TestPdf1.pdf', 1),
+(14, 'Singapore', 'singapore.jpg', 'aaa', '100', NULL, NULL, 'TestPdf1.pdf', 1),
+(15, 'Thailand', 'thailand.jpg', 'aaa', '100', NULL, NULL, 'TestPdf1.pdf', 1),
+(16, 'Viet Nam', 'vietnam.jpg', 'aaa', '100', NULL, NULL, 'TestPdf1.pdf', 1);
 
 -- --------------------------------------------------------
 
@@ -564,7 +564,7 @@ CREATE TABLE IF NOT EXISTS `PDF_CATEGORY` (
   `GROUP_LEVEL_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `PDF_ID` (`PDF_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `PDF_CATEGORY`
@@ -600,7 +600,7 @@ CREATE TABLE IF NOT EXISTS `PERMISSION` (
   PRIMARY KEY (`ID`),
   KEY `fk_USER_PROFILE_has_GROUP_LV2_GROUP_LV21_idx` (`GROUP_LV2_ID`),
   KEY `fk_USER_PROFILE_has_GROUP_LV2_USER_PROFILE1_idx` (`USER_PROFILE_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `PERMISSION`
@@ -621,9 +621,9 @@ INSERT INTO `PERMISSION` (`ID`, `USER_PROFILE_ID`, `GROUP_LV2_ID`, `IS_ACTIVE`, 
 
 CREATE TABLE IF NOT EXISTS `QUESTION` (
   `ID` int(100) NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(200) COLLATE utf8_bin NOT NULL,
+  `NAME` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=13 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `QUESTION`
@@ -653,7 +653,7 @@ CREATE TABLE IF NOT EXISTS `TAG` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `TAG`
@@ -678,7 +678,7 @@ CREATE TABLE IF NOT EXISTS `TAG_RELATIONSHIP` (
   PRIMARY KEY (`PDF_ID`,`TAG_ID`),
   KEY `fk_PDF_has_TAG_TAG1_idx` (`TAG_ID`),
   KEY `fk_PDF_has_TAG_PDF1_idx` (`PDF_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `TAG_RELATIONSHIP`
@@ -701,7 +701,7 @@ CREATE TABLE IF NOT EXISTS `TECHNOLOGY_ID` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `TECHNOLOGY_ID`
@@ -747,7 +747,7 @@ CREATE TABLE IF NOT EXISTS `USER_PROFILE` (
   KEY `fk_USER_PROFILE_INDUSTRY_ID1_idx` (`INDUSTRY_ID`),
   KEY `fk_USER_PROFILE_COUNTRY_ID1_idx` (`COUNTRY_ID`),
   KEY `fk_USER_PROFILE_TECHNOLOGY_ID1_idx` (`TECHNOLOGY_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `USER_PROFILE`
@@ -772,7 +772,7 @@ CREATE TABLE IF NOT EXISTS `USER_TRANSACTION` (
   PRIMARY KEY (`ID`,`USER_PROFILE_ID`,`PDF_ID`),
   KEY `fk_USER_TRANSACTION_PDF1_idx` (`PDF_ID`),
   KEY `fk_USER_TRANSACTION_USER_PROFILE1_idx` (`USER_PROFILE_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
 -- Constraints for dumped tables

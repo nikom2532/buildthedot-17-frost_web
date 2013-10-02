@@ -5,10 +5,10 @@
  */
 
 //
-// Database `buildthedot_17frost`
+// Database `buildthe_frost`
 //
 
-// `buildthedot_17frost`.`ASIAN_COUNTRY`
+// `buildthe_frost`.`ASIAN_COUNTRY`
 $ASIAN_COUNTRY = array(
   array('ID' => '1','NAME' => 'Brunei Darussalam','CAPITAL' => 'Bandar Seri Begawan','LANGUAGE' => 'Malay, English','POPULATION' => '','RELIGION' => '','CURRENCY' => 'B$ (Brunei Dollar)','PARAGRAPH_1' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s','PARAGRAPH_2' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.','PARAGRAPH_3' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s','PHOTO_NAME' => 'brunei.jpg'),
   array('ID' => '2','NAME' => 'Cambodia','CAPITAL' => 'Phnom Penh','LANGUAGE' => 'Khmer','POPULATION' => '','RELIGION' => '','CURRENCY' => 'Riel','PARAGRAPH_1' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s','PARAGRAPH_2' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.','PARAGRAPH_3' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s','PHOTO_NAME' => 'cambodia.jpg'),
@@ -22,7 +22,7 @@ $ASIAN_COUNTRY = array(
   array('ID' => '10','NAME' => 'Viet Nam','CAPITAL' => 'Ha Noi','LANGUAGE' => 'Vietnamese','POPULATION' => '','RELIGION' => '','CURRENCY' => 'Dong','PARAGRAPH_1' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s','PARAGRAPH_2' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.','PARAGRAPH_3' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s','PHOTO_NAME' => 'vietnam.jpg')
 );
 
-// `buildthedot_17frost`.`COUNTRY`
+// `buildthe_frost`.`COUNTRY`
 $COUNTRY = array(
   array('ID' => '1','NAME' => 'Afghanistan'),
   array('ID' => '2','NAME' => 'Albania'),
@@ -275,18 +275,18 @@ $COUNTRY = array(
   array('ID' => '252','NAME' => 'Zimbabwe')
 );
 
-// `buildthedot_17frost`.`DEPARTMENT`
+// `buildthe_frost`.`DEPARTMENT`
 $DEPARTMENT = array(
   array('ID' => '1','NAME' => 'A')
 );
 
-// `buildthedot_17frost`.`GROUP_LV1`
+// `buildthe_frost`.`GROUP_LV1`
 $GROUP_LV1 = array(
   array('ID' => '1','NAME' => 'Knowledge'),
   array('ID' => '2','NAME' => 'Best Practice')
 );
 
-// `buildthedot_17frost`.`GROUP_LV2`
+// `buildthe_frost`.`GROUP_LV2`
 $GROUP_LV2 = array(
   array('ID' => '1','NAME' => 'Technology','GROUP_LV1_ID' => '1'),
   array('ID' => '2','NAME' => 'Strategy','GROUP_LV1_ID' => '1'),
@@ -300,7 +300,7 @@ $GROUP_LV2 = array(
   array('ID' => '10','NAME' => 'Market','GROUP_LV1_ID' => '1')
 );
 
-// `buildthedot_17frost`.`GROUP_LV3`
+// `buildthe_frost`.`GROUP_LV3`
 $GROUP_LV3 = array(
   array('ID' => '3','NAME' => 'E-Business','GROUP_LV2_ID' => '2'),
   array('ID' => '4','NAME' => 'Customer Experience Management','GROUP_LV2_ID' => '2'),
@@ -314,7 +314,7 @@ $GROUP_LV3 = array(
   array('ID' => '12','NAME' => 'Company','GROUP_LV2_ID' => '4')
 );
 
-// `buildthedot_17frost`.`GROUP_LV4`
+// `buildthe_frost`.`GROUP_LV4`
 $GROUP_LV4 = array(
   array('ID' => '5','NAME' => 'World Economic Index','GROUP_LV3_ID' => '10'),
   array('ID' => '6','NAME' => 'ICT Competency Index','GROUP_LV3_ID' => '10'),
@@ -326,17 +326,17 @@ $GROUP_LV4 = array(
 
 );
 
-// `buildthedot_17frost`.`INDUSTRY`
+// `buildthe_frost`.`INDUSTRY`
 $INDUSTRY = array(
   array('ID' => '1','NAME' => 'A')
 );
 
-// `buildthedot_17frost`.`JOB_LEVEL`
+// `buildthe_frost`.`JOB_LEVEL`
 $JOB_LEVEL = array(
   array('ID' => '1','NAME' => 'A')
 );
 
-// `buildthedot_17frost`.`PDF`
+// `buildthe_frost`.`PDF`
 $PDF = array(
   array('ID' => '1','NAME' => 'test1','PHOTO_NAME' => 'testPDF.jpg','DESCRIPTION' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, Lorem 1','PRICE' => '100','UPDATE_DATE' => '2013-09-01 00:00:00','COMPANY_ID' => '1','PATH' => 'TestPdf1.pdf','Is_Asian_country' => '0'),
   array('ID' => '2','NAME' => 'test2','PHOTO_NAME' => 'testPDF.jpg','DESCRIPTION' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, Lorem 2','PRICE' => '200','UPDATE_DATE' => '2013-09-02 00:00:00','COMPANY_ID' => '2','PATH' => 'TestPdf2.pdf','Is_Asian_country' => '0'),
@@ -355,7 +355,7 @@ $PDF = array(
   array('ID' => '16','NAME' => 'Viet Nam','PHOTO_NAME' => 'vietnam.jpg','DESCRIPTION' => 'aaa','PRICE' => '100','UPDATE_DATE' => NULL,'COMPANY_ID' => NULL,'PATH' => 'TestPdf1.pdf','Is_Asian_country' => '1')
 );
 
-// `buildthedot_17frost`.`PDF_CATEGORY`
+// `buildthe_frost`.`PDF_CATEGORY`
 $PDF_CATEGORY = array(
   array('ID' => '1','PDF_ID' => '1','GROUP_LEVEL_NAME' => '2','GROUP_LEVEL_ID' => '2'),
   array('ID' => '2','PDF_ID' => '2','GROUP_LEVEL_NAME' => '3','GROUP_LEVEL_ID' => '3'),
@@ -371,7 +371,7 @@ $PDF_CATEGORY = array(
   array('ID' => '12','PDF_ID' => '16','GROUP_LEVEL_NAME' => '3','GROUP_LEVEL_ID' => '11')
 );
 
-// `buildthedot_17frost`.`PERMISSION`
+// `buildthe_frost`.`PERMISSION`
 $PERMISSION = array(
   array('ID' => '1','USER_PROFILE_ID' => '1','GROUP_LV2_ID' => '2','IS_ACTIVE' => 'Y','START_DATE' => '2013-09-01 00:00:00','END_DATE' => '2014-09-28 00:00:00'),
   array('ID' => '2','USER_PROFILE_ID' => '3','GROUP_LV2_ID' => '1','IS_ACTIVE' => 'N','START_DATE' => '2013-10-03 00:00:00','END_DATE' => '2014-10-17 00:00:00'),
@@ -380,7 +380,7 @@ $PERMISSION = array(
   array('ID' => '5','USER_PROFILE_ID' => '3','GROUP_LV2_ID' => '3','IS_ACTIVE' => 'N','START_DATE' => '2013-10-01 00:00:00','END_DATE' => '2013-10-01 00:00:00')
 );
 
-// `buildthedot_17frost`.`QUESTION`
+// `buildthe_frost`.`QUESTION`
 $QUESTION = array(
   array('ID' => '1','NAME' => 'What was your childhood nickname?'),
   array('ID' => '2','NAME' => 'What is the name of your favorite childhood friend? '),
@@ -396,7 +396,7 @@ $QUESTION = array(
   array('ID' => '12','NAME' => 'What was your dream job as a child? ')
 );
 
-// `buildthedot_17frost`.`TAG`
+// `buildthe_frost`.`TAG`
 $TAG = array(
   array('ID' => '1','NAME' => 'tag1'),
   array('ID' => '2','NAME' => 'tag2'),
@@ -405,7 +405,7 @@ $TAG = array(
   array('ID' => '5','NAME' => 'tag5')
 );
 
-// `buildthedot_17frost`.`TAG_RELATIONSHIP`
+// `buildthe_frost`.`TAG_RELATIONSHIP`
 $TAG_RELATIONSHIP = array(
   array('PDF_ID' => '1','TAG_ID' => '1'),
   array('PDF_ID' => '2','TAG_ID' => '1'),
@@ -414,12 +414,12 @@ $TAG_RELATIONSHIP = array(
   array('PDF_ID' => '1','TAG_ID' => '3')
 );
 
-// `buildthedot_17frost`.`TECHNOLOGY_ID`
+// `buildthe_frost`.`TECHNOLOGY_ID`
 $TECHNOLOGY_ID = array(
   array('ID' => '1','NAME' => 'A')
 );
 
-// `buildthedot_17frost`.`USER_PROFILE`
+// `buildthe_frost`.`USER_PROFILE`
 $USER_PROFILE = array(
   array('ID' => '1','FIRSTNAME' => 'A','LASTNAME' => 'A','EMAIL' => 'a@a.com','COMPANY' => 'A','PASSWORD' => '77de54ccf56eb6f7dbf99e4d3be949ab6f9b0a55df8ac28564cb9f63a10be8af6ab3f7c2','JOB_TITLE' => '','ADDRESS' => '','CITY' => '','ZIP' => '','PHONE' => '','FAX' => '','IS_ACTIVE' => 'Y','IS_ADMIN' => 'N','JOB_LEVEL' => '1','DEPARTMENT_ID' => '1','INDUSTRY_ID' => '1','COUNTRY_ID' => '1','TECHNOLOGY_ID' => '1','USER_PROFILEcol' => NULL,'PHOTO_NAME' => 'testUserProfile.jpg','QUESTION_ID' => '1','ANSWER' => 'a'),
   array('ID' => '3','FIRSTNAME' => 'B','LASTNAME' => 'B','EMAIL' => 'b@b.com','COMPANY' => 'B','PASSWORD' => '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e','JOB_TITLE' => NULL,'ADDRESS' => NULL,'CITY' => NULL,'ZIP' => NULL,'PHONE' => NULL,'FAX' => NULL,'IS_ACTIVE' => 'Y','IS_ADMIN' => 'N','JOB_LEVEL' => '1','DEPARTMENT_ID' => '1','INDUSTRY_ID' => '1','COUNTRY_ID' => '1','TECHNOLOGY_ID' => '1','USER_PROFILEcol' => NULL,'PHOTO_NAME' => '','QUESTION_ID' => '2','ANSWER' => 'b'),
