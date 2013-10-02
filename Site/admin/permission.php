@@ -1,6 +1,6 @@
 <?php include("include/header.php");?>
 <?php include("include/top-bar.php");?>
-
+<?php include("include/checksession.php");?>	
     <script>
        	$(function() {
 		$( "#datepicker" ).datepicker({

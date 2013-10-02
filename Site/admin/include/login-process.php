@@ -37,11 +37,10 @@ if(($email!="")&&($password!="")) {
 		$fetchArray=mysql_fetch_array($result);
 	
 		$_SESSION["userid"] = $fetchArray["ID"];
-		echo "ID=>".$fetchArray["ID"]."<br/>";
-		//$_SESSION['sessid']=session_id();
+		//echo "ID=>".$fetchArray["ID"]."<br/>";
+		$_SESSION['sessid']=session_id();
 		header("location: ../main.php");
 		//echo "session".$_SESSION[sessid];
-		echo "userid".$_SESSION["userid"];
 	}
 	else{
 		$errormsg = "Username or password is incorrect";
