@@ -209,7 +209,7 @@
 									echo "<input type='hidden' name='userId' value=".$rowPermission['USER_PROFILE_ID'].">";
 									echo "<input type='hidden' name='groupLevelId' value=".$rowPermission['GROUP_ID'].">";
 									echo "<input type='hidden' name='editId' value=".$rowPermission['ID'].">";
-									echo " <INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 55px;' ALT='EDIT'> ";
+									echo " <INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 70px;' ALT='EDIT'> ";
 									echo "</form>";
 									
 									echo "<form method='post' action='permission_delete.php' id='submitform' name='submitform'>";
