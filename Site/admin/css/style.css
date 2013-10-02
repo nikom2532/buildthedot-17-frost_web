@@ -362,7 +362,7 @@ table tbody tr:nth-child(odd) { background-color: #f8f9fa; }
 
 /* Push the first cell to the right so it doesn't stick to the table border */
 table td:first-child, table th:first-child {
-	width: 4em /* 48/12 */;
+	/*width: 4em /* 48/12 */;
 	text-align: center;
 	padding: 0;
 	border: none;
@@ -370,7 +370,7 @@ table td:first-child, table th:first-child {
 }
 	
 table td:last-child, table th:last-child {
-	width: 15em; /* 84/12 */
+	/*width: 15em; /* 84/12 */
 	text-align: center;
 	padding: 0;
 }
@@ -389,7 +389,8 @@ a.table-actions-button {
 	background-position: center center;
 }
 
-
+table.fixed { table-layout:fixed; }
+table.fixed td { overflow: hidden; }
 
 
 

@@ -124,8 +124,13 @@
 					
 					<div class="content-module-main">
 					<br>
-					<table>
-					
+					<table class="fixed">
+						<col width="2em" />
+	    				 <col width="10em" />
+	    				 <col width="10em" />
+	    				 <col width="8em" />
+	    				 <col width="5em" />
+	    				 <col width="6em" />
 						<thead>
 					
 							<tr>

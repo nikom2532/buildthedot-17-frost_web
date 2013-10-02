@@ -66,8 +66,13 @@ else
 					<a href="add-customer.php" class="round button orange ic-add image-left" >Add customer</a>
 				</div>
 
-				<table>
-
+				<table class="fixed">
+					 <col width="2em" />
+    				 <col width="10em" />
+    				 <col width="10em" />
+    				 <col width="8em" />
+    				 <col width="5em" />
+    				 <col width="6em" />
 					<thead>
 
 						<tr>
