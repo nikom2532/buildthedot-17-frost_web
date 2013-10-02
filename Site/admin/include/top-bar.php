@@ -9,11 +9,11 @@
                     <ul>
                         <li><a href="my-profile.php">My Profile</a></li>
                         <li><a href="edit-password.php">Change Password</a></li>
-                        <li><a href="#">Log out</a></li>
+                        <li><a href="include/logout-process.php">Log out</a></li>
                     </ul> 
                 </li>
             
-                <li><a href="#" class="round button dark menu-logoff image-left">Log out</a></li>
+                <li><a href="include/logout-process.php" class="round button dark menu-logoff image-left">Log out</a></li>
                 
             </ul> <!-- end nav -->
 		</div> <!-- end full-width -->	
