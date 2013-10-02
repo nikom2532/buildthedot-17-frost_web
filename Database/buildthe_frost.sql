@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.8
+-- version 3.4.10.1deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 03, 2013 at 02:21 AM
--- Server version: 5.1.67
--- PHP Version: 5.3.27
+-- Generation Time: Oct 03, 2013 at 03:33 AM
+-- Server version: 5.5.32
+-- PHP Version: 5.3.10-1ubuntu3.7
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `buildthe_frost`
+-- Database: `buildthedot_17frost`
 --
 
 -- --------------------------------------------------------
@@ -378,7 +378,15 @@ CREATE TABLE IF NOT EXISTS `DOWNLOAD_STATISTICS` (
   `PDF_ID` int(100) NOT NULL,
   `DOWNLOAD_DATETIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `DOWNLOAD_STATISTICS`
+--
+
+INSERT INTO `DOWNLOAD_STATISTICS` (`ID`, `USER_ID`, `PDF_ID`, `DOWNLOAD_DATETIME`) VALUES
+(1, 1, 1, '2013-10-02 19:34:06'),
+(2, 1, 2, '2013-10-02 19:34:40');
 
 -- --------------------------------------------------------
 
@@ -572,21 +580,21 @@ CREATE TABLE IF NOT EXISTS `PDF` (
 --
 
 INSERT INTO `PDF` (`ID`, `NAME`, `PHOTO_NAME`, `DESCRIPTION`, `PRICE`, `UPDATE_DATE`, `COMPANY_ID`, `PATH`, `Is_Asian_country`) VALUES
-(1, 'test1', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 1', '100', '2013-09-01 00:00:00', 1, 'TestPdf1.pdf', 0),
-(2, 'test2', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 2', '200', '2013-09-02 00:00:00', 2, 'TestPdf2.pdf', 0),
-(3, 'test3', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 3', '300', '2013-09-03 00:00:00', 3, 'TestPdf3.pdf', 0),
-(4, 'test4', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 4', '400', '2013-09-04 00:00:00', 4, 'TestPdf4.pdf', 0),
-(5, 'test5', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 5', '500', '2013-09-05 00:00:00', 5, 'TestPdf5.pdf', 0),
-(7, 'Brunei Darussalam', 'brunei.jpg', 'asdf', '100', NULL, NULL, 'TestPdf1.pdf', 1),
-(8, 'Cambodia', 'cambodia.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s', '100', NULL, NULL, 'TestPdf1.pdf', 1),
-(9, 'Indonesia', 'indonesia.jpg', 'aaa', '100', NULL, NULL, 'TestPdf1.pdf', 1),
-(10, 'Lao PDR', 'lao.jpg', 'aaa', '100', NULL, NULL, 'TestPdf1.pdf', 1),
-(11, 'Malaysia', 'malaysia.jpg', 'aaa', '100', NULL, NULL, 'TestPdf1.pdf', 1),
-(12, 'Myanmar', 'myanmar.jpg', 'aaa', '100', NULL, NULL, 'TestPdf1.pdf', 1),
-(13, 'Philippines', 'philipine.jpg', 'aaa', '100', NULL, NULL, 'TestPdf1.pdf', 1),
-(14, 'Singapore', 'singapore.jpg', 'aaa', '100', NULL, NULL, 'TestPdf1.pdf', 1),
-(15, 'Thailand', 'thailand.jpg', 'aaa', '100', NULL, NULL, 'TestPdf1.pdf', 1),
-(16, 'Viet Nam', 'vietnam.jpg', 'aaa', '100', NULL, NULL, 'TestPdf1.pdf', 1);
+(1, 'test1', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 1', 100, '2013-09-01 00:00:00', 1, 'TestPdf1.pdf', 0),
+(2, 'test2', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 2', 200, '2013-09-02 00:00:00', 2, 'TestPdf2.pdf', 0),
+(3, 'test3', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 3', 300, '2013-09-03 00:00:00', 3, 'TestPdf3.pdf', 0),
+(4, 'test4', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 4', 400, '2013-09-04 00:00:00', 4, 'TestPdf4.pdf', 0),
+(5, 'test5', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 5', 500, '2013-09-05 00:00:00', 5, 'TestPdf5.pdf', 0),
+(7, 'Brunei Darussalam', 'brunei.jpg', 'asdf', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(8, 'Cambodia', 'cambodia.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(9, 'Indonesia', 'indonesia.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(10, 'Lao PDR', 'lao.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(11, 'Malaysia', 'malaysia.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(12, 'Myanmar', 'myanmar.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(13, 'Philippines', 'philipine.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(14, 'Singapore', 'singapore.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(15, 'Thailand', 'thailand.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(16, 'Viet Nam', 'vietnam.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1);
 
 -- --------------------------------------------------------
 
