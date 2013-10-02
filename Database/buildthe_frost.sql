@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.1
+-- version 3.5.8
 -- http://www.phpmyadmin.net
 --
--- โฮสต์: 127.0.0.1
--- เวลาในการสร้าง: 
--- เวอร์ชั่นของเซิร์ฟเวอร์: 5.5.32
--- รุ่นของ PHP: 5.4.19
+-- Host: localhost
+-- Generation Time: Oct 03, 2013 at 01:30 AM
+-- Server version: 5.1.67
+-- PHP Version: 5.3.27
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,41 +17,39 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- ฐานข้อมูล: `buildthe_frost`
+-- Database: `buildthe_frost`
 --
-CREATE DATABASE IF NOT EXISTS `buildthe_frost` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `buildthe_frost`;
 
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `admin`
+-- Table structure for table `ADMIN`
 --
 
-CREATE TABLE IF NOT EXISTS `admin` (
-  `ID` int(2) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `ADMIN` (
+  `ID` int(2) NOT NULL DEFAULT '0',
   `NAME` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `EMAIL` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `PASSWORD` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `DATE` datetime NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- dump ตาราง `admin`
+-- Dumping data for table `ADMIN`
 --
 
-INSERT INTO `admin` (`ID`, `NAME`, `EMAIL`, `PASSWORD`, `DATE`) VALUES
+INSERT INTO `ADMIN` (`ID`, `NAME`, `EMAIL`, `PASSWORD`, `DATE`) VALUES
 (1, 'test', 'a@a.com', '77de54ccf56eb6f7dbf99e4d3be949ab6f9b0a55df8ac28564cb9f63a10be8af6ab3f7c2', '2013-10-02 00:00:00'),
 (2, 'b', 'b@b.com', '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e', '2013-10-02 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `asian_country`
+-- Table structure for table `ASIAN_COUNTRY`
 --
 
-CREATE TABLE IF NOT EXISTS `asian_country` (
+CREATE TABLE IF NOT EXISTS `ASIAN_COUNTRY` (
   `ID` int(3) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `CAPITAL` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -67,10 +65,10 @@ CREATE TABLE IF NOT EXISTS `asian_country` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
--- dump ตาราง `asian_country`
+-- Dumping data for table `ASIAN_COUNTRY`
 --
 
-INSERT INTO `asian_country` (`ID`, `NAME`, `CAPITAL`, `LANGUAGE`, `POPULATION`, `RELIGION`, `CURRENCY`, `PARAGRAPH_1`, `PARAGRAPH_2`, `PARAGRAPH_3`, `PHOTO_NAME`) VALUES
+INSERT INTO `ASIAN_COUNTRY` (`ID`, `NAME`, `CAPITAL`, `LANGUAGE`, `POPULATION`, `RELIGION`, `CURRENCY`, `PARAGRAPH_1`, `PARAGRAPH_2`, `PARAGRAPH_3`, `PHOTO_NAME`) VALUES
 (1, 'Brunei Darussalam', 'Bandar Seri Begawan', 'Malay, English', '', '', 'B$ (Brunei Dollar)', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s', 'brunei.jpg'),
 (2, 'Cambodia', 'Phnom Penh', 'Khmer', '', '', 'Riel', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s', 'cambodia.jpg'),
 (3, 'Indonesia', 'Jakarta', 'Indonesian', '', '', 'Rupiah', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s', 'indonesia.jpg'),
@@ -85,20 +83,20 @@ INSERT INTO `asian_country` (`ID`, `NAME`, `CAPITAL`, `LANGUAGE`, `POPULATION`, 
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `country`
+-- Table structure for table `COUNTRY`
 --
 
-CREATE TABLE IF NOT EXISTS `country` (
+CREATE TABLE IF NOT EXISTS `COUNTRY` (
   `ID` int(11) NOT NULL,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- dump ตาราง `country`
+-- Dumping data for table `COUNTRY`
 --
 
-INSERT INTO `country` (`ID`, `NAME`) VALUES
+INSERT INTO `COUNTRY` (`ID`, `NAME`) VALUES
 (1, 'Afghanistan'),
 (2, 'Albania'),
 (3, 'Algeria'),
@@ -352,49 +350,49 @@ INSERT INTO `country` (`ID`, `NAME`) VALUES
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `department`
+-- Table structure for table `DEPARTMENT`
 --
 
-CREATE TABLE IF NOT EXISTS `department` (
+CREATE TABLE IF NOT EXISTS `DEPARTMENT` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- dump ตาราง `department`
+-- Dumping data for table `DEPARTMENT`
 --
 
-INSERT INTO `department` (`ID`, `NAME`) VALUES
+INSERT INTO `DEPARTMENT` (`ID`, `NAME`) VALUES
 (1, 'A');
 
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `group_lv1`
+-- Table structure for table `GROUP_LV1`
 --
 
-CREATE TABLE IF NOT EXISTS `group_lv1` (
+CREATE TABLE IF NOT EXISTS `GROUP_LV1` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
--- dump ตาราง `group_lv1`
+-- Dumping data for table `GROUP_LV1`
 --
 
-INSERT INTO `group_lv1` (`ID`, `NAME`) VALUES
+INSERT INTO `GROUP_LV1` (`ID`, `NAME`) VALUES
 (1, 'Knowledge'),
 (2, 'Best Practice');
 
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `group_lv2`
+-- Table structure for table `GROUP_LV2`
 --
 
-CREATE TABLE IF NOT EXISTS `group_lv2` (
+CREATE TABLE IF NOT EXISTS `GROUP_LV2` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `GROUP_LV1_ID` int(11) NOT NULL,
@@ -403,10 +401,10 @@ CREATE TABLE IF NOT EXISTS `group_lv2` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
--- dump ตาราง `group_lv2`
+-- Dumping data for table `GROUP_LV2`
 --
 
-INSERT INTO `group_lv2` (`ID`, `NAME`, `GROUP_LV1_ID`) VALUES
+INSERT INTO `GROUP_LV2` (`ID`, `NAME`, `GROUP_LV1_ID`) VALUES
 (1, 'Technology', 1),
 (2, 'Strategy', 1),
 (3, 'Around Asian', 1),
@@ -421,10 +419,10 @@ INSERT INTO `group_lv2` (`ID`, `NAME`, `GROUP_LV1_ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `group_lv3`
+-- Table structure for table `GROUP_LV3`
 --
 
-CREATE TABLE IF NOT EXISTS `group_lv3` (
+CREATE TABLE IF NOT EXISTS `GROUP_LV3` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `GROUP_LV2_ID` int(11) NOT NULL,
@@ -433,10 +431,10 @@ CREATE TABLE IF NOT EXISTS `group_lv3` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
--- dump ตาราง `group_lv3`
+-- Dumping data for table `GROUP_LV3`
 --
 
-INSERT INTO `group_lv3` (`ID`, `NAME`, `GROUP_LV2_ID`) VALUES
+INSERT INTO `GROUP_LV3` (`ID`, `NAME`, `GROUP_LV2_ID`) VALUES
 (3, 'E-Business', 2),
 (4, 'Customer Experience Management', 2),
 (5, 'Value Innovation', 2),
@@ -451,10 +449,10 @@ INSERT INTO `group_lv3` (`ID`, `NAME`, `GROUP_LV2_ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `group_lv4`
+-- Table structure for table `GROUP_LV4`
 --
 
-CREATE TABLE IF NOT EXISTS `group_lv4` (
+CREATE TABLE IF NOT EXISTS `GROUP_LV4` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `GROUP_LV3_ID` int(11) NOT NULL,
@@ -463,10 +461,10 @@ CREATE TABLE IF NOT EXISTS `group_lv4` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
 
 --
--- dump ตาราง `group_lv4`
+-- Dumping data for table `GROUP_LV4`
 --
 
-INSERT INTO `group_lv4` (`ID`, `NAME`, `GROUP_LV3_ID`) VALUES
+INSERT INTO `GROUP_LV4` (`ID`, `NAME`, `GROUP_LV3_ID`) VALUES
 (5, 'World Economic Index', 10),
 (6, 'ICT Competency Index', 10),
 (7, 'Country', 11),
@@ -475,10 +473,10 @@ INSERT INTO `group_lv4` (`ID`, `NAME`, `GROUP_LV3_ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `group_lv5`
+-- Table structure for table `GROUP_LV5`
 --
 
-CREATE TABLE IF NOT EXISTS `group_lv5` (
+CREATE TABLE IF NOT EXISTS `GROUP_LV5` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(60) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `GROUP_LV4_ID` int(11) NOT NULL,
@@ -488,10 +486,10 @@ CREATE TABLE IF NOT EXISTS `group_lv5` (
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `group_lv6`
+-- Table structure for table `GROUP_LV6`
 --
 
-CREATE TABLE IF NOT EXISTS `group_lv6` (
+CREATE TABLE IF NOT EXISTS `GROUP_LV6` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` int(11) NOT NULL,
   `GROUP_LV5_ID` int(11) NOT NULL,
@@ -501,48 +499,48 @@ CREATE TABLE IF NOT EXISTS `group_lv6` (
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `industry`
+-- Table structure for table `INDUSTRY`
 --
 
-CREATE TABLE IF NOT EXISTS `industry` (
+CREATE TABLE IF NOT EXISTS `INDUSTRY` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- dump ตาราง `industry`
+-- Dumping data for table `INDUSTRY`
 --
 
-INSERT INTO `industry` (`ID`, `NAME`) VALUES
+INSERT INTO `INDUSTRY` (`ID`, `NAME`) VALUES
 (1, 'A');
 
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `job_level`
+-- Table structure for table `JOB_LEVEL`
 --
 
-CREATE TABLE IF NOT EXISTS `job_level` (
+CREATE TABLE IF NOT EXISTS `JOB_LEVEL` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- dump ตาราง `job_level`
+-- Dumping data for table `JOB_LEVEL`
 --
 
-INSERT INTO `job_level` (`ID`, `NAME`) VALUES
+INSERT INTO `JOB_LEVEL` (`ID`, `NAME`) VALUES
 (1, 'A');
 
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `pdf`
+-- Table structure for table `PDF`
 --
 
-CREATE TABLE IF NOT EXISTS `pdf` (
+CREATE TABLE IF NOT EXISTS `PDF` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `PHOTO_NAME` varchar(100) CHARACTER SET latin1 NOT NULL,
@@ -556,10 +554,10 @@ CREATE TABLE IF NOT EXISTS `pdf` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
 
 --
--- dump ตาราง `pdf`
+-- Dumping data for table `PDF`
 --
 
-INSERT INTO `pdf` (`ID`, `NAME`, `PHOTO_NAME`, `DESCRIPTION`, `PRICE`, `UPDATE_DATE`, `COMPANY_ID`, `PATH`, `Is_Asian_country`) VALUES
+INSERT INTO `PDF` (`ID`, `NAME`, `PHOTO_NAME`, `DESCRIPTION`, `PRICE`, `UPDATE_DATE`, `COMPANY_ID`, `PATH`, `Is_Asian_country`) VALUES
 (1, 'test1', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 1', '100', '2013-09-01 00:00:00', 1, 'TestPdf1.pdf', 0),
 (2, 'test2', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 2', '200', '2013-09-02 00:00:00', 2, 'TestPdf2.pdf', 0),
 (3, 'test3', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 3', '300', '2013-09-03 00:00:00', 3, 'TestPdf3.pdf', 0),
@@ -579,10 +577,10 @@ INSERT INTO `pdf` (`ID`, `NAME`, `PHOTO_NAME`, `DESCRIPTION`, `PRICE`, `UPDATE_D
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `pdf_category`
+-- Table structure for table `PDF_CATEGORY`
 --
 
-CREATE TABLE IF NOT EXISTS `pdf_category` (
+CREATE TABLE IF NOT EXISTS `PDF_CATEGORY` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `PDF_ID` int(11) NOT NULL,
   `GROUP_LEVEL_NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -592,10 +590,10 @@ CREATE TABLE IF NOT EXISTS `pdf_category` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
--- dump ตาราง `pdf_category`
+-- Dumping data for table `PDF_CATEGORY`
 --
 
-INSERT INTO `pdf_category` (`ID`, `PDF_ID`, `GROUP_LEVEL_NAME`, `GROUP_LEVEL_ID`) VALUES
+INSERT INTO `PDF_CATEGORY` (`ID`, `PDF_ID`, `GROUP_LEVEL_NAME`, `GROUP_LEVEL_ID`) VALUES
 (1, 1, '2', 2),
 (2, 2, '3', 3),
 (3, 7, '3', 11),
@@ -612,10 +610,10 @@ INSERT INTO `pdf_category` (`ID`, `PDF_ID`, `GROUP_LEVEL_NAME`, `GROUP_LEVEL_ID`
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `permission`
+-- Table structure for table `PERMISSION`
 --
 
-CREATE TABLE IF NOT EXISTS `permission` (
+CREATE TABLE IF NOT EXISTS `PERMISSION` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `USER_PROFILE_ID` int(11) NOT NULL,
   `GROUP_LV2_ID` int(11) NOT NULL,
@@ -628,10 +626,10 @@ CREATE TABLE IF NOT EXISTS `permission` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
--- dump ตาราง `permission`
+-- Dumping data for table `PERMISSION`
 --
 
-INSERT INTO `permission` (`ID`, `USER_PROFILE_ID`, `GROUP_LV2_ID`, `IS_ACTIVE`, `START_DATE`, `END_DATE`) VALUES
+INSERT INTO `PERMISSION` (`ID`, `USER_PROFILE_ID`, `GROUP_LV2_ID`, `IS_ACTIVE`, `START_DATE`, `END_DATE`) VALUES
 (1, 1, 2, 'Y', '2013-09-01 00:00:00', '2014-09-28 00:00:00'),
 (2, 3, 1, 'N', '2013-10-03 00:00:00', '2014-10-17 00:00:00'),
 (3, 4, 3, 'Y', '2013-09-01 00:00:00', '2014-09-28 00:00:00'),
@@ -641,20 +639,20 @@ INSERT INTO `permission` (`ID`, `USER_PROFILE_ID`, `GROUP_LV2_ID`, `IS_ACTIVE`, 
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `question`
+-- Table structure for table `QUESTION`
 --
 
-CREATE TABLE IF NOT EXISTS `question` (
+CREATE TABLE IF NOT EXISTS `QUESTION` (
   `ID` int(100) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
--- dump ตาราง `question`
+-- Dumping data for table `QUESTION`
 --
 
-INSERT INTO `question` (`ID`, `NAME`) VALUES
+INSERT INTO `QUESTION` (`ID`, `NAME`) VALUES
 (1, 'What was your childhood nickname?'),
 (2, 'What is the name of your favorite childhood friend? '),
 (3, 'What is the middle name of your oldest child?'),
@@ -671,20 +669,20 @@ INSERT INTO `question` (`ID`, `NAME`) VALUES
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `tag`
+-- Table structure for table `TAG`
 --
 
-CREATE TABLE IF NOT EXISTS `tag` (
+CREATE TABLE IF NOT EXISTS `TAG` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
--- dump ตาราง `tag`
+-- Dumping data for table `TAG`
 --
 
-INSERT INTO `tag` (`ID`, `NAME`) VALUES
+INSERT INTO `TAG` (`ID`, `NAME`) VALUES
 (1, 'tag1'),
 (2, 'tag2'),
 (3, 'tag3'),
@@ -694,10 +692,10 @@ INSERT INTO `tag` (`ID`, `NAME`) VALUES
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `tag_relationship`
+-- Table structure for table `TAG_RELATIONSHIP`
 --
 
-CREATE TABLE IF NOT EXISTS `tag_relationship` (
+CREATE TABLE IF NOT EXISTS `TAG_RELATIONSHIP` (
   `PDF_ID` int(11) NOT NULL,
   `TAG_ID` int(11) NOT NULL,
   PRIMARY KEY (`PDF_ID`,`TAG_ID`),
@@ -706,10 +704,10 @@ CREATE TABLE IF NOT EXISTS `tag_relationship` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- dump ตาราง `tag_relationship`
+-- Dumping data for table `TAG_RELATIONSHIP`
 --
 
-INSERT INTO `tag_relationship` (`PDF_ID`, `TAG_ID`) VALUES
+INSERT INTO `TAG_RELATIONSHIP` (`PDF_ID`, `TAG_ID`) VALUES
 (1, 1),
 (2, 1),
 (1, 2),
@@ -719,29 +717,29 @@ INSERT INTO `tag_relationship` (`PDF_ID`, `TAG_ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `technology_id`
+-- Table structure for table `TECHNOLOGY_ID`
 --
 
-CREATE TABLE IF NOT EXISTS `technology_id` (
+CREATE TABLE IF NOT EXISTS `TECHNOLOGY_ID` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- dump ตาราง `technology_id`
+-- Dumping data for table `TECHNOLOGY_ID`
 --
 
-INSERT INTO `technology_id` (`ID`, `NAME`) VALUES
+INSERT INTO `TECHNOLOGY_ID` (`ID`, `NAME`) VALUES
 (1, 'A');
 
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `user_profile`
+-- Table structure for table `USER_PROFILE`
 --
 
-CREATE TABLE IF NOT EXISTS `user_profile` (
+CREATE TABLE IF NOT EXISTS `USER_PROFILE` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `FIRSTNAME` varchar(60) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `LASTNAME` varchar(60) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -772,13 +770,13 @@ CREATE TABLE IF NOT EXISTS `user_profile` (
   KEY `fk_USER_PROFILE_INDUSTRY_ID1_idx` (`INDUSTRY_ID`),
   KEY `fk_USER_PROFILE_COUNTRY_ID1_idx` (`COUNTRY_ID`),
   KEY `fk_USER_PROFILE_TECHNOLOGY_ID1_idx` (`TECHNOLOGY_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
--- dump ตาราง `user_profile`
+-- Dumping data for table `USER_PROFILE`
 --
 
-INSERT INTO `user_profile` (`ID`, `FIRSTNAME`, `LASTNAME`, `EMAIL`, `COMPANY`, `PASSWORD`, `JOB_TITLE`, `ADDRESS`, `CITY`, `ZIP`, `PHONE`, `FAX`, `IS_ACTIVE`, `IS_ADMIN`, `JOB_LEVEL`, `DEPARTMENT_ID`, `INDUSTRY_ID`, `COUNTRY_ID`, `TECHNOLOGY_ID`, `USER_PROFILEcol`, `PHOTO_NAME`, `QUESTION_ID`, `ANSWER`) VALUES
+INSERT INTO `USER_PROFILE` (`ID`, `FIRSTNAME`, `LASTNAME`, `EMAIL`, `COMPANY`, `PASSWORD`, `JOB_TITLE`, `ADDRESS`, `CITY`, `ZIP`, `PHONE`, `FAX`, `IS_ACTIVE`, `IS_ADMIN`, `JOB_LEVEL`, `DEPARTMENT_ID`, `INDUSTRY_ID`, `COUNTRY_ID`, `TECHNOLOGY_ID`, `USER_PROFILEcol`, `PHOTO_NAME`, `QUESTION_ID`, `ANSWER`) VALUES
 (1, 'A', 'A', 'a@a.com', 'A', '77de54ccf56eb6f7dbf99e4d3be949ab6f9b0a55df8ac28564cb9f63a10be8af6ab3f7c2', '', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 1, 1, NULL, 'testUserProfile.jpg', 1, 'a'),
 (3, 'B', 'B', 'b@b.com', 'B', '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e', NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'N', 1, 1, 1, 1, 1, NULL, '', 2, 'b'),
 (4, 'Voravan', 'Charn', 'wc.fone@yahoo.com', 'Buildthedot', '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e', NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'N', 1, 1, 1, 1, 1, NULL, '', 3, 'fon');
@@ -786,10 +784,10 @@ INSERT INTO `user_profile` (`ID`, `FIRSTNAME`, `LASTNAME`, `EMAIL`, `COMPANY`, `
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `user_transaction`
+-- Table structure for table `USER_TRANSACTION`
 --
 
-CREATE TABLE IF NOT EXISTS `user_transaction` (
+CREATE TABLE IF NOT EXISTS `USER_TRANSACTION` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `USER_PROFILE_ID` int(11) NOT NULL,
   `PDF_ID` int(11) NOT NULL,
@@ -804,60 +802,59 @@ CREATE TABLE IF NOT EXISTS `user_transaction` (
 --
 
 --
--- Constraints for table `group_lv2`
+-- Constraints for table `GROUP_LV2`
 --
-ALTER TABLE `group_lv2`
-  ADD CONSTRAINT `fk_GROUP_LV2_GROUP_LV11` FOREIGN KEY (`GROUP_LV1_ID`) REFERENCES `group_lv1` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `GROUP_LV2`
+  ADD CONSTRAINT `fk_GROUP_LV2_GROUP_LV11` FOREIGN KEY (`GROUP_LV1_ID`) REFERENCES `GROUP_LV1` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `group_lv3`
+-- Constraints for table `GROUP_LV3`
 --
-ALTER TABLE `group_lv3`
-  ADD CONSTRAINT `fk_GROUP_LV3_GROUP_LV21` FOREIGN KEY (`GROUP_LV2_ID`) REFERENCES `group_lv2` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `GROUP_LV3`
+  ADD CONSTRAINT `fk_GROUP_LV3_GROUP_LV21` FOREIGN KEY (`GROUP_LV2_ID`) REFERENCES `GROUP_LV2` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `group_lv4`
+-- Constraints for table `GROUP_LV4`
 --
-ALTER TABLE `group_lv4`
-  ADD CONSTRAINT `fk_GROUP_LV4_GROUP_LV31` FOREIGN KEY (`GROUP_LV3_ID`) REFERENCES `group_lv3` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `GROUP_LV4`
+  ADD CONSTRAINT `fk_GROUP_LV4_GROUP_LV31` FOREIGN KEY (`GROUP_LV3_ID`) REFERENCES `GROUP_LV3` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `pdf_category`
+-- Constraints for table `PDF_CATEGORY`
 --
-ALTER TABLE `pdf_category`
-  ADD CONSTRAINT `PDF_CATEGORY_ibfk_1` FOREIGN KEY (`PDF_ID`) REFERENCES `pdf` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `pdf_category_ibfk_1` FOREIGN KEY (`PDF_ID`) REFERENCES `pdf` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `PDF_CATEGORY`
+  ADD CONSTRAINT `PDF_CATEGORY_ibfk_1` FOREIGN KEY (`PDF_ID`) REFERENCES `PDF` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `permission`
+-- Constraints for table `PERMISSION`
 --
-ALTER TABLE `permission`
-  ADD CONSTRAINT `fk_USER_PROFILE_has_GROUP_LV2_GROUP_LV21` FOREIGN KEY (`GROUP_LV2_ID`) REFERENCES `group_lv2` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_USER_PROFILE_has_GROUP_LV2_USER_PROFILE1` FOREIGN KEY (`USER_PROFILE_ID`) REFERENCES `user_profile` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `PERMISSION`
+  ADD CONSTRAINT `fk_USER_PROFILE_has_GROUP_LV2_GROUP_LV21` FOREIGN KEY (`GROUP_LV2_ID`) REFERENCES `GROUP_LV2` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_USER_PROFILE_has_GROUP_LV2_USER_PROFILE1` FOREIGN KEY (`USER_PROFILE_ID`) REFERENCES `USER_PROFILE` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `tag_relationship`
+-- Constraints for table `TAG_RELATIONSHIP`
 --
-ALTER TABLE `tag_relationship`
-  ADD CONSTRAINT `fk_PDF_has_TAG_PDF1` FOREIGN KEY (`PDF_ID`) REFERENCES `pdf` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_PDF_has_TAG_TAG1` FOREIGN KEY (`TAG_ID`) REFERENCES `tag` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `TAG_RELATIONSHIP`
+  ADD CONSTRAINT `fk_PDF_has_TAG_PDF1` FOREIGN KEY (`PDF_ID`) REFERENCES `PDF` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_PDF_has_TAG_TAG1` FOREIGN KEY (`TAG_ID`) REFERENCES `TAG` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `user_profile`
+-- Constraints for table `USER_PROFILE`
 --
-ALTER TABLE `user_profile`
-  ADD CONSTRAINT `fk_USER_PROFILE_COUNTRY_ID1` FOREIGN KEY (`COUNTRY_ID`) REFERENCES `country` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_USER_PROFILE_DEPARTMENT_ID1` FOREIGN KEY (`DEPARTMENT_ID`) REFERENCES `department` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_USER_PROFILE_INDUSTRY_ID1` FOREIGN KEY (`INDUSTRY_ID`) REFERENCES `industry` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_USER_PROFILE_JOB_LEVEL1` FOREIGN KEY (`JOB_LEVEL`) REFERENCES `job_level` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_USER_PROFILE_TECHNOLOGY_ID1` FOREIGN KEY (`TECHNOLOGY_ID`) REFERENCES `technology_id` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `USER_PROFILE`
+  ADD CONSTRAINT `fk_USER_PROFILE_COUNTRY_ID1` FOREIGN KEY (`COUNTRY_ID`) REFERENCES `COUNTRY` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_USER_PROFILE_DEPARTMENT_ID1` FOREIGN KEY (`DEPARTMENT_ID`) REFERENCES `DEPARTMENT` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_USER_PROFILE_INDUSTRY_ID1` FOREIGN KEY (`INDUSTRY_ID`) REFERENCES `INDUSTRY` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_USER_PROFILE_JOB_LEVEL1` FOREIGN KEY (`JOB_LEVEL`) REFERENCES `JOB_LEVEL` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_USER_PROFILE_TECHNOLOGY_ID1` FOREIGN KEY (`TECHNOLOGY_ID`) REFERENCES `TECHNOLOGY_ID` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `user_transaction`
+-- Constraints for table `USER_TRANSACTION`
 --
-ALTER TABLE `user_transaction`
-  ADD CONSTRAINT `fk_USER_TRANSACTION_PDF1` FOREIGN KEY (`PDF_ID`) REFERENCES `pdf` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_USER_TRANSACTION_USER_PROFILE1` FOREIGN KEY (`USER_PROFILE_ID`) REFERENCES `user_profile` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `USER_TRANSACTION`
+  ADD CONSTRAINT `fk_USER_TRANSACTION_PDF1` FOREIGN KEY (`PDF_ID`) REFERENCES `PDF` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_USER_TRANSACTION_USER_PROFILE1` FOREIGN KEY (`USER_PROFILE_ID`) REFERENCES `USER_PROFILE` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
