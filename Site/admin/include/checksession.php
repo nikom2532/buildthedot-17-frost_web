@@ -1,6 +1,6 @@
 <?php
-	$sess_id=$_SESSION["userid"];
-	if($sess_id==""){
+	$userid=$_SESSION["userid"];
+	if($userid==""){
 		header("location: index.php");
 	}
 ?>
