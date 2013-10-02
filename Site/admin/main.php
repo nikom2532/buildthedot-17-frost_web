@@ -40,7 +40,10 @@
 				
 					<h2>Group by user</h2>
 					
-					<table>
+					<table class="fixed">
+						<col width="2em" />
+	    				 <col width="20em" />
+	    				 <col width="5em" />
 					
 						<thead>
 					
@@ -95,7 +98,10 @@
 					
                     <h2>Group by title</h2>
 					
-					<table>
+					<table class="fixed">
+						<col width="2em" />
+	    				<col width="20em" />
+	    				<col width="5em" />
 					
 						<thead>
 					

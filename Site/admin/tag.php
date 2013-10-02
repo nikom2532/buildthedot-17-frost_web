@@ -50,7 +50,10 @@ function confirmSubmit()
 						<a href="add-tag.php" class="round button orange ic-add image-left" >Add tag</a>
                     </div>
 					
-					<table>
+					<table class="fixed">
+						<col width="2em" />
+	    				<col width="20em" />
+	    				<col width="5em" />
 					
 						<thead>
 					
@@ -79,12 +82,12 @@ function confirmSubmit()
 									echo "<td>";
 									echo "<form method='POST' action='edit-tag.php' id='edittag' name='edittag'>";
 									echo "<input type='hidden' name='tagId' value=".$row['tagId'].">";
-									echo " <INPUT TYPE='image' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 0' ALT='SUBMIT'> ";
+									echo " <INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 95px;' ALT='SUBMIT'> ";
 									echo "</form>";
 									
 									echo "<form method='POST' action='delete-tag-proc.php' id='deletetag' name='deletetag'>";
 									echo "<input type='hidden' name='tagId' value=".$row['tagId'].">";
-									echo "<INPUT TYPE='image' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0' onClick='return confirmSubmit()'>";
+									echo "<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0' onClick='return confirmSubmit()'>";
 									echo "</form>";
 									echo "</td>";
 		
