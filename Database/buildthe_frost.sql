@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 03, 2013 at 01:30 AM
+-- Generation Time: Oct 03, 2013 at 02:21 AM
 -- Server version: 5.1.67
 -- PHP Version: 5.3.27
 
@@ -365,6 +365,20 @@ CREATE TABLE IF NOT EXISTS `DEPARTMENT` (
 
 INSERT INTO `DEPARTMENT` (`ID`, `NAME`) VALUES
 (1, 'A');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `DOWNLOAD_STATISTICS`
+--
+
+CREATE TABLE IF NOT EXISTS `DOWNLOAD_STATISTICS` (
+  `ID` int(100) NOT NULL AUTO_INCREMENT,
+  `USER_ID` int(100) NOT NULL,
+  `PDF_ID` int(100) NOT NULL,
+  `DOWNLOAD_DATETIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

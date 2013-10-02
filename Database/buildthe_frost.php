@@ -286,6 +286,8 @@ $DEPARTMENT = array(
   array('ID' => '1','NAME' => 'A')
 );
 
+);
+
 // `buildthe_frost`.`GROUP_LV1`
 $GROUP_LV1 = array(
   array('ID' => '1','NAME' => 'Knowledge'),
