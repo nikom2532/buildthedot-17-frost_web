@@ -39,6 +39,19 @@ include ("include/top-menu.php");
 				<div class="grid_6">
 					<section class="report-detail" class="grid_4">
 						<p class="text-blue bold">
+<?php 
+							if(!(
+								($_GET["id"]==3 && $_GET["glvl"]==2) ||
+								($_GET["id"]==9 && $_GET["glvl"]==3) ||
+								($_GET["id"]==10 && $_GET["glvl"]==3)
+							)){
+?>
+								<img src="images/pdf_image/<?php echo $row["PHOTO_NAME"]; ?>" /><br />
+<?php 
+							}
+?>
+						</p>
+						<p class="text-blue bold">
 							<?php echo $row['NAME']; ?>
 						</p>
 						<p class="date bold">
