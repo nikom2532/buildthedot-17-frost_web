@@ -10,6 +10,14 @@ if($_SESSION["userid"]==""){
 	include($rootpath."include/login_2pdf.php");
 }
 else{
+	//#### Add Download counting to MySQL Database ####
+	
+	$sql_download="
+		INSERT INTO `DOWNLOAD_STATISTICS`(`USER_ID`, `PDF_ID`, `DOWNLOAD_DATETIME`) VALUES ('".$_SESSION["userid"]."','{$pdfId}',NOW());
+	";
+	$db->query($sql_download);
+	//#### End of Add Download counting to MySQL Database ####
+	
 	// get results from database
 	$result = @mysql_query("SELECT * FROM `PDF` WHERE `ID` = " . $pdfId) or die(mysql_error());
 	
