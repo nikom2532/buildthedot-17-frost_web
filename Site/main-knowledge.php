@@ -98,7 +98,13 @@ include ($rootpath."include/top-menu.php");
 					//####### end display Body Nav ###########
 ?>
 				</ul>
-				<h2 class="text-lightgreen2">Lasted Update</h2>
+<?php
+				if (!($_GET["id"]==11&&$_GET["glvl"]==3)) {
+?>
+					<h2 class="text-lightgreen2">Lasted Update</h2>
+<?php
+				}
+?>
 				<div class="grid_8" style="margin:0">
 <?php
 					//####### Find Lock Download Key ##########
@@ -130,6 +136,9 @@ include ($rootpath."include/top-menu.php");
 					$temp_id_content = $_GET["id"];
 					
 					$c_ID = array();
+					$c_glvl = array(); 
+					$c_PDF_CATEGORY_ID = array();
+					$c_PDF_ID = array();
 					$c_NAME = array();
 					$c_UPDATE_DATE = array();
 					$c_DESCRIPTION = array();
@@ -147,6 +156,7 @@ include ($rootpath."include/top-menu.php");
 						$c_glvl[] = $temp_glvl_content;
 						$c_PDF_CATEGORY_ID[] = $rscontent["ID"];
 						$c_NAME[] = $rscontent["NAME"];
+						$c_PDF_ID[] = $rscontent["PDF_ID"];
 						$c_UPDATE_DATE[] = $rscontent["UPDATE_DATE"];
 						$c_DESCRIPTION[] = $rscontent["DESCRIPTION"];
 						$c_PHOTO_NAME[] = $rscontent["PHOTO_NAME"];
@@ -284,33 +294,55 @@ include ($rootpath."include/top-menu.php");
 <?php
 						}
 						
-						//is Country Profile
+						//########### is Country Profile #############
 						elseif ($_GET["id"]==11 && $_GET["glvl"]==3) {
+							if($i%4==0){
 ?>
+								<div class="grid_8" id="wrap-cp">
+<?php
+							}
+?>
+									<div class="left" id="cp">
+										<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
+											<img src="images/coutries/<?php echo $c_PHOTO_NAME[$i]; ?>"  width="120" height="120" alt="<?php echo $c_NAME[$i]; ?>" />
+										</a>
+										<p class="center">
+											<?php echo $c_NAME[$i]; ?>
+										</p>
+									</div>
+<?php
+							if($i%4==3 || $i==$page_runing-1){
+?>
+								</div>
+								<br class="clear"/>
+<?php
+							}
+?>
+							<?php /* ?>
 							<div class="grid_8" id="wrap-cp">
 								<div class="left" id="cp">
-									<img src="images/coutries/brunei.jpg"  width="120" height="120" alt="Brunei">
+									<img src="images/coutries/brunei.jpg"  width="120" height="120" alt="Brunei" />
 									<p class="center">
 										Brunei
 									</p>
 								</div>
 			
 								<div class="left" id="cp">
-									<img src="images/coutries/cambodia.jpg" width="120" height="120" alt="Cambodia">
+									<img src="images/coutries/cambodia.jpg" width="120" height="120" alt="Cambodia" />
 									<p class="center">
 										Cambodia
 									</p>
 								</div>
 			
 								<div class="left" id="cp">
-									<img src="images/coutries/indonesia.jpg" width="120" height="120"  alt="Indonesia">
+									<img src="images/coutries/indonesia.jpg" width="120" height="120"  alt="Indonesia" />
 									<p class="center">
 										Indonesia
 									</p>
 								</div>
 			
 								<div class="left" id="cp">
-									<img src="images/coutries/lao.jpg" width="120" height="120" alt="Laos">
+									<img src="images/coutries/lao.jpg" width="120" height="120" alt="Laos" />
 									<p class="center">
 										Laos
 									</p>
@@ -319,28 +351,28 @@ include ($rootpath."include/top-menu.php");
 							<br class="clear"/>
 							<div class="grid_8" id="wrap-cp">
 								<div class="left" id="cp">
-									<img src="images/coutries/malaysia.jpg"  width="120" height="120" alt="Malaysia">
+									<img src="images/coutries/malaysia.jpg"  width="120" height="120" alt="Malaysia" />
 									<p class="center">
 										Malaysia
 									</p>
 								</div>
 			
 								<div class="left" id="cp">
-									<img src="images/coutries/myanmar.jpg" width="120" height="120" alt="Myanmar">
+									<img src="images/coutries/myanmar.jpg" width="120" height="120" alt="Myanmar" />
 									<p class="center">
 										Myanmar
 									</p>
 								</div>
 			
 								<div class="left" id="cp">
-									<img src="images/coutries/philipine.jpg" width="120" height="120"  alt="Philipine">
+									<img src="images/coutries/philipine.jpg" width="120" height="120"  alt="Philipine" />
 									<p class="center">
 										Philipine
 									</p>
 								</div>
 			
 								<div class="left" id="cp">
-									<img src="images/coutries/singapore.jpg" width="120" height="120" alt="Singapore">
+									<img src="images/coutries/singapore.jpg" width="120" height="120" alt="Singapore" />
 									<p class="center">
 										Singapore
 									</p>
@@ -349,22 +381,24 @@ include ($rootpath."include/top-menu.php");
 							<br class="clear"/>
 							<div class="grid_8" id="wrap-cp">
 								<div class="left" id="cp">
-									<img src="images/coutries/thailand.jpg"  width="120" height="120" alt="Thailand">
+									<img src="images/coutries/thailand.jpg"  width="120" height="120" alt="Thailand" />
 									<p class="center">
 										Thailand
 									</p>
 								</div>
 			
 								<div class="left" id="cp">
-									<img src="images/coutries/vietnam.jpg" width="120" height="120" alt="Vietnam">
+									<img src="images/coutries/vietnam.jpg" width="120" height="120" alt="Vietnam" />
 									<p class="center">
 										Vietnam
 									</p>
 								</div>
 							</div>
 							<br class="clear"/>
+							<?php */ ?>
 <?php
 						}
+						//######### end: is Country Profile ##########
 						
 						//is not Country Profile
 						else{
@@ -386,7 +420,7 @@ include ($rootpath."include/top-menu.php");
 									if($i%2==0){
 										echo "class=\"grid_4\"";
 									}
-							 ?>>
+								?>>
 <?php
 							}
 ?>

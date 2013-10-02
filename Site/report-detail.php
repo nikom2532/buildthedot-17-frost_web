@@ -14,9 +14,9 @@ include ("include/top-menu.php");
 
 				<?php
 
-				$id = $_GET["id"];
+				$id = $_GET["pdf_id"];
 
-				$query = "SELECT * FROM  PDF WHERE ID =".$id;
+			echo	$query = "SELECT * FROM  PDF WHERE ID =".$id;
 				$result = mysql_query($query) OR die(mysql_error());
 				$count = mysql_num_rows($result);
 
