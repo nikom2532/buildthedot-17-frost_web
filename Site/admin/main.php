@@ -75,6 +75,9 @@ include ("include/header.php");
 							<tbody>
 <?php
 								$i=1;
+								$stat_user_No=array();
+								$stat_user_name=array();
+								$stat_user_total_download=array();
 								$sql_statistic_by_user="
 									SELECT *
 									FROM  `DOWNLOAD_STATISTICS`
@@ -86,7 +89,7 @@ include ("include/header.php");
 								while($rs_statistic_by_user=@mysql_fetch_array($Result_statistic_by_user)){
 ?>
 									<tr>
-										<td><?php echo $i++; ?></td>
+										<td><?php echo $i; ?></td>
 										<td><?php 
 											$sql_user="
 												SELECT * 
@@ -96,48 +99,40 @@ include ("include/header.php");
 											$result_user=@mysql_query($sql_user);
 											if($rs_user=@mysql_fetch_array($result_user)){
 												echo $rs_user["FIRSTNAME"]." ".$rs_user["LASTNAME"];
+												$stat_user_name[] = $rs_user["FIRSTNAME"]." ".$rs_user["LASTNAME"];
 											}
 										?></td>
 										<td><?php
-										$sql_statistic_each_user="
-											SELECT COUNT(`USER_ID`) AS `number_user`
-											FROM  `DOWNLOAD_STATISTICS`
-											WHERE `USER_ID` = '".$rs_statistic_by_user["USER_ID"]."';
-										";
-										$Result_statistic_each_user=@mysql_query($sql_statistic_each_user);
-										if($rs_statistic_each_user=@mysql_fetch_array($Result_statistic_each_user)){
-											echo $rs_statistic_each_user["number_user"]."";
-										}
+											$sql_statistic_each_user="
+												SELECT COUNT(`USER_ID`) AS `number_user`
+												FROM  `DOWNLOAD_STATISTICS`
+												WHERE `USER_ID` = '".$rs_statistic_by_user["USER_ID"]."';
+											";
+											$Result_statistic_each_user=@mysql_query($sql_statistic_each_user);
+											if($rs_statistic_each_user=@mysql_fetch_array($Result_statistic_each_user)){
+												echo $rs_statistic_each_user["number_user"];
+												$stat_user_total_download[]=$rs_statistic_each_user["number_user"];
+											}
 										?></td>
 									</tr>
-									<!-- <tr>
-										<td>2</td>
-										<td>Adrian Purdila</td>
-										<td>32</td>
-									</tr>
-									<tr>
-										<td>3</td>
-										<td>Adrian Purdila</td>
-										<td>23</td>
-									</tr>
-									<tr>
-										<td>4</td>
-										<td>Adrian Purdila</td>
-										<td>18</td>
-									</tr>
-									<tr>
-										<td>5</td>
-										<td>Adrian Purdila</td>
-										<td>10</td>
-									</tr> -->
 <?php
+									$stat_user_No[]=$i;
+									$i++;
 								}
 ?>
 							</tbody>
 						</tfoot>
 					</table>
-
-				<a href="#" class="round button orange ic-download image-left">Download Report</a>
+<?php
+				//Create the CSV Report
+				$filName = "User_Statistic_Report.csv";
+				$objWrite = fopen("User_Statistic_Report.csv", "w");
+				for($i=0; $i<count($stat_user_No); $i++){
+					fwrite($objWrite, "\"".$stat_user_No[$i]."\",\"".$stat_user_name[$i]."\",\"".$stat_user_total_download[$i]."\"\n");
+				}
+				fclose($objWrite);
+?>
+				<a href="<?php echo $filName; ?>" class="round button orange ic-download image-left">Download Report</a>
 				<div class="stripe-separator">
 					<!--  -->
 				</div>
@@ -176,7 +171,7 @@ include ("include/header.php");
 							while($rs_statistic_by_pdf=@mysql_fetch_array($Result_statistic_by_pdf)){
 ?>
 								<tr>
-									<td><?php echo $i++; ?></td>
+									<td><?php echo $i; ?></td>
 									<td><?php
 										$sql_pdf="
 											SELECT * 
@@ -186,6 +181,7 @@ include ("include/header.php");
 										$Result_pdf=@mysql_query($sql_pdf);
 										if($rs_pdf=@mysql_fetch_array($Result_pdf)){
 											echo $rs_pdf["NAME"];
+											$stat_pdf_name[] = $rs_pdf["NAME"];
 										}
 									?></td>
 									<td><?php
@@ -196,41 +192,29 @@ include ("include/header.php");
 										";
 										$Result_statistic_each_pdf=@mysql_query($sql_statistic_each_pdf);
 										if($rs_statistic_each_pdf=@mysql_fetch_array($Result_statistic_each_pdf)){
-											echo $rs_statistic_each_pdf["number_pdf"]."";
-										}
+											echo $rs_statistic_each_pdf["number_pdf"];
+											$stat_pdf_total_download[]=$rs_statistic_each_pdf["number_pdf"];
+										}  n   
 									?></td>
 								</tr>
-	
-								<!-- <tr>
-									<td>2</td>
-									<td>Adrian Purdila</td>
-									<td>32</td>
-								</tr>
-	
-								<tr>
-									<td>3</td>
-									<td>Adrian Purdila</td>
-									<td>23</td>
-								</tr>
-	
-								<tr>
-									<td>4</td>
-									<td>Adrian Purdila</td>
-									<td>18</td>
-								</tr>
-	
-								<tr>
-									<td>5</td>
-									<td>Adrian Purdila</td>
-									<td>10</td>
-								</tr> -->
 <?php
+								$stat_pdf_No = $i;
+								$i++;
 							}
 ?>
 						</tbody>
 					</tfoot>
 				</table>
-				<a href="#" class="round button orange ic-download image-left">Download Report</a>
+<?php
+				//Create the CSV Report
+				$fil_pdf_Name = "PDF_Statistic_Report.csv";
+				$objWrite2 = fopen($fil_pdf_Name, "w");
+				for($i=0; $i<count($stat_pdf_No); $i++){
+					fwrite($objWrite2, "\"".$stat_pdf_No[$i]."\",\"".$stat_pdf_name[$i]."\",\"".$stat_pdf_total_download[$i]."\"\n");
+				}
+				fclose($objWrite2);
+?>
+				<a href="<?php echo $fil_pdf_Name; ?>" class="round button orange ic-download image-left">Download Report</a>
 
 				<!--end group by user -->
 			</div>
