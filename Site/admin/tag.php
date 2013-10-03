@@ -1,5 +1,7 @@
 <?php include("include/header.php");?>
 <?php include("include/top-bar.php");?>
+<?php include("include/checksession.php");?>	
+
 <script LANGUAGE="JavaScript">
 function confirmSubmit()
 	{

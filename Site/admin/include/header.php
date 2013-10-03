@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 $rootpath = "../";
 include ($rootpath . "lib/db.php");
 include ($rootpath . "lib/conn.inc.php");

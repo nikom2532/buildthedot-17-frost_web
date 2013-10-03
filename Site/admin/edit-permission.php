@@ -1,6 +1,6 @@
 <?php include("include/header.php");?>
 <?php include("include/top-bar.php");?>
-	
+<?php include("include/checksession.php");?>		
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
@@ -9,13 +9,23 @@
     <link rel="stylesheet" href="/resources/demos/style.css" />
     <script>
        $(function() {
-          $( "#datepicker" ).datepicker();
-       });
-       
-       $(function() {
-          $( "#datepicker2" ).datepicker();
-       });
-       
+		$( "#datepicker" ).datepicker({
+			changeMonth: true,
+			dateFormat:"dd-mm-yy",
+			onClose: function( selectedDate ) {
+				$( "#datepicker2" ).datepicker( "option", "minDate", selectedDate );
+				
+			}
+		});
+		$( "#datepicker2" ).datepicker({
+			changeMonth: true,
+			dateFormat:"dd-mm-yy",
+			onClose: function( selectedDate ) {
+				$( "#datepicker" ).datepicker( "option", "maxDate", selectedDate );
+			}
+		});
+		 
+	});
        function confirmSubmit()
 		{
 			var agree=confirm("Are you sure you want to delete?");

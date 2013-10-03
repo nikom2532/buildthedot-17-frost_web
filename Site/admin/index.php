@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>CMS Mckansys</title>	
-	<!-- Stylesheets -->
-	<link href="css/style.css" rel="stylesheet" type="text/css">
-	<link href="css/reset.css" rel="stylesheet" type="text/css">
-
-	
-</head>
-<body>
-
-	
+<?php
+include ("include/header.php");
+$sess_id=$_SESSION["userid"];
+?>	
 	<!-- HEADER -->
 	<div id="header">
 		
@@ -29,22 +18,21 @@
 	<!-- MAIN CONTENT -->
 	<div id="content">
 	
-		<form action="#" method="POST" id="login-form">
+		<form action="include/login-process.php" method="POST" id="login-form">
 		
 			<fieldset>
 
 				<p>
 					<label for="login-username">username</label>
-					<input type="text" id="login-username" class="round full-width-input" autofocus />
+					<input type="text" id="email" name="email" class="round full-width-input" />
 				</p>
 
 				<p>
 					<label for="login-password">password</label>
-					<input type="password" id="login-password" class="round full-width-input" />
+					<input type="password" id="password" name="password" class="round full-width-input" />
 				</p>
 				
-				<a href="main.php" class="button round orange image-right ic-right-arrow">LOG IN</a>
-
+				<input type="submit" value="LOG IN" class="round orange image-right ic-right-arrow" />
 			</fieldset>
 
 		</form>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <?php include("include/header.php");?>
 <html lang="en">
@@ -40,6 +41,11 @@
 	
 	
 	
+=======
+<?php include("include/header.php");?>
+<?php include("include/top-bar.php");?>
+<?php include("include/checksession.php");?>	
+>>>>>>> 7572bc34b8d13ae4cc3d39ef2dbbb293f4da6c43
 	<!-- HEADER -->
 	<div id="header-with-tabs">
 		

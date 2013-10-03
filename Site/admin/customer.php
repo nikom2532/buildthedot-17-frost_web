@@ -1,6 +1,8 @@
 <?php
 include ("include/header.php");
 include ("include/top-bar.php");
+include("include/checksession.php");
+
 ?>
 
 
