@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<?php include("include/header.php");?>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -79,56 +79,76 @@
 				
 						<div class="half-size-column fl">
 						
-							<form action="#">
+							<form action="add-customer-proc.php" method="post">
 							
 								<fieldset>
-                                    <p class="form-error-input">
-                                        <label for="picture">Picture</label>
+                                     <p class="form-error-input">
+                                    	
+                                    	<label for="picture">Profile Picture</label>
+                                        
                                         <input type="file" />
                                 	<p>
-								
+                                    
 									<p>
 										<label for="name">Name</label>
-										<input type="text" id="name" class="round full-width-input" />
+										<input type="text" name= "firstname" id="firstname" class="round full-width-input"/>
+									</p>
+									
+									<p>
+										<label for="name">Lastname</label>
+										<input type="text" id="lastname" name="lastname" class="round full-width-input"/>
 									</p>
 									
 									<p>
 										<label for="email">Email</label>
-										<input type="text" id="email" class="round full-width-input" />
+										<input type="text" id="email" name="email" class="round full-width-input"/>
 									</p>
 	
 									<p>
 										<label for="company">Company</label>
-										<input type="text" id="company" class="round full-width-input" />
+										<input type="text" id="company" name="company" class="round full-width-input"/>
 									</p>
 	
 									<p>
 										<label for="jobtitle">Job title</label>
-										<input type="text" id="jobtitle" class="round full-width-input" />
+										<input type="text" id="jobTitle" name="jobTitle" class="round full-width-input"/>
 									</p>
-                                    <p>
-										<label for="jobtitle">Job title</label>
-										<input type="text" id="jobtitle" class="round full-width-input" />
-									</p>
+									
                                     <p class="form-error-input">
 										<label for="department">Department</label>
-	
-										<select id="department">
-											<option value="test1">test1</option>
-                                            <option value="test2">test2</option>
-                                            <option value="test3">test3</option>
+										
+										<?php
+											$sqlDepartment = "SELECT * FROM DEPARTMENT";
+											$resultDepartment = mysql_query($sqlDepartment);
+										?>
+										<select id="department_id" name="department_id">
+											<?php
+											while ($rowDepartment = mysql_fetch_array($resultDepartment)) {
+												
+												echo "<option value='" . $rowDepartment['ID'] . "'>" . $rowDepartment['NAME'] . "</option>";
+											}
+											?>
 										</select>
 									</p>
                                     <p class="form-error-input">
 										<label for="industry">Industry</label>
-	
-										<select id="industry">
-											<option value="test1">test1</option>
-                                            <option value="test2">test2</option>
-                                            <option value="test3">test3</option>
+										
+										<?php
+											$sqlIndustry = "SELECT * FROM INDUSTRY";
+											$resultIndustry = mysql_query($sqlIndustry);
+										?>
+										<select id="industry_id" name="industry_id">
+											<?php
+											while ($rowIndustry = mysql_fetch_array($resultIndustry)) {
+												echo "<option value='" . $rowIndustry['ID'] . "'>" . $rowIndustry['NAME'] . "</option>";
+												
+											}
+											?>
 										</select>
 									</p>
-                                    <p class="form-error-input">
+									
+									
+                                    <!-- <p class="form-error-input">
 										<label for="technology">Technology</label>
 	
 										<select id="technology">
@@ -136,8 +156,8 @@
                                             <option value="test2">test2</option>
                                             <option value="test3">test3</option>
 										</select>
-									</p>
-                                     <p class="form-error-input">
+									</p> -->
+                                     <!-- <p class="form-error-input">
 										<label for="company size">Company Size</label>
 	
 										<select id="technology">
@@ -145,20 +165,47 @@
                                             <option value="test2">test2</option>
                                             <option value="test3">test3</option>
 										</select>
+									</p> -->
+									
+									<p>
+										<p class="seperator">Address</p>
+										<textarea style="resize: none; width: 318px; height: 100px;" id="address" name="address" class="round full-width-textarea"></textarea>
 									</p>
-                                    <p>
-										<label for="address">Address</label>
-										<textarea id="textarea" class="round full-width-textarea"></textarea>
+									
+									<p>
+										<p class="seperator">City</p>
+										<input type="text" id="city" name="city"/>
 									</p>
-                                    <p class="form-error-input">
-										<label for="state">State</label>
-	
-										<select id="state">
-											<option value="test1">test1</option>
-                                            <option value="test2">test2</option>
-                                            <option value="test3">test3</option>
-										</select>
+									
+									<p>
+										<p class="seperator">Zip</p>
+										<input type="text" id="zip" name="zip"/>
 									</p>
+									
+									<!-- country -->
+									<p class="seperator">Country</p>
+									<?php
+									$sqlCountry = "SELECT * FROM COUNTRY";
+									$resultCountry = mysql_query($sqlCountry);
+									echo "<p>";
+									echo "<select name='country'>";
+									while ($rowCountry = mysql_fetch_array($resultCountry)) {
+										echo "<option value='" . $rowCountry['ID'] . "'>" . $rowCountry['NAME'] . "</option>";
+									}
+									echo "</select>";
+									echo "</p>";
+									?>
+									
+									<p>
+										<p class="seperator">Phone</p>
+										<input type="text" id="phone" name="phone"/>
+									</p>
+									
+									<p>
+										<p class="seperator">Fax</p>
+										<input type="text" id="fax" name="fax"/>
+									</p>
+									
                                     <input type="submit" value="Submit" class="round blue ic-right-arrow" />
 									
 								</fieldset>
