@@ -199,7 +199,7 @@ include ("include/header.php");
 									?></td>
 								</tr>
 <?php
-								$stat_pdf_No = $i;
+								$stat_pdf_No[] = $i;
 								$i++;
 							}
 ?>
@@ -215,7 +215,7 @@ include ("include/header.php");
 				// }
 				// fclose($objWrite2);
 ?>
-				<a href="<?php echo $fil_pdf_Name; ?>" class="round button orange ic-download image-left">Download Report</a>
+				<a href="./main_export_csv_pdf.php" class="round button orange ic-download image-left">Download Report</a>
 
 				<!--end group by user -->
 			</div>

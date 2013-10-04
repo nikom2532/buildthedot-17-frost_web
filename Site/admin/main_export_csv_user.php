@@ -32,7 +32,6 @@ $sql_statistic_by_user="
 	FROM  `DOWNLOAD_STATISTICS`
 	GROUP BY `USER_ID`
 	ORDER BY `USER_ID`
-	LIMIT 0,5;
 ";
 $Result_statistic_by_user=@mysql_query($sql_statistic_by_user);
 while($rs_statistic_by_user=@mysql_fetch_array($Result_statistic_by_user)){
