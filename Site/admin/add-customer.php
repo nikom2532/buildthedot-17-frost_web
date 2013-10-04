@@ -1,51 +1,6 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<?php include("include/header.php");?>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>CMS Mckansys</title>	
-	<!-- Stylesheets -->
-	<link href="css/style.css" rel="stylesheet" type="text/css">
-	<link href="css/reset.css" rel="stylesheet" type="text/css">
-
-	<script src="js/jquery-1.7.1.min.js"></script>
-	<script src="js/script.js"></script>  
-
-	
-</head>
-<body>
-
-	<!-- TOP BAR -->
-	<div id="header">
-		
-		<div class="page-full-width cf">
-			
-            <ul id="nav" class="left">
-    			<li class="v-sep"><a href="#" class="round button green ic-left-arrow image-left">Go to website</a></li>
-                <li class="v-sep"><a href="#" class="round button dark menu-user image-left">Logged in as <strong>admin</strong></a>
-                    <ul>
-                        <li><a href="#">My Profile</a></li>
-                        <li><a href="#">User Settings</a></li>
-                        <li><a href="#">Change Password</a></li>
-                        <li><a href="#">Log out</a></li>
-                    </ul> 
-                </li>
-            
-                <li><a href="#" class="round button dark menu-logoff image-left">Log out</a></li>
-                
-            </ul> <!-- end nav -->
-		</div> <!-- end full-width -->	
-
-	</div> <!-- end header -->
-	
-	
-	
-=======
 <?php include("include/header.php");?>
 <?php include("include/top-bar.php");?>
 <?php include("include/checksession.php");?>	
->>>>>>> 7572bc34b8d13ae4cc3d39ef2dbbb293f4da6c43
 	<!-- HEADER -->
 	<div id="header-with-tabs">
 		
