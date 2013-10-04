@@ -25,8 +25,13 @@ if(($email!="")&&($password!="")) {
 		header("location: {$rootpath}index.php");
 	}
 	else{
-		header("location: include/login.php");
+?>
 
+		<?php 
+		header("location: include/login.php");
+		
+		?>
+<?php
 	}
 }
 else{
