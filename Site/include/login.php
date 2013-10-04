@@ -18,7 +18,19 @@
 	<form action="<?php echo $rootpath; ?>include/login_process.php" method="POST" id="login-form">
 
 		<fieldset>
-
+			<?php
+				if($_POST["login_messaage"] != ""){
+					if($_POST["login_messaage"]=="login_false"){
+					 ?>
+						<p class="text-validate">Username or password is wrong</p>
+					<?php 
+					}
+					else if($_POST["login_messaage"]=="forget_formdata_login"){
+					?>
+						<p class="text-validate">Username or password is empty</p>
+				<?php }
+				}
+			?>
 			<p>
 				<label for="login-username">E-mail</label>
 				<input autocomplete="off" type="text" id="login-username" name="email" class="round full-width-input" autofocus />
@@ -32,14 +44,7 @@
 			<a href="#" class="button round orange image-right ic-right-arrow" onclick="document.getElementById('login-form').submit();">LOG IN</a>
 			<p id="forgot-pass">
 				<a href="forgot-password.php">Forgot password?</a>
-<?php
-				if($_POST["login_messaage"]=="login_false"){
-					echo "Wrong E-mail or Password.";
-				}
-				elseif($_POST["login_messaage"]=="forget_formdata_login"){
-					echo "forget put user Passwords.";
-				}
-?>
+
 			</p>
 		</fieldset>
 
