@@ -317,86 +317,6 @@ include ($rootpath."include/top-menu.php");
 								<br class="clear"/>
 <?php
 							}
-?>
-							<?php /* ?>
-							<div class="grid_8" id="wrap-cp">
-								<div class="left" id="cp">
-									<img src="images/coutries/brunei.jpg"  width="120" height="120" alt="Brunei" />
-									<p class="center">
-										Brunei
-									</p>
-								</div>
-			
-								<div class="left" id="cp">
-									<img src="images/coutries/cambodia.jpg" width="120" height="120" alt="Cambodia" />
-									<p class="center">
-										Cambodia
-									</p>
-								</div>
-			
-								<div class="left" id="cp">
-									<img src="images/coutries/indonesia.jpg" width="120" height="120"  alt="Indonesia" />
-									<p class="center">
-										Indonesia
-									</p>
-								</div>
-			
-								<div class="left" id="cp">
-									<img src="images/coutries/lao.jpg" width="120" height="120" alt="Laos" />
-									<p class="center">
-										Laos
-									</p>
-								</div>
-							</div>
-							<br class="clear"/>
-							<div class="grid_8" id="wrap-cp">
-								<div class="left" id="cp">
-									<img src="images/coutries/malaysia.jpg"  width="120" height="120" alt="Malaysia" />
-									<p class="center">
-										Malaysia
-									</p>
-								</div>
-			
-								<div class="left" id="cp">
-									<img src="images/coutries/myanmar.jpg" width="120" height="120" alt="Myanmar" />
-									<p class="center">
-										Myanmar
-									</p>
-								</div>
-			
-								<div class="left" id="cp">
-									<img src="images/coutries/philipine.jpg" width="120" height="120"  alt="Philipine" />
-									<p class="center">
-										Philipine
-									</p>
-								</div>
-			
-								<div class="left" id="cp">
-									<img src="images/coutries/singapore.jpg" width="120" height="120" alt="Singapore" />
-									<p class="center">
-										Singapore
-									</p>
-								</div>
-							</div>
-							<br class="clear"/>
-							<div class="grid_8" id="wrap-cp">
-								<div class="left" id="cp">
-									<img src="images/coutries/thailand.jpg"  width="120" height="120" alt="Thailand" />
-									<p class="center">
-										Thailand
-									</p>
-								</div>
-			
-								<div class="left" id="cp">
-									<img src="images/coutries/vietnam.jpg" width="120" height="120" alt="Vietnam" />
-									<p class="center">
-										Vietnam
-									</p>
-								</div>
-							</div>
-							<br class="clear"/>
-							<?php */ ?>
-<?php
 						}
 						//######### end: is Country Profile ##########
 						
@@ -463,14 +383,6 @@ include ($rootpath."include/top-menu.php");
 					}
 					//############### End Display the Body Page #####################
 					
-					//#############################
-					//####### test ##########
-					//echo $_SESSION["userid"];
-					// print_r($c_ID);
-					// print_r($c_NAME);
-					//#############################
-					
-					
 					//############ Paging ############
 					if($number_of_pages>1){
 ?>
@@ -491,58 +403,6 @@ include ($rootpath."include/top-menu.php");
 						</ul>
 <?php
 					}
-?>
-<?php
-						/*
-?>
-						<section>
-							<p class="bold">
-								<span class="text-lightgreen head-desc">Title: </span><a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<span id="ic-lock"><img src="images/icons/ic_lock.png" width="16" height="16"></span></a>
-							</p>
-							<p>
-								<span class="text-lightgreen bold head-desc">Update: </span><span class="date">Sep, 16 2013</span>
-							</p>
-							<p>
-								<span class="text-lightgreen bold head-desc">Description: </span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-							</p>
-						</section>
-						<div class="grid_12" id="page-num">
-							<ul class="left">
-								<li class="active-page">
-									<a href="#">1</a>
-								</li>
-								<li>
-									<a href="#">2</a>
-								</li>
-								<li>
-									<a href="#">3</a>
-								</li>
-								<li>
-									<a href="#">4</a>
-								</li>
-								<li>
-									<a href="#">5</a>
-								</li>
-								<li>
-									<a href="#">6</a>
-								</li>
-								<li>
-									<a href="#">7</a>
-								</li>
-								<li>
-									<a href="#">8</a>
-								</li>
-								<li>
-									<a href="#">></a>
-								</li>
-								<li>
-									<a href="#">>></a>
-								</li>
-							</ul>
-						</div>
-						<!--end page num -->
-<?php
-						*/
 ?>
 						</div>
 <?php
