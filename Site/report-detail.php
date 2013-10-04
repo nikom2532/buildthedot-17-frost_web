@@ -28,12 +28,67 @@ include ("include/top-menu.php");
 				
 				?>
 				<ul class="nav-title">
-					<li>
-						<a href="index.php">New release <?php echo $current_month_all;?>, <?php echo $current_year_all;?></a>
-					</li>
-					<li class="text-orange bold text-nav">
-						<?php echo $row['NAME']; ?>
-					</li>
+<?php
+					//####### Display Body Nav ########
+					$temp_id__ = $_GET["id"];
+					$temp_glvl__ = $_GET["glvl"];
+					$str = array();
+					while ($temp_glvl__ >= 1) {
+						$SQLnav = "
+							SELECT *
+							FROM `GROUP_LV" . $temp_glvl__ . "`
+							WHERE `ID` = '" . $temp_id__ . "'
+						;";
+						$resultnav = @mysql_query($SQLnav);
+						if($rsnav = @mysql_fetch_array($resultnav)) {
+							$temp_id__ = $rsnav["GROUP_LV" . ($temp_glvl__ - 1) . "_ID"];
+							//echo $rsnav["NAME"]."-";
+							if($temp_glvl__==$_GET["glvl"]){
+								$str[]="
+									<li class=\"text-lightorange bold  text-nav\">{$rsnav["NAME"]}</li>
+								";
+							}
+							// else{
+								// $str[]="
+									// <li>
+										// <a href=\"main-knowledge.php?id={$rsnav2["ID"]}&glvl={$temp_glvl__}\">".$rsnav["NAME"]."</a>
+									// </li>
+								// ";
+							// }
+							$SQLnav2 = "
+								SELECT *
+								FROM `GROUP_LV" . ($temp_glvl__-1) . "`
+								WHERE `ID` = " . $temp_id__ . "
+							;";
+							$resultnav2 = @mysql_query($SQLnav2);
+							if($rsnav2 = @mysql_fetch_array($resultnav2)) {
+								// if($temp_glvl__==$_GET["glvl"]){
+									// $str[]="
+										// <li class=\"text-lightorange bold  text-nav\">{$rsnav2["NAME"]}</li>
+									// ";
+								// }
+								// else{
+									$str[]="
+										<li>
+											<a href=\"main-knowledge.php?id={$rsnav2["ID"]}&glvl=".($temp_glvl__-1)."\">".$rsnav2["NAME"]."</a>
+										</li>
+									";
+								// }
+							}//end query2
+							if($temp_glvl__==3){	//find Group Level 2 ID
+								$PERMISSION_glvl2_ID = $temp_id__;
+							}
+							$temp_glvl__--;
+						}//end query
+					}//end while
+					
+					unset($SQLnav);
+					$temp_glvl__ = $_GET["glvl"];
+					for($i=$temp_glvl__;$i>=0;$i--){
+						echo $str[$i];
+					}
+					//####### end display Body Nav ###########
+?>
 				</ul>
 				<br class="clear"/>
 				<div class="grid_6">
