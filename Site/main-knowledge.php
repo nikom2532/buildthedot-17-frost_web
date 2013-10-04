@@ -398,11 +398,7 @@ include ($rootpath."include/top-menu.php");
 					}
 					//if there are no contents
 					if($Is_there_are_content1==0 && $Is_there_are_content2==0){
-?>
-						<p>
-							<span class="text-lightgreen head-desc">There are no researchs in this group.</span>
-						</p>
-<?php
+						?><p><span class="text-lightgreen head-desc">There are no researchs in this group.</span></p><?php
 					}
 
 					//############### End Display the Body Page #####################
