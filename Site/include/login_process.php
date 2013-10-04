@@ -27,10 +27,12 @@ if(($email!="")&&($password!="")) {
 	else{
 ?>
 
-		<?php 
-		header("location: include/login.php");
-		
-		?>
+		<form id="login_false_message" action="<?php echo $rootpath; ?>login.php" method="POST">
+			<input type="hidden" id="login_messaage" name="login_messaage" value="login_false" />
+		</form>
+		<script>
+			document.getElementById("login_false_message").submit();
+		</script> 
 <?php
 	}
 }
