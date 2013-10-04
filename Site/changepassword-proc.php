@@ -6,10 +6,10 @@ $oldpassword = $_POST['oldpassword'];
 $newpassword = $_POST['newpassword'];
 $renewpassword = $_POST['renewpassword'];
 
-echo "userID=>".$userID ."<br/>";
-echo "oldpassword=>".$oldpassword ."<br/>";
-echo "newpassword=>".$newpassword ."<br/>";
-echo "renewpassword=>".$renewpassword ."<br/>";
+//echo "userID=>".$userID ."<br/>";
+//echo "oldpassword=>".$oldpassword ."<br/>";
+//echo "newpassword=>".$newpassword ."<br/>";
+//echo "renewpassword=>".$renewpassword ."<br/>";
 
 
 	$password_source = htmlspecialchars(trim($_POST["oldpassword"]),ENT_QUOTES);
@@ -35,12 +35,14 @@ echo "renewpassword=>".$renewpassword ."<br/>";
 			
 			echo "strQuery=>".$strSQLUpdatePass ;
 			$cmdQuery = mysql_query($strSQLUpdatePass);
-
+			
 			if(mysql_affected_rows()){
 				header("location: myprofile.php?userID=$userID");
 			}
-			
-			
+			if($oldpassword == ($newpassword == $renewpassword)){
+				header("location: myprofile.php?userID=$userID");
+			}
+
 		}else {
 			$passnotmatch = "New Password don't match";
 			echo $passnotmatch;

@@ -1,7 +1,7 @@
 <?php include("include/header.php");?>
 <?php include("include/top-bar.php");?>
 <?php include("include/checksession.php");?>		
-	
+<?php include("include/my-profile-proc.php");?>		
 	<!-- HEADER -->
 	<div id="header-with-tabs">
 		
@@ -41,7 +41,7 @@
 				
 						<div class="half-size-column fl" id="my-profile">
 						
-							<form action="#">
+							<form action="edit-my-profile.php" method="POST" name="editprofile" id="editprofile">
 							
 								<fieldset>
                   
