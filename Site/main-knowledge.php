@@ -130,8 +130,13 @@ include ($rootpath."include/top-menu.php");
 						$PERMISSION_Is_Lockkey = "Y";
 					}
 					
-					//####### Query List ##########
+					//###################### Check Data fact #################
+					//############### If there are no contents, ##############
+					//####### Tell the users that there are no Content #######
+					$Is_there_are_content1=0;
+					$Is_there_are_content2=0;
 					
+					//####### Query List ##########
 					$temp_glvl_content = $_GET["glvl"];
 					$temp_id_content = $_GET["id"];
 					
@@ -160,6 +165,9 @@ include ($rootpath."include/top-menu.php");
 						$c_UPDATE_DATE[] = $rscontent["UPDATE_DATE"];
 						$c_DESCRIPTION[] = $rscontent["DESCRIPTION"];
 						$c_PHOTO_NAME[] = $rscontent["PHOTO_NAME"];
+					}
+					if(mysql_num_rows($resultcontent) > 0){
+						$Is_there_are_content1++;
 					}
 				
 					//#################################
@@ -261,7 +269,14 @@ include ($rootpath."include/top-menu.php");
 							$temp_id_content = $rscontent2["GROUP_LV".($temp_glvl_content+1)."_ID"];
 						}
 						$temp_glvl_content++;
+						
+						if(mysql_num_rows($resultcontent) > 0){
+							$Is_there_are_content2++;
+						}
 					}//end while
+					
+					// echo $Is_there_are_content1;
+					// echo $Is_there_are_content2;
 					
 					//#####################################
 					//Display List content from Above query
@@ -381,6 +396,15 @@ include ($rootpath."include/top-menu.php");
 <?php
 						}
 					}
+					//if there are no contents
+					if($Is_there_are_content1==0 && $Is_there_are_content2==0){
+?>
+						<p>
+							<span class="text-lightgreen head-desc">There are no researchs in this group.</span>
+						</p>
+<?php
+					}
+
 					//############### End Display the Body Page #####################
 					
 					//############ Paging ############
