@@ -1,7 +1,7 @@
 <?php
-	include ("include/header.php");
-								
-	$sql="INSERT INTO USER_PROFILE (PHOTO_NAME, 
+include ("include/header.php");
+
+$sql = "INSERT INTO USER_PROFILE (PHOTO_NAME, 
 	FIRSTNAME, 
 	LASTNAME, 
 	EMAIL, 
@@ -31,7 +31,7 @@
 	'$_POST[country]',
 	'$_POST[phone]',
 	'$_POST[fax]')";
-	// echo $sql;
-	$result = mysql_query($sql);
-	header("location: customer.php");
+// echo $sql;
+$result = mysql_query($sql);
+header("location: customer.php");
 ?>
