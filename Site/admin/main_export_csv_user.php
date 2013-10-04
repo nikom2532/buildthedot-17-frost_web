@@ -8,7 +8,7 @@ if (!$db -> open()) {
 	die($db -> error());
 }
 
-function array_to_csv_download($array, $filename = "export.csv", $delimiter=",") {
+function array_to_csv_download($array, $filename = "User_Statistic_Report.csv", $delimiter=",") {
     // open raw memory as file so no temp files needed, you might run out of memory though
     $f = fopen('php://memory', 'w'); 
     // loop over the input array
@@ -26,7 +26,7 @@ function array_to_csv_download($array, $filename = "export.csv", $delimiter=",")
     fpassthru($f);
 }
 
-
+$i=1;
 $sql_statistic_by_user="
 	SELECT *
 	FROM  `DOWNLOAD_STATISTICS`
@@ -62,16 +62,14 @@ while($rs_statistic_by_user=@mysql_fetch_array($Result_statistic_by_user)){
 
 $user_array=array();
 for($i=0; $i<count($stat_user_No); $i++){
-	$user_array[] = "\"".$stat_user_No[$i]."\",\"".$stat_user_name[$i]."\",\"".$stat_user_total_download[$i]."\"\n";
+	//$user_array[] = "\"".$stat_user_No[$i]."\",\"".$stat_user_name[$i]."\",\"".$stat_user_total_download[$i]."\"\n";
+	$user_array[$i][0] = $stat_user_No[$i];
+	$user_array[$i][1] = $stat_user_name[$i];
+	$user_array[$i][2] = $stat_user_total_download[$i];
 }
 
-array_to_csv_download($user_array, // this array is going to be the second row
+array_to_csv_download(
+	$user_array, // this array is going to be the second row
   "User_Statistic_Report.csv"
 );
-
-// array_to_csv_download(array(
-  // array(1,2,3,4), // this array is going to be the first row
-  // array(1,2,3,4)), // this array is going to be the second row
-  // "numbers.csv"
-// );
 ?>
