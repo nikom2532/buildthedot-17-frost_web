@@ -44,13 +44,14 @@ include ("include/top-menu.php");
 			$current_month =  date('m');
 			$current_month_all =  date('M');
 			$current_year_all =  date('Y');
-			
-			$result = mysql_query("
-			SELECT *
-			FROM PDF
-			WHERE MONTH(UPDATE_DATE) = ". $current_month ." AND YEAR(UPDATE_DATE) = ". $current_year_all ."
-			ORDER BY UPDATE_DATE DESC
-			LIMIT 5") or die(mysql_error());
+			$sql_new_release = "
+				SELECT *
+				FROM PDF
+				WHERE MONTH(UPDATE_DATE) = ". $current_month ." AND YEAR(UPDATE_DATE) = ". $current_year_all ."
+				ORDER BY UPDATE_DATE DESC
+				LIMIT 5
+			";
+			$result = mysql_query($sql_new_release) or die(mysql_error());
 			?>
 
 			<h2 class="text-lightgreen2 uppercase">New release <?php echo $current_month_all;?>, <?php echo $current_year_all;?></h2>

@@ -1,5 +1,6 @@
 <?php
 include ("include/header.php");
+// include($rootpath."lib/func_expert_csv.php");
 ?>
 <?php
 	include ("include/top-bar.php");
@@ -125,14 +126,14 @@ include ("include/header.php");
 					</table>
 <?php
 				//Create the CSV Report
-				$filName = "User_Statistic_Report.csv";
-				$objWrite = fopen("User_Statistic_Report.csv", "w");
-				for($i=0; $i<count($stat_user_No); $i++){
-					fwrite($objWrite, "\"".$stat_user_No[$i]."\",\"".$stat_user_name[$i]."\",\"".$stat_user_total_download[$i]."\"\n");
-				}
-				fclose($objWrite);
+				// $filName = "User_Statistic_Report.csv";
+				// $objWrite = fopen("User_Statistic_Report.csv", "w");
+				// for($i=0; $i<count($stat_user_No); $i++){
+					// fwrite($objWrite, "\"".$stat_user_No[$i]."\",\"".$stat_user_name[$i]."\",\"".$stat_user_total_download[$i]."\"\n");
+				// }
+				// fclose($objWrite);
 ?>
-				<a href="<?php echo $filName; ?>" class="round button orange ic-download image-left">Download Report</a>
+				<a href="./main_export_csv_user.php" class="round button orange ic-download image-left">Download Report</a>
 				<div class="stripe-separator">
 					<!--  -->
 				</div>
@@ -194,7 +195,7 @@ include ("include/header.php");
 										if($rs_statistic_each_pdf=@mysql_fetch_array($Result_statistic_each_pdf)){
 											echo $rs_statistic_each_pdf["number_pdf"];
 											$stat_pdf_total_download[]=$rs_statistic_each_pdf["number_pdf"];
-										}  n   
+										}
 									?></td>
 								</tr>
 <?php
@@ -207,12 +208,12 @@ include ("include/header.php");
 				</table>
 <?php
 				//Create the CSV Report
-				$fil_pdf_Name = "PDF_Statistic_Report.csv";
-				$objWrite2 = fopen($fil_pdf_Name, "w");
-				for($i=0; $i<count($stat_pdf_No); $i++){
-					fwrite($objWrite2, "\"".$stat_pdf_No[$i]."\",\"".$stat_pdf_name[$i]."\",\"".$stat_pdf_total_download[$i]."\"\n");
-				}
-				fclose($objWrite2);
+				// $fil_pdf_Name = "PDF_Statistic_Report.csv";
+				// $objWrite2 = fopen($fil_pdf_Name, "w");
+				// for($i=0; $i<count($stat_pdf_No); $i++){
+					// fwrite($objWrite2, "\"".$stat_pdf_No[$i]."\",\"".$stat_pdf_name[$i]."\",\"".$stat_pdf_total_download[$i]."\"\n");
+				// }
+				// fclose($objWrite2);
 ?>
 				<a href="<?php echo $fil_pdf_Name; ?>" class="round button orange ic-download image-left">Download Report</a>
 
