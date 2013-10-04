@@ -64,7 +64,7 @@ include ("include/checksession.php");
 
 								<label for="picture">Profile Picture</label>
 
-								<input type="file" />
+								<input type="file" name="imagefile" />
 							<p>
 
 							<p>

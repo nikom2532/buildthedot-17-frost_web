@@ -100,7 +100,7 @@ if($row['photo'] != ""){
 									<?php } ?>
 								</div>
 
-								<input type="file" />
+								<input type="file" name="imagefile" />
 							<p>
 
 							<p>
