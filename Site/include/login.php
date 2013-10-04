@@ -36,6 +36,9 @@
 				if($_POST["login_messaage"]=="login_false"){
 					echo "Wrong E-mail or Password.";
 				}
+				elseif($_POST["login_messaage"]=="forget_formdata_login"){
+					echo "forget put user Passwords.";
+				}
 ?>
 			</p>
 		</fieldset>

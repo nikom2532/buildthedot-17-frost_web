@@ -11,13 +11,14 @@ if(($email!="")&&($password!="")) {
 	$password = md5(sha1($password_source)).sha1(md5($password_source));
 	unset($password_source);
 
-	$SQL="
+	echo $SQL="
 		SELECT `ID`, `EMAIL`, `PASSWORD`, `IS_ACTIVE` 
 		FROM  `USER_PROFILE` 
 		WHERE  `EMAIL` =  \"{$email}\"
 		AND  `PASSWORD` =  \"{$password}\"
 		AND  `IS_ACTIVE` =  'Y'
 	;";
+	
 	$db->query($SQL);
 	if($rs=$db->fetchAssoc()){
 		$_SESSION["userid"]=$rs["ID"];
@@ -25,7 +26,7 @@ if(($email!="")&&($password!="")) {
 	}
 	else{
 ?>
-		<form id="login_false_message" action="<?php echo $rootpath; ?>index.php" method="POST">
+		<form id="login_false_message" action="<?php echo $rootpath; ?>login.php" method="POST">
 			<input type="hidden" id="login_messaage" name="login_messaage" value="login_false" />
 		</form>
 		<script>
@@ -35,7 +36,14 @@ if(($email!="")&&($password!="")) {
 	}
 }
 else{
-	header("location: {$rootpath}index.php");
+?>
+	<form id="login_false_message" action="<?php echo $rootpath; ?>login.php" method="POST">
+		<input type="hidden" id="login_messaage" name="login_messaage" value="forget_formdata_login" />
+	</form>
+	<script>
+		document.getElementById("login_false_message").submit();
+	</script>
+<?php
 }
 
 include($rootpath."include/footer.php");

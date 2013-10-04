@@ -12,7 +12,7 @@
 						
 						<?php 
 						if($_SESSION["userid"]==""){ ?>
-							<a href="myprofile.php" class="link grid_2 text-orange uppercase">Sign In</a>
+							<a href="login.php" class="link grid_2 text-orange uppercase">Sign In</a>
 						<?php }
 						else{?>
 							<a href="myprofile.php?userID=<?=$userID?>" class="ic-user link grid_2 text-orange uppercase">My Profile</a>
