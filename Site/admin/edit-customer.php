@@ -58,7 +58,7 @@ include ("include/header.php");
 
 				<div class="half-size-column fl">
 
-					<form action="edit-customer-update.php" method="POST">
+					<form action="edit-customer-update.php" method="POST" enctype="multipart/form-data">
 
 						<fieldset>
 

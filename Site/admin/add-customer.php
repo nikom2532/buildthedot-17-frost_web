@@ -57,7 +57,7 @@ include ("include/checksession.php");
 
 				<div class="half-size-column fl">
 
-					<form action="add-customer-proc.php" method="post">
+					<form action="add-customer-proc.php" method="post" enctype="multipart/form-data">
 
 						<fieldset>
 							<p class="form-error-input">
