@@ -10,7 +10,6 @@ if (!$db -> open()) {
 
 $email=$_POST["email"];
 $password=$_POST["password"];
-
 // echo "email ".$email;
 // echo "pass ".$password;
 
@@ -34,8 +33,7 @@ if(($email!="")&&($password!="")) {
 	// echo $SQL."<br/>";
 	// echo "num".$num."<br/>";
 	if($num>0){
-		$fetchArray=mysql_fetch_array($result);
-	
+		$fetchArray=mysql_fetch_array($result);	
 		$_SESSION["userid"] = $fetchArray["ID"];
 		//echo "ID=>".$fetchArray["ID"]."<br/>";
 		$_SESSION['sessid']=session_id();
