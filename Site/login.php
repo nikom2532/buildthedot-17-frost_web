@@ -1,7 +1,7 @@
 <?php
 $rootpath = "./";
-include ("include/header.php");
-include ("myprofile-proc.php");
+include ($rootpath."include/header.php");
+include ($rootpath."myprofile-proc.php");
 ?>
 <?php
 if ($_SESSION["userid"] == "") {
