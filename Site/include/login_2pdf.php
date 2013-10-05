@@ -31,7 +31,7 @@
 
 			<a href="#" class="button round orange image-right ic-right-arrow" onclick="document.getElementById('login-form').submit();">LOG IN</a>
 			<p id="forgot-pass">
-				<a href="forgot-password.php">Forgot password?</a>
+				<a href="forgot-password-with-url.php">Forgot password?</a>
 <?php
 				if($_POST["login_messaage"]=="login_false"){
 					echo "Wrong E-mail or Password.";
