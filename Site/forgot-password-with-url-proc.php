@@ -10,7 +10,8 @@
 	if($count > 0) {
 		$row = mysql_fetch_array($result);
 		
-		$key=rand(100,999);
+		$date = date_create();
+		$key=date_timestamp_get($date);
 		$key=md5($key);
 		$_SESSION["keySession"] = $key;
 		$_SESSION["emailSession"] = $email; 

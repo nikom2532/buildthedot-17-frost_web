@@ -17,7 +17,7 @@ $renewpassword = $_POST['renewpassword'];
 	$fetchArray=mysql_fetch_array($cmdQuery);
 	if(mysql_num_rows($cmdQuery) == 1){		
 			$password = md5(sha1($newpassword)).sha1(md5($newpassword));
-			$strSQLUpdatePass = "UPDATE user_profile SET PASSWORD='$password'";
+			$strSQLUpdatePass = "UPDATE USER_PROFILE SET PASSWORD='$password'";
 			$strSQLUpdatePass.="WHERE ID='$userID'" ;
 			
 			$cmdQuery = mysql_query($strSQLUpdatePass);
