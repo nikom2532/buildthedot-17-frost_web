@@ -23,6 +23,10 @@ $renewpassword = $_POST['renewpassword'];
 			$cmdQuery = mysql_query($strSQLUpdatePass);
 			$result= mysql_affected_rows($cmdQuery);
 			
+			// remove forget password session
+			unset($_SESSION['keySession']); 
+			unset($_SESSION['emailSession']); 
+			
 			header("location: index.php");
 	}
 	

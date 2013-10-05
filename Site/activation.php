@@ -8,7 +8,6 @@
 	$sessionEmail = $_SESSION['emailSession'];
 	
 	// $inactive = 600;
-// 
 	// if (isset($_SESSION['keySession'])) {
 	    // $session_life = time() - $_SESSION['keySession'];
 	    // if ($session_life > $inactive) {
