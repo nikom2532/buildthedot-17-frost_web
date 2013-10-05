@@ -10,22 +10,12 @@
 	if($count > 0) {
 		$row = mysql_fetch_array($result);
 		
-		// header("location: {$rootpath}forgot-password-question.php?qId=".$row['QUESTION_ID']."&id=".$row['ID']);
-		
 		$key=rand(100,999);
 		$key=md5($key);
 		$_SESSION["keySession"] = $key;
+		$_SESSION["emailSession"] = $email; 
 		
-		// $email_from = "wc.fone@yahoo.com";
-	    // $email_to = "team@buildthedot.com";
-	    // $email_subject = "[Mckansys] Forgot password";
-	    // $email_message = "You activation link is: http://mckansys.buildthedot.com/activation.php?email=$email&key=$key";
-		// $headers = 'From: '.$email_from."\r\n".
-		// 'Reply-To: '.$email_to."\r\n" .
-		// 'X-Mailer: PHP/' . phpversion();
-		// $result = @mail($email_to, $email_subject, $email_message, $headers);  
-		
-		$to      = "team@buildthedot.com";
+		$to      = "voravan@buildthedot.com";
 		$subject = "[Mckansys] Forgot password";
 		$message = "You activation link is: http://mckansys.buildthedot.com/activation.php?email=$email&key=$key";
 		$headers = "From: team@buildthedot.com" . "\r\n" .
