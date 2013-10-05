@@ -1,7 +1,10 @@
 <?php include("include/header.php");?>
 <?php include("include/top-bar.php");?>
 <?php include("include/checksession.php");?>		
-	
+<?php include("my-profile-proc.php");?>	
+<?php $userID= $_GET["userID"];
+	echo "$userID";
+?>	
 	<!-- HEADER -->
 	<div id="header-with-tabs">
 		
@@ -41,23 +44,31 @@
 				
 						<div class="half-size-column fl" >
 						
-							<form action="#">
-							
+							<form action="update-my-profile.php" name="editprofile-form" id="editprofile-form" method="POST">
+							<?php
+								if($_POST["msg-error"] != ""){
+								?>
+									<p class="text-validate"><?=$_POST["msg-error"]?></p>
+								<?php 	
+								}
+								while($fetchArray=mysql_fetch_array($cmdQueryMyprofile)){
+								?>
 								<fieldset>
                   
 									<p>
 										<label for="name">Name</label>
-										<input type="text" id="name" class="round full-width-input" />
+										<input type="text" id="name" name="name" class="round full-width-input" value="<?=$fetchArray['NAME'] ?>"/>
 									</p>
 									
 									<p>
 										<label for="email">Email</label>
-										<input type="text" id="email" class="round full-width-input" />
+										<input type="text" id="email" name="email" class="round full-width-input" value="<?=$fetchArray['EMAIL'] ?>"/>
 									</p>
 	
                                      <input type="submit" value="Save change" class="round blue ic-right-arrow" />
 									
 								</fieldset>
+							<?php }?>
 						</form>
 						
 						</div> <!-- end half-size-column -->
