@@ -1,7 +1,7 @@
 <?php include("include/header.php");?>
 <?php include("include/top-bar.php");?>
 <?php include("include/checksession.php");?>		
-<?php include("include/my-profile-proc.php");?>		
+<?php include("my-profile-proc.php");?>		
 	<!-- HEADER -->
 	<div id="header-with-tabs">
 		
@@ -42,22 +42,27 @@
 						<div class="half-size-column fl" id="my-profile">
 						
 							<form action="edit-my-profile.php" method="POST" name="editprofile" id="editprofile">
-							
+								
+							<?php
+								while($fetchArray=mysql_fetch_array($cmdQueryMyprofile)){
+								?>
+
 								<fieldset>
-                  
+                  				
 									<p>
-										<h3>Username<span id="username">admin</span></h3>
+										<h3>USERNAME<span id="username"><?=$fetchArray['NAME'] ?></span></h3>
 										
 									</p>
 									
 									<p>
-										<h3>Email<span id="email">admin@admin.com</span></h3>
+										<h3>PASSWORD<span id="email"><?=$fetchArray['EMAIL'] ?></span></h3>
 										
 									</p>
 	
                                     <a href="edit-my-profile.php" class="button round blue image-right ic-edit text-upper">Edit profile</a>
 									
 								</fieldset>
+							<?php }?>
 						</form>
 						
 						</div> <!-- end half-size-column -->

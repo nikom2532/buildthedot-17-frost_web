@@ -1,7 +1,7 @@
 <?php include("include/header.php");?>
 <?php include("include/top-bar.php");?>
 <?php include("include/checksession.php");?>		
-	
+<?php $userID = $_GET["userID"];?>	
 	<!-- HEADER -->
 	<div id="header-with-tabs">
 		
@@ -40,27 +40,32 @@
 					<div class="content-module-main cf">
 				
 						<div class="half-size-column fl">
+							<?php if($_GET["validatepass"] != ""){
+								$validatemessage=$_GET["validatepass"];
+							?>
+						<p class="text-validate"><?php echo $validatemessage;?></p>
 						
-							<form action="#">
+							<?php }?>
+							<form action="changepassword-proc.php" method="POST">
 							
 								<fieldset>
                                   
 									<p>
 										<label for="old-password">Old password</label>
-										<input type="text" id="name" class="round full-width-input" />
+										<input type="password" id="oldpassword" name="oldpassword" class="round full-width-input" />
 									</p>
 									
 									<p>
 										<label for="new-password">New password</label>
-										<input type="text" id="email" class="round full-width-input" />
+										<input type="password" id="newpassword" name="newpassword" class="round full-width-input" />
 									</p>
 	
 									<p>
 										<label for="renew-password">re-type new password</label>
-										<input type="text" id="company" class="round full-width-input" />
+										<input type="password" id="renewpassword" name="renewpassword" class="round full-width-input" />
 									</p>
 	
-									
+									<input name="userID" type="hidden" id="userID" name="userID" value="<?=$_SESSION["userid"]?>" />
                                     <input type="submit" value="Save change" class="round blue ic-right-arrow" />
 									
 								</fieldset>

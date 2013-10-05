@@ -15,7 +15,10 @@
 	float: right;
 	
 }
-
+.text-validate{
+	color:red;
+	margin-bottom: 10px;
+}
 
 /* ---------- WIDTHS ---------- */
 /* Form Inputs Style */
@@ -476,19 +479,16 @@ div.content-module-main { padding: 1em; /* 16/16 */ }
 }
 #my-profile h3{
 	font-size:0.9em;
-	text-transform:uppercase;
 	font-weight: bold;
 	margin-right:15px;
 }
 #my-profile #username{
 	font-size:0.9em;
-	text-transform:uppercase;
 	margin-left:40px;
 }
 #my-profile #email{
 	font-size:0.9em;
-	text-transform:uppercase;
-	margin-left:75px;
+	margin-left:40px;
 }
 
 

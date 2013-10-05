@@ -19,7 +19,19 @@ $sess_id=$_SESSION["userid"];
 	<div id="content">
 	
 		<form action="include/login-process.php" method="POST" id="login-form">
-		
+			<?php
+				if($_POST["login_messaage"] != ""){
+					if($_POST["login_messaage"]=="login_false"){
+					 ?>
+						<p class="text-validate">Username or password is wrong</p>
+					<?php 
+					}
+					else if($_POST["login_messaage"]=="forget_formdata_login"){
+					?>
+						<p class="text-validate">Username or password is empty</p>
+				<?php }
+				}
+			?>
 			<fieldset>
 
 				<p>

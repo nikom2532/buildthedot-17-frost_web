@@ -6,10 +6,10 @@ $oldpassword = $_POST['oldpassword'];
 $newpassword = $_POST['newpassword'];
 $renewpassword = $_POST['renewpassword'];
 
-//echo "userID=>".$userID ."<br/>";
-//echo "oldpassword=>".$oldpassword ."<br/>";
-//echo "newpassword=>".$newpassword ."<br/>";
-//echo "renewpassword=>".$renewpassword ."<br/>";
+echo "userID=>".$userID ."<br/>";
+echo "oldpassword=>".$oldpassword ."<br/>";
+echo "newpassword=>".$newpassword ."<br/>";
+echo "renewpassword=>".$renewpassword ."<br/>";
 
 
 	$password_source = htmlspecialchars(trim($_POST["oldpassword"]),ENT_QUOTES);
@@ -17,11 +17,9 @@ $renewpassword = $_POST['renewpassword'];
 	unset($password_source);
 
 	$strQuery ="
-		SELECT `ID`, `EMAIL`, `PASSWORD`, `IS_ACTIVE` 
-		FROM  `USER_PROFILE` 
-		WHERE `PASSWORD` =  \"{$oldpassword}\"
-		AND  `ID` =  \"{$userID}\"
-		AND  `IS_ACTIVE` =  'Y'
+		SELECT `ID`, `NAME`, `EMAIL`
+		FROM  `ADMIN` 
+		WHERE `PASSWORD` =  \"{$oldpassword}\" AND `ID` =  \"{$userID}\"
 	;";
 	echo "sql=>".$strQuery."<br/>";
 	$cmdQuery =  mysql_query($strQuery);
@@ -31,17 +29,17 @@ $renewpassword = $_POST['renewpassword'];
 	if(mysql_num_rows($cmdQuery) == 1){		
 		if($newpassword == $renewpassword){
 			$password = md5(sha1($newpassword)).sha1(md5($newpassword));
-			$strSQLUpdatePass = "UPDATE user_profile SET PASSWORD='$password'";
+			$strSQLUpdatePass = "UPDATE admin SET PASSWORD='$password'";
 			$strSQLUpdatePass.="WHERE ID='$userID'" ;
 			
 			echo "strQuery=>".$strSQLUpdatePass ;
 			$cmdQuery = mysql_query($strSQLUpdatePass);
 			
 			if(mysql_affected_rows()){
-				header("location: myprofile.php?userID=$userID");
+				header("location: my-profile.php?userID=$userID");
 			}
 			if($oldpassword == ($newpassword == $renewpassword)){
-				header("location: myprofile.php?userID=$userID");
+				header("location: my-profile.php?userID=$userID");
 			}
 
 		}else {
@@ -51,7 +49,7 @@ $renewpassword = $_POST['renewpassword'];
 		}
 		
 	}else if(mysql_num_rows($cmdQuery) == 0){
-		$passincorect = "Password is incorrect";
+		$passincorect = "Old password is incorrect";
 		echo $passincorect;
 		header("location: edit-password.php?userID=$userID&validatepass=$passincorect");
 		if($newpassword != $renewpassword){

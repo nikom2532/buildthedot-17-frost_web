@@ -10,9 +10,8 @@ if (!$db -> open()) {
 
 $email=$_POST["email"];
 $password=$_POST["password"];
-
-echo "email ".$email;
-echo "pass ".$password;
+// echo "email ".$email;
+// echo "pass ".$password;
 
 
 if(($email!="")&&($password!="")) {
@@ -22,7 +21,7 @@ if(($email!="")&&($password!="")) {
 	$password = md5(sha1($password_source)).sha1(md5($password_source));
 	unset($password_source);
 	
-	echo "pass ".$password."<br/>";
+	//echo "pass ".$password."<br/>";
 	$SQL="
 		SELECT `ID`, `EMAIL`, `PASSWORD`
 		FROM  `ADMIN` 
@@ -31,11 +30,10 @@ if(($email!="")&&($password!="")) {
 	;";
 	$result=mysql_query($SQL);
 	$num=mysql_num_rows($result);
-	echo $SQL."<br/>";
-	echo "num".$num."<br/>";
+	// echo $SQL."<br/>";
+	// echo "num".$num."<br/>";
 	if($num>0){
-		$fetchArray=mysql_fetch_array($result);
-	
+		$fetchArray=mysql_fetch_array($result);	
 		$_SESSION["userid"] = $fetchArray["ID"];
 		//echo "ID=>".$fetchArray["ID"]."<br/>";
 		$_SESSION['sessid']=session_id();
@@ -43,15 +41,24 @@ if(($email!="")&&($password!="")) {
 		//echo "session".$_SESSION[sessid];
 	}
 	else{
-		$errormsg = "Username or password is incorrect";
-		echo $errormsg;
-		header("location: ../index.php?validate=$errormsg");
+	?>
+		<form id="login_false_message" action="../index.php" method="POST">
+			<input type="hidden" id="login_messaage" name="login_messaage" value="login_false" />
+		</form>
+		<script>
+			document.getElementById("login_false_message").submit();
+		</script> 
+	<?php 
 	}
 }
 else{
-	$errormsg = "Please fill username and password";
-	header("location: ../index.php");
-	echo "password is null";
+	?>
+	<form id="login_false_message" action="../index.php" method="POST">
+		<input type="hidden" id="login_messaage" name="login_messaage" value="forget_formdata_login" />
+	</form>
+	<script>
+		document.getElementById("login_false_message").submit();
+	</script>
+<?php 
 }
-
 ?>
