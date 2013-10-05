@@ -20,6 +20,7 @@ $renewpassword = $_POST['renewpassword'];
 		SELECT `ID`, `EMAIL`, `PASSWORD`, `IS_ACTIVE` 
 		FROM  `USER_PROFILE` 
 		WHERE `PASSWORD` =  \"{$oldpassword}\"
+		AND  `ID` =  \"{$userID}\"
 		AND  `IS_ACTIVE` =  'Y'
 	;";
 	echo "sql=>".$strQuery."<br/>";
