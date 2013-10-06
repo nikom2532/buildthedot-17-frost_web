@@ -1,4 +1,4 @@
-<?php //include("include/header.php"); ?>
+<?php include("include/header.php"); ?>
 
 <!-- HEADER -->
 <div id="header">
@@ -29,3 +29,5 @@
 	</fieldset>
 </div>
 <!-- end content -->
+<!-- FOOTER -->
+<?php  include("include/footer.php"); ?>
