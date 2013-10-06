@@ -12,21 +12,21 @@
 
 <!-- MAIN CONTENT -->
 <div id="content-login">
-	<fieldset>
-		<p>Sorry</p>
+	<div class="center" id="notif">
+		<h1 class="fail-msg">Sorry</h1>
 		<?php
 			$error = $_GET['e'];
 			if ($error == "1") {
-				echo "<p>Activation email can not be sent.</p>";
-			} else if ($error == "2"){
-				echo "<p>Record not found.</p>";
-			} else {
-				echo "<p>The session expired, please try again.</p>";
-			}
+			?> 
+				<h1 class="fail-msg">Activation email can not be sent.</h1>
+			<?php } else if ($error == "2"){?>
+				<h1 class="fail-msg">Record not found.</h1>
+			<?php } else {?>
+				<h1 class="fail-msg">The session expired, please try again.</h1>
+			<?php }
 			
 		?>
-		
-	</fieldset>
+	</div>
 </div>
 <!-- end content -->
 <!-- FOOTER -->

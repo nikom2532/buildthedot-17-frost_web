@@ -13,11 +13,12 @@
 <!-- MAIN CONTENT -->
 <div id="content-login">
 
-	<fieldset>
-		<p>Success</p>
-		<p>Activation email was sent.</p>
-	</fieldset>
-
+	<div class="center" id="notif">
+		<h1 class="sucess-msg">Success</h1>
+		<h1 class="sucess-msg">Activation email was sent.</h1>		
+	</div>
+		
+	
 </div>
 <!-- end content -->
 <!-- FOOTER -->

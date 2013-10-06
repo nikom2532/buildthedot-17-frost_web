@@ -31,7 +31,7 @@ if (x==null || x=="")
 				<div id="profile" >
 					<h1 id="head-title" class="text-green grid_12">Forgot password</h1>
 					<br class="clear"/>
-	<form action="forgot-password-proc.php" method="POST" name="forgot-password-form" id="forgot-password-form" onsubmit="return validateForm()">
+	<form action="forgot-password-proc.php" method="POST" name="forgot-password-form" id="forgot-password-form" class="grid_12" onsubmit="return validateForm()">
 
 		<fieldset>
 

@@ -11,7 +11,7 @@ if(($email!="")&&($password!="")) {
 	$password = md5(sha1($password_source)).sha1(md5($password_source));
 	unset($password_source);
 
-	echo $SQL="
+	$SQL="
 		SELECT `ID`, `EMAIL`, `PASSWORD`, `IS_ACTIVE` 
 		FROM  `USER_PROFILE` 
 		WHERE  `EMAIL` =  \"{$email}\"

@@ -41,7 +41,7 @@ if (x==null || x=="")
 					<h1 id="head-title" class="text-green grid_12">Forgot password > Security question</h1>
 					<br class="clear"/>
 	
-	<form action="forgot-password-question-proc.php" method="POST" name="forgot-password-form" id="forgot-password-form" onsubmit="return validateForm()">
+	<form action="forgot-password-question-proc.php" method="POST" name="forgot-password-form" id="forgot-password-form" class="grid_12" onsubmit="return validateForm()">
 		<input type="hidden" name="id" value=<?=$id?> />
 		<fieldset>
 			<p>

@@ -680,3 +680,12 @@ span.inactive {
 #cp{
 	margin-right:30px;
 }
+.sucess-msg{
+	color: #3AAD6E;
+}
+.fail-msg{
+	color: red;
+}
+#notif{
+	margin-top: 80px;
+}

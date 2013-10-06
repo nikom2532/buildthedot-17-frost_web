@@ -20,7 +20,7 @@
 					<h1 id="head-title" class="text-green grid_12">Forgot password</h1>
 					<br class="clear"/>
 					
-	<form action="forgot-password-with-url-proc.php" method="POST">
+	<form action="forgot-password-with-url-proc.php" method="POST" class="grid_12">
 
 		<fieldset>
 			
