@@ -27,7 +27,7 @@
 		} else {
 			
 			// Email or key not match.
-			header("location: index.php");
+			header("location: forgetPassFail.php?e=3");
 		}
     }
 	

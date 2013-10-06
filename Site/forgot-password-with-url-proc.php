@@ -27,13 +27,14 @@
 	
 		if (mail($to, $subject, $message, $headers)) {
 			// send success
-			header("location: index.php");
+			header("location: forgetPassSuccess.php");
 		} else {
 			// send fail
+			header("location: forgetPassFail.php?e=1");
 		}
 	} else {
 		
 		// record not found
-		header("location: index.php");
+		header("location: forgetPassFail.php?e=2");
 	}
 ?>
