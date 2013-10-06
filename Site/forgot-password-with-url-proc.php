@@ -15,7 +15,9 @@
 		$key=md5($key);
 		$_SESSION["keySession"] = $key;
 		$_SESSION["emailSession"] = $email; 
-		
+		$_SESSION['forgotPassStart'] = time();
+		$_SESSION['forgotPassExpire'] = $_SESSION['forgotPassStart'] + (10 * 60) ; // 10 minute
+
 		$to      = "voravan@buildthedot.com";
 		$subject = "[Mckansys] Forgot password";
 		$message = "You activation link is: http://mckansys.buildthedot.com/activation.php?email=$email&key=$key";
@@ -23,12 +25,15 @@
 	    "Reply-To: team@buildthedot.com" . "\r\n" .
 	    "X-Mailer: PHP/" . phpversion();
 	
-		mail($to, $subject, $message, $headers);
-		
-		header("location: index.php");
-		
+		if (mail($to, $subject, $message, $headers)) {
+			// send success
+			header("location: index.php");
+		} else {
+			// send fail
+		}
 	} else {
 		
+		// record not found
 		header("location: index.php");
 	}
 ?>

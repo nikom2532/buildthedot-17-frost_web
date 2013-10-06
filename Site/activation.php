@@ -6,29 +6,29 @@
 	session_start();
 	$sessionKey = $_SESSION['keySession'];
 	$sessionEmail = $_SESSION['emailSession'];
-	
-	// $inactive = 600;
-	// if (isset($_SESSION['keySession'])) {
-	    // $session_life = time() - $_SESSION['keySession'];
-	    // if ($session_life > $inactive) {
-	        // session_destroy();
-	        // header("Location: index.php");
-	    // }
-	// }
-	// $_SESSION['timeout'] = time();
+	$now = time(); 
 
-	if ($sessionKey == $key && $sessionEmail == $email) {
+    if($now > $_SESSION['forgotPassExpire']) {
+       // session expired
+       header("location: index.php");
+	   
+    } else {
+    	if ($sessionKey == $key && $sessionEmail == $email) {
 		
-		$query  = "SELECT * FROM  USER_PROFILE WHERE EMAIL ='".$email."' AND IS_ACTIVE = 'Y'";
-		$result = mysql_query($query);
-		$count  = mysql_num_rows($result);
+			$query  = "SELECT * FROM  USER_PROFILE WHERE EMAIL ='".$email."' AND IS_ACTIVE = 'Y'";
+			$result = mysql_query($query);
+			$count  = mysql_num_rows($result);
+			
+			if($count > 0) {
+				$row = mysql_fetch_array($result);
+				header("location: new-password.php?userID=".$row['ID']);
+			}
 		
-		if($count > 0) {
-			$row = mysql_fetch_array($result);
-			header("location: new-password.php?userID=".$row['ID']);
+		} else {
+			
+			// Email or key not match.
+			header("location: index.php");
 		}
-		
-	} else {
-		header("location: index.php");
-	}
+    }
+	
 ?>
