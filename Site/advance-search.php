@@ -24,7 +24,7 @@ require ("lib/func_pagination.php");
 
 				<div class="grid_5">
 					<?php
-					$strSQL = "SELECT * FROM  group_lv1 ORDER BY ID ";
+					$strSQL = "SELECT * FROM  GROUP_LV1 ORDER BY ID ";
 					$cmdQueryCat = mysql_query($strSQL);
 					?>
 
