@@ -98,13 +98,9 @@ else
 							a.LASTNAME AS lastname,
 							a.COMPANY AS company,
 							a.EMAIL AS email,
-							b.GROUP_LV2_ID AS permission,
 							a.IS_ACTIVE AS userActive
 							
-							FROM USER_PROFILE AS a
-							INNER JOIN PERMISSION AS b
-							ON a.ID = b.USER_PROFILE_ID
-							GROUP BY a.ID");
+							FROM USER_PROFILE AS a");
 
 						$i = 1;
 						while ($row = mysql_fetch_array($result)) {

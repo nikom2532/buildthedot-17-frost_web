@@ -79,12 +79,9 @@ include ("include/header.php");
 							a.JOB_TITLE AS jobTitle,
 							a.DEPARTMENT_ID AS deptId,
 							a.PHOTO_NAME AS photo,
-							b.GROUP_LV2_ID AS permission,
 							a.IS_ACTIVE AS userActive
 
 							FROM USER_PROFILE AS a
-							INNER JOIN PERMISSION AS b
-							ON a.ID = b.USER_PROFILE_ID
 							WHERE a.ID = $userId");
 
 							while ($row = mysql_fetch_array($result)) {
