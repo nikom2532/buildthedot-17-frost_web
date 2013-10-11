@@ -1,9 +1,9 @@
 <?php include("include/header.php");?>
-<?php include("include/top-bar.php");?>ev123
+<?php include("include/top-bar.php");?>
 <?php include("include/checksession.php");?>		
 <?php include("my-profile-proc.php");?>	
 <?php $userID= $_GET["userID"];
-	echo "$userID";
+	//echo "$userID";
 ?>	
 	<!-- HEADER -->
 	<div id="header-with-tabs">

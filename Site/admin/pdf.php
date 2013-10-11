@@ -1,5 +1,15 @@
 <?php include("include/header.php");?>
 <?php include("include/top-bar.php");?>
+<script LANGUAGE="JavaScript">
+function confirmSubmit()
+{
+var agree=confirm("Are you sure you want to delete?");
+if (agree)
+	return true ;
+else
+	return false ;
+}
+</script>
 	
 	<!-- HEADER -->
 	<div id="header-with-tabs">
@@ -59,76 +69,43 @@
 						</thead>
 						
 						<tbody>
-
+						<?php 
+							$result = mysql_query("
+							SELECT p.ID AS id, 
+							p.NAME AS name,
+							p.UPDATE_DATE AS updateDate
+							FROM PDF AS p WHERE IS_ASIAN_COUNTRY = '0'
+							ORDER BY ID DESC");
+							
+							$i = 1;
+							while ($row = mysql_fetch_array($result)) {
+						?>
 							<tr>
-								<td>1</td>
-								<td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </td>
-								<td>Sep 13,2013</td>
+								<td><?=$i?></td>
+								<td><?=$row['name']?></td>
+								<?php
+									$originalDate = $row['updateDate'];
+									$newDate = date("M d, Y", strtotime($originalDate));
+									echo "<td>" .$newDate."</td>";
+								?>
+
 								<td>
 									<form method='post' action='edit-pdf.php' id='submitform' name='submitform'>
 										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 75px;' ALT='EDIT'> 
+										<input type='hidden' name='pdfId' value="<?=$row['id']?>"/>	
 									</form>
-									<form method='post' action='#' id='submitform' name='submitform'>
+									<form method='post' action='delete-pdf.php'id='submitform' name='submitform'>
+										<input type='hidden' name='pdfId' value="<?=$row['id']?>"/>
 										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0' ALT='DELETE'  onClick='return confirmSubmit()'>
 									</form>
 								</td>
 							</tr>
-
-							<tr>
-								<td>2</td>
-								<td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </td>
-								<td>Sep 13,2013</td>
-								<td>
-									<form method='post' action='edit-pdf.php' id='submitform' name='submitform'>
-										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 75px;' ALT='EDIT'> 
-									</form>
-									<form method='post' action='#' id='submitform' name='submitform'>
-										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0'ALT='DELETE'  onClick='return confirmSubmit()'>
-									</form>
-								</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </td>
-								<td>Sep 13,2013</td>
-								<td>
-									<form method='post' action='edit-pdf.php' id='submitform' name='submitform'>
-										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 75px;' ALT='EDIT'> 
-									</form>
-									<form method='post' action='#' id='submitform' name='submitform'>
-										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0'ALT='DELETE'  onClick='return confirmSubmit()'>
-									</form>
-								</td>
-							</tr>
-
-							<tr>
-								<td>5</td>
-								<td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </td>
-								<td>Sep 13,2013</td>
-								<td>
-									<form method='post' action='edit-pdf.php' id='submitform' name='submitform'>
-										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 75px;' ALT='EDIT'> 
-									</form>
-									<form method='post' action='#' id='submitform' name='submitform'>
-										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0'ALT='DELETE'  onClick='return confirmSubmit()'>
-									</form>
-								</td>
-							</tr>
-
-							<tr>
-								<td>6</td>
-								<td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </td>
-								<td>Sep 13,2013</td>
-								<td>
-									<form method='post' action='edit-pdf.php' id='submitform' name='submitform'>
-										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 75px;' ALT='EDIT'> 
-									</form>
-									<form method='post' action='#' id='submitform' name='submitform'>
-										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0'ALT='DELETE'  onClick='return confirmSubmit()'>
-									</form>
-								</td>
-							</tr>
-
+						
+						<?php 
+								$i = $i + 1;
+							
+							}?>
+							
 						</tbody>
 						
 					</table>
