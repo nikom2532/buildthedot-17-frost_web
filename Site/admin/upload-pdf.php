@@ -1,8 +1,30 @@
 <?php include("include/header.php");?>	
-<?php include("include/checksession.php");?>	
+<?php include("include/checksession.php");?>
+<?php
+	$result = mysql_query("
+	SELECT t.ID AS id, t.NAME AS name
+	FROM TAG t 
+	");
+	$numRow = mysql_num_rows($result);
+	if(mysql_num_rows($result)){
+		$tagResult =  '[';
+		$counter = 0;
+		while ($row = mysql_fetch_array($result)) {
+			 if (++$counter == $numRow) {
+		         $tagResult .= "'".$row['name']."'";
+		    } else {
+		         $tagResult .= "'".$row['name']."'".", ";	
+		    	}
+			
+		}
+		$tagResult .= ']';
+	}
+	echo $tagResult;
+?>
+	
 <script>
 	$(function(){
-		var sampleTags = ['c++', 'java', 'php', 'coldfusion', 'javascript', 'asp', 'ruby', 'python', 'c', 'scala', 'groovy', 'haskell', 'perl', 'erlang', 'apl', 'cobol', 'go', 'lua'];
+		var sampleTags = <?=$tagResult;?>
 
 		//-------------------------------
 		// Minimal
@@ -198,8 +220,6 @@
 	
                                         <ul id="myULTags">
                                             <!-- Existing list items will be pre-added to the tags. -->
-                                            <li>Tag1</li>
-                                            <li>Tag2</li>
                                         </ul>
                                     </p>
                                     <p class="form-error-input">
