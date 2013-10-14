@@ -85,9 +85,9 @@
 						</fieldset>
 					</form>
 				</ul>
-				<div class="grid_1" id="adv-seach">
+				<!-- <div class="grid_1" id="adv-seach">
 					<a href="advance-search.php" >Advanced Search</a>
-				</div>
+				</div> -->
 			</div>
 		</div><!--end container -->
 	</div><!--end nav-bar -->
