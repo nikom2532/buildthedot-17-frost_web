@@ -57,7 +57,7 @@ return $myformat;
 }
 
 //convert sql datetime to strings
-function convertDate2String($inputDate,$dateFormat=1) {
+function convertDate2String($inputDate,$dateFormat=5) {
         switch ($dateFormat) {
            case 1:
                         return date('F d, Y h:i:s A', strtotime($inputDate));
@@ -71,6 +71,10 @@ function convertDate2String($inputDate,$dateFormat=1) {
            case 4:
                         return date('M d, Y G:i:s', strtotime($inputDate));
            break;
+		   case 5:
+			   			return date('F d, Y ', strtotime($inputDate));
+		   break;
+		   
         }
 }
 //              print convertDate2String("2009-08-10 18:00:00"); //Outputs: August 10, 2009 06:00:00 PM

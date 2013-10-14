@@ -21,12 +21,15 @@
 				
                       ?>	
               		<section class="grid_11">
-                    	<h3>Title : <?=highlightkeyword($fetchArraySearch['NAME'],$keyword)?></h3>
+                    	<h3>Title : <a href="report-detail-no-sidemenu.php?id=<?=$fetchArraySearch['ID'];?> "><?=highlightkeyword($fetchArraySearch['NAME'],$keyword)?></a></h3>
                     	<?php $date= $fetchArraySearch['UPDATE_DATE'];
                     		 $date = date('F d, Y', strtotime($date));
                     	?>
-                    	<h3>Date :<?=highlightkeyword($date,$year)?></h3>
-                        <p>Description :<?=highlightkeyword($fetchArraySearch['DESCRIPTION'],$keyword)?> </p>
+                    	<h3>Date : <?=highlightkeyword($date,$year)?></h3>
+                        <p>Description :<?=highlightkeyword($fetchArraySearch['DESCRIPTION'],$keyword)?> 
+                        	<a href="report-detail-no-sidemenu.php?id=<?=$fetchArraySearch['ID'];?> "><span class='italic text-orange'>read more</span></a>
+                        	
+                        </p>
                     </section>
                    <?php } 
       ?>

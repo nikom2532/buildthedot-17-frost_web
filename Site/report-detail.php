@@ -146,7 +146,7 @@ include ("include/top-menu.php");
 
 				</div>
 				<div class="grid_1 center" id="price-box">
-					<p><b class="center">฿ <?php echo $row['PRICE']; ?></b></p>
+					<!-- <p><b class="center">฿ <?php echo $row['PRICE']; ?></b></p> -->
 <?php
 					
 ?>
@@ -192,11 +192,11 @@ include ("include/top-menu.php");
 								$PERMISSION_Is_Lockkey = "Y";
 							}
 							if($PERMISSION_Is_Lockkey=="Y"){
-								echo "<a href='#'>";
+								//echo "<a href='#'>";
 ?>
-								<b class="button darkgreen" id="download-button">
+								<b class="button grey" id="disable-button">
 <?php
-								echo "Paid";
+								echo "Download";// paid
 ?>
 								</b>
 <?php

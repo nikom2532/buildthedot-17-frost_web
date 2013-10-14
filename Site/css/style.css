@@ -22,6 +22,8 @@
 }
 .italic{
 	font-style: italic;	
+	text-decoration: underline;
+	margin-left: 10px;
 }
 .center{
 	text-align:center;
@@ -97,6 +99,10 @@ h5 { font-size: 0.625em; /* 10/16 */ }
 .orange{
 	background-color:#EB500B;
 }
+.grey{
+	background-color:#A8A6A6;
+}
+
 .blue{
 	background-color:#036D67;
 	color:white;
@@ -299,6 +305,7 @@ ul#topnav li span a:hover {text-decoration: none; color:#484949;}
 }
 #content-middle section a {
 	color: #000000;
+	text-decoration: underline;
 }
 #content-middle-nomenu{
 	width:960px;
@@ -310,12 +317,15 @@ ul#topnav li span a:hover {text-decoration: none; color:#484949;}
 }
 #content-middle section{
 	text-align:justify;
-	line-height: 1.73em;
+	line-height: 2em;
 	margin-bottom: 15px;
 	padding-bottom: 10px;
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 	border-bottom-color: #CCC;
+}
+#content-middle section img{
+	margin: 10px 0 15px 0;
 }
 .date{
 	color:#666;
@@ -359,6 +369,11 @@ ul.report-tag li {
 	margin-bottom:5px;
 	font-size:0.9em;
 	cursor:pointer;
+}
+#disable-button{
+	margin-top:5px;
+	margin-bottom:5px;
+	font-size:0.9em;
 }
 #best-practice{
 	margin-top:30px;
@@ -418,6 +433,9 @@ ul.report-tag li {
 }
 #advancesearch-result {
 	margin-top: 20px;
+}
+#advancesearch-result a{
+	
 }
 #advancesearch-result p {
 	text-align: justify;
@@ -695,4 +713,11 @@ span.inactive {
 #coming-soon{
 	margin:135px 0px 110px 0;
 	
+}
+#wrap-section{
+	line-height: 1.8em;
+}
+.head-desc{
+	margin-right:5px;
+	font-size: 1.1em;
 }

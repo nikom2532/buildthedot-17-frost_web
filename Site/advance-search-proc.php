@@ -10,7 +10,7 @@ $year = $_GET['year'];
 $strQuery = "";
 
 if(!empty($keyword)){//if keyword set goes here
-   $strQuery = "SELECT * FROM PDF WHERE NAME LIKE '%$keyword%' OR YEAR(UPDATE_DATE)= '$keyword' ";
+   $strQuery = "SELECT * FROM PDF WHERE LOWER(NAME) LIKE LOWER('%$keyword%') OR LOWER(DESCRIPTION) LIKE LOWER('%$keyword%') OR YEAR(UPDATE_DATE)= '$keyword' ";
    if(!empty($categoryID)){
      $strQuery .= "AND GROUP_LEVEL1 = '$categoryID'";
    }

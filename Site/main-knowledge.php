@@ -353,7 +353,7 @@ include ($rootpath."include/top-menu.php");
 ?>
 								<section <?php 
 									if($i%2==0){
-										echo "class=\"grid_4\"";
+										echo "class=\"grid_4\" ";
 									}
 								?>>
 <?php
@@ -368,21 +368,27 @@ include ($rootpath."include/top-menu.php");
 										($_GET["id"]==10 && $_GET["glvl"]==3)
 									)){
 ?>
-										<img src="images/pdf_image/<?php echo $c_PHOTO_NAME["$i"]; ?>" /><br />
+										<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_CATEGORY_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
+											<img src="images/pdf_image/<?php echo $c_PHOTO_NAME["$i"]; ?>" />
+										</a>
 <?php
 									}
 ?>
-									<span class="text-lightgreen head-desc">Title: </span>
+									
+								</p>
+								
+								<p>
+									<span class="text-lightgreen bold head-desc">Title: </span>
 									<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_CATEGORY_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
 										<?php echo $c_NAME["$i"]; ?>
 										<span id="ic-lock">
-<?php
+<!-- <?php
 											if($PERMISSION_Is_Lockkey=="Y"){
 ?>
 												<img src="images/icons/ic_lock.png" width="16" height="16">
 <?php
 											}
-?>
+?> -->
 										</span>
 									</a>
 								</p>
@@ -391,6 +397,9 @@ include ($rootpath."include/top-menu.php");
 								</p>
 								<p class="text-desc">
 									<span class="text-lightgreen bold head-desc">Description: </span><?php echo $c_DESCRIPTION["$i"]; ?>
+									<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_CATEGORY_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
+										<span class='italic text-orange'>read more</span>
+									</a>
 								</p>
 							</section>
 <?php
