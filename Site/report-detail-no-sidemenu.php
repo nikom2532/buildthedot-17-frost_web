@@ -34,9 +34,9 @@ include ("include/top-menu.php");
 				<br class="clear"/>
 				<div class="grid_9">
 					<section class="report-detail" class="grid_9">
-						<p class="text-blue bold">
+						<h3 class="text-blue bold">
 							<?php echo $row['NAME']; ?>
-						</p>
+						</h3>
 						<p class="date bold">
 							<?php echo date("M, d Y", strtotime($row['UPDATE_DATE'])); ?>
 						</p>
@@ -69,7 +69,9 @@ include ("include/top-menu.php");
 
 				</div>
 				<div class="grid_1 center" id="price-box">
+					<?php if($row['PRICE'] != null){ ?>
 					<p><b class="center">฿ <?php echo $row['PRICE']; ?></b></p>
+					<?php }?>
 					<?php
 					echo "<a href='download-pdf.php?pdfId=". $id ."'>";
 					?>

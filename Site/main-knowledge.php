@@ -28,7 +28,7 @@ include ($rootpath."include/top-menu.php");
 				//######## is Best Practice #########
 				if ($_GET["id"]==2 && $_GET["glvl"]==1) {
 ?>
-					<span class="text-lightgreenhead-desc">Comming Soon</span>
+					<h1 class="center text-orange" id="coming-soon">Coming Soon</h1>
 <?php
 				}
 				
@@ -305,7 +305,7 @@ include ($rootpath."include/top-menu.php");
 						//is Best Practice
 						if ($_GET["id"]==2 && $_GET["glvl"]==1) {
 ?>
-							<span class="text-lightgreenhead-desc">Comming Soon</span>
+							<h1>Coming Soon</h1>
 <?php
 						}
 						

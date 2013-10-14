@@ -10,7 +10,7 @@ include ("include/top-menu.php");
 		<div id="icon">
 			<div class="grid_3 center">
 				<!-- <?php echo $rootpath; ?>main-knowledge.php?id=2 -->
-				<a href=#> <img src="images/icon-best-practice.png" width="124" height="123" alt="Market">
+				<a href="<?php echo $rootpath; ?>market.php?id=10&glvl=2"> <img src="images/icon-best-practice.png" width="124" height="123" alt="Market">
 				<p class="text-blue bold">
 					Market
 				</p> </a>
@@ -49,7 +49,7 @@ include ("include/top-menu.php");
 				FROM PDF
 				WHERE MONTH(UPDATE_DATE) = ". $current_month ." AND YEAR(UPDATE_DATE) = ". $current_year_all ."
 				ORDER BY UPDATE_DATE DESC
-				LIMIT 5
+				LIMIT 10
 			";
 			$result = mysql_query($sql_new_release) or die(mysql_error());
 			?>
@@ -63,7 +63,7 @@ include ("include/top-menu.php");
 				echo "<a href='report-detail-no-sidemenu.php?id=". $row['ID'] ."' id='new-release'>";
 				echo "<h3>" . $row['NAME'] . "</h3>";
 				echo "</a>";
-				echo "<p>" . substr_replace($row['DESCRIPTION'],'...',220) . "</p>";
+				echo "<p>" . substr_replace($row['DESCRIPTION'],'',220) ."<a href='report-detail-no-sidemenu.php?id=". $row['ID'] ."' id='new-release'>"."<span class='italic text-orange'>read more</span>"."</a></p>";
 				echo "</section>";
 			}
 			?>

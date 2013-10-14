@@ -20,6 +20,9 @@
 .bold{
 	font-weight:bold;
 }
+.italic{
+	font-style: italic;	
+}
 .center{
 	text-align:center;
 }
@@ -688,4 +691,8 @@ span.inactive {
 }
 #notif{
 	margin-top: 80px;
+}
+#coming-soon{
+	margin:135px 0px 110px 0;
+	
 }

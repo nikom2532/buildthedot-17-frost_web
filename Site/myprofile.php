@@ -29,7 +29,7 @@ if ($_SESSION["userid"] == "") {
 						
 					</div>
 
-					<p class="seperator">
+					<p class="grid_3 bold">
 						Name
 					</p>
 					<p>
@@ -42,7 +42,7 @@ if ($_SESSION["userid"] == "") {
 							}
 						?></span>
 					</p>
-					<p class="seperator">
+					<p class="grid_3 bold">
 						Email
 					</p>
 					<p>
@@ -55,7 +55,7 @@ if ($_SESSION["userid"] == "") {
 								
 							}
 						?></p>
-					<p class="seperator">
+					<p class="grid_3 bold">
 						Company
 					</p>
 					<p>
@@ -66,7 +66,7 @@ if ($_SESSION["userid"] == "") {
 								echo "-";
 							}
 						 ?></p>
-					<p class="seperator">
+					<p class="grid_3 bold">
 						Job title
 					</p>
 					<p>
@@ -77,7 +77,7 @@ if ($_SESSION["userid"] == "") {
 								echo "-";
 							}
 						?></p>
-					<p class="seperator">
+					<p class="grid_3 bold">
 						Department
 					</p>
 					<?php
@@ -94,7 +94,7 @@ if ($_SESSION["userid"] == "") {
 					}
 					echo "</p>";
 					?>
-					<p class="seperator">
+					<p class="grid_3 bold">
 						Industry
 					</p>
 					<?php
@@ -115,7 +115,7 @@ if ($_SESSION["userid"] == "") {
 					<p><?=$fetchArray['TECHNOLOGY_ID'] ?></p><br> -->
 					<!-- <p>Company Size</p>
 					<p><?=$fetchArray['COMPANY'] ?></p><br> -->
-					<p class="seperator">
+					<p class="grid_3 bold">
 						Address
 					</p>
 					<p>
@@ -126,7 +126,7 @@ if ($_SESSION["userid"] == "") {
 								echo "-";
 							}
 						 ?></p>
-					<p class="seperator">
+					<p class="grid_3 bold">
 						City
 					</p>
 					<p>
@@ -138,7 +138,7 @@ if ($_SESSION["userid"] == "") {
 							
 						}
 						 ?></p>
-					<p class="seperator">
+					<p class="grid_3 bold">
 						Zip
 					</p>
 					<p>
@@ -150,7 +150,7 @@ if ($_SESSION["userid"] == "") {
 							echo "-";
 							
 						} ?></p>
-					<p  class="seperator">
+					<p class="grid_3 bold">
 						Country
 					</p>
 					<?php
@@ -167,7 +167,7 @@ if ($_SESSION["userid"] == "") {
 					}
 					echo "</p>";
 					?>
-					<p class="seperator">
+					<p class="grid_3 bold">
 						Phone
 					</p>
 					<p>
@@ -177,7 +177,7 @@ if ($_SESSION["userid"] == "") {
 						}else{
 							echo "-";
 						} ?></p>
-					<p class="seperator">
+					<p class="grid_3 bold">
 						Fax
 					</p>
 					<p>
@@ -195,23 +195,23 @@ if ($_SESSION["userid"] == "") {
 				</div>
 			</div><!--end profile -->
 			<br class="clear"/>
-			<div id="billing-account" class="grid_12">
+			<div id="billing-account">
 				<h1 id="head-title" class="text-green" class="grid_12">Billing account</h1>
 
 				<div class="grid_8" id="profile-title">
-					<p class="seperator">
+					<p class="grid_3 bold">
 						Name
 					</p>
 					<p>
 						-
 					</p><!--name -->
-					<p class="seperator">
+					<p class="grid_3 bold">
 						Company
 					</p>
 					<p>
 						-
 					</p><!--Company -->
-					<p class="seperator">
+					<p class="grid_3 bold">
 						Email
 					</p>
 					<p>
