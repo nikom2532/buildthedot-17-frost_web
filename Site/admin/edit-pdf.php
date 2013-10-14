@@ -5,6 +5,7 @@
 	SELECT t.ID AS id, t.NAME AS name
 	FROM TAG t 
 	");
+	/*
 	$numRow = mysql_num_rows($result);
 	if(mysql_num_rows($result)){
 		$tagResult =  '[';
@@ -20,6 +21,14 @@
 		$tagResult .= ']';
 	}
 	echo $tagResult;
+	 * 
+	 */
+	 
+	 $rows = array();
+	while($row = mysql_fetch_assoc($result)) {
+	$rows[] = $row;
+	}
+	echo json_encode($rows);
 ?>
 
 
@@ -272,7 +281,7 @@ $pdfId = $_POST['pdfId'];
 				
 						<div class="half-size-column fl">
 						
-							<form action="edit-pdf-proc.php">
+							<form action="edit-pdf-proc.php" method='POST' name="editpdf" id="editpdf">
 								<?php 
 								$result = mysql_query("
 								SELECT p.ID AS id, 
@@ -313,7 +322,7 @@ $pdfId = $_POST['pdfId'];
 						
 						<div class="half-size-column fr">
 						
-							<form action="#">
+							<form action="edit-pdf-proc.php" method='POST' name="editpdf" id="editpdf">
 							
 								<fieldset>
 	
@@ -372,12 +381,12 @@ $pdfId = $_POST['pdfId'];
 									
                                     <p class="form-error-input">
                                     	<label for="tag">Tags</label>
-	
-                                        <ul id="myULTags">
+										
+                                        <ul id="singleFieldTags">
                                             <!-- Existing list items will be pre-added to the tags. -->
-                                            <li>Tag1</li>
-                                            <li>Tag2</li>
+                                            
                                         </ul>
+                                        <input name="tag" id="mySingleField" value="" type="hidden">
                                     </p>
                                     <p class="form-error-input">
                                         <label for="uploadfile">Upload File</label>

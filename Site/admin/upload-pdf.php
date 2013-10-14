@@ -165,7 +165,7 @@
 				
 						<div class="half-size-column fl">
 						
-							<form action="#">
+							<form action="edit-pdf-proc.php" method='POST' name="editpdf" id="editpdf">
 							
 								<fieldset>
 								
@@ -186,14 +186,12 @@
 									</p>
 									
 								</fieldset>
-							
-							</form>
 						
 						</div> <!-- end half-size-column -->
 						
 						<div class="half-size-column fr">
 						
-							<form action="#">
+							<!-- <form action="#"> -->
 							
 								<fieldset>
 	
@@ -218,7 +216,7 @@
                                     <p class="form-error-input">
                                     	<label for="tag">Tags</label>
 	
-                                        <ul id="myULTags">
+                                        <ul id="singleFieldTags">
                                             <!-- Existing list items will be pre-added to the tags. -->
                                         </ul>
                                     </p>
