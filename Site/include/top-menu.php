@@ -7,22 +7,22 @@
 			<!-- member login-->
 			<ul class="right"> 
 				<li id="button-myprofile">
-					
-					<?php $userID = $_SESSION["userid"];?>
-						
-						<?php 
-						if($_SESSION["userid"]==""){ ?>
-							<a href="login.php" class="link grid_2 text-orange uppercase">Sign In</a>
-						<?php }
-						else{?>
-							<a href="myprofile.php?userID=<?=$userID?>" class="ic-user link grid_2 text-orange uppercase">My Profile</a>
-						
-					
-				</li>
-				<li id="button-signout">
-					<a href="logout.php" class="grid_2 uppercase" onclick="" >Sign out</a>
-				</li>
-				<?php } ?>
+<?php 
+					$userID = $_SESSION["userid"];
+					if($_SESSION["userid"]==""){ //urlencode($_SERVER['QUERY_STRING']); ?>
+						<a href="login.php?pa=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" class="link grid_2 text-orange uppercase">Sign In</a>
+<?php 
+					}
+					else{
+?>
+						<a href="myprofile.php?userID=<?=$userID?>" class="ic-user link grid_2 text-orange uppercase">My Profile</a>
+						</li>
+						<li id="button-signout">
+							<a href="logout.php?pa=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" class="grid_2 uppercase" onclick="" >Sign out</a>
+						</li>
+<?php 
+					}
+?>
 			</ul>
 			<!-- -->
 		</div>

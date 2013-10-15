@@ -16,7 +16,7 @@
 <div id="content-login">
 
 	<form action="<?php echo $rootpath; ?>include/login_process.php" method="POST" id="login-form">
-
+		<input type="hidden" name="pa" value="<?php echo $_GET["pa"]; ?>" />
 		<fieldset>
 			<?php
 				if($_POST["login_messaage"] != ""){

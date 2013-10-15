@@ -22,12 +22,12 @@ if(($email!="")&&($password!="")) {
 	$db->query($SQL);
 	if($rs=$db->fetchAssoc()){
 		$_SESSION["userid"]=$rs["ID"];
-		header("location: {$rootpath}index.php");
+		header("location: ".$rootpath.".".urldecode($_POST["pa"]));
 	}
 	else{
 ?>
 
-		<form id="login_false_message" action="<?php echo $rootpath; ?>login.php" method="POST">
+		<form id="login_false_message" action="<?php echo $rootpath; ?>login.php?pa=<?php echo $_POST["pa"]; ?>" method="POST">
 			<input type="hidden" id="login_messaage" name="login_messaage" value="login_false" />
 		</form>
 		<script>
@@ -38,7 +38,7 @@ if(($email!="")&&($password!="")) {
 }
 else{
 ?>
-	<form id="login_false_message" action="<?php echo $rootpath; ?>login.php" method="POST">
+	<form id="login_false_message" action="<?php echo $rootpath; ?>login.php?pa=<?php echo $_POST["pa"]; ?>" method="POST">
 		<input type="hidden" id="login_messaage" name="login_messaage" value="forget_formdata_login" />
 	</form>
 	<script>

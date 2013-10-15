@@ -1,4 +1,4 @@
 ﻿<?php
 $rootpath ="./";
-header("Location: {$rootpath}include/logout_process.php");
+include($rootpath."include/logout_process.php");
 ?>
