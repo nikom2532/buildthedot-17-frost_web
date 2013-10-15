@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 15, 2013 at 01:35 PM
+-- Generation Time: Oct 15, 2013 at 06:22 PM
 -- Server version: 5.1.67
 -- PHP Version: 5.3.27
 
@@ -565,7 +565,7 @@ CREATE TABLE IF NOT EXISTS `PDF` (
   `PATH` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `Is_Asian_country` tinyint(1) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `PDF`
@@ -586,7 +586,12 @@ INSERT INTO `PDF` (`ID`, `NAME`, `PHOTO_NAME`, `DESCRIPTION`, `PRICE`, `UPDATE_D
 (13, 'Philippines', 'philipine.jpg', 'aaa', '100', NULL, NULL, 'TestPdf1.pdf', 1),
 (14, 'Singapore', 'singapore.jpg', 'aaa', '100', NULL, NULL, 'TestPdf1.pdf', 1),
 (15, 'Thailand', 'thailand.jpg', 'aaa', '100', NULL, NULL, 'TestPdf1.pdf', 1),
-(16, 'Viet Nam', 'vietnam.jpg', 'aaa', '100', NULL, NULL, 'TestPdf1.pdf', 1);
+(16, 'Viet Nam', 'vietnam.jpg', 'aaa', '100', NULL, NULL, 'TestPdf1.pdf', 1),
+(17, 'Augmenting Mobile 3G Using WiFi', 'testPDF.jpg', 'We investigate if WiFi access can be used to augment 3G capacity in mobile environments. We rst conduct a detailed study of 3G and WiFi access from moving vehicles, in three\r\ndierent cities. We nd that the average 3G and WiFi availability across the cities is 87% and 11%, respectively. WiFi throughput is lower than 3G throughput, and WiFi loss rates are higher.', NULL, '2013-10-14 14:00:00', NULL, 'Augmenting3G.pdf', 0),
+(18, 'Third Generation (3G) Wireless', 'testPDF.jpg', '3G is the next generation of wireless network technology that provides high speed\r\nbandwidth (high data transfer rates) to handheld devices. The high data transfer rates will allow 3G networks to offer multimedia services combining voice and data.', NULL, '2013-10-14 14:10:00', NULL, 'brief3G.pdf', 0),
+(19, 'THINGS YOU SHOULD KNOW ABOUT… Cloud Computing', 'testPDF.jpg', 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate.By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis\r\nand avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate changes in demand.', NULL, '2013-10-14 14:16:00', NULL, 'CloudComputing.pdf', 0),
+(20, 'The Economics of Cloud Computing', '', 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate.By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis\r\nand avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate changes in demand.', NULL, '2013-10-15 15:20:13', NULL, 'Economics-of-Cloud-Computing.pdf', 0),
+(21, 'E-Business Model', 'testPDF.jpg', 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate. By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis\r\nand avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate\r\nchanges in demand.', NULL, '2013-10-16 00:00:00', NULL, 'ModeleEBusiness.pdf', 0);
 
 -- --------------------------------------------------------
 
