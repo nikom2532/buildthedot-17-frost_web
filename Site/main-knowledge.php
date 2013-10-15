@@ -99,7 +99,7 @@ include ($rootpath."include/top-menu.php");
 ?>
 				</ul>
 <?php
-				if (!($_GET["id"]==11&&$_GET["glvl"]==3)) {
+				if (!(($_GET["id"]==11&&$_GET["glvl"]==3) || ($_GET["id"]==3&&$_GET["glvl"]==2) )) {
 ?>
 					<h2 class="text-lightgreen2">Lasted Update</h2>
 <?php
