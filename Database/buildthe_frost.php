@@ -296,16 +296,16 @@ $GROUP_LV1 = array(
 
 // `buildthe_frost`.`GROUP_LV2`
 $GROUP_LV2 = array(
-  array('ID' => '1','NAME' => 'Technology','GROUP_LV1_ID' => '1'),
-  array('ID' => '2','NAME' => 'Strategy','GROUP_LV1_ID' => '1'),
-  array('ID' => '3','NAME' => 'Around Asian','GROUP_LV1_ID' => '1'),
-  array('ID' => '4','NAME' => 'E-Business','GROUP_LV1_ID' => '2'),
-  array('ID' => '5','NAME' => 'Customer Experience Management','GROUP_LV1_ID' => '2'),
-  array('ID' => '6','NAME' => 'Value Innovation','GROUP_LV1_ID' => '2'),
-  array('ID' => '7','NAME' => 'Process Improvement','GROUP_LV1_ID' => '2'),
-  array('ID' => '8','NAME' => 'Go to Market','GROUP_LV1_ID' => '2'),
-  array('ID' => '9','NAME' => 'Competitive Analysis','GROUP_LV1_ID' => '2'),
-  array('ID' => '10','NAME' => 'Market','GROUP_LV1_ID' => '1')
+  array('ID' => '1','NAME' => 'Market','GROUP_LV1_ID' => '1'),
+  array('ID' => '2','NAME' => 'Technology','GROUP_LV1_ID' => '1'),
+  array('ID' => '3','NAME' => 'Strategy','GROUP_LV1_ID' => '1'),
+  array('ID' => '4','NAME' => 'Around Asian','GROUP_LV1_ID' => '1'),
+  array('ID' => '5','NAME' => 'E-Business','GROUP_LV1_ID' => '2'),
+  array('ID' => '6','NAME' => 'Customer Experience Management','GROUP_LV1_ID' => '2'),
+  array('ID' => '7','NAME' => 'Value Innovation','GROUP_LV1_ID' => '2'),
+  array('ID' => '8','NAME' => 'Process Improvement','GROUP_LV1_ID' => '2'),
+  array('ID' => '9','NAME' => 'Go to Market','GROUP_LV1_ID' => '2'),
+  array('ID' => '10','NAME' => 'Competitive Analysis','GROUP_LV1_ID' => '2')
 );
 
 // `buildthe_frost`.`GROUP_LV3`

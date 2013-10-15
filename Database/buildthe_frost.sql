@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 04, 2013 at 03:01 AM
+-- Generation Time: Oct 15, 2013 at 01:35 PM
 -- Server version: 5.1.67
 -- PHP Version: 5.3.27
 
@@ -419,16 +419,16 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV2` (
 --
 
 INSERT INTO `GROUP_LV2` (`ID`, `NAME`, `GROUP_LV1_ID`) VALUES
-(1, 'Technology', 1),
-(2, 'Strategy', 1),
-(3, 'Around Asian', 1),
-(4, 'E-Business', 2),
-(5, 'Customer Experience Management', 2),
-(6, 'Value Innovation', 2),
-(7, 'Process Improvement', 2),
-(8, 'Go to Market', 2),
-(9, 'Competitive Analysis', 2),
-(10, 'Market', 1);
+(1, 'Market', 1),
+(2, 'Technology', 1),
+(3, 'Strategy', 1),
+(4, 'Around Asian', 1),
+(5, 'E-Business', 2),
+(6, 'Customer Experience Management', 2),
+(7, 'Value Innovation', 2),
+(8, 'Process Improvement', 2),
+(9, 'Go to Market', 2),
+(10, 'Competitive Analysis', 2);
 
 -- --------------------------------------------------------
 
