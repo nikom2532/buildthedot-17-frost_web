@@ -15,7 +15,7 @@ include ($rootpath."include/top-menu.php");
 		}
 		
 		else{
-  */
+*/
 
  	//######## is Best Practice #########
 		if(!($_GET["id"]==2 && $_GET["glvl"]==1)) {
