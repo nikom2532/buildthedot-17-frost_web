@@ -289,7 +289,7 @@ include ($rootpath."include/top-menu.php");
 						$page = $_GET["page"];
 						$page_limit = 10;
 						$number_of_items = count($c_NAME);
-						$number_of_pages = ((int)($number_of_items/$page_limit)) + 1; 
+						$number_of_pages = ((int)(($number_of_items-1)/$page_limit)) + 1; 
 						
 						if($number_of_pages==$page){	//means the last page
 							$page_runing = $number_of_items;
