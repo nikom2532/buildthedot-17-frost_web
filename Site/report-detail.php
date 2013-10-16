@@ -200,7 +200,6 @@ include ("include/top-menu.php");
 <?php
 					}
 					elseif($PERMISSION_Is_Lockkey=="N"){ //#### if you can download ####
-												
 						$SQL_Is_download_5_pdfs_a_day="
 							SELECT COUNT(`PDF_ID`) AS Download_Count
 							FROM `DOWNLOAD_STATISTICS`
@@ -227,11 +226,11 @@ include ("include/top-menu.php");
 <?php
 							}
 						}
-					}
+					} //#### end if you can download ####
 ?>
 				</div>
 <?php
-				}
+				} //### end if($count > 0)
 ?>
 			</div><!--end content-middle -->
 		<!-- </div> -->
