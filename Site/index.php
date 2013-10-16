@@ -51,14 +51,12 @@ include ("include/top-menu.php");
 				ORDER BY UPDATE_DATE DESC
 				LIMIT 10
 			";
-			$result = mysql_query($sql_new_release) or die(mysql_error());
+			$result = @mysql_query($sql_new_release) or die(mysql_error());
 			?>
-
 			<h2 class="text-lightgreen2 uppercase">New release <?php echo $current_month_all;?>, <?php echo $current_year_all;?></h2>
-
 			<?php
 			//-- Add by Fon
-			while ($row = mysql_fetch_array($result)) {
+			while ($row = @mysql_fetch_array($result)) {
 				echo "<section>";
 				echo "<a href='report-detail-no-sidemenu.php?id=". $row['ID'] ."' id='new-release'>";
 				echo "<h3>" . $row['NAME'] . "</h3>";
@@ -67,6 +65,26 @@ include ("include/top-menu.php");
 				echo "</section>";
 			}
 			?>
+			<br class="clear" />
+			<h2 class="text-lightgreen2 uppercase">Top 5 PDF Download <?php echo $current_month_all;?>, <?php echo $current_year_all;?></h2>
+<?php
+			$sql_top_five_pdf_download="
+				SELECT *
+				FROM PDF
+				WHERE MONTH(UPDATE_DATE) = ". $current_month ." AND YEAR(UPDATE_DATE) = ". $current_year_all ."
+				ORDER BY UPDATE_DATE DESC
+				LIMIT 10
+			";
+			$result_top_five_pdf_download = @mysql_query($sql_top_five_pdf_download) or die(mysql_error());
+			while ($row = @mysql_fetch_array($result_top_five_pdf_download)) {
+				echo "<section>";
+				echo "<a href='report-detail-no-sidemenu.php?id=". $row['ID'] ."' id='new-release'>";
+				echo "<h3>" . $row['NAME'] . "</h3>";
+				echo "</a>";
+				echo "<p>" . substr_replace($row['DESCRIPTION'],'',220) ."<a href='report-detail-no-sidemenu.php?id=". $row['ID'] ."' id='new-release'>"."  "."<span class='italic text-orange'>read more</span>"."</a></p>";
+				echo "</section>";
+			}
+?>
 		</div><!--end new-release -->
 	</div><!--end container_12 -->
 </div><!--end content -->
