@@ -19,5 +19,7 @@ if (!$db -> open()) {
 		<link href="css/form.css" rel="stylesheet" type="text/css">
 		<script src="js/modernizr-1.6.min.js"></script>
 		<script src="js/jquery-1.7.1.min.js"></script>
+		<script src="js/jquery.validate.min.js"></script>
+		<!-- <script src="js/validate.message.js"></script> -->
 	</head>
 	<body>
