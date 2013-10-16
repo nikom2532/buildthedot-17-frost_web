@@ -64,6 +64,7 @@
 <?php
 }
 ?>
+				<li><a href="contact-us.php">Contact us</a></li>
 				<!-- <li>
 				<a href="">Knowledge</a>
 				<span>

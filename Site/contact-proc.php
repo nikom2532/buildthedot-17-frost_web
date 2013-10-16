@@ -13,11 +13,11 @@ if(isset($_POST['email'])) {
     $phonenumber = $_POST['phonenumber']; // required
     $comment = $_POST['comment']; // required
 	
-	echo $firstname;
-	echo $lastname;
-	echo $email_from;
-	echo $phonenumber;
-	echo $comment;
+	// echo $firstname;
+	// echo $lastname;
+	// echo $email_from;
+	// echo $phonenumber;
+	// echo $comment;
      
   
     $email_message = "From details below.\n\n";
@@ -37,11 +37,11 @@ $headers = 'From: '.$email_from."\r\n".
 $result = @mail($email_to, $email_subject, $email_message, $headers);  
 if($result)
 	{
-		echo "Email Sending."+$result ;
+		header("Location: success-page.php");
 	}
 	else
 	{
-		echo "Email Can Not Send."+$result;
+		header("Location: fail-page.php");
 	}
 header("Location: index.php");
 }
