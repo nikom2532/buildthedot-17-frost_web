@@ -23,11 +23,11 @@ if(isset($_POST['email'])) {
     $email_message = "From details below.\n\n";
 
      
-    $email_message .= "Firstname: ".clean_string($firstname)."\n";
-	$email_message .= "Lastname: ".clean_string($lastname)."\n";
-    $email_message .= "Email: ".clean_string($email_from)."\n";
-    $email_message .= "Telephone: ".clean_string($phonenumber)."\n";
-    $email_message .= "Comments: ".clean_string($comment)."\n";
+    $email_message .= "Firstname: ".$firstname."\n";
+	$email_message .= "Lastname: ".$lastname."\n";
+    $email_message .= "Email: ".$email_from."\n";
+    $email_message .= "Telephone: ".$phonenumber."\n";
+    $email_message .= "Comments: ".$comment."\n";
      
      
 // create email headers

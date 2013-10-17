@@ -32,7 +32,7 @@ $(document).ready(function() {
         	lastname: "Please enter your lastname",
         	phonenumber: "Please enter your phone number",
         	 email: {
-                required: "Enter your Email",
+                required: "Please enter your Email",
                 email: "Please enter a valid email address.",
 
            },
