@@ -194,7 +194,7 @@ include ("include/top-menu.php");
 ?>
 						<b class="button grey" id="disable-button">
 <?php
-						echo "Download";// paid
+							echo "Download";// paid
 ?>
 						</b>
 <?php
