@@ -2,7 +2,7 @@
 if(isset($_POST['email'])) {
      
     // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "contact@buildthedot.com";
+    $email_to = "ms_bullshitta@hotmail.com";
     $email_subject = "Message From Customer[Mckansys]";
 
     // validation expected data exists
@@ -13,11 +13,11 @@ if(isset($_POST['email'])) {
     $phonenumber = $_POST['phonenumber']; // required
     $comment = $_POST['comment']; // required
 
-	echo $firstname;
-	echo $lastname;
-	echo $email_from;
-	echo $phonenumber;
-	echo $comment;
+	// echo $firstname;
+	// echo $lastname;
+	// echo $email_from;
+	// echo $phonenumber;
+	// echo $comment;
      
   
     $email_message = "From details below.\n\n";
@@ -35,16 +35,16 @@ $headers = 'From: '.$email_from."\r\n".
 'Reply-To: '.$email_to."\r\n" .
 'X-Mailer: PHP/' . phpversion();
 $result = @mail($email_to, $email_subject, $email_message, $headers);  
+
 if($result)
 	{
 		header("Location: sucess-page.php");
 	}
-	else
+else
 	{
 		header("Location: fail-page.php");
 	}
-//header("Location: index.php");
-echo "not success";
+
 }
 
 ?>

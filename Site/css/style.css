@@ -431,14 +431,15 @@ ul.report-tag li {
 #advancesearch-cat,#advancesearch-year {
 	margin-top: 33px;	
 }
-#advancesearch-result {
+#advancesearch-result,#tag-search {
 	margin-top: 20px;
 }
-#advancesearch-result a{
-	
+#advancesearch-result a,#tag-search a{
+	text-decoration: none;
 }
-#advancesearch-result p {
+#advancesearch-result p, #tag-search p{
 	text-align: justify;
+	text-decoration: none;
 }
 #page-num {
 	margin-top: 20px;
