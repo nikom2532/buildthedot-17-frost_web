@@ -15,10 +15,10 @@
               <div id="advancesearch-result">
               		<?php include("advance-search-proc.php");?>
               		<?php if($Num_Rows != 0){?>
-              		<h2 class="text-lightgreen2 grid_12"><span class="text-orange"><?=$Num_Rows?> </span> results founds </h1>
+              		<h2 class="text-lightgreen2 grid_12"><span class="text-orange"><?=$Num_Rows?> </span> results founds for <?="<span class='text-orange'>\"".$keyword."\"</span>"?></h1>
               		 <?php 
               		 //echo "keyword=>".$keyword;
-					 $keys = explode(" ",$keyword);
+					 //$keys = explode(" ",$keyword);
 					 // foreach($keys as $k){
 	    				// echo  $k.",";
 					// }
@@ -26,37 +26,37 @@
 				
                       ?>	
               		<section class="grid_11">
+              		
                     	<h3>Title : <a href="report-detail-no-sidemenu.php?id=<?=$fetchArraySearch['ID'];?> "><?=highlightkeyword($fetchArraySearch['NAME'],$keyword)?></a></h3>
                     	<?php $date= $fetchArraySearch['UPDATE_DATE'];
                     		 $date = date('F d, Y', strtotime($date));
                     	?>
                     	<h3>Date : <?=highlightkeyword($date,$year)?></h3>
                     	<?php
-						# Keywords
-						$keywords_str = 'tv nice';
+						// description
+						if(strpos($keyword, ' ') !== false) {
+							$keywords_str = $keyword;
+							$string = $fetchArraySearch['DESCRIPTION'];
+							$result = $string;
+							$keywords = explode(' ', $keywords_str);
+							foreach($keywords as $k)
+							{
+							   
+							   $result = str_replace($k, "<b class='search-hightlight'>$k</b>", $result);
+							}
+						 ?>               						
+							   Description :<?php echo $result; ?> 
+						<?php 
+						}
+						else{
 						
-						# String
-						$string = 'My tv is nice';
-						
-						# Operation result(to not modify $string)
-						$result = $string;
-						
-						# Split $keywords by spaces into array of single keywords
-						$keywords = explode(' ', $keywords_str);
-						
-						# Loop keywords array
-						foreach($keywords as $keyword)
-						{
-						    # Replace every keyword occurence to make it bold
-						    $result = str_replace($keyword, "<b>$keyword</b>", $result);
-						}               						
-						echo $result;
-                    	              	
+							   echo highlightkeyword($fetchArraySearch['DESCRIPTION'],$keyword);
+						}	              	
                     	?>
-                        <p>Description :<?=highlightkeyword($fetchArraySearch['DESCRIPTION'],$keys)?> 
+                        <!-- <p>Description :<?=highlightkeyword($fetchArraySearch['DESCRIPTION'],$keyword)?> 
                         	<a href="report-detail-no-sidemenu.php?id=<?=$fetchArraySearch['ID'];?> "><span class='italic text-orange'>read more</span></a>
                         	
-                        </p>
+                        </p> -->
                     </section>
                    <?php } 
       ?>

@@ -16,5 +16,17 @@
     $newstring = str_replace('[@]', '</span>', $newstring);
     return $newstring;
  
-}
+	}
+	
+	// function hightlight($string,$keyword){
+		// $keywords_str = $keyword;
+		// $result = $string;
+		// $keywords = explode(' ', $keywords_str);
+		// foreach($keywords as $k)
+		// {
+// 		   
+		   // $result = str_replace($k, "<b class='text-orange'>$k</b>", $result);
+		// }		
+		// return $result;
+	// }
 ?> 

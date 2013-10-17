@@ -6,7 +6,7 @@ $year = $_GET['year'];
 // echo $keyword. "<br/>";
 // echo $categoryID. "<br/>";
 // echo $year. "<br/>";
-
+$keyword = trim($keyword);
 $strQuery = "";
 
 if(!empty($keyword)){//if keyword set goes here
