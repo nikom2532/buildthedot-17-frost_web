@@ -1,11 +1,10 @@
 <?php 
 
 $keyword = $_GET['keyword'];
+$keyword = trim($keyword);
+$multiKeyword = str_replace("$search", "", $keyword);
 $categoryID = $_GET['category_id'];
 $year = $_GET['year'];
-// echo $keyword. "<br/>";
-// echo $categoryID. "<br/>";
-// echo $year. "<br/>";
 
 $strQuery = "";
 

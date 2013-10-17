@@ -5,7 +5,8 @@
 	SELECT t.ID AS id, t.NAME AS name
 	FROM TAG t 
 	");
-	/*
+	
+	
 	$numRow = mysql_num_rows($result);
 	if(mysql_num_rows($result)){
 		$tagResult =  '[';
@@ -20,11 +21,8 @@
 		}
 		$tagResult .= ']';
 	}
-	echo $tagResult;
-	 * 
-	 */
 	 
-	 $rows = array();
+	$rows = array();
 	while($row = mysql_fetch_assoc($result)) {
 	$rows[] = $row;
 	}
@@ -33,6 +31,12 @@
 
 
 <script>
+
+	var oldSelected2=-1;
+	var oldSelected3=-1;
+	var oldSelected4=-1;
+	var oldSelected5=-1;
+	
 	function getXMLHTTP() { //fuction to return the xml http object
 		var xmlhttp=false;	
 		try{
@@ -56,84 +60,176 @@
     }
 	
 	function getGLv2(gLv1Id) {		
-		var strURL="getLv2.php?gLv1Id="+gLv1Id;
-		var req = getXMLHTTP();
 		
-		if (req) {
+		if (oldSelected2 == -1) {
+			oldSelected2 = gLv1Id;
+		}
+		
+		if (gLv1Id == 0) {
+			document.getElementById('gLv2Div').style.visibility = 'hidden';
+			document.getElementById('gLv3Div').style.visibility = 'hidden';
+			document.getElementById('gLv4Div').style.visibility = 'hidden';
+			document.getElementById('gLv5Div').style.visibility = 'hidden';
+		} else{
 			
-			req.onreadystatechange = function() {
-				if (req.readyState == 4) {
-					// only if "OK"
-					if (req.status == 200) {						
-						document.getElementById('gLv2Div').innerHTML=req.responseText;						
-					} else {
-						alert("There was a problem while using XMLHTTP:\n" + req.statusText);
-					}
-				}				
-			}			
-			req.open("GET", strURL, true);
-			req.send(null);
-		}	
+			var strURL="getLv2.php?gLv1Id="+gLv1Id;
+			var req = getXMLHTTP();
+		
+			if (oldSelected2 != gLv1Id) {
+				document.getElementById('gLv3Div').style.visibility = 'hidden';
+				document.getElementById('gLv4Div').style.visibility = 'hidden';
+				document.getElementById('gLv5Div').style.visibility = 'hidden';
+			} else {
+				document.getElementById('gLv2Div').style.visibility = 'visible';	
+			}
+			
+			if (req) {
+				
+					req.onreadystatechange = function() {
+						if (req.readyState == 4) {
+							// only if "OK"
+							if (req.status == 200) {						
+								document.getElementById('gLv2Div').innerHTML=req.responseText;						
+							} else {
+								alert("There was a problem while using XMLHTTP:\n" + req.statusText);
+							}
+						}				
+					}			
+					req.open("GET", strURL, true);
+					req.send(null);
+				}
+			
+			oldSelected2 = gLv1Id;	
+		};	
 	}
+	
 	function getGLv3(gLv2Id) {		
-		var strURL="getLv3.php?gLv2Id="+gLv2Id;
-		var req = getXMLHTTP();
 		
-		if (req) {
+		if (oldSelected3 == -1) {
+			oldSelected3 = gLv2Id;
+		}
+		
+		if (gLv2Id == 0) {
+			document.getElementById('gLv3Div').style.visibility = 'hidden';
+			document.getElementById('gLv4Div').style.visibility = 'hidden';
+			document.getElementById('gLv5Div').style.visibility = 'hidden';
 			
-			req.onreadystatechange = function() {
-				if (req.readyState == 4) {
-					// only if "OK"
-					if (req.status == 200) {						
-						document.getElementById('gLv3Div').innerHTML=req.responseText;						
-					} else {
-						alert("There was a problem while using XMLHTTP:\n" + req.statusText);
-					}
-				}				
-			}			
-			req.open("GET", strURL, true);
-			req.send(null);
-		}	
+		} else{
+			
+			var strURL="getLv3.php?gLv2Id="+gLv2Id;
+			var req = getXMLHTTP();
+		
+			if (oldSelected3 != gLv2Id) {
+				document.getElementById('gLv4Div').style.visibility = 'hidden';
+				document.getElementById('gLv5Div').style.visibility = 'hidden';
+			} else {
+				document.getElementById('gLv2Div').style.visibility = 'visible';
+				document.getElementById('gLv3Div').style.visibility = 'visible';
+			}
+			
+			
+			if (req) {
+				
+				req.onreadystatechange = function() {
+					if (req.readyState == 4) {
+						// only if "OK"
+						if (req.status == 200) {						
+							document.getElementById('gLv3Div').innerHTML=req.responseText;						
+						} else {
+							alert("There was a problem while using XMLHTTP:\n" + req.statusText);
+						}
+					}				
+				}			
+				req.open("GET", strURL, true);
+				req.send(null);
+			}	
+			
+			oldSelected3 = gLv2Id;
+		}
 	}
 	function getGLv4(gLv3Id) {		
-		var strURL="getLv4.php?gLv3Id="+gLv3Id;
-		var req = getXMLHTTP();
 		
-		if (req) {
+		if (oldSelected4 == -1) {
+			oldSelected4 = gLv3Id;
+		}
+		
+		if (gLv3Id == 0) {
+			document.getElementById('gLv4Div').style.visibility = 'hidden';
+			document.getElementById('gLv5Div').style.visibility = 'hidden';
+		} else{
 			
-			req.onreadystatechange = function() {
-				if (req.readyState == 4) {
-					// only if "OK"
-					if (req.status == 200) {						
-						document.getElementById('gLv4Div').innerHTML=req.responseText;						
-					} else {
-						alert("There was a problem while using XMLHTTP:\n" + req.statusText);
-					}
-				}				
-			}			
-			req.open("GET", strURL, true);
-			req.send(null);
-		}	
+			var strURL="getLv4.php?gLv3Id="+gLv3Id;
+			var req = getXMLHTTP();
+			
+			if (oldSelected4 != gLv3Id) {
+				document.getElementById('gLv5Div').style.visibility = 'hidden';
+			} else {
+				document.getElementById('gLv2Div').style.visibility = 'visible';
+				document.getElementById('gLv3Div').style.visibility = 'visible';
+				document.getElementById('gLv4Div').style.visibility = 'visible';
+			}
+			
+			if (req) {
+				
+				req.onreadystatechange = function() {
+					if (req.readyState == 4) {
+						// only if "OK"
+						if (req.status == 200) {						
+							document.getElementById('gLv4Div').innerHTML=req.responseText;						
+						} else {
+							alert("There was a problem while using XMLHTTP:\n" + req.statusText);
+						}
+					}				
+				}			
+				req.open("GET", strURL, true);
+				req.send(null);
+			}	
+			oldSelected4 = gLv3Id;
+		}
 	}
-	function getGLv5(gLv4Id) {		
-		var strURL="getLv5.php?gLv4Id="+gLv4Id;
-		var req = getXMLHTTP();
+	function getGLv5(gLv4Id) {	
 		
-		if (req) {
+		if (oldSelected5 == -1) {
+			oldSelected5 = gLv4Id;
+		}
+		
+		if (gLv1Id == 0) {
+			document.getElementById('gLv5Div').style.visibility = 'hidden';
+		} else{
+				
+			var strURL="getLv5.php?gLv4Id="+gLv4Id;
+			var req = getXMLHTTP();
+		
+			if (oldSelected5 != gLv4Id) {
+				
+				
+			} else {
+				
+				document.getElementById('gLv2Div').style.visibility = 'visible';
+				document.getElementById('gLv3Div').style.visibility = 'visible';
+				document.getElementById('gLv4Div').style.visibility = 'visible';
+				document.getElementById('gLv5Div').style.visibility = 'visible';
+				
+			}
 			
-			req.onreadystatechange = function() {
-				if (req.readyState == 4) {
-					// only if "OK"
-					if (req.status == 200) {						
-						document.getElementById('gLv5Div').innerHTML=req.responseText;						
-					} else {
-						alert("There was a problem while using XMLHTTP:\n" + req.statusText);
-					}
-				}				
-			}			
-			req.open("GET", strURL, true);
-			req.send(null);
-		}	
+			
+			if (req) {
+				
+				req.onreadystatechange = function() {
+					if (req.readyState == 4) {
+						// only if "OK"
+						if (req.status == 200) {						
+							document.getElementById('gLv5Div').innerHTML=req.responseText;						
+						} else {
+							alert("There was a problem while using XMLHTTP:\n" + req.statusText);
+						}
+					}				
+				}			
+				req.open("GET", strURL, true);
+				req.send(null);
+			}	
+			oldSelected5 = gLv4Id;
+		}
 	}
 	
 	$(function(){
@@ -279,9 +375,10 @@ $pdfId = $_POST['pdfId'];
 					
 					<div class="content-module-main cf">
 				
+						<form action="edit-pdf-proc.php" method='POST' name="editpdf" id="editpdf">
 						<div class="half-size-column fl">
 						
-							<form action="edit-pdf-proc.php" method='POST' name="editpdf" id="editpdf">
+							<!-- <form action="edit-pdf-proc.php" method='POST' name="editpdf" id="editpdf"> -->
 								<?php 
 								$result = mysql_query("
 								SELECT p.ID AS id, 
@@ -315,70 +412,15 @@ $pdfId = $_POST['pdfId'];
 									</p>
 									
 								</fieldset>
-							
-							</form>
+							<input type="submit" value="Save change" class="round blue ic-right-arrow" />
+							<!-- </form> -->
 						
 						</div> <!-- end half-size-column -->
 						
 						<div class="half-size-column fr">
 						
-							<form action="edit-pdf-proc.php" method='POST' name="editpdf" id="editpdf">
-							
 								<fieldset>
 	
-									<p class="form-error-input">
-										
-										<div id="gLv1Div">
-											<label for="group-name">Group level 1</label>
-	
-											<?php
-												$sqlLv1 = "SELECT * FROM GROUP_LV1";
-												$resultLv1 = mysql_query($sqlLv1);
-											?>
-									
-											<select name="group-name" onchange="getGLv2(this.value)">
-												<?php
-												echo "<option value=''>--Select Menu--</option>";
-												while ($rowLv1 = mysql_fetch_array($resultLv1)) {
-													echo "<option value='" . $rowLv1['ID'] . "'>" . $rowLv1['NAME'] . "</option>";
-												}
-												?>
-											</select>
-										</div>
-										
-										<div id="gLv2Div">
-											<label for="group-name">Group level 2</label>
-	
-											<select name="gLv2Div">
-												<option>--Select Menu--</option>
-									        </select>
-										</div>
-										
-										<div id="gLv3Div">
-											<label for="group-name">Group level 3</label>
-	
-											<select name="gLv3Div">
-												<option>--Select Menu--</option>
-									        </select>
-										</div>
-										
-										<div id="gLv4Div">
-											<label for="group-name">Group level 4</label>
-	
-											<select name="gLv4Div">
-												<option>--Select Menu--</option>
-									        </select>
-										</div>
-										
-										<div id="gLv5Div">
-											<label for="group-name">Group level 5</label>
-	
-											<select name="gLv5Div">
-												<option>--Select Menu--</option>
-									        </select>
-										</div>
-									</p>
-									
                                     <p class="form-error-input">
                                     	<label for="tag">Tags</label>
 										
@@ -393,8 +435,44 @@ $pdfId = $_POST['pdfId'];
                                         <input type="file" />
                                 	<p>
 
+									<p class="form-error-input">
+										
+										<div id="gLv1Div">
+											<label for="group-name">Group level 1</label>
 	
-									<input type="submit" value="Save change" class="round blue ic-right-arrow" />
+											<?php
+												$sqlLv1 = "SELECT * FROM GROUP_LV1";
+												$resultLv1 = mysql_query($sqlLv1);
+											?>
+									
+											<select name="group-name" onchange="getGLv2(this.value)">
+												<?php
+												echo "<option value='0'>--Select Menu--</option>";
+												while ($rowLv1 = mysql_fetch_array($resultLv1)) {
+													echo "<option value='" . $rowLv1['ID'] . "'>" . $rowLv1['NAME'] . "</option>";
+												}
+												?>
+											</select>
+										</div>
+										
+										<div id="gLv2Div">
+											
+										</div>
+										
+										<div id="gLv3Div">
+											
+										</div>
+										
+										<div id="gLv4Div">
+											
+										</div>
+										
+										<div id="gLv5Div">
+											
+										</div>
+									</p>
+										
+									
                                     
 									
 								</fieldset>
