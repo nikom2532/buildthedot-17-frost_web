@@ -231,7 +231,24 @@ include ("include/top-menu.php");
 <?php
 				} //### end if($count > 0)
 ?>
-			</div><!--end content-middle -->
+				<!--end content-middle -->
+				<br /><br /><br /><br />
+				Download: 
+<?php
+				$sql_amount_download="
+					SELECT COUNT(`PDF_ID`) AS Number_PDF
+					FROM  `DOWNLOAD_STATISTICS`
+					WHERE `PDF_ID` = '".$_GET["pdf_id"]."' 
+				";
+				$result_amount_download = @mysql_query($sql_amount_download);
+				while($rs_amount_download = @mysql_fetch_array($result_amount_download)){
+					echo $rs_amount_download["Number_PDF"]." time";
+					if($rs_amount_download["Number_PDF"]>1){
+						echo "s";
+					}
+				}
+?>	
+			</div>
 		<!-- </div> -->
 	</div><!--end container_12 -->
 </div><!--end content -->
