@@ -52,9 +52,9 @@ function hightlight($string,$keyword){
 							}
 						 	?>               						
 							   <h3>Title : <a href="report-detail-no-sidemenu.php?id=<?=$fetchArraySearch['ID'];?> "><?echo $result?></a></h3>	
-							<?php }else{?>
+				<?php }else{?>
 							   <h3>Title : <a href="report-detail-no-sidemenu.php?id=<?=$fetchArraySearch['ID'];?> "><?=highlightkeyword($fetchArraySearch['NAME'],$keyword)?></a></h3>
-							<?php }?>
+					<?php }?>
                     	
                     	<?php $date= $fetchArraySearch['UPDATE_DATE'];
                     		 $date = date('F d, Y', strtotime($date));
@@ -74,12 +74,14 @@ function hightlight($string,$keyword){
 							}
 						 ?>               						
 							   Description :<?php echo $result; ?> 
+							   <a href="report-detail-no-sidemenu.php?id=<?=$fetchArraySearch['ID'];?> "><span class='italic text-orange'>read more</span></a>
 						<?php 
 						}
 						else{
-						
-							   echo highlightkeyword($fetchArraySearch['DESCRIPTION'],$keyword);
-						}	              	
+						?>
+							   <p>Description : <?php echo highlightkeyword($fetchArraySearch['DESCRIPTION'],$keyword);?>
+								<a href="report-detail-no-sidemenu.php?id=<?=$fetchArraySearch['ID'];?> "><span class='italic text-orange'>read more</span></a>
+						<?php }	              	
                     	?> 
                         <!-- <p>Description :<?=highlightkeyword($fetchArraySearch['DESCRIPTION'],$keyword)?> 
                         	<a href="report-detail-no-sidemenu.php?id=<?=$fetchArraySearch['ID'];?> "><span class='italic text-orange'>read more</span></a>
