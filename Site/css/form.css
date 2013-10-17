@@ -47,7 +47,7 @@ form label {
 form select{
 	width:318px;
 	padding: 0.625em 0.625em;
-	color:#333;
+	color:#333;f
 }
 form label.alt-label { text-transform: none; }
 
@@ -58,10 +58,16 @@ form input[type="text"], input[type="password"], textarea {
 	outline: none;
 	width: 200px;
 }
-	form input[type="text"]:hover, input[type="password"]:hover, textarea:hover,
-	form input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
-		/*border: 1px solid #bbbdbe;*/
-	}
+#contact-us input[type="text"], textarea {
+	width: 250px;
+}
+#contact-us textarea{
+	height:150px;
+}
+form input[type="text"]:hover, input[type="password"]:hover, textarea:hover,
+form input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
+	/*border: 1px solid #bbbdbe;*/
+}
 	
 form input[type="checkbox"], form input[type="radio"] { margin-right: 0.833em; /* 10/12 */ }
 

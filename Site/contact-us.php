@@ -21,7 +21,7 @@ $(document).ready(function() {
             },
             phonenumber: {
                 required: true,
-                
+                number:true             
             },
             comment: {
                 required: true,
@@ -30,9 +30,12 @@ $(document).ready(function() {
         messages: {
             firstname: "Please enter your firstname",
         	lastname: "Please enter your lastname",
-        	phonenumber: "Please enter your phone number",
+        	phonenumber: {
+        		required: "Please enter your phone number",
+        		number: "Please enter a valid phone number",
+        	},
         	 email: {
-                required: "Enter your Email",
+                required: "Please enter your Email",
                 email: "Please enter a valid email address.",
 
            },

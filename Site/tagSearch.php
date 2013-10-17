@@ -18,7 +18,7 @@ include ("lib/func_pagination.php");
 			<h1 id="head-title" class="text-green grid_12"><?php echo $tagName; ?></h1>
 
 			<br class="clear"/>
-			<div id="advancesearch-result">
+			<div >
 				
 				<?php
 				/*---------Paging------------*/
@@ -43,7 +43,7 @@ include ("lib/func_pagination.php");
 				$strQuery .= " LIMIT $start , $limit";
 				$result =  mysql_query($strQuery);
 				while ($row = mysql_fetch_array($result)) {
-					echo "<section class='grid_11'>";
+					echo "<section class='grid_11' id='tag-search'>";
 					echo "<a href='report-detail-no-sidemenu.php?id=" . $row['ID'] . "'>";
 					echo "<h3>" . $row['NAME'] . "</h3>";
 					echo "<p>" . substr_replace($row['DESCRIPTION'], '...', 220) . "</p>";
