@@ -209,9 +209,8 @@ include ("include/top-menu.php");
 						$result_Is_download_5_pdfs_a_day = @mysql_query($SQL_Is_download_5_pdfs_a_day);
 						while($rs_Is_download_5_pdfs_a_day = @mysql_fetch_array($result_Is_download_5_pdfs_a_day)) {
 							if($rs_Is_download_5_pdfs_a_day["Download_Count"]>5) { //if user download more than 5 Downloads on 1 day.
-								 
 ?>
-								<a href="#" onclick="window.alert(\"You download more than 5 times a day\");">
+								<a href="#" onclick="window.alert('You download more than 5 times a day');">
 									<b class="button darkgreen" id="download-button">Download</b>
 								</a>
 <?php
@@ -232,7 +231,24 @@ include ("include/top-menu.php");
 <?php
 				} //### end if($count > 0)
 ?>
-			</div><!--end content-middle -->
+				<!--end content-middle -->
+				<br /><br /><br /><br />
+				Download: 
+<?php
+				$sql_amount_download="
+					SELECT COUNT(`PDF_ID`) AS Number_PDF
+					FROM  `DOWNLOAD_STATISTICS`
+					WHERE `PDF_ID` = '".$_GET["pdf_id"]."' 
+				";
+				$result_amount_download = @mysql_query($sql_amount_download);
+				while($rs_amount_download = @mysql_fetch_array($result_amount_download)){
+					echo $rs_amount_download["Number_PDF"]." time";
+					if($rs_amount_download["Number_PDF"]>1){
+						echo "s";
+					}
+				}
+?>	
+			</div>
 		<!-- </div> -->
 	</div><!--end container_12 -->
 </div><!--end content -->

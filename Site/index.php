@@ -85,6 +85,51 @@ include ("include/top-menu.php");
 				echo "</section>";
 			}
 ?>
+
+<?php
+							$i=1;
+							$sql_statistic_by_pdf="
+								SELECT *
+								FROM  `DOWNLOAD_STATISTICS`
+								GROUP BY `PDF_ID`
+								ORDER BY `PDF_ID`
+								LIMIT 0,5;
+							";
+							$Result_statistic_by_pdf=@mysql_query($sql_statistic_by_pdf);
+							while($rs_statistic_by_pdf=@mysql_fetch_array($Result_statistic_by_pdf)){
+?>
+								<br />
+								<section>
+									<a href="report-detail-no-sidemenu.php?id=<?php echo $rs_statistic_by_pdf["PDF_ID"]; ?>" id='new-release'>
+										<h3><?php
+											$sql_pdf="
+												SELECT * 
+												FROM  `PDF`
+												WHERE `ID` = '".$rs_statistic_by_pdf["PDF_ID"]."'; 
+											";
+											$Result_pdf=@mysql_query($sql_pdf);
+											if($rs_pdf=@mysql_fetch_array($Result_pdf)){
+												echo $rs_pdf["NAME"];
+											}
+										?></h3>
+									</a>
+									<?php
+										$sql_statistic_each_pdf="
+											SELECT COUNT(`PDF_ID`) AS `number_pdf`
+											FROM  `DOWNLOAD_STATISTICS`
+											WHERE `PDF_ID` = '".$rs_statistic_by_pdf["PDF_ID"]."';
+										";
+										$Result_statistic_each_pdf=@mysql_query($sql_statistic_each_pdf);
+										if($rs_statistic_each_pdf=@mysql_fetch_array($Result_statistic_each_pdf)){
+											echo $rs_statistic_each_pdf["number_pdf"];
+										}
+									?>
+								<br />
+								</section>
+<?php
+								$i++;
+							}
+?>
 		</div><!--end new-release -->
 	</div><!--end container_12 -->
 </div><!--end content -->
