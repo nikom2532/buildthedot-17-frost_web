@@ -12,12 +12,12 @@ if(isset($_POST['email'])) {
     $email_from = $_POST['email']; // required
     $phonenumber = $_POST['phonenumber']; // required
     $comment = $_POST['comment']; // required
-	
-	// echo $firstname;
-	// echo $lastname;
-	// echo $email_from;
-	// echo $phonenumber;
-	// echo $comment;
+
+	echo $firstname;
+	echo $lastname;
+	echo $email_from;
+	echo $phonenumber;
+	echo $comment;
      
   
     $email_message = "From details below.\n\n";
@@ -43,7 +43,8 @@ if($result)
 	{
 		header("Location: fail-page.php");
 	}
-header("Location: index.php");
+//header("Location: index.php");
+echo "not success";
 }
 
 ?>
