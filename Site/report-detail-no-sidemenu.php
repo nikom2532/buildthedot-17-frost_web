@@ -73,7 +73,7 @@ include ("include/top-menu.php");
 					<p><b class="center">฿ <?php echo $row['PRICE']; ?></b></p>
 					<?php }?>
 					<?php
-					echo "<a href='download-pdf.php?pdfId=". $id ."'>";
+					echo "<a href='download-pdf.php?rp=nsb"."&pdfId=". $id ."'>";
 					?>
 						<b class="button darkgreen" id="download-button">Download</b>
 					</a>

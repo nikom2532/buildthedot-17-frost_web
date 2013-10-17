@@ -30,6 +30,9 @@
 .text-title-report{
 	font-size:1.15em;
 }
+.search-hightlight{
+	color:#EB500B;
+}
 label.error{
 	color: red;
 }

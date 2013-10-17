@@ -2,8 +2,7 @@
 include ("include/header.php");
 include ("lib/func_search.php");
 require ("lib/func_pagination.php");
-
-	include ("include/top-menu.php");
+include ("include/top-menu.php");
 ?>
 
 	<div id="content">
@@ -77,7 +76,7 @@ require ("lib/func_pagination.php");
 					?>
 					<h2 class="text-lightgreen2 grid_12"><span class="text-orange"><?=$Num_Rows ?></span> results founds </h1>
 					<?php
-	while($fetchArraySearch =mysql_fetch_array($cmdQuerySearch)){
+				while($fetchArraySearch =mysql_fetch_array($cmdQuerySearch)){
 	
 					?>
 					<section class="grid_11">
