@@ -21,7 +21,8 @@ if(($email!="")&&($password!="")) {
 	$db->query($SQL);
 	if($rs=$db->fetchAssoc()){
 		$_SESSION["userid"]=$rs["ID"];
-		header("location: {$rootpath}download-pdf.php?pdfId=".$_POST["pdfId"]);
+		// header("location: {$rootpath}download-pdf.php?pdfId=".$_POST["pdfId"]);
+			header("location: {$rootpath}report-detail-no-sidemenu.php?id=".$_POST["pdfId"]);
 	}
 	else{
 ?>
