@@ -2,7 +2,19 @@
 <?php include("include/top-menu.php");?>
 <?php include("lib/func_search.php");?>
 <?php require("lib/func_pagination.php");?>
-
+<?php
+function hightlight($string,$keyword){
+		$keywords_str = $keyword;
+		$result = $string;
+		$keywords = explode(' ', $keywords_str);
+		foreach($keywords as $k)
+		{
+		   
+		   $result = str_replace($k, "<b class='text-orange'>$k</b>", $result);
+		}		
+		return $result;
+	}
+?>
 
 
 	<div id="content">
@@ -26,8 +38,24 @@
 				
                       ?>	
               		<section class="grid_11">
-              		
-                    	<h3>Title : <a href="report-detail-no-sidemenu.php?id=<?=$fetchArraySearch['ID'];?> "><?=highlightkeyword($fetchArraySearch['NAME'],$keyword)?></a></h3>
+						<?php
+						if(strpos($keyword, ' ') !== false) {
+							$keywords_str = $keyword;
+							echo $keyword;
+							$string = $fetchArraySearch['NAME'];
+							$result = $string;
+							$keywords = explode(' ', $keywords_str);
+							foreach($keywords as $k)
+							{
+							   
+							   $result = str_replace($k, "<b class='search-hightlight'>$k</b>", $result);
+							}
+						 	?>               						
+							   <h3>Title : <a href="report-detail-no-sidemenu.php?id=<?=$fetchArraySearch['ID'];?> "><?echo $result?></a></h3>	
+							<?php }else{?>
+							   <h3>Title : <a href="report-detail-no-sidemenu.php?id=<?=$fetchArraySearch['ID'];?> "><?=highlightkeyword($fetchArraySearch['NAME'],$keyword)?></a></h3>
+							<?php }?>
+                    	
                     	<?php $date= $fetchArraySearch['UPDATE_DATE'];
                     		 $date = date('F d, Y', strtotime($date));
                     	?>
@@ -52,7 +80,7 @@
 						
 							   echo highlightkeyword($fetchArraySearch['DESCRIPTION'],$keyword);
 						}	              	
-                    	?>
+                    	?> 
                         <!-- <p>Description :<?=highlightkeyword($fetchArraySearch['DESCRIPTION'],$keyword)?> 
                         	<a href="report-detail-no-sidemenu.php?id=<?=$fetchArraySearch['ID'];?> "><span class='italic text-orange'>read more</span></a>
                         	
