@@ -37,7 +37,7 @@ $headers = 'From: '.$email_from."\r\n".
 $result = @mail($email_to, $email_subject, $email_message, $headers);  
 if($result)
 	{
-		header("Location: success-page.php");
+		header("Location: sucess-page.php");
 	}
 	else
 	{
