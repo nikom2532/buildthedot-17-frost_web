@@ -209,9 +209,8 @@ include ("include/top-menu.php");
 						$result_Is_download_5_pdfs_a_day = @mysql_query($SQL_Is_download_5_pdfs_a_day);
 						while($rs_Is_download_5_pdfs_a_day = @mysql_fetch_array($result_Is_download_5_pdfs_a_day)) {
 							if($rs_Is_download_5_pdfs_a_day["Download_Count"]>5) { //if user download more than 5 Downloads on 1 day.
-								 
 ?>
-								<a href="#" onclick="window.alert(\"You download more than 5 times a day\");">
+								<a href="#" onclick="window.alert('You download more than 5 times a day');">
 									<b class="button darkgreen" id="download-button">Download</b>
 								</a>
 <?php
