@@ -98,6 +98,200 @@ include ($rootpath."include/top-menu.php");
 						//####### end display Body Nav ###########
 ?>
 					</ul>
+					
+<?php
+					//####### Find Lock Download Key ##########
+					$PERMISSION_Is_Lockkey="";
+					if(!$PERMISSION_glvl2_ID){
+						if($_GET["glvl"]==2){
+							$PERMISSION_glvl2_ID = $_GET["id"];
+						}
+					}
+					$SQLlockKey="
+						SELECT * 
+						FROM  `PERMISSION`
+						WHERE `USER_PROFILE_ID` = '{$_SESSION["userid"]}'
+						AND `GROUP_LV2_ID` = '{$PERMISSION_glvl2_ID}'
+						AND `IS_ACTIVE` = 'Y'
+						AND `END_DATE` > NOW()
+					;";
+					$resultLockKey = @mysql_query($SQLlockKey);
+					if($rsLockKey = @mysql_fetch_array($resultLockKey)) {
+						$PERMISSION_Is_Lockkey = "N";
+					}
+					else{
+						$PERMISSION_Is_Lockkey = "Y";
+					}
+					
+					//###################### Check Data fact #################
+					//############### If there are no contents, ##############
+					//####### Tell the users that there are no Content #######
+					$Is_there_are_content1=0;
+					$Is_there_are_content2=0;
+					
+					//####### Query List ##########
+					$temp_glvl_content = $_GET["glvl"];
+					$temp_id_content = $_GET["id"];
+					
+					$c_ID = array();
+					$c_glvl = array(); 
+					$c_PDF_CATEGORY_ID = array();
+					$c_PDF_ID = array();
+					$c_NAME = array();
+					$c_UPDATE_DATE = array();
+					$c_DESCRIPTION = array();
+				 	$SQLcontent="
+						SELECT * 
+						FROM  `PDF`
+						INNER JOIN `PDF_CATEGORY`  
+						WHERE `PDF_CATEGORY`.`GROUP_LEVEL_NAME` = '{$temp_glvl_content}'
+						AND `PDF_CATEGORY`.`GROUP_LEVEL_ID` = '{$temp_id_content}'
+						AND `PDF_CATEGORY`.`PDF_ID` = `PDF`.`ID`
+					;";
+					$resultcontent = @mysql_query($SQLcontent);
+					while ($rscontent = @mysql_fetch_array($resultcontent)) {
+						$c_ID[] = $temp_id_content;
+						$c_glvl[] = $temp_glvl_content;
+						$c_PDF_CATEGORY_ID[] = $rscontent["ID"];
+						$c_NAME[] = $rscontent["NAME"];
+						$c_PDF_ID[] = $rscontent["PDF_ID"];
+						$c_UPDATE_DATE[] = $rscontent["UPDATE_DATE"];
+						$c_DESCRIPTION[] = $rscontent["DESCRIPTION"];
+						$c_PHOTO_NAME[] = $rscontent["PHOTO_NAME"];
+					}
+					if(mysql_num_rows($resultcontent) > 0){
+						$Is_there_are_content1++;
+					}
+				
+					//#################################
+					//####### Query 2nd List ##########
+					//#################################
+					
+					/*
+					//############## Find Parents ################
+				
+					while ($temp_glvl_content > 2) {
+						$SQLcontent="
+							SELECT * 
+							FROM  `PDF`
+							INNER JOIN `PDF_CATEGORY`  
+							WHERE `PDF_CATEGORY`.`GROUP_LEVEL_NAME` = '".($temp_glvl_content-1)."'
+							AND `PDF_CATEGORY`.`GROUP_LEVEL_ID` = 
+							(
+								SELECT `GROUP_LV".($temp_glvl_content-1)."`.`ID`
+								FROM  `GROUP_LV{$temp_glvl_content}` 
+								INNER JOIN  `GROUP_LV".($temp_glvl_content-1)."` 
+								WHERE  `GROUP_LV".($temp_glvl_content)."`.`GROUP_LV".($temp_glvl_content-1)."_ID` =  `GROUP_LV".($temp_glvl_content-1)."`.`ID` 
+								AND  `GROUP_LV".($temp_glvl_content)."`.`ID` =  '{$temp_id_content}'
+							)
+							AND `PDF_CATEGORY`.`PDF_ID` = `PDF`.`ID`
+						;";	
+						$resultcontent = @mysql_query($SQLcontent);
+						while ($rscontent = @mysql_fetch_array($resultcontent)) {
+							$c_NAME[] = $rscontent["NAME"];
+							$c_UPDATE_DATE[] = $rscontent["UPDATE_DATE"];
+							$c_DESCRIPTION[] = $rscontent["DESCRIPTION"];
+						}
+						$SQLcontent2="
+							SELECT * 
+							FROM  `GROUP_LV{$temp_glvl_content}`
+							WHERE `ID` = '{$temp_id_content}'
+						";
+						$resultcontent2 = @mysql_query($SQLcontent2);
+						while ($rscontent2 = @mysql_fetch_array($resultcontent2)) {
+							$temp_id_content = $rscontent2["GROUP_LV".($temp_glvl_content-1)."_ID"];
+						}
+						$temp_glvl_content--;
+					}//end while
+					*/
+				
+					############## Find Children ####################
+					while ($temp_glvl_content < 6) {
+						$temp_c_ID = array();
+						$SQLcontent="
+							SELECT * 
+							FROM  `PDF`
+							INNER JOIN `PDF_CATEGORY`  
+							WHERE `PDF_CATEGORY`.`GROUP_LEVEL_NAME` = '".($temp_glvl_content+1)."'
+							AND `PDF_CATEGORY`.`GROUP_LEVEL_ID` IN 
+							(
+								SELECT `GROUP_LV".($temp_glvl_content+1)."`.`ID`
+								FROM  `GROUP_LV".($temp_glvl_content+1)."` 
+								WHERE  `GROUP_LV{$temp_glvl_content}_ID` = '{$temp_id_content}'
+							)
+							AND `PDF_CATEGORY`.`PDF_ID` = `PDF`.`ID`
+						;";
+						$resultcontent = @mysql_query($SQLcontent);
+						while ($rscontent = @mysql_fetch_array($resultcontent)) {
+							//print_r($rscontent);
+							//$c_ID[] = $rscontent["ID"];
+							
+							$c_ID[] = $rscontent["GROUP_LEVEL_ID"];
+							//$c_glvl[] = $rscontent["GROUP_LEVEL_NAME"];
+							$c_glvl[] = $temp_glvl_content+1;
+							$c_PDF_CATEGORY_ID[] = $rscontent["ID"];
+							$c_NAME[] = $rscontent["NAME"];
+							$c_UPDATE_DATE[] = $rscontent["UPDATE_DATE"];
+							$c_DESCRIPTION[] = $rscontent["DESCRIPTION"];
+							$c_PHOTO_NAME[] = $rscontent["PHOTO_NAME"];
+							
+							$temp_c_ID[] = $rscontent["GROUP_LEVEL_ID"];
+						}
+						$SQLcontent2="
+							SELECT * 
+							FROM  `GROUP_LV{$temp_glvl_content}`
+							WHERE `ID` = '{$temp_id_content}'
+						";
+						$SQLcontent2="
+							SELECT * 
+							FROM  `GROUP_LV".($temp_glvl_content+2)."`
+							WHERE `GROUP_LV".($temp_glvl_content+1)."_ID`
+							IN (";
+						for ($ii=0; $ii < count($temp_c_ID); $ii++) {
+							$SQLcontent2.=$temp_c_ID[$ii];
+							if($ii<count($temp_c_ID)-1){
+								$SQLcontent2.=",";
+							}
+						}
+						$SQLcontent2=
+						")
+						;";
+						
+						$resultcontent2 = @mysql_query($SQLcontent2);
+						while ($rscontent2 = @mysql_fetch_array($resultcontent2)) {
+							$temp_id_content = $rscontent2["GROUP_LV".($temp_glvl_content+1)."_ID"];
+						}
+						$temp_glvl_content++;
+						
+						if(mysql_num_rows($resultcontent) > 0){
+							$Is_there_are_content2++;
+						}
+					}//end while
+					
+					// echo $Is_there_are_content1;
+					// echo $Is_there_are_content2;
+					
+					//#####################################
+					//Display List content from Above query
+					//#####################################
+					
+					//Start Page = 1
+					if(!isset($_GET["page"])){
+						$_GET["page"]=1;
+					}
+					$page = $_GET["page"];
+					$page_limit = 10;
+					$number_of_items = count($c_NAME);
+					$number_of_pages = ((int)(($number_of_items-1)/$page_limit)) + 1; 
+					
+					if($number_of_pages==$page){	//means the last page
+						$page_runing = $number_of_items;
+					}
+					else{	//not the last page
+						$page_runing = $page_limit*$page;
+					}
+?>
+					
 <?php
 					//#####################################################
 					//#####################################################
@@ -107,6 +301,46 @@ include ($rootpath."include/top-menu.php");
 					//#####################################################
 					if($_GET["gp"]=="y" || $_GET["gp"]=="Y"){
 						
+						//############### Display the Body Page #####################
+						//for ($i=0; $i < count($c_NAME); $i++) {	//for all Pages
+						for ($i = ($page_limit*($page-1)); $i < $page_runing; $i++) { //for each Page
+							
+							//is Best Practice
+							if ($_GET["id"]==2 && $_GET["glvl"]==1) {
+?>
+								<h1>Coming Soon</h1>
+<?php
+							}
+							
+							//########### is Country Profile #############
+							elseif ($_GET["id"]==11 && $_GET["glvl"]==3) {
+								if($i%4==0){
+?>
+									<div class="grid_8" id="wrap-cp">
+<?php
+								}
+?>
+										<div class="left" id="cp">
+											<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
+												<img src="images/coutries/<?php echo $c_PHOTO_NAME[$i]; ?>"  width="120" height="120" alt="<?php echo $c_NAME[$i]; ?>" />
+											</a>
+											<p class="center">
+												<?php echo $c_NAME[$i]; ?>
+											</p>
+										</div>
+<?php
+								if($i%4==3 || $i==$page_runing-1){
+?>
+									</div>
+									<br class="clear"/>
+<?php
+								}
+							}
+							//######### end: is Country Profile ##########
+						}
+						//############### End Display the Body Page #####################
+						
+
 					}
 					//#####################################################
 					//###################		(End)		#######################
@@ -133,196 +367,7 @@ include ($rootpath."include/top-menu.php");
 	?>
 						<div class="grid_8" style="margin:0">
 	<?php
-							//####### Find Lock Download Key ##########
-							$PERMISSION_Is_Lockkey="";
-							if(!$PERMISSION_glvl2_ID){
-								if($_GET["glvl"]==2){
-									$PERMISSION_glvl2_ID = $_GET["id"];
-								}
-							}
-							$SQLlockKey="
-								SELECT * 
-								FROM  `PERMISSION`
-								WHERE `USER_PROFILE_ID` = '{$_SESSION["userid"]}'
-								AND `GROUP_LV2_ID` = '{$PERMISSION_glvl2_ID}'
-								AND `IS_ACTIVE` = 'Y'
-								AND `END_DATE` > NOW()
-							;";
-							$resultLockKey = @mysql_query($SQLlockKey);
-							if($rsLockKey = @mysql_fetch_array($resultLockKey)) {
-								$PERMISSION_Is_Lockkey = "N";
-							}
-							else{
-								$PERMISSION_Is_Lockkey = "Y";
-							}
 							
-							//###################### Check Data fact #################
-							//############### If there are no contents, ##############
-							//####### Tell the users that there are no Content #######
-							$Is_there_are_content1=0;
-							$Is_there_are_content2=0;
-							
-							//####### Query List ##########
-							$temp_glvl_content = $_GET["glvl"];
-							$temp_id_content = $_GET["id"];
-							
-							$c_ID = array();
-							$c_glvl = array(); 
-							$c_PDF_CATEGORY_ID = array();
-							$c_PDF_ID = array();
-							$c_NAME = array();
-							$c_UPDATE_DATE = array();
-							$c_DESCRIPTION = array();
-						 	$SQLcontent="
-								SELECT * 
-								FROM  `PDF`
-								INNER JOIN `PDF_CATEGORY`  
-								WHERE `PDF_CATEGORY`.`GROUP_LEVEL_NAME` = '{$temp_glvl_content}'
-								AND `PDF_CATEGORY`.`GROUP_LEVEL_ID` = '{$temp_id_content}'
-								AND `PDF_CATEGORY`.`PDF_ID` = `PDF`.`ID`
-							;";
-							$resultcontent = @mysql_query($SQLcontent);
-							while ($rscontent = @mysql_fetch_array($resultcontent)) {
-								$c_ID[] = $temp_id_content;
-								$c_glvl[] = $temp_glvl_content;
-								$c_PDF_CATEGORY_ID[] = $rscontent["ID"];
-								$c_NAME[] = $rscontent["NAME"];
-								$c_PDF_ID[] = $rscontent["PDF_ID"];
-								$c_UPDATE_DATE[] = $rscontent["UPDATE_DATE"];
-								$c_DESCRIPTION[] = $rscontent["DESCRIPTION"];
-								$c_PHOTO_NAME[] = $rscontent["PHOTO_NAME"];
-							}
-							if(mysql_num_rows($resultcontent) > 0){
-								$Is_there_are_content1++;
-							}
-						
-							//#################################
-							//####### Query 2nd List ##########
-							//#################################
-							
-							/*
-							//############## Find Parents ################
-						
-							while ($temp_glvl_content > 2) {
-								$SQLcontent="
-									SELECT * 
-									FROM  `PDF`
-									INNER JOIN `PDF_CATEGORY`  
-									WHERE `PDF_CATEGORY`.`GROUP_LEVEL_NAME` = '".($temp_glvl_content-1)."'
-									AND `PDF_CATEGORY`.`GROUP_LEVEL_ID` = 
-									(
-										SELECT `GROUP_LV".($temp_glvl_content-1)."`.`ID`
-										FROM  `GROUP_LV{$temp_glvl_content}` 
-										INNER JOIN  `GROUP_LV".($temp_glvl_content-1)."` 
-										WHERE  `GROUP_LV".($temp_glvl_content)."`.`GROUP_LV".($temp_glvl_content-1)."_ID` =  `GROUP_LV".($temp_glvl_content-1)."`.`ID` 
-										AND  `GROUP_LV".($temp_glvl_content)."`.`ID` =  '{$temp_id_content}'
-									)
-									AND `PDF_CATEGORY`.`PDF_ID` = `PDF`.`ID`
-								;";	
-								$resultcontent = @mysql_query($SQLcontent);
-								while ($rscontent = @mysql_fetch_array($resultcontent)) {
-									$c_NAME[] = $rscontent["NAME"];
-									$c_UPDATE_DATE[] = $rscontent["UPDATE_DATE"];
-									$c_DESCRIPTION[] = $rscontent["DESCRIPTION"];
-								}
-								$SQLcontent2="
-									SELECT * 
-									FROM  `GROUP_LV{$temp_glvl_content}`
-									WHERE `ID` = '{$temp_id_content}'
-								";
-								$resultcontent2 = @mysql_query($SQLcontent2);
-								while ($rscontent2 = @mysql_fetch_array($resultcontent2)) {
-									$temp_id_content = $rscontent2["GROUP_LV".($temp_glvl_content-1)."_ID"];
-								}
-								$temp_glvl_content--;
-							}//end while
-							*/
-						
-							############## Find Children ####################
-							while ($temp_glvl_content < 6) {
-								$temp_c_ID = array();
-								$SQLcontent="
-									SELECT * 
-									FROM  `PDF`
-									INNER JOIN `PDF_CATEGORY`  
-									WHERE `PDF_CATEGORY`.`GROUP_LEVEL_NAME` = '".($temp_glvl_content+1)."'
-									AND `PDF_CATEGORY`.`GROUP_LEVEL_ID` IN 
-									(
-										SELECT `GROUP_LV".($temp_glvl_content+1)."`.`ID`
-										FROM  `GROUP_LV".($temp_glvl_content+1)."` 
-										WHERE  `GROUP_LV{$temp_glvl_content}_ID` = '{$temp_id_content}'
-									)
-									AND `PDF_CATEGORY`.`PDF_ID` = `PDF`.`ID`
-								;";
-								$resultcontent = @mysql_query($SQLcontent);
-								while ($rscontent = @mysql_fetch_array($resultcontent)) {
-									//print_r($rscontent);
-									//$c_ID[] = $rscontent["ID"];
-									
-									$c_ID[] = $rscontent["GROUP_LEVEL_ID"];
-									//$c_glvl[] = $rscontent["GROUP_LEVEL_NAME"];
-									$c_glvl[] = $temp_glvl_content+1;
-									$c_PDF_CATEGORY_ID[] = $rscontent["ID"];
-									$c_NAME[] = $rscontent["NAME"];
-									$c_UPDATE_DATE[] = $rscontent["UPDATE_DATE"];
-									$c_DESCRIPTION[] = $rscontent["DESCRIPTION"];
-									$c_PHOTO_NAME[] = $rscontent["PHOTO_NAME"];
-									
-									$temp_c_ID[] = $rscontent["GROUP_LEVEL_ID"];
-								}
-								$SQLcontent2="
-									SELECT * 
-									FROM  `GROUP_LV{$temp_glvl_content}`
-									WHERE `ID` = '{$temp_id_content}'
-								";
-								$SQLcontent2="
-									SELECT * 
-									FROM  `GROUP_LV".($temp_glvl_content+2)."`
-									WHERE `GROUP_LV".($temp_glvl_content+1)."_ID`
-									IN (";
-								for ($ii=0; $ii < count($temp_c_ID); $ii++) {
-									$SQLcontent2.=$temp_c_ID[$ii];
-									if($ii<count($temp_c_ID)-1){
-										$SQLcontent2.=",";
-									}
-								}
-								$SQLcontent2=
-								")
-								;";
-								
-								$resultcontent2 = @mysql_query($SQLcontent2);
-								while ($rscontent2 = @mysql_fetch_array($resultcontent2)) {
-									$temp_id_content = $rscontent2["GROUP_LV".($temp_glvl_content+1)."_ID"];
-								}
-								$temp_glvl_content++;
-								
-								if(mysql_num_rows($resultcontent) > 0){
-									$Is_there_are_content2++;
-								}
-							}//end while
-							
-							// echo $Is_there_are_content1;
-							// echo $Is_there_are_content2;
-							
-							//#####################################
-							//Display List content from Above query
-							//#####################################
-							
-							//Start Page = 1
-							if(!isset($_GET["page"])){
-								$_GET["page"]=1;
-							}
-							$page = $_GET["page"];
-							$page_limit = 10;
-							$number_of_items = count($c_NAME);
-							$number_of_pages = ((int)(($number_of_items-1)/$page_limit)) + 1; 
-							
-							if($number_of_pages==$page){	//means the last page
-								$page_runing = $number_of_items;
-							}
-							else{	//not the last page
-								$page_runing = $page_limit*$page;
-							}
 							
 							//############### Display the Body Page #####################
 							//for ($i=0; $i < count($c_NAME); $i++) {	//for all Pages
