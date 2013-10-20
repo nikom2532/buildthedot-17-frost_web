@@ -336,8 +336,24 @@ include ($rootpath."include/top-menu.php");
 <?php
 								}
 							}
-							//######### end: is Country Profile ##########
+							
 						}
+
+						//########### is Normal Group #############
+						if((!($_GET["id"]==2 && $_GET["glvl"]==1)) && (!($_GET["id"]==11 && $_GET["glvl"]==3))){
+							$SQL="
+								SELECT * 
+								FROM  `GROUP_LV".($_GET["glvl"]+1)."`
+								WHERE `GROUP_LV".($_GET["glvl"])."_ID` = '{$_GET["id"]}'
+							";
+							$result=@mysql_query($SQL);
+							while($rs=@mysql_fetch_array($result)){
+								echo $rs["NAME"]."<br />";
+							}
+						}
+						//######### end: is Country Profile ##########
+						
+
 						//############### End Display the Body Page #####################
 						
 
