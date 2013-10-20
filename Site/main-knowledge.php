@@ -336,22 +336,43 @@ include ($rootpath."include/top-menu.php");
 <?php
 								}
 							}
-							
+							//######### end: is Country Profile ##########
 						}
 
 						//########### is Normal Group #############
 						if((!($_GET["id"]==2 && $_GET["glvl"]==1)) && (!($_GET["id"]==11 && $_GET["glvl"]==3))){
-							$SQL="
+							$SQL_Menu="
 								SELECT * 
 								FROM  `GROUP_LV".($_GET["glvl"]+1)."`
 								WHERE `GROUP_LV".($_GET["glvl"])."_ID` = '{$_GET["id"]}'
 							";
-							$result=@mysql_query($SQL);
-							while($rs=@mysql_fetch_array($result)){
-								echo $rs["NAME"]."<br />";
+							$result_Menu=@mysql_query($SQL_Menu);
+							while($rs_Menu = @mysql_fetch_array($result_Menu)){
+								?><nav id="side-menu" class="grid_6 text-green" style="padding: 3px;">
+									<ul>
+										<li class="link-main">
+											<a href="./main-knowledge.php?id=<?php echo $rs_Menu["ID"]; ?>&glvl=<?php echo ($_GET["glvl"]+1); ?>&gp=<?php 
+												$SQL_Menu2="
+													SELECT * 
+													FROM  `GROUP_LV".($_GET["glvl"]+2)."`
+													WHERE `GROUP_LV".($_GET["glvl"]+1)."_ID` = '{$rs_Menu["ID"]}'
+												";
+												$result_Menu2=@mysql_query($SQL_Menu2);
+												if($rs_Menu2=@mysql_fetch_array($result_Menu2)){
+													echo "y";
+												}
+												else{
+													echo "n";
+												}
+											?>" class="bold text-green" >
+												<?php echo $rs_Menu["NAME"]."<br />"; ?>
+											</a>
+										</li>
+									</ul>
+								</nav><?php
 							}
 						}
-						//######### end: is Country Profile ##########
+						//########### end Is Normal Group #############
 						
 
 						//############### End Display the Body Page #####################
