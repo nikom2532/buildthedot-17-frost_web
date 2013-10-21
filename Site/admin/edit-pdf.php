@@ -58,6 +58,12 @@
 		 	
 		return xmlhttp;
     }
+    
+    function setSelectedIndex(s, i)
+	{
+		s.options[i-1].selected = true;
+		return;
+	}
 	
 	function getGLv2(gLv1Id) {		
 		
@@ -66,6 +72,7 @@
 		}
 		
 		if (gLv1Id == 0) {
+			
 			document.getElementById('gLv2Div').style.visibility = 'hidden';
 			document.getElementById('gLv3Div').style.visibility = 'hidden';
 			document.getElementById('gLv4Div').style.visibility = 'hidden';
@@ -76,9 +83,14 @@
 			var req = getXMLHTTP();
 		
 			if (oldSelected2 != gLv1Id) {
-				document.getElementById('gLv3Div').style.visibility = 'hidden';
-				document.getElementById('gLv4Div').style.visibility = 'hidden';
-				document.getElementById('gLv5Div').style.visibility = 'hidden';
+				// document.getElementById('gLv3Div').style.visibility = 'hidden';
+				// document.getElementById('gLv4Div').style.visibility = 'hidden';
+				// document.getElementById('gLv5Div').style.visibility = 'hidden';
+				
+				setSelectedIndex(document.getElementById("gLv3Div"),1);
+				setSelectedIndex(document.getElementById("gLv4Div"),1);
+				setSelectedIndex(document.getElementById("gLv5Div"),1);
+				
 			} else {
 				document.getElementById('gLv2Div').style.visibility = 'visible';	
 			}
@@ -471,9 +483,6 @@ $pdfId = $_POST['pdfId'];
 											
 										</div>
 									</p>
-										
-									
-                                    
 									
 								</fieldset>
 							<?php }?>

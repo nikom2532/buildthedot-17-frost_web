@@ -368,13 +368,12 @@
 					
 					</div> <!-- end content-module-heading -->
 					
-					
+					<form action="upload-pdf-proc.php" method='POST' name="editpdf" id="editpdf">
+						
 					<div class="content-module-main cf">
 				
 						<div class="half-size-column fl">
 						
-							<form action="edit-pdf-proc.php" method='POST' name="editpdf" id="editpdf">
-							
 								<fieldset>
 								
 									<p>
@@ -393,13 +392,19 @@
                                         <em>Price in Thai Baht</em>								
 									</p>
 									
+									<p>
+										<label for="asian">Asian country</label>
+										<input type="radio" name="asian" id="asian" value="0" checked> No<br>
+										<input type="radio" name="asian" id="asian" value="1"> Yes<br>							
+									</p>
+									
+									
+									
 								</fieldset>
-						
+							<input type="submit" value="Save" class="round blue ic-right-arrow" />
 						</div> <!-- end half-size-column -->
 						
 						<div class="half-size-column fr">
-						
-							<!-- <form action="#"> -->
 							
 								<fieldset>
 	
@@ -427,7 +432,7 @@
 												$resultLv1 = mysql_query($sqlLv1);
 											?>
 									
-											<select name="group-name" onchange="getGLv2(this.value)">
+											<select name="gLv1" onchange="getGLv2(this.value)">
 												<?php
 												echo "<option value='0'>--Select Menu--</option>";
 												while ($rowLv1 = mysql_fetch_array($resultLv1)) {
@@ -453,18 +458,13 @@
 											
 										</div>
 									</p>
-										
-									
-                                    
 									
 								</fieldset>
-							
-							</form>
 							
 						</div> <!-- end half-size-column -->
 				
 					</div> <!-- end content-module-main -->
-					
+					</form>
 				</div> <!-- end content-module -->
 				
 		
