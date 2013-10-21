@@ -423,6 +423,11 @@ $pdfId = $_POST['pdfId'];
 										<input type="text" id="price" class="round full-width-input" value="<?=$row['price'];?>"/>
 									</p>
 									
+									<p>
+										<label for="asian">Asian country</label>
+										<input type="radio" name="asian" id="asian" value="0" checked> No<br>
+										<input type="radio" name="asian" id="asian" value="1"> Yes<br>							
+									</p>
 								</fieldset>
 							<input type="submit" value="Save change" class="round blue ic-right-arrow" />
 							<!-- </form> -->
