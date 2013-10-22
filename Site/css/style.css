@@ -728,3 +728,10 @@ span.inactive {
 	margin-right:5px;
 	font-size: 1.1em;
 }
+#pad-6{
+	padding-top:15px;
+}
+#pad-6 li{
+	list-style: none;
+}
+

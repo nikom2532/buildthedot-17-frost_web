@@ -348,8 +348,9 @@ include ($rootpath."include/top-menu.php");
 							";
 							$result_Menu=@mysql_query($SQL_Menu);
 							while($rs_Menu = @mysql_fetch_array($result_Menu)){
-								?><nav id="side-menu" class="grid_6 text-green" style="padding: 3px;">
-									<ul>
+								?>
+								<!-- <nav id="side-menu" class="grid_6 text-green" style="padding: 3px;"> -->
+									<ul id="pad-6">
 										<li class="link-main">
 											<a href="./main-knowledge.php?id=<?php echo $rs_Menu["ID"]; ?>&glvl=<?php echo ($_GET["glvl"]+1); ?>&gp=<?php 
 												$SQL_Menu2="
@@ -367,9 +368,10 @@ include ($rootpath."include/top-menu.php");
 											?>" class="bold text-green" >
 												<?php echo $rs_Menu["NAME"]."<br />"; ?>
 											</a>
-										</li>
+										 </li>
 									</ul>
-								</nav><?php
+								<!--</nav> -->
+								<?php
 							}
 						}
 						//########### end Is Normal Group #############
