@@ -366,7 +366,7 @@ include ($rootpath."include/top-menu.php");
 													echo "n";
 												}
 											?>" class="bold text-green" >
-												<?php echo $rs_Menu["NAME"]."<br />"; ?>
+												<?php echo $rs_Menu["NAME"]; ?>
 											</a>
 										 </li>
 									</ul>

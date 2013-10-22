@@ -730,8 +730,13 @@ span.inactive {
 }
 #pad-6{
 	padding-top:15px;
+	list-style: none;
 }
 #pad-6 li{
 	list-style: none;
 }
+#pad-6 li a{
+	color: #036D67;
+}
+
 
