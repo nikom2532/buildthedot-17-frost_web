@@ -370,7 +370,7 @@
 					
 					</div> <!-- end content-module-heading -->
 					
-					<form action="<?php ?>upload-pdf-proc.php" method='POST' name="editpdf" id="editpdf">
+					<form action="<?php ?>upload-pdf-proc.php" method='POST' name="editpdf" id="editpdf" enctype="multipart/form-data">
 							
 						<div class="content-module-main cf">
 					
@@ -380,17 +380,17 @@
 									
 										<p>
 											<label for="title">Title</label>
-											<input type="text" id="name" class="round full-width-input" />
+											<input type="text" id="name" name="name" class="round full-width-input" value="asdf" />
 										</p>
 										
 										<p>
 											<label for="description">Description</label>
-											<textarea id="description" class="round full-width-textarea"></textarea>
+											<textarea id="description" name="description" class="round full-width-textarea"></textarea>
 										</p>
 		
 										<p>
 											<label for="price">Price</label>
-											<input type="text" id="price" class="round full-width-input" />
+											<input type="text" id="price" name="price" class="round full-width-input" />
 	                                        <em>Price in Thai Baht</em>								
 										</p>
 										
@@ -408,60 +408,60 @@
 							
 							<div class="half-size-column fr">
 								
-									<fieldset>
-		
-	                                    <p class="form-error-input">
-	                                    	<label for="tag">Tags</label>
-											
-	                                        <ul id="singleFieldTags">
-	                                            <!-- Existing list items will be pre-added to the tags. -->
-	                                            
-	                                        </ul>
-	                                        <input name="tag" id="mySingleField" value="" type="hidden">
-	                                    </p>
-	                                    <p class="form-error-input">
-	                                        <label for="uploadfile">Upload File</label>
-	                                        <input type="file" />
-	                                	<p>
+								<fieldset>
 	
-										<p class="form-error-input">
-											
-											<div id="gLv1Div">
-												<label for="group-name">Group level 1</label>
-		
+                  <p class="form-error-input">
+                  	<label for="tag">Tags</label>
+	
+                      <ul id="singleFieldTags">
+                          <!-- Existing list items will be pre-added to the tags. -->
+                          
+                      </ul>
+                      <input name="tag" id="mySingleField" value="" type="hidden">
+                  </p>
+                  <p class="form-error-input">
+                      <label for="uploadfile">Upload File</label>
+                      <input type="file" />
+              		<p>
+	
+									<p class="form-error-input">
+										
+										<div id="gLv1Div">
+											<label for="group-name">Group level 1</label>
+	
+											<?php
+												$sqlLv1 = "SELECT * FROM GROUP_LV1";
+												$resultLv1 = mysql_query($sqlLv1);
+											?>
+									
+											<select name="gLv1" onchange="getGLv2(this.value)">
 												<?php
-													$sqlLv1 = "SELECT * FROM GROUP_LV1";
-													$resultLv1 = mysql_query($sqlLv1);
+												echo "<option value='0'>--Select Menu--</option>";
+												while ($rowLv1 = mysql_fetch_array($resultLv1)) {
+													echo "<option value='" . $rowLv1['ID'] . "'>" . $rowLv1['NAME'] . "</option>";
+												}
 												?>
+											</select>
+										</div>
 										
-												<select name="gLv1" onchange="getGLv2(this.value)">
-													<?php
-													echo "<option value='0'>--Select Menu--</option>";
-													while ($rowLv1 = mysql_fetch_array($resultLv1)) {
-														echo "<option value='" . $rowLv1['ID'] . "'>" . $rowLv1['NAME'] . "</option>";
-													}
-													?>
-												</select>
-											</div>
+										<div id="gLv2Div">
 											
-											<div id="gLv2Div">
-												
-											</div>
-											
-											<div id="gLv3Div">
-												
-											</div>
-											
-											<div id="gLv4Div">
-												
-											</div>
-											
-											<div id="gLv5Div">
-												
-											</div>
-										</p>
+										</div>
 										
-									</fieldset>
+										<div id="gLv3Div">
+											
+										</div>
+										
+										<div id="gLv4Div">
+											
+										</div>
+										
+										<div id="gLv5Div">
+											
+										</div>
+									</p>
+									
+								</fieldset>
 								
 							</div> <!-- end half-size-column -->
 					
