@@ -59,7 +59,8 @@ function hightlight($string,$keyword){
                     	<?php $date= $fetchArraySearch['UPDATE_DATE'];
                     		 $date = date('F d, Y', strtotime($date));
                     	?>
-                    	<h3>Date : <?=highlightkeyword($date,$year)?></h3>
+                    	<!-- <h3>Date : <?=highlightkeyword($date,$year)?></h3> -->
+                    	<h3>Date : <?=$date?></h3>
                     	<?php
 						// description
 						if(strpos($keyword, ' ') !== false) {

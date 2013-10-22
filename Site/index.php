@@ -61,7 +61,7 @@ include ("include/top-menu.php");
 				echo "<a href='report-detail-no-sidemenu.php?id=". $row['ID'] ."' id='new-release'>";
 				echo "<h3>" . $row['NAME'] . "</h3>";
 				echo "</a>";
-				echo "<p>" . substr_replace($row['DESCRIPTION'],'',220) ."<a href='report-detail-no-sidemenu.php?id=". $row['ID'] ."' id='new-release'>"."  "."<span class='italic text-orange'>read more</span>"."</a></p>";
+				echo "<p>" . substr_replace($row['DESCRIPTION'],'',220) ."<a href='report-detail-no-sidemenu.php?id=". $row['ID'] ."' id='new-release'>"."  "."<span class='italic text-orange'>read more..</span>"."</a></p>";
 				echo "</section>";
 			}
 			?>
