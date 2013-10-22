@@ -20,24 +20,24 @@ if ($gLv1 != 0) {
 }
 
 
-// $sql = "INSERT INTO PDF (
-	// NAME, 
-	// PHOTO_NAME,
-	// DESCRIPTION,
-	// PRICE,
-	// UPDATE_DATE,
-	// PATH,
-	// Is_Asian_country)
-// 	
-	// VALUES
-	// ('$_POST[name]',
-	// 'photoname',
-	// '$_POST[description]',
-	// '$_POST[price]',
-	// 'updatedate',
-	// 'path',
-	// '$_POST[asian]')";
-// echo $sql;
-$result = mysql_query($sql);
+$sql = "INSERT INTO PDF (
+	`NAME`, 
+	`PHOTO_NAME`,
+	`DESCRIPTION`,
+	`PRICE`,
+	`UPDATE_DATE`,
+	`PATH`,
+	`Is_Asian_country`)
+	
+	VALUES
+	('$_POST[name]',
+	'photoname',
+	'$_POST[description]',
+	'$_POST[price]',
+	'updatedate',
+	'path',
+	'$_POST[asian]')";
+echo $sql;
+// $result = mysql_query($sql);
 // header("location: upload-pdf.php");
 ?>

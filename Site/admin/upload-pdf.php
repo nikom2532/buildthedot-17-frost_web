@@ -1,11 +1,11 @@
 <?php include("include/header.php");?>	
 <?php include("include/checksession.php");?>
 <?php
-	$result = mysql_query("
-	SELECT t.ID AS id, t.NAME AS name
-	FROM TAG t 
-	");
-	
+	$sql="
+		SELECT t.ID AS id, t.NAME AS name
+		FROM TAG t 
+	";
+	$result = mysql_query($sql);
 	
 	$numRow = mysql_num_rows($result);
 	if(mysql_num_rows($result)){
@@ -20,11 +20,13 @@
 			
 		}
 		$tagResult .= ']';
+		// echo $tagResult;
 	}
-	 
+	
 	$rows = array();
+	$result = mysql_query($sql);
 	while($row = mysql_fetch_assoc($result)) {
-	$rows[] = $row;
+		$rows[] = $row;
 	}
 	echo json_encode($rows);
 ?>
@@ -56,7 +58,7 @@
 		}
 		 	
 		return xmlhttp;
-    }
+   }
 	
 	function getGLv2(gLv1Id) {		
 		
@@ -368,102 +370,102 @@
 					
 					</div> <!-- end content-module-heading -->
 					
-					<form action="upload-pdf-proc.php" method='POST' name="editpdf" id="editpdf">
-						
-					<div class="content-module-main cf">
-				
-						<div class="half-size-column fl">
-						
-								<fieldset>
+					<form action="<?php ?>upload-pdf-proc.php" method='POST' name="editpdf" id="editpdf">
+							
+						<div class="content-module-main cf">
+					
+							<div class="half-size-column fl">
+							
+									<fieldset>
+									
+										<p>
+											<label for="title">Title</label>
+											<input type="text" id="name" class="round full-width-input" />
+										</p>
+										
+										<p>
+											<label for="description">Description</label>
+											<textarea id="description" class="round full-width-textarea"></textarea>
+										</p>
+		
+										<p>
+											<label for="price">Price</label>
+											<input type="text" id="price" class="round full-width-input" />
+	                                        <em>Price in Thai Baht</em>								
+										</p>
+										
+										<p>
+											<label for="asian">Asian country</label>
+											<input type="radio" name="asian" id="asian" value="0" checked> No<br>
+											<input type="radio" name="asian" id="asian" value="1"> Yes<br>							
+										</p>
+										
+										
+										
+									</fieldset>
+								<input type="submit" value="Save" class="round blue ic-right-arrow" />
+							</div> <!-- end half-size-column -->
+							
+							<div class="half-size-column fr">
 								
-									<p>
-										<label for="title">Title</label>
-										<input type="text" id="name" class="round full-width-input" />
-									</p>
-									
-									<p>
-										<label for="description">Description</label>
-										<textarea id="description" class="round full-width-textarea"></textarea>
-									</p>
+									<fieldset>
+		
+	                                    <p class="form-error-input">
+	                                    	<label for="tag">Tags</label>
+											
+	                                        <ul id="singleFieldTags">
+	                                            <!-- Existing list items will be pre-added to the tags. -->
+	                                            
+	                                        </ul>
+	                                        <input name="tag" id="mySingleField" value="" type="hidden">
+	                                    </p>
+	                                    <p class="form-error-input">
+	                                        <label for="uploadfile">Upload File</label>
+	                                        <input type="file" />
+	                                	<p>
 	
-									<p>
-										<label for="price">Price</label>
-										<input type="text" id="price" class="round full-width-input" />
-                                        <em>Price in Thai Baht</em>								
-									</p>
-									
-									<p>
-										<label for="asian">Asian country</label>
-										<input type="radio" name="asian" id="asian" value="0" checked> No<br>
-										<input type="radio" name="asian" id="asian" value="1"> Yes<br>							
-									</p>
-									
-									
-									
-								</fieldset>
-							<input type="submit" value="Save" class="round blue ic-right-arrow" />
-						</div> <!-- end half-size-column -->
-						
-						<div class="half-size-column fr">
-							
-								<fieldset>
-	
-                                    <p class="form-error-input">
-                                    	<label for="tag">Tags</label>
-										
-                                        <ul id="singleFieldTags">
-                                            <!-- Existing list items will be pre-added to the tags. -->
-                                            
-                                        </ul>
-                                        <input name="tag" id="mySingleField" value="" type="hidden">
-                                    </p>
-                                    <p class="form-error-input">
-                                        <label for="uploadfile">Upload File</label>
-                                        <input type="file" />
-                                	<p>
-
-									<p class="form-error-input">
-										
-										<div id="gLv1Div">
-											<label for="group-name">Group level 1</label>
-	
-											<?php
-												$sqlLv1 = "SELECT * FROM GROUP_LV1";
-												$resultLv1 = mysql_query($sqlLv1);
-											?>
-									
-											<select name="gLv1" onchange="getGLv2(this.value)">
+										<p class="form-error-input">
+											
+											<div id="gLv1Div">
+												<label for="group-name">Group level 1</label>
+		
 												<?php
-												echo "<option value='0'>--Select Menu--</option>";
-												while ($rowLv1 = mysql_fetch_array($resultLv1)) {
-													echo "<option value='" . $rowLv1['ID'] . "'>" . $rowLv1['NAME'] . "</option>";
-												}
+													$sqlLv1 = "SELECT * FROM GROUP_LV1";
+													$resultLv1 = mysql_query($sqlLv1);
 												?>
-											</select>
-										</div>
 										
-										<div id="gLv2Div">
+												<select name="gLv1" onchange="getGLv2(this.value)">
+													<?php
+													echo "<option value='0'>--Select Menu--</option>";
+													while ($rowLv1 = mysql_fetch_array($resultLv1)) {
+														echo "<option value='" . $rowLv1['ID'] . "'>" . $rowLv1['NAME'] . "</option>";
+													}
+													?>
+												</select>
+											</div>
 											
-										</div>
+											<div id="gLv2Div">
+												
+											</div>
+											
+											<div id="gLv3Div">
+												
+											</div>
+											
+											<div id="gLv4Div">
+												
+											</div>
+											
+											<div id="gLv5Div">
+												
+											</div>
+										</p>
 										
-										<div id="gLv3Div">
-											
-										</div>
-										
-										<div id="gLv4Div">
-											
-										</div>
-										
-										<div id="gLv5Div">
-											
-										</div>
-									</p>
-									
-								</fieldset>
-							
-						</div> <!-- end half-size-column -->
-				
-					</div> <!-- end content-module-main -->
+									</fieldset>
+								
+							</div> <!-- end half-size-column -->
+					
+						</div> <!-- end content-module-main -->
 					</form>
 				</div> <!-- end content-module -->
 				
