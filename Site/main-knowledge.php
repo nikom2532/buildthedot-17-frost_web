@@ -506,7 +506,7 @@ include ($rootpath."include/top-menu.php");
 										<p class="text-desc">
 											<span class="text-lightgreen bold head-desc">Description: </span><?php echo $c_DESCRIPTION["$i"]; ?>
 											<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_CATEGORY_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
-												<span class='italic text-orange'>read more</span>
+												<span class='italic text-orange'>read more..</span>
 											</a>
 										</p>
 									</section>
