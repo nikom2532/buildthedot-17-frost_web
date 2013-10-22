@@ -3,11 +3,6 @@
 $keyword = $_GET['keyword'];
 $categoryID = $_GET['category_id'];
 $year = $_GET['year'];
-// echo $keyword. "<br/>";
-// echo $categoryID. "<br/>";
-// echo $year. "<br/>";
-$keyword = trim($keyword);
-$strQuery = "";
 
 if(!empty($keyword)){//if keyword set goes here
 	$queried = mysql_real_escape_string($keyword); // always escape	
