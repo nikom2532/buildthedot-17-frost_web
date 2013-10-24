@@ -217,7 +217,7 @@ include ("include/top-menu.php");
 							}
 							else{ //if user download less than 5 Downloads on 1 day.
 ?>
-								<a href="download-pdf.php?pdfId=<?php echo $id; ?>">
+								<a href="download-pdf.php?pdfId=<?php echo $id; ?>" target="_blank">
 									<b class="button darkgreen" id="download-button">
 										Download
 									</b>
