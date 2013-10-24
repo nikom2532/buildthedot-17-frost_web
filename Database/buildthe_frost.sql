@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 15, 2013 at 06:22 PM
+-- Generation Time: Oct 24, 2013 at 03:44 PM
 -- Server version: 5.1.67
 -- PHP Version: 5.3.27
 
@@ -378,7 +378,29 @@ CREATE TABLE IF NOT EXISTS `DOWNLOAD_STATISTICS` (
   `PDF_ID` int(100) NOT NULL,
   `DOWNLOAD_DATETIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
+
+--
+-- Dumping data for table `DOWNLOAD_STATISTICS`
+--
+
+INSERT INTO `DOWNLOAD_STATISTICS` (`ID`, `USER_ID`, `PDF_ID`, `DOWNLOAD_DATETIME`) VALUES
+(1, 1, 21, '2013-10-17 05:37:16'),
+(2, 1, 21, '2013-10-17 05:42:15'),
+(3, 3, 21, '2013-10-17 05:42:58'),
+(4, 3, 21, '2013-10-17 05:43:20'),
+(5, 3, 21, '2013-10-17 05:43:23'),
+(6, 3, 21, '2013-10-17 05:43:25'),
+(7, 3, 21, '2013-10-17 05:43:28'),
+(8, 3, 21, '2013-10-17 09:50:34'),
+(9, 3, 21, '2013-10-17 09:51:03'),
+(10, 3, 21, '2013-10-17 11:10:02'),
+(11, 1, 2, '2013-10-17 11:16:49'),
+(12, 1, 2, '2013-10-17 11:17:05'),
+(13, 1, 2, '2013-10-17 11:23:50'),
+(14, 1, 1, '2013-10-17 11:28:03'),
+(15, 3, 21, '2013-10-22 07:28:01'),
+(16, 3, 21, '2013-10-22 07:29:28');
 
 -- --------------------------------------------------------
 
@@ -642,7 +664,7 @@ CREATE TABLE IF NOT EXISTS `PERMISSION` (
   PRIMARY KEY (`ID`),
   KEY `fk_USER_PROFILE_has_GROUP_LV2_GROUP_LV21_idx` (`GROUP_LV2_ID`),
   KEY `fk_USER_PROFILE_has_GROUP_LV2_USER_PROFILE1_idx` (`USER_PROFILE_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `PERMISSION`
