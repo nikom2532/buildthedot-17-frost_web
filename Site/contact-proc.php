@@ -2,7 +2,7 @@
 if(isset($_POST['email'])) {
      
     // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "ms_bullshitta@hotmail.com";
+    $email_to = "admin@mckansys.com";
     $email_subject = "Message From Customer[Mckansys]";
 
     // validation expected data exists
