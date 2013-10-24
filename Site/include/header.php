@@ -30,8 +30,13 @@ if (!$db -> open()) {
 		});
 
 
-		
+    
+		window.history.forward();
+		function noBack() { 
+			window.history.forward(); 
+		}
+        		
 		
 	</script>
 	</head>
-<body>
+<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
