@@ -16,19 +16,19 @@ include ("include/top-menu.php");
 				</p> </a>
 			</div>
 			<div class="grid_3 center">
-				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=1&glvl=2"><img src="images/icon-technology.png" width="123" height="123" alt="Technology">
+				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=2&glvl=2"><img src="images/icon-technology.png" width="123" height="123" alt="Technology">
 				<p class="text-blue bold">
 					Technology
 				</p> </a>
 			</div>
 			<div class="grid_3 center">
-				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=2&glvl=2"> <img src="images/icon-strategy.png" width="124" height="123" alt="Strategy">
+				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=3&glvl=2"> <img src="images/icon-strategy.png" width="124" height="123" alt="Strategy">
 				<p class="text-blue bold">
 					Strategy
 				</p> </a>
 			</div>
 			<div class="grid_3 center">
-				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=3&glvl=2"> <img src="images/icon-asean.png" width="127" height="127" alt="Around Asean">
+				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=4&glvl=2"> <img src="images/icon-asean.png" width="127" height="127" alt="Around Asean">
 				<p class="text-blue bold">
 					Around Asean
 				</p> </a>
