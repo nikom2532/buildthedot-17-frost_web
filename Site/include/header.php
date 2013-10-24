@@ -22,12 +22,19 @@ if (!$db -> open()) {
 		<script src="js/jquery.validate.min.js"></script>
 		<!-- <script src="js/validate.message.js"></script> -->
 	<script type="text/javascript">
-			$("input").keypress(function(event) {
-			       if (event.which == 13) {
-			        event.preventDefault();
-			        $("search-form").submit();
-	    	}
-			});	
+
+		$("input").keypress(function(event) {
+		       if (event.which == 13) {
+		        event.preventDefault();
+		        $("search-form").submit();
+    	}
+		});  
+		 
+		window.history.forward();
+		function noBack() { 
+			window.history.forward(); 
+		}
+        		
 	</script>
 	</head>
-<body>
+<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
