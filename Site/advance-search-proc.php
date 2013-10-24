@@ -10,7 +10,7 @@ if(!empty($keyword)){//if keyword set goes here
 	$strQuery = "SELECT * FROM PDF WHERE LOWER(NAME) LIKE LOWER('%$queried%') OR LOWER(DESCRIPTION) LIKE LOWER('%$queried%') ";
 	foreach($keys as $k){
 	    $strQuery .= " OR LOWER(NAME) LIKE LOWER('%$k%') OR LOWER(DESCRIPTION) LIKE LOWER('%$k%')";
-		//$strQuery .="UNION (select * from PDF p inner join TAG_RELATIONSHIP tr on p. = t.id where B.tag = 'chair')";
+	   //$strQuery .="UNION (select * from PDF p inner join TAG_RELATIONSHIP tr on p. = t.id where B.tag = 'chair')";
 	}
 	//echo $strQuery;
    //$strQuery = "SELECT * FROM PDF WHERE LOWER(NAME) LIKE LOWER('%$keyword%') OR LOWER(DESCRIPTION) LIKE LOWER('%$keyword%') OR YEAR(UPDATE_DATE)= '$keyword' ";
