@@ -260,6 +260,22 @@
 "251","Zambia"
 "252","Zimbabwe"
 "1","A"
+"1","1","21","2013-10-17 12:37:16"
+"2","1","21","2013-10-17 12:42:15"
+"3","3","21","2013-10-17 12:42:58"
+"4","3","21","2013-10-17 12:43:20"
+"5","3","21","2013-10-17 12:43:23"
+"6","3","21","2013-10-17 12:43:25"
+"7","3","21","2013-10-17 12:43:28"
+"8","3","21","2013-10-17 16:50:34"
+"9","3","21","2013-10-17 16:51:03"
+"10","3","21","2013-10-17 18:10:02"
+"11","1","2","2013-10-17 18:16:49"
+"12","1","2","2013-10-17 18:17:05"
+"13","1","2","2013-10-17 18:23:50"
+"14","1","1","2013-10-17 18:28:03"
+"15","3","21","2013-10-22 14:28:01"
+"16","3","21","2013-10-22 14:29:28"
 "1","Knowledge"
 "2","Best Practice"
 "1","Market","1"
@@ -303,6 +319,17 @@
 "14","Singapore","singapore.jpg","aaa","100",NULL,NULL,"TestPdf1.pdf","1"
 "15","Thailand","thailand.jpg","aaa","100",NULL,NULL,"TestPdf1.pdf","1"
 "16","Viet Nam","vietnam.jpg","aaa","100",NULL,NULL,"TestPdf1.pdf","1"
+"17","Augmenting Mobile 3G Using WiFi","testPDF.jpg","We investigate if WiFi access can be used to augment 3G capacity in mobile environments. We rst conduct a detailed study of 3G and WiFi access from moving vehicles, in three
+dierent cities. We nd that the average 3G and WiFi availability across the cities is 87% and 11%, respectively. WiFi throughput is lower than 3G throughput, and WiFi loss rates are higher.",NULL,"2013-10-14 14:00:00",NULL,"Augmenting3G.pdf","0"
+"18","Third Generation (3G) Wireless","testPDF.jpg","3G is the next generation of wireless network technology that provides high speed
+bandwidth (high data transfer rates) to handheld devices. The high data transfer rates will allow 3G networks to offer multimedia services combining voice and data.",NULL,"2013-10-14 14:10:00",NULL,"brief3G.pdf","0"
+"19","THINGS YOU SHOULD KNOW ABOUT… Cloud Computing","testPDF.jpg","In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate.By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis
+and avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate changes in demand.",NULL,"2013-10-14 14:16:00",NULL,"CloudComputing.pdf","0"
+"20","The Economics of Cloud Computing",,"In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate.By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis
+and avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate changes in demand.",NULL,"2013-10-15 15:20:13",NULL,"Economics-of-Cloud-Computing.pdf","0"
+"21","E-Business Model","testPDF.jpg","In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate. By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis
+and avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate
+changes in demand.",NULL,"2013-10-16 00:00:00",NULL,"ModeleEBusiness.pdf","0"
 "1","1","2","2"
 "2","2","3","3"
 "3","7","3","11"
@@ -320,6 +347,7 @@
 "3","4","3","Y","2013-09-01 00:00:00","2014-09-28 00:00:00"
 "4","4","1","N","2013-01-01 00:00:00","2013-01-01 00:00:00"
 "5","3","3","N","2013-10-01 00:00:00","2013-10-01 00:00:00"
+"6","1","3","Y","2013-10-17 00:00:00","2013-10-31 00:00:00"
 "1","What was your childhood nickname?"
 "2","What is the name of your favorite childhood friend? "
 "3","What is the middle name of your oldest child?"
