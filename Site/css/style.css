@@ -320,9 +320,9 @@ ul#topnav li span a:hover {text-decoration: none; color:#484949;}
 	line-height: 2em;
 	margin-bottom: 15px;
 	padding-bottom: 10px;
-	border-bottom-width: 1px;
+	/*border-bottom-width: 1px;
 	border-bottom-style: solid;
-	border-bottom-color: #CCC;
+	border-bottom-color: #CCC;*/
 }
 #content-middle section img{
 	margin: 10px 0 15px 0;
