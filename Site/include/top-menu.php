@@ -44,26 +44,52 @@
 				//unset($SQL);
 				while($rs=$db->fetchAssoc()){
 ?>
-				<li>
-					<a href="<?php echo $rootpath; ?>main-knowledge.php?id=<?php echo $rs["ID"]; ?>&glvl=1"><?php echo $rs["NAME"]; ?></a>
-					<span>
-<?php
-						$SQL="
-						SELECT *
-						FROM `GROUP_LV2`
-						WHERE `GROUP_LV1_ID` = '{$rs["ID"]}'
-						;";
-						$result2 = @mysql_query($SQL);
-						while($rs2=@mysql_fetch_assoc($result2)){
-							if($rs["ID"]==1){
-								?><a href="<?php echo $rootpath; ?>main-knowledge.php?id=<?php echo $rs2["ID"]; ?>&glvl=2"><?php echo $rs2["NAME"]; ?></a> | <?php
+					<li>
+						<a href="<?php echo $rootpath; ?>main-knowledge.php?id=<?php echo $rs["ID"]; ?>&glvl=1&gp=<?php 
+							$SQL2="
+								SELECT * 
+								FROM  `GROUP_LV2`
+								WHERE `GROUP_LV1_ID` = '".$rs["ID"]."' ;
+							";
+							$result2=@mysql_query($SQL2);
+							if($rs2=@mysql_fetch_array($result2)){
+								echo "y";
 							}
-						}
-?>
-					</span>
-				</li>
+							else{
+								echo "n";
+							}
+						?>"><?php echo $rs["NAME"]; ?></a>
+						<span>
 <?php
-}
+							$SQL="
+							SELECT *
+							FROM `GROUP_LV2`
+							WHERE `GROUP_LV1_ID` = '{$rs["ID"]}'
+							;";
+							$result2 = @mysql_query($SQL);
+							while($rs2=@mysql_fetch_assoc($result2)){
+								if($rs["ID"]==1){
+									?><a href="<?php echo $rootpath; ?>main-knowledge.php?id=<?php echo $rs2["ID"]; ?>&glvl=2&gp=<?php 
+										$SQL3="
+											SELECT * 
+											FROM  `GROUP_LV3`
+											WHERE `GROUP_LV2_ID` = '".$rs2["ID"]."' ;
+										";
+										$result3=@mysql_query($SQL3);
+										if(@mysql_fetch_array($result3)){
+											echo "y";
+										}
+										else{
+											echo "n";
+										}
+									?>"><?php echo $rs2["NAME"]; ?></a> | <?php
+								}
+							}
+?>
+						</span>
+					</li>
+<?php
+				}
 ?>
 				<li><a href="contact-us.php">Contact us</a></li>
 				<!-- <li>

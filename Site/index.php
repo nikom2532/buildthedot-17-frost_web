@@ -10,25 +10,77 @@ include ("include/top-menu.php");
 		<div id="icon">
 			<div class="grid_3 center">
 				<!-- <?php echo $rootpath; ?>main-knowledge.php?id=2 -->
-				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=1&glvl=2"> <img src="images/icon-best-practice.png" width="124" height="123" alt="Market">
+				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=1&glvl=2&gp=<?php 
+					$SQL2="
+						SELECT * 
+						FROM  `GROUP_LV3`
+						WHERE `GROUP_LV2_ID` = '1'
+					";
+					$result2=@mysql_query($SQL2);
+					if($rs2=@mysql_fetch_array($result2)){
+						echo "y";
+					}
+					else{
+						echo "n";
+					}
+				?>"> <img src="images/icon-best-practice.png" width="124" height="123" alt="Market">
 				<p class="text-blue bold">
 					Market
 				</p> </a>
 			</div>
 			<div class="grid_3 center">
-				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=2&glvl=2"><img src="images/icon-technology.png" width="123" height="123" alt="Technology">
+				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=2&glvl=2&gp=<?php 
+					$SQL2="
+						SELECT * 
+						FROM  `GROUP_LV3`
+						WHERE `GROUP_LV2_ID` = '2'
+					";
+					$result2=@mysql_query($SQL2);
+					if($rs2=@mysql_fetch_array($result2)){
+						echo "y";
+					}
+					else{
+						echo "n";
+					}
+				?>"><img src="images/icon-technology.png" width="123" height="123" alt="Technology">
 				<p class="text-blue bold">
 					Technology
 				</p> </a>
 			</div>
 			<div class="grid_3 center">
-				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=3&glvl=2"> <img src="images/icon-strategy.png" width="124" height="123" alt="Strategy">
+				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=3&glvl=2&gp=<?php 
+					$SQL2="
+						SELECT * 
+						FROM  `GROUP_LV3`
+						WHERE `GROUP_LV2_ID` = '3'
+					";
+					$result2=@mysql_query($SQL2);
+					if($rs2=@mysql_fetch_array($result2)){
+						echo "y";
+					}
+					else{
+						echo "n";
+					}
+				?>"> <img src="images/icon-strategy.png" width="124" height="123" alt="Strategy">
 				<p class="text-blue bold">
 					Strategy
 				</p> </a>
 			</div>
 			<div class="grid_3 center">
-				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=4&glvl=2"> <img src="images/icon-asean.png" width="127" height="127" alt="Around Asean">
+				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=4&glvl=2&gp=<?php 
+					$SQL2="
+						SELECT * 
+						FROM  `GROUP_LV3`
+						WHERE `GROUP_LV2_ID` = '4'
+					";
+					$result2=@mysql_query($SQL2);
+					if($rs2=@mysql_fetch_array($result2)){
+						echo "y";
+					}
+					else{
+						echo "n";
+					}
+				?>"> <img src="images/icon-asean.png" width="127" height="127" alt="Around Asean">
 				<p class="text-blue bold">
 					Around Asean
 				</p> </a>
