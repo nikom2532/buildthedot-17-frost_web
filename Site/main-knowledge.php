@@ -506,7 +506,7 @@ include ($rootpath."include/top-menu.php");
 											<span class="text-lightgreen bold head-desc">Update: </span><span class="date"><?php echo convertDate2String($c_UPDATE_DATE["$i"]); ?></span>
 										</p>
 										<p class="text-desc">
-											<span class="text-lightgreen bold head-desc">Description: </span><?php echo $c_DESCRIPTION["$i"]; ?>
+											<span class="text-lightgreen bold head-desc">Description: </span><?php echo substr_replace($c_DESCRIPTION["$i"],' ..',220); ?>
 											<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_CATEGORY_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
 												<span class='italic text-orange'>read more..</span>
 											</a>
