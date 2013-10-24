@@ -232,8 +232,8 @@ include ("include/top-menu.php");
 				} //### end if($count > 0)
 ?>
 				<!--end content-middle -->
-				<br /><br /><br /><br />
-				Download: 
+				<br/><br/>
+				<b id="download-no"> Dowload
 <?php
 				$sql_amount_download="
 					SELECT COUNT(`PDF_ID`) AS Number_PDF
@@ -248,6 +248,7 @@ include ("include/top-menu.php");
 					}
 				}
 ?>	
+			  </b>
 			</div>
 		<!-- </div> -->
 	</div><!--end container_12 -->

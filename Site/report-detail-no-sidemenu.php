@@ -70,7 +70,7 @@ include ("include/top-menu.php");
 				</div>
 				<div class="grid_1 center" id="price-box">
 					<?php if($row['PRICE'] != null){ ?>
-					<p><b class="center">฿ <?php echo $row['PRICE']; ?></b></p>
+					<!--<p><b class="center">฿ <?php echo $row['PRICE']; ?></b></p> -->
 					<?php }?>
 					<?php
 					echo "<a href='download-pdf.php?rp=nsb"."&pdfId=". $id ."'>";
