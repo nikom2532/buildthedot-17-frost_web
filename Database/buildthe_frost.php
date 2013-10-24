@@ -328,16 +328,18 @@ $GROUP_LV2 = array(
 
 // `buildthe_frost`.`GROUP_LV3`
 $GROUP_LV3 = array(
-  array('ID' => '3','NAME' => 'E-Business','GROUP_LV2_ID' => '2'),
-  array('ID' => '4','NAME' => 'Customer Experience Management','GROUP_LV2_ID' => '2'),
-  array('ID' => '5','NAME' => 'Value Innovation','GROUP_LV2_ID' => '2'),
-  array('ID' => '6','NAME' => 'Process Improvement','GROUP_LV2_ID' => '2'),
-  array('ID' => '7','NAME' => 'Go to Market','GROUP_LV2_ID' => '2'),
-  array('ID' => '8','NAME' => 'Competitive Analysis','GROUP_LV2_ID' => '2'),
-  array('ID' => '9','NAME' => 'Update AEC News','GROUP_LV2_ID' => '3'),
-  array('ID' => '10','NAME' => 'Competency Index','GROUP_LV2_ID' => '3'),
-  array('ID' => '11','NAME' => 'Country Profile','GROUP_LV2_ID' => '3'),
-  array('ID' => '12','NAME' => 'Company','GROUP_LV2_ID' => '4')
+  array('ID' => '3','NAME' => 'E-Business','GROUP_LV2_ID' => '3'),
+  array('ID' => '4','NAME' => 'Customer Experience Management','GROUP_LV2_ID' => '3'),
+  array('ID' => '5','NAME' => 'Value Innovation','GROUP_LV2_ID' => '3'),
+  array('ID' => '6','NAME' => 'Process Improvement','GROUP_LV2_ID' => '3'),
+  array('ID' => '7','NAME' => 'Go to Market','GROUP_LV2_ID' => '3'),
+  array('ID' => '8','NAME' => 'Competitive Analysis','GROUP_LV2_ID' => '3'),
+  array('ID' => '9','NAME' => 'Update AEC News','GROUP_LV2_ID' => '4'),
+  array('ID' => '10','NAME' => 'Competency Index','GROUP_LV2_ID' => '4'),
+  array('ID' => '11','NAME' => 'Country Profile','GROUP_LV2_ID' => '4'),
+  array('ID' => '12','NAME' => 'Company','GROUP_LV2_ID' => '5'),
+  array('ID' => '13','NAME' => 'Research Thailand','GROUP_LV2_ID' => '2'),
+  array('ID' => '14','NAME' => 'Global Trend','GROUP_LV2_ID' => '2')
 );
 
 // `buildthe_frost`.`GROUP_LV4`
@@ -345,7 +347,11 @@ $GROUP_LV4 = array(
   array('ID' => '5','NAME' => 'World Economic Index','GROUP_LV3_ID' => '10'),
   array('ID' => '6','NAME' => 'ICT Competency Index','GROUP_LV3_ID' => '10'),
   array('ID' => '7','NAME' => 'Country','GROUP_LV3_ID' => '11'),
-  array('ID' => '8','NAME' => 'Year','GROUP_LV3_ID' => '12')
+  array('ID' => '8','NAME' => 'Year','GROUP_LV3_ID' => '12'),
+  array('ID' => '9','NAME' => 'Telecom Market Data','GROUP_LV3_ID' => '13'),
+  array('ID' => '10','NAME' => 'ICT Industry Outlook','GROUP_LV3_ID' => '13'),
+  array('ID' => '11','NAME' => 'ICT Technology','GROUP_LV3_ID' => '14'),
+  array('ID' => '12','NAME' => 'Highlight of the month','GROUP_LV3_ID' => '14')
 );
 
 );
