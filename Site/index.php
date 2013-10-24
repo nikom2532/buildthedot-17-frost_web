@@ -58,10 +58,10 @@ include ("include/top-menu.php");
 			//-- Add by Fon
 			while ($row = @mysql_fetch_array($result)) {
 				echo "<section>";
-				echo "<a href='report-detail-no-sidemenu.php?id=". $row['ID'] ."' id='new-release'>";
+				echo "<a href='report-detail.php?id=". $row['ID'] ."' id='new-release'>";
 				echo "<h3>" . $row['NAME'] . "</h3>";
 				echo "</a>";
-				echo "<p>" . substr_replace($row['DESCRIPTION'],'',220) ."<a href='report-detail-no-sidemenu.php?id=". $row['ID'] ."' id='new-release'>"."  "."<span class='italic text-orange'>read more..</span>"."</a></p>";
+				echo "<p>" . substr_replace($row['DESCRIPTION'],'',220) ."<a href='report-detail.php?id=". $row['ID'] ."' id='new-release'>"."  "."<span class='italic text-orange'>read more..</span>"."</a></p>";
 				echo "</section>";
 			}
 			?>
@@ -88,7 +88,7 @@ include ("include/top-menu.php");
 									$Result_pdf=@mysql_query($sql_pdf);
 									if($rs_pdf=@mysql_fetch_array($Result_pdf)){
 ?>
-										<a href="report-detail-no-sidemenu.php?id=<?php echo $rs_statistic_by_pdf["PDF_ID"]; ?>" id='new-release'>
+										<a href="report-detail.php?id=<?php echo $rs_statistic_by_pdf["PDF_ID"]; ?>" id='new-release'>
 											<h3><?php
 												echo $rs_pdf["NAME"];
 											?>
@@ -111,7 +111,7 @@ include ("include/top-menu.php");
 										<p><?php
 											echo substr_replace($rs_pdf['DESCRIPTION'],'',220);
 ?>
-											<a href="report-detail-no-sidemenu.php?id=<?php echo $rs_pdf['ID']; ?>" id="new-release"><span class='italic text-orange'>read more..</span></a>
+											<a href="report-detail.php?id=<?php echo $rs_pdf['ID']; ?>" id="new-release"><span class='italic text-orange'>read more..</span></a>
 										</p>
 <?php
 									}
