@@ -8,9 +8,10 @@
 			<ul class="right"> 
 				<li id="button-myprofile">
 <?php 
+					// echo $_SERVER['REQUEST_URI'];
 					$userID = $_SESSION["userid"];
 					if($_SESSION["userid"]==""){ //urlencode($_SERVER['QUERY_STRING']); ?>
-						<a href="login.php?pa=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" class="link grid_2 text-orange uppercase">Sign In</a>
+						<a href="login.php?pa=<?php echo urlencode(substr( $_SERVER["REQUEST_URI"], strrpos( $_SERVER["REQUEST_URI"], '/' )+1 )); ?>" class="link grid_2 text-orange uppercase">Sign In</a>
 <?php 
 					}
 					else{
@@ -18,7 +19,7 @@
 						<a href="myprofile.php?userID=<?=$userID?>" class="ic-user link grid_2 text-orange uppercase">My Profile</a>
 						</li>
 						<li id="button-signout">
-							<a href="logout.php?pa=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" class="grid_2 uppercase" onclick="" >Sign out</a>
+							<a href="logout.php?pa=<?php echo urlencode(substr( $_SERVER["REQUEST_URI"], strrpos( $_SERVER["REQUEST_URI"], '/' )+1 )); ?>" class="grid_2 uppercase" onclick="" >Sign out</a>
 						</li>
 <?php 
 					}

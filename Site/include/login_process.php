@@ -22,7 +22,7 @@ if(($email!="")&&($password!="")) {
 	$db->query($SQL);
 	if($rs=$db->fetchAssoc()){
 		$_SESSION["userid"]=$rs["ID"];
-		header("location: ".$rootpath.".".urldecode($_POST["pa"]));
+		header("location: ".$rootpath.urldecode($_POST["pa"]));
 	}
 	else{
 ?>

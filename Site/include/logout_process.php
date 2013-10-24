@@ -7,6 +7,6 @@ if(strstr(urldecode($_GET["pa"]), '?', true) == "/myprofile.php"){
 	header("Location: ".$rootpath."./index.php");
 }
 else{
-	header("Location: ".$rootpath.".".urldecode($_GET["pa"]));
+	header("Location: ".$rootpath.urldecode($_GET["pa"]));
 }
 ?>
