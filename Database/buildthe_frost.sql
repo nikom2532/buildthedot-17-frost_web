@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 24, 2013 at 03:44 PM
+-- Generation Time: Oct 24, 2013 at 05:05 PM
 -- Server version: 5.1.67
 -- PHP Version: 5.3.27
 
@@ -628,7 +628,7 @@ CREATE TABLE IF NOT EXISTS `PDF_CATEGORY` (
   `GROUP_LEVEL_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `PDF_ID` (`PDF_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=29 ;
 
 --
 -- Dumping data for table `PDF_CATEGORY`
@@ -646,7 +646,12 @@ INSERT INTO `PDF_CATEGORY` (`ID`, `PDF_ID`, `GROUP_LEVEL_NAME`, `GROUP_LEVEL_ID`
 (9, 13, '3', 11),
 (10, 14, '3', 11),
 (11, 15, '3', 11),
-(12, 16, '3', 11);
+(12, 16, '3', 11),
+(24, 17, '3', 3),
+(25, 18, '3', 4),
+(26, 19, '3', 9),
+(27, 20, '4', 5),
+(28, 21, '3', 3);
 
 -- --------------------------------------------------------
 

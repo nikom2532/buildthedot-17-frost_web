@@ -286,6 +286,24 @@ $DEPARTMENT = array(
   array('ID' => '1','NAME' => 'A')
 );
 
+// `buildthe_frost`.`DOWNLOAD_STATISTICS`
+$DOWNLOAD_STATISTICS = array(
+  array('ID' => '1','USER_ID' => '1','PDF_ID' => '21','DOWNLOAD_DATETIME' => '2013-10-17 12:37:16'),
+  array('ID' => '2','USER_ID' => '1','PDF_ID' => '21','DOWNLOAD_DATETIME' => '2013-10-17 12:42:15'),
+  array('ID' => '3','USER_ID' => '3','PDF_ID' => '21','DOWNLOAD_DATETIME' => '2013-10-17 12:42:58'),
+  array('ID' => '4','USER_ID' => '3','PDF_ID' => '21','DOWNLOAD_DATETIME' => '2013-10-17 12:43:20'),
+  array('ID' => '5','USER_ID' => '3','PDF_ID' => '21','DOWNLOAD_DATETIME' => '2013-10-17 12:43:23'),
+  array('ID' => '6','USER_ID' => '3','PDF_ID' => '21','DOWNLOAD_DATETIME' => '2013-10-17 12:43:25'),
+  array('ID' => '7','USER_ID' => '3','PDF_ID' => '21','DOWNLOAD_DATETIME' => '2013-10-17 12:43:28'),
+  array('ID' => '8','USER_ID' => '3','PDF_ID' => '21','DOWNLOAD_DATETIME' => '2013-10-17 16:50:34'),
+  array('ID' => '9','USER_ID' => '3','PDF_ID' => '21','DOWNLOAD_DATETIME' => '2013-10-17 16:51:03'),
+  array('ID' => '10','USER_ID' => '3','PDF_ID' => '21','DOWNLOAD_DATETIME' => '2013-10-17 18:10:02'),
+  array('ID' => '11','USER_ID' => '1','PDF_ID' => '2','DOWNLOAD_DATETIME' => '2013-10-17 18:16:49'),
+  array('ID' => '12','USER_ID' => '1','PDF_ID' => '2','DOWNLOAD_DATETIME' => '2013-10-17 18:17:05'),
+  array('ID' => '13','USER_ID' => '1','PDF_ID' => '2','DOWNLOAD_DATETIME' => '2013-10-17 18:23:50'),
+  array('ID' => '14','USER_ID' => '1','PDF_ID' => '1','DOWNLOAD_DATETIME' => '2013-10-17 18:28:03'),
+  array('ID' => '15','USER_ID' => '3','PDF_ID' => '21','DOWNLOAD_DATETIME' => '2013-10-22 14:28:01'),
+  array('ID' => '16','USER_ID' => '3','PDF_ID' => '21','DOWNLOAD_DATETIME' => '2013-10-22 14:29:28')
 );
 
 // `buildthe_frost`.`GROUP_LV1`
@@ -360,7 +378,18 @@ $PDF = array(
   array('ID' => '13','NAME' => 'Philippines','PHOTO_NAME' => 'philipine.jpg','DESCRIPTION' => 'aaa','PRICE' => '100','UPDATE_DATE' => NULL,'COMPANY_ID' => NULL,'PATH' => 'TestPdf1.pdf','Is_Asian_country' => '1'),
   array('ID' => '14','NAME' => 'Singapore','PHOTO_NAME' => 'singapore.jpg','DESCRIPTION' => 'aaa','PRICE' => '100','UPDATE_DATE' => NULL,'COMPANY_ID' => NULL,'PATH' => 'TestPdf1.pdf','Is_Asian_country' => '1'),
   array('ID' => '15','NAME' => 'Thailand','PHOTO_NAME' => 'thailand.jpg','DESCRIPTION' => 'aaa','PRICE' => '100','UPDATE_DATE' => NULL,'COMPANY_ID' => NULL,'PATH' => 'TestPdf1.pdf','Is_Asian_country' => '1'),
-  array('ID' => '16','NAME' => 'Viet Nam','PHOTO_NAME' => 'vietnam.jpg','DESCRIPTION' => 'aaa','PRICE' => '100','UPDATE_DATE' => NULL,'COMPANY_ID' => NULL,'PATH' => 'TestPdf1.pdf','Is_Asian_country' => '1')
+  array('ID' => '16','NAME' => 'Viet Nam','PHOTO_NAME' => 'vietnam.jpg','DESCRIPTION' => 'aaa','PRICE' => '100','UPDATE_DATE' => NULL,'COMPANY_ID' => NULL,'PATH' => 'TestPdf1.pdf','Is_Asian_country' => '1'),
+  array('ID' => '17','NAME' => 'Augmenting Mobile 3G Using WiFi','PHOTO_NAME' => 'testPDF.jpg','DESCRIPTION' => 'We investigate if WiFi access can be used to augment 3G capacity in mobile environments. We rst conduct a detailed study of 3G and WiFi access from moving vehicles, in three
+dierent cities. We nd that the average 3G and WiFi availability across the cities is 87% and 11%, respectively. WiFi throughput is lower than 3G throughput, and WiFi loss rates are higher.','PRICE' => NULL,'UPDATE_DATE' => '2013-10-14 14:00:00','COMPANY_ID' => NULL,'PATH' => 'Augmenting3G.pdf','Is_Asian_country' => '0'),
+  array('ID' => '18','NAME' => 'Third Generation (3G) Wireless','PHOTO_NAME' => 'testPDF.jpg','DESCRIPTION' => '3G is the next generation of wireless network technology that provides high speed
+bandwidth (high data transfer rates) to handheld devices. The high data transfer rates will allow 3G networks to offer multimedia services combining voice and data.','PRICE' => NULL,'UPDATE_DATE' => '2013-10-14 14:10:00','COMPANY_ID' => NULL,'PATH' => 'brief3G.pdf','Is_Asian_country' => '0'),
+  array('ID' => '19','NAME' => 'THINGS YOU SHOULD KNOW ABOUT… Cloud Computing','PHOTO_NAME' => 'testPDF.jpg','DESCRIPTION' => 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate.By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis
+and avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate changes in demand.','PRICE' => NULL,'UPDATE_DATE' => '2013-10-14 14:16:00','COMPANY_ID' => NULL,'PATH' => 'CloudComputing.pdf','Is_Asian_country' => '0'),
+  array('ID' => '20','NAME' => 'The Economics of Cloud Computing','PHOTO_NAME' => '','DESCRIPTION' => 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate.By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis
+and avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate changes in demand.','PRICE' => NULL,'UPDATE_DATE' => '2013-10-15 15:20:13','COMPANY_ID' => NULL,'PATH' => 'Economics-of-Cloud-Computing.pdf','Is_Asian_country' => '0'),
+  array('ID' => '21','NAME' => 'E-Business Model','PHOTO_NAME' => 'testPDF.jpg','DESCRIPTION' => 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate. By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis
+and avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate
+changes in demand.','PRICE' => NULL,'UPDATE_DATE' => '2013-10-16 00:00:00','COMPANY_ID' => NULL,'PATH' => 'ModeleEBusiness.pdf','Is_Asian_country' => '0')
 );
 
 // `buildthe_frost`.`PDF_CATEGORY`
@@ -376,7 +405,12 @@ $PDF_CATEGORY = array(
   array('ID' => '9','PDF_ID' => '13','GROUP_LEVEL_NAME' => '3','GROUP_LEVEL_ID' => '11'),
   array('ID' => '10','PDF_ID' => '14','GROUP_LEVEL_NAME' => '3','GROUP_LEVEL_ID' => '11'),
   array('ID' => '11','PDF_ID' => '15','GROUP_LEVEL_NAME' => '3','GROUP_LEVEL_ID' => '11'),
-  array('ID' => '12','PDF_ID' => '16','GROUP_LEVEL_NAME' => '3','GROUP_LEVEL_ID' => '11')
+  array('ID' => '12','PDF_ID' => '16','GROUP_LEVEL_NAME' => '3','GROUP_LEVEL_ID' => '11'),
+  array('ID' => '24','PDF_ID' => '17','GROUP_LEVEL_NAME' => '3','GROUP_LEVEL_ID' => '3'),
+  array('ID' => '25','PDF_ID' => '18','GROUP_LEVEL_NAME' => '3','GROUP_LEVEL_ID' => '4'),
+  array('ID' => '26','PDF_ID' => '19','GROUP_LEVEL_NAME' => '3','GROUP_LEVEL_ID' => '9'),
+  array('ID' => '27','PDF_ID' => '20','GROUP_LEVEL_NAME' => '4','GROUP_LEVEL_ID' => '5'),
+  array('ID' => '28','PDF_ID' => '21','GROUP_LEVEL_NAME' => '3','GROUP_LEVEL_ID' => '3')
 );
 
 // `buildthe_frost`.`PERMISSION`
@@ -385,7 +419,8 @@ $PERMISSION = array(
   array('ID' => '2','USER_PROFILE_ID' => '3','GROUP_LV2_ID' => '1','IS_ACTIVE' => 'N','START_DATE' => '2013-10-03 00:00:00','END_DATE' => '2014-10-17 00:00:00'),
   array('ID' => '3','USER_PROFILE_ID' => '4','GROUP_LV2_ID' => '3','IS_ACTIVE' => 'Y','START_DATE' => '2013-09-01 00:00:00','END_DATE' => '2014-09-28 00:00:00'),
   array('ID' => '4','USER_PROFILE_ID' => '4','GROUP_LV2_ID' => '1','IS_ACTIVE' => 'N','START_DATE' => '2013-01-01 00:00:00','END_DATE' => '2013-01-01 00:00:00'),
-  array('ID' => '5','USER_PROFILE_ID' => '3','GROUP_LV2_ID' => '3','IS_ACTIVE' => 'N','START_DATE' => '2013-10-01 00:00:00','END_DATE' => '2013-10-01 00:00:00')
+  array('ID' => '5','USER_PROFILE_ID' => '3','GROUP_LV2_ID' => '3','IS_ACTIVE' => 'N','START_DATE' => '2013-10-01 00:00:00','END_DATE' => '2013-10-01 00:00:00'),
+  array('ID' => '6','USER_PROFILE_ID' => '1','GROUP_LV2_ID' => '3','IS_ACTIVE' => 'Y','START_DATE' => '2013-10-17 00:00:00','END_DATE' => '2013-10-31 00:00:00')
 );
 
 // `buildthe_frost`.`QUESTION`
