@@ -1,4 +1,5 @@
 <?php
+ob_start();
 $rootpath = "./";
 include ("include/header.php");
 if ($_SESSION["userid"] == "") {
@@ -67,8 +68,10 @@ else {
 			echo "Invalid file";
 		}
 	} else{
+		echo "update success";
 		include($rootpath."edit-profile-proc.php");
 		
 	}
 
 }
+ob_end_flush();

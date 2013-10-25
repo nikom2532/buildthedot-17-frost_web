@@ -19,11 +19,14 @@
 	$cmdQuery = mysql_query($strSQL);
 	echo $filename;
 	if ($cmdQuery) {
-		header("Location: myprofile.php?userID=$userID");
+		header("location: myprofile.php?userID=$userID");
+		exit;
 	} else {
 		echo "<script>";
 		echo "alert('Update profile failed'); ";
 		echo "location.href='edit_profile.php?userID=$userID'; ";
 		echo "</script>";
+		exit;
 	}
+	
 ?>

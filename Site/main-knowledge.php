@@ -478,7 +478,7 @@ include ($rootpath."include/top-menu.php");
 												($_GET["id"]==10 && $_GET["glvl"]==3)
 											)){
 	?>
-												<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_CATEGORY_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
+												<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
 													<img src="images/pdf_image/<?php echo $c_PHOTO_NAME["$i"]; ?>" />
 												</a>
 	<?php
@@ -489,7 +489,7 @@ include ($rootpath."include/top-menu.php");
 										
 										<p>
 											<span class="text-lightgreen bold head-desc">Title: </span>
-											<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_CATEGORY_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
+											<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF__ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
 												<?php echo $c_NAME["$i"]; ?>
 												<span id="ic-lock">
 	<?php /*
@@ -507,7 +507,7 @@ include ($rootpath."include/top-menu.php");
 										</p>
 										<p class="text-desc">
 											<span class="text-lightgreen bold head-desc">Description: </span><?php echo substr_replace($c_DESCRIPTION["$i"],' ..',220); ?>
-											<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_CATEGORY_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
+											<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
 												<span class='italic text-orange'>read more..</span>
 											</a>
 										</p>
