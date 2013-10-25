@@ -20,11 +20,13 @@
 	echo $filename;
 	if ($cmdQuery) {
 		header("location: myprofile.php?userID=$userID");
+		exit;
 	} else {
 		echo "<script>";
 		echo "alert('Update profile failed'); ";
 		echo "location.href='edit_profile.php?userID=$userID'; ";
 		echo "</script>";
+		exit;
 	}
 	
 ?>

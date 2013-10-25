@@ -1,4 +1,5 @@
 <?php
+ob_start();
 $rootpath = "./";
 include ("include/header.php");
 if ($_SESSION["userid"] == "") {
@@ -73,3 +74,4 @@ else {
 	}
 
 }
+ob_end_flush();
