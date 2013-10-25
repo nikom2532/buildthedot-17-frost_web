@@ -18,7 +18,7 @@ include ("include/top-menu.php");
 				$query = "SELECT * FROM  PDF WHERE ID =".$id;
 				$result = mysql_query($query) OR die(mysql_error());
 				$count = mysql_num_rows($result);
-
+				
 				$current_month_all =  date('M');
 				$current_year_all =  date('Y');
 			
