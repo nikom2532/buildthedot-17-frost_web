@@ -7,14 +7,14 @@ $year = $_GET['year'];
 if(!empty($keyword)){//if keyword set goes here
 	$queried = mysql_real_escape_string($keyword); // always escape	
 	$keys = explode(" ",$queried);
-	$strQuery = " SELECT * FROM PDF WHERE LOWER(NAME) LIKE LOWER('%$queried%') OR LOWER(DESCRIPTION) LIKE LOWER('%$queried%') ";
+	$strQuery = " SELECT p.NAME, p.DESCRIPTION, p.UPDATE_DATE FROM PDF p WHERE LOWER(NAME) LIKE LOWER('%$queried%') OR LOWER(DESCRIPTION) LIKE LOWER('%$queried%') ";
 	foreach($keys as $k){
-		$strQuery .= " OR LOWER(NAME) LIKE LOWER('%$k%') OR LOWER(DESCRIPTION) LIKE LOWER('%$k%')";
-	    // $strQuery .= " UNION (SELECT *
-							// FROM PDF p
-							// INNER JOIN TAG_RELATIONSHIP tr ON tr.PDF_ID = p.ID
-							// INNER JOIN TAG t ON tr.TAG_ID = t.ID
-							// WHERE t.NAME LIKE '%$k%')";
+		$strQuery .= "OR LOWER(NAME) LIKE LOWER('%$k%') OR LOWER(DESCRIPTION) LIKE LOWER('%$k%')";
+	    $strQuery .= "UNION SELECT p.NAME, p.DESCRIPTION, p.UPDATE_DATE
+							FROM PDF p
+							INNER JOIN TAG_RELATIONSHIP tr ON tr.PDF_ID = p.ID
+							INNER JOIN TAG t ON tr.TAG_ID = t.ID
+							WHERE t.NAME LIKE '%$k%'";
 	}
 	//echo $strQuery;
    //$strQuery = "SELECT * FROM PDF WHERE LOWER(NAME) LIKE LOWER('%$keyword%') OR LOWER(DESCRIPTION) LIKE LOWER('%$keyword%') OR YEAR(UPDATE_DATE)= '$keyword' ";
