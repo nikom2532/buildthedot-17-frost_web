@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 24, 2013 at 09:18 PM
+-- Generation Time: Oct 24, 2013 at 10:47 PM
 -- Server version: 5.1.67
 -- PHP Version: 5.3.27
 
@@ -464,23 +464,25 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV3` (
   `GROUP_LV2_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_GROUP_LV3_GROUP_LV21_idx` (`GROUP_LV2_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `GROUP_LV3`
 --
 
 INSERT INTO `GROUP_LV3` (`ID`, `NAME`, `GROUP_LV2_ID`) VALUES
-(3, 'E-Business', 2),
-(4, 'Customer Experience Management', 2),
-(5, 'Value Innovation', 2),
-(6, 'Process Improvement', 2),
-(7, 'Go to Market', 2),
-(8, 'Competitive Analysis', 2),
-(9, 'Update AEC News', 3),
-(10, 'Competency Index', 3),
-(11, 'Country Profile', 3),
-(12, 'Company', 4);
+(3, 'E-Business', 3),
+(4, 'Customer Experience Management', 3),
+(5, 'Value Innovation', 3),
+(6, 'Process Improvement', 3),
+(7, 'Go to Market', 3),
+(8, 'Competitive Analysis', 3),
+(9, 'Update AEC News', 4),
+(10, 'Competency Index', 4),
+(11, 'Country Profile', 4),
+(12, 'Company', 5),
+(13, 'Research Thailand', 2),
+(14, 'Global Trend', 2);
 
 -- --------------------------------------------------------
 
@@ -494,7 +496,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV4` (
   `GROUP_LV3_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_GROUP_LV4_GROUP_LV31_idx` (`GROUP_LV3_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `GROUP_LV4`
@@ -504,7 +506,11 @@ INSERT INTO `GROUP_LV4` (`ID`, `NAME`, `GROUP_LV3_ID`) VALUES
 (5, 'World Economic Index', 10),
 (6, 'ICT Competency Index', 10),
 (7, 'Country', 11),
-(8, 'Year', 12);
+(8, 'Year', 12),
+(9, 'Telecom Market Data', 13),
+(10, 'ICT Industry Outlook', 13),
+(11, 'ICT Technology', 14),
+(12, 'Highlight of the month', 14);
 
 -- --------------------------------------------------------
 
