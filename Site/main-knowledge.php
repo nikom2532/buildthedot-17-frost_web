@@ -316,7 +316,7 @@ include ($rootpath."include/top-menu.php");
 							elseif ($_GET["id"]==11 && $_GET["glvl"]==3) {
 								if($i%4==0){
 ?>
-									<div class="grid_8" id="wrap-cp">
+									<div class="prefix_2 grid_5" id="wrap-cp">
 <?php
 								}
 ?>
@@ -423,7 +423,7 @@ include ($rootpath."include/top-menu.php");
 								elseif ($_GET["id"]==11 && $_GET["glvl"]==3) {
 									if($i%4==0){
 	?>
-										<div class="grid_8" id="wrap-cp">
+										<div class="prefix_2 grid_5" id="wrap-cp">
 	<?php
 									}
 	?>
