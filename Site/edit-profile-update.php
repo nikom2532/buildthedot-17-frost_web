@@ -67,6 +67,7 @@ else {
 			echo "Invalid file";
 		}
 	} else{
+		echo "update success";
 		include($rootpath."edit-profile-proc.php");
 		
 	}
