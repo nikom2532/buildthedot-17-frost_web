@@ -10,7 +10,7 @@ include ("include/top-menu.php");
 		<div id="icon">
 			<div class="grid_3 center">
 				<!-- <?php echo $rootpath; ?>main-knowledge.php?id=2 -->
-				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=1&glvl=2&gp=<?php 
+				<a href="<?php echo $rootpath; ?>main-knowledge.php?id=10&glvl=2&gp=<?php 
 					$SQL2="
 						SELECT * 
 						FROM  `GROUP_LV3`
