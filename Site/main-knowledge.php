@@ -489,7 +489,7 @@ include ($rootpath."include/top-menu.php");
 										
 										<p>
 											<span class="text-lightgreen bold head-desc">Title: </span>
-											<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF__ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
+											<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
 												<?php echo $c_NAME["$i"]; ?>
 												<span id="ic-lock">
 	<?php /*
