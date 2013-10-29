@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1deb1
+-- version 3.4.3.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 28, 2013 at 04:55 PM
--- Server version: 5.5.32
--- PHP Version: 5.3.10-1ubuntu3.7
+-- Generation Time: Oct 29, 2013 at 09:52 PM
+-- Server version: 5.1.66
+-- PHP Version: 5.3.3-7+squeeze15
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `buildthedot_17frost`
+-- Database: `mckansys5`
 --
 
 -- --------------------------------------------------------
@@ -378,7 +378,7 @@ CREATE TABLE IF NOT EXISTS `DOWNLOAD_STATISTICS` (
   `PDF_ID` int(100) NOT NULL,
   `DOWNLOAD_DATETIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `DOWNLOAD_STATISTICS`
@@ -400,7 +400,11 @@ INSERT INTO `DOWNLOAD_STATISTICS` (`ID`, `USER_ID`, `PDF_ID`, `DOWNLOAD_DATETIME
 (13, 1, 2, '2013-10-17 11:23:50'),
 (14, 1, 1, '2013-10-17 11:28:03'),
 (15, 3, 21, '2013-10-22 07:28:01'),
-(16, 3, 21, '2013-10-22 07:29:28');
+(16, 3, 21, '2013-10-22 07:29:28'),
+(17, 1, 17, '2013-10-29 14:21:54'),
+(18, 1, 18, '2013-10-29 14:22:12'),
+(19, 1, 17, '2013-10-29 14:22:53'),
+(20, 1, 21, '2013-10-29 14:32:56');
 
 -- --------------------------------------------------------
 
@@ -411,6 +415,7 @@ INSERT INTO `DOWNLOAD_STATISTICS` (`ID`, `USER_ID`, `PDF_ID`, `DOWNLOAD_DATETIME
 CREATE TABLE IF NOT EXISTS `GROUP_LV1` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
@@ -418,9 +423,9 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV1` (
 -- Dumping data for table `GROUP_LV1`
 --
 
-INSERT INTO `GROUP_LV1` (`ID`, `NAME`) VALUES
-(1, 'Knowledge'),
-(2, 'Best Practice');
+INSERT INTO `GROUP_LV1` (`ID`, `NAME`, `DESCRIPTION`) VALUES
+(1, 'Knowledge', ''),
+(2, 'Best Practice', '');
 
 -- --------------------------------------------------------
 
@@ -432,6 +437,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV2` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `GROUP_LV1_ID` int(11) NOT NULL,
+  `DESCRIPTION` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_GROUP_LV2_GROUP_LV11_idx` (`GROUP_LV1_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
@@ -440,17 +446,17 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV2` (
 -- Dumping data for table `GROUP_LV2`
 --
 
-INSERT INTO `GROUP_LV2` (`ID`, `NAME`, `GROUP_LV1_ID`) VALUES
-(1, 'Market', 1),
-(2, 'Technology', 1),
-(3, 'Strategy', 1),
-(4, 'Around Asian', 1),
-(5, 'E-Business', 2),
-(6, 'Customer Experience Management', 2),
-(7, 'Value Innovation', 2),
-(8, 'Process Improvement', 2),
-(9, 'Go to Market', 2),
-(10, 'Competitive Analysis', 2);
+INSERT INTO `GROUP_LV2` (`ID`, `NAME`, `GROUP_LV1_ID`, `DESCRIPTION`) VALUES
+(1, 'Market', 1, ''),
+(2, 'Technology', 1, ''),
+(3, 'Strategy', 1, ''),
+(4, 'Around Asian', 1, ''),
+(5, 'E-Business', 2, ''),
+(6, 'Customer Experience Management', 2, ''),
+(7, 'Value Innovation', 2, ''),
+(8, 'Process Improvement', 2, ''),
+(9, 'Go to Market', 2, ''),
+(10, 'Competitive Analysis', 2, '');
 
 -- --------------------------------------------------------
 
@@ -462,6 +468,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV3` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `GROUP_LV2_ID` int(11) NOT NULL,
+  `DESCRIPTION` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_GROUP_LV3_GROUP_LV21_idx` (`GROUP_LV2_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=15 ;
@@ -470,17 +477,17 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV3` (
 -- Dumping data for table `GROUP_LV3`
 --
 
-INSERT INTO `GROUP_LV3` (`ID`, `NAME`, `GROUP_LV2_ID`) VALUES
-(3, 'E-Business', 3),
-(4, 'Customer Experience Management', 3),
-(5, 'Value Innovation', 3),
-(6, 'Process Improvement', 3),
-(7, 'Go to Market', 3),
-(8, 'Competitive Analysis', 3),
-(9, 'Update AEC News', 4),
-(10, 'Competency Index', 4),
-(11, 'Country Profile', 4),
-(12, 'Company', 5);
+INSERT INTO `GROUP_LV3` (`ID`, `NAME`, `GROUP_LV2_ID`, `DESCRIPTION`) VALUES
+(3, 'E-Business', 3, ''),
+(4, 'Customer Experience Management', 3, ''),
+(5, 'Value Innovation', 3, ''),
+(6, 'Process Improvement', 3, ''),
+(7, 'Go to Market', 3, ''),
+(8, 'Competitive Analysis', 3, ''),
+(9, 'Update AEC News', 4, ''),
+(10, 'Competency Index', 4, ''),
+(11, 'Country Profile', 4, ''),
+(12, 'Company', 5, '');
 
 -- --------------------------------------------------------
 
@@ -492,6 +499,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV4` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `GROUP_LV3_ID` int(11) NOT NULL,
+  `DESCRIPTION` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_GROUP_LV4_GROUP_LV31_idx` (`GROUP_LV3_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
@@ -500,11 +508,11 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV4` (
 -- Dumping data for table `GROUP_LV4`
 --
 
-INSERT INTO `GROUP_LV4` (`ID`, `NAME`, `GROUP_LV3_ID`) VALUES
-(5, 'World Economic Index', 10),
-(6, 'ICT Competency Index', 10),
-(7, 'Country', 11),
-(8, 'Year', 12);
+INSERT INTO `GROUP_LV4` (`ID`, `NAME`, `GROUP_LV3_ID`, `DESCRIPTION`) VALUES
+(5, 'World Economic Index', 10, ''),
+(6, 'ICT Competency Index', 10, ''),
+(7, 'Country', 11, ''),
+(8, 'Year', 12, '');
 
 -- --------------------------------------------------------
 
@@ -516,6 +524,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV5` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(60) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `GROUP_LV4_ID` int(11) NOT NULL,
+  `DESCRIPTION` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
@@ -529,6 +538,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV6` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` int(11) NOT NULL,
   `GROUP_LV5_ID` int(11) NOT NULL,
+  `DESCRIPTION` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
@@ -594,26 +604,26 @@ CREATE TABLE IF NOT EXISTS `PDF` (
 --
 
 INSERT INTO `PDF` (`ID`, `NAME`, `PHOTO_NAME`, `DESCRIPTION`, `PRICE`, `UPDATE_DATE`, `COMPANY_ID`, `PATH`, `Is_Asian_country`) VALUES
-(1, 'test1', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 1', 100, '2013-09-01 00:00:00', 1, 'TestPdf1.pdf', 0),
-(2, 'test2', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 2', 200, '2013-09-02 00:00:00', 2, 'TestPdf2.pdf', 0),
-(3, 'test3', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 3', 300, '2013-09-03 00:00:00', 3, 'TestPdf3.pdf', 0),
-(4, 'test4', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 4', 400, '2013-09-04 00:00:00', 4, 'TestPdf4.pdf', 0),
-(5, 'test5', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 5', 500, '2013-09-05 00:00:00', 5, 'TestPdf5.pdf', 0),
-(7, 'Brunei Darussalam', 'brunei.jpg', 'asdf', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(8, 'Cambodia', 'cambodia.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(9, 'Indonesia', 'indonesia.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(10, 'Lao PDR', 'lao.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(11, 'Malaysia', 'malaysia.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(12, 'Myanmar', 'myanmar.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(13, 'Philippines', 'philipine.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(14, 'Singapore', 'singapore.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(15, 'Thailand', 'thailand.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(16, 'Viet Nam', 'vietnam.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(17, 'Augmenting Mobile 3G Using WiFi', 'testPDF.jpg', 'We investigate if WiFi access can be used to augment 3G capacity in mobile environments. We rst conduct a detailed study of 3G and WiFi access from moving vehicles, in three\r\ndierent cities. We nd that the average 3G and WiFi availability across the cities is 87% and 11%, respectively. WiFi throughput is lower than 3G throughput, and WiFi loss rates are higher.', NULL, '2013-10-14 14:00:00', NULL, 'Augmenting3G.pdf', 0),
-(18, 'Third Generation (3G) Wireless', 'testPDF.jpg', '3G is the next generation of wireless network technology that provides high speed\r\nbandwidth (high data transfer rates) to handheld devices. The high data transfer rates will allow 3G networks to offer multimedia services combining voice and data.', NULL, '2013-10-14 14:10:00', NULL, 'brief3G.pdf', 0),
-(19, 'THINGS YOU SHOULD KNOW ABOUT… Cloud Computing', 'testPDF.jpg', 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate.By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis\r\nand avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate changes in demand.', NULL, '2013-10-14 14:16:00', NULL, 'CloudComputing.pdf', 0),
-(20, 'The Economics of Cloud Computing', '', 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate.By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis\r\nand avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate changes in demand.', NULL, '2013-10-15 15:20:13', NULL, 'Economics-of-Cloud-Computing.pdf', 0),
-(21, 'E-Business Model', 'testPDF.jpg', 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate. By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis\r\nand avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate\r\nchanges in demand.', NULL, '2013-10-16 00:00:00', NULL, 'ModeleEBusiness.pdf', 0);
+(1, 'test1', 'testPDF.jpg', 0x4c6f72656d20497073756d2069732073696d706c792064756d6d792074657874206f6620746865207072696e74696e6720616e64207479706573657474696e6720696e6475737472792e204c6f72656d20497073756d20686173206265656e2074686520696e6475737472792773207374616e646172642064756d6d79207465787420657665722073696e6365207468652031353030732c204c6f72656d2031, 100, '2013-09-01 00:00:00', 1, 'TestPdf1.pdf', 0),
+(2, 'test2', 'testPDF.jpg', 0x4c6f72656d20497073756d2069732073696d706c792064756d6d792074657874206f6620746865207072696e74696e6720616e64207479706573657474696e6720696e6475737472792e204c6f72656d20497073756d20686173206265656e2074686520696e6475737472792773207374616e646172642064756d6d79207465787420657665722073696e6365207468652031353030732c204c6f72656d2032, 200, '2013-09-02 00:00:00', 2, 'TestPdf2.pdf', 0),
+(3, 'test3', 'testPDF.jpg', 0x4c6f72656d20497073756d2069732073696d706c792064756d6d792074657874206f6620746865207072696e74696e6720616e64207479706573657474696e6720696e6475737472792e204c6f72656d20497073756d20686173206265656e2074686520696e6475737472792773207374616e646172642064756d6d79207465787420657665722073696e6365207468652031353030732c204c6f72656d2033, 300, '2013-09-03 00:00:00', 3, 'TestPdf3.pdf', 0),
+(4, 'test4', 'testPDF.jpg', 0x4c6f72656d20497073756d2069732073696d706c792064756d6d792074657874206f6620746865207072696e74696e6720616e64207479706573657474696e6720696e6475737472792e204c6f72656d20497073756d20686173206265656e2074686520696e6475737472792773207374616e646172642064756d6d79207465787420657665722073696e6365207468652031353030732c204c6f72656d2034, 400, '2013-09-04 00:00:00', 4, 'TestPdf4.pdf', 0),
+(5, 'test5', 'testPDF.jpg', 0x4c6f72656d20497073756d2069732073696d706c792064756d6d792074657874206f6620746865207072696e74696e6720616e64207479706573657474696e6720696e6475737472792e204c6f72656d20497073756d20686173206265656e2074686520696e6475737472792773207374616e646172642064756d6d79207465787420657665722073696e6365207468652031353030732c204c6f72656d2035, 500, '2013-09-05 00:00:00', 5, 'TestPdf5.pdf', 0),
+(7, 'Brunei Darussalam', 'brunei.jpg', 0x61736466, 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(8, 'Cambodia', 'cambodia.jpg', 0x4c6f72656d20497073756d2069732073696d706c792064756d6d792074657874206f6620746865207072696e74696e6720616e64207479706573657474696e6720696e6475737472792e204c6f72656d20497073756d20686173206265656e2074686520696e6475737472792773207374616e646172642064756d6d79207465787420657665722073696e636520746865203135303073, 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(9, 'Indonesia', 'indonesia.jpg', 0x616161, 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(10, 'Lao PDR', 'lao.jpg', 0x616161, 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(11, 'Malaysia', 'malaysia.jpg', 0x616161, 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(12, 'Myanmar', 'myanmar.jpg', 0x616161, 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(13, 'Philippines', 'philipine.jpg', 0x616161, 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(14, 'Singapore', 'singapore.jpg', 0x616161, 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(15, 'Thailand', 'thailand.jpg', 0x616161, 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(16, 'Viet Nam', 'vietnam.jpg', 0x616161, 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(17, 'Augmenting Mobile 3G Using WiFi', 'testPDF.jpg', 0x576520696e7665737469676174652069662057694669206163636573732063616e206265207573656420746f206175676d656e7420334720636170616369747920696e206d6f62696c6520656e7669726f6e6d656e74732e205765200c72737420636f6e6475637420612064657461696c6564207374756479206f6620334720616e642057694669206163636573732066726f6d206d6f76696e672076656869636c65732c20696e2074687265650d0a64690b6572656e74206369746965732e205765200c6e64207468617420746865206176657261676520334720616e64205769466920617661696c6162696c697479206163726f737320746865206369746965732069732038372520616e64203131252c20726573706563746976656c792e2057694669207468726f756768707574206973206c6f776572207468616e203347207468726f7567687075742c20616e642057694669206c6f737320726174657320617265206869676865722e, NULL, '2013-10-14 14:00:00', NULL, 'Augmenting3G.pdf', 0),
+(18, 'Third Generation (3G) Wireless', 'testPDF.jpg', 0x334720697320746865206e6578742067656e65726174696f6e206f6620776972656c657373206e6574776f726b20746563686e6f6c6f677920746861742070726f766964657320686967682073706565640d0a62616e6477696474682028686967682064617461207472616e736665722072617465732920746f2068616e6468656c6420646576696365732e2054686520686967682064617461207472616e736665722072617465732077696c6c20616c6c6f77203347206e6574776f726b7320746f206f66666572206d756c74696d6564696120736572766963657320636f6d62696e696e6720766f69636520616e6420646174612e, NULL, '2013-10-14 14:10:00', NULL, 'brief3G.pdf', 0),
+(19, 'THINGS YOU SHOULD KNOW ABOUT… Cloud Computing', 'testPDF.jpg', 0x496e206974732062726f61646573742075736167652c20746865207465726d20636c6f756420636f6d707574696e672072656665727320746f207468652064656c6976657279206f66207363616c61626c65204954207265736f7572636573206f7665722074686520496e7465726e65742c206173206f70706f73656420746f20686f7374696e6720616e64206f7065726174696e672074686f7365207265736f7572636573206c6f63616c6c792c2073756368206173206f6e206120636f6c6c656765206f7220756e6976657273697479206e6574776f726b2e2054686f7365207265736f75726365732063616e20696e636c756465206170706c69636174696f6e7320616e642073657276696365732c2061732077656c6c2061732074686520696e667261737472756374757265206f6e2077686963682074686579206f7065726174652e4279206465706c6f79696e6720495420696e66726173747275637475726520616e64207365727669636573206f76657220746865206e6574776f726b2c20616e206f7267616e697a6174696f6e2063616e207075726368617365207468657365207265736f7572636573206f6e20616e2061732d6e65656465642062617369730d0a616e642061766f696420746865206361706974616c20636f737473206f6620736f66747761726520616e642068617264776172652e205769746820636c6f756420636f6d707574696e672c2049542063617061636974792063616e2062652061646a757374656420717569636b6c7920616e6420656173696c7920746f206163636f6d6d6f64617465206368616e67657320696e2064656d616e642e, NULL, '2013-10-14 14:16:00', NULL, 'CloudComputing.pdf', 0),
+(20, 'The Economics of Cloud Computing', '', 0x496e206974732062726f61646573742075736167652c20746865207465726d20636c6f756420636f6d707574696e672072656665727320746f207468652064656c6976657279206f66207363616c61626c65204954207265736f7572636573206f7665722074686520496e7465726e65742c206173206f70706f73656420746f20686f7374696e6720616e64206f7065726174696e672074686f7365207265736f7572636573206c6f63616c6c792c2073756368206173206f6e206120636f6c6c656765206f7220756e6976657273697479206e6574776f726b2e2054686f7365207265736f75726365732063616e20696e636c756465206170706c69636174696f6e7320616e642073657276696365732c2061732077656c6c2061732074686520696e667261737472756374757265206f6e2077686963682074686579206f7065726174652e4279206465706c6f79696e6720495420696e66726173747275637475726520616e64207365727669636573206f76657220746865206e6574776f726b2c20616e206f7267616e697a6174696f6e2063616e207075726368617365207468657365207265736f7572636573206f6e20616e2061732d6e65656465642062617369730d0a616e642061766f696420746865206361706974616c20636f737473206f6620736f66747761726520616e642068617264776172652e205769746820636c6f756420636f6d707574696e672c2049542063617061636974792063616e2062652061646a757374656420717569636b6c7920616e6420656173696c7920746f206163636f6d6d6f64617465206368616e67657320696e2064656d616e642e, NULL, '2013-10-15 15:20:13', NULL, 'Economics-of-Cloud-Computing.pdf', 0),
+(21, 'E-Business Model', 'testPDF.jpg', 0x496e206974732062726f61646573742075736167652c20746865207465726d20636c6f756420636f6d707574696e672072656665727320746f207468652064656c6976657279206f66207363616c61626c65204954207265736f7572636573206f7665722074686520496e7465726e65742c206173206f70706f73656420746f20686f7374696e6720616e64206f7065726174696e672074686f7365207265736f7572636573206c6f63616c6c792c2073756368206173206f6e206120636f6c6c656765206f7220756e6976657273697479206e6574776f726b2e2054686f7365207265736f75726365732063616e20696e636c756465206170706c69636174696f6e7320616e642073657276696365732c2061732077656c6c2061732074686520696e667261737472756374757265206f6e2077686963682074686579206f7065726174652e204279206465706c6f79696e6720495420696e66726173747275637475726520616e64207365727669636573206f76657220746865206e6574776f726b2c20616e206f7267616e697a6174696f6e2063616e207075726368617365207468657365207265736f7572636573206f6e20616e2061732d6e65656465642062617369730d0a616e642061766f696420746865206361706974616c20636f737473206f6620736f66747761726520616e642068617264776172652e205769746820636c6f756420636f6d707574696e672c2049542063617061636974792063616e2062652061646a757374656420717569636b6c7920616e6420656173696c7920746f206163636f6d6d6f646174650d0a6368616e67657320696e2064656d616e642e, NULL, '2013-10-16 00:00:00', NULL, 'ModeleEBusiness.pdf', 0);
 
 -- --------------------------------------------------------
 
