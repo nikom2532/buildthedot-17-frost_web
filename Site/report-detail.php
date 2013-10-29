@@ -67,11 +67,29 @@ include ("include/top-menu.php");
 									// ";
 								// }
 								// else{
-									$str[]="
-										<li>
-											<a href=\"main-knowledge.php?id={$rsnav2["ID"]}&glvl=".($temp_glvl__-1)."\">".$rsnav2["NAME"]."</a>
-										</li>
-									";
+									$temp_str = "
+											<li>
+												<a href=\"main-knowledge.php?id={$rsnav2["ID"]}&glvl=".($temp_glvl__-1)."&gp="
+										;
+										
+										$SQL2="
+											SELECT * 
+											FROM  `GROUP_LV".$temp_glvl__."`
+											WHERE `GROUP_LV". ($temp_glvl__-1)."_ID` = '{$rsnav2["ID"]}'
+										";
+										$result2=@mysql_query($SQL2);
+										if($rs2=@mysql_fetch_array($result2)){
+											$temp_str .= "y";
+										}
+										else{
+											$temp_str .= "n";
+										}
+										
+										$temp_str .= 
+												"\">".$rsnav2["NAME"]."</a>
+											</li>
+										";
+										$str[] = $temp_str;
 								// }
 							}//end query2
 							if($temp_glvl__==3){	//find Group Level 2 ID
