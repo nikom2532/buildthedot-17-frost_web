@@ -126,8 +126,8 @@ include ("include/top-menu.php");
 			}
 			?>
 			<br class="clear" />
+			<?php /* ?>
 			
-			<!--
 			<h2 class="text-lightgreen2 uppercase">Top 5 PDF Download <?php echo $current_month_all;?>, <?php echo $current_year_all;?></h2>
 <?php
 							$sql_statistic_by_pdf="
@@ -190,7 +190,8 @@ include ("include/top-menu.php");
 <?php
 							}
 ?>
--->
+
+<?php */ ?>
 		</div><!--end new-release -->
 	</div><!--end container_12 -->
 </div><!--end content -->
