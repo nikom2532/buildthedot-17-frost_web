@@ -369,7 +369,7 @@ include ($rootpath."include/top-menu.php");
 								?>
 								<!-- <nav id="side-menu" class="grid_6 text-green" style="padding: 3px;"> -->
 									<ul id="pad-6">
-										<li class="link-main">
+										<li class="link-main margin-bottom20">
 											<a href="./main-knowledge.php?id=<?php echo $rs_Menu["ID"]; ?>&glvl=<?php echo ($_GET["glvl"]+1); ?>&gp=<?php 
 												$SQL_Menu2="
 													SELECT * 
@@ -386,6 +386,7 @@ include ($rootpath."include/top-menu.php");
 											?>" class="bold text-green" >
 												<?php echo $rs_Menu["NAME"]; ?>
 											</a>
+											<pre><?php echo $rs_Menu["DESCRIPTION"]; ?></pre>
 										 </li>
 									</ul>
 								<!--</nav> -->
