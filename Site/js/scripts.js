@@ -9,3 +9,9 @@ $(document).ready(function() {
 	
 	$('ul.nav-title li:not(:last-child)').addClass('ic-nav-title');	
 });
+
+function login_form_keypress(e) {
+	if (e.keyCode == 13) {
+		document.getElementById("login-form").submit();
+	}
+}

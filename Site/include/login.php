@@ -33,12 +33,12 @@
 			?>
 			<p>
 				<label for="login-username">E-mail</label>
-				<input autocomplete="off" type="text" id="login-username" name="email" class="round full-width-input" autofocus />
+				<input autocomplete="off" type="text" id="login-username" name="email" class="round full-width-input" onkeypress="return login_form_keypress(event)" autofocus />
 			</p>
 
 			<p>
 				<label for="login-password">password</label>
-				<input autocomplete="off" type="password" id="login-password" name="password" class="round full-width-input" />
+				<input autocomplete="off" type="password" id="login-password" name="password" class="round full-width-input" onkeypress="return login_form_keypress(event)" />
 			</p>
 
 			<a href="#" class="button round orange image-right ic-right-arrow" onclick="document.getElementById('login-form').submit();">LOG IN</a>
