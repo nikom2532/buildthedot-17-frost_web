@@ -19,7 +19,8 @@ if (!$db -> open()) {
 	<link href="css/reset.css" rel="stylesheet" type="text/css">
 
 	<script src="js/jquery-1.7.1.min.js"></script>
-	<script src="js/script.js"></script>  
+	<script src="js/script.js"></script>
+	<script src="../js/script.js"></script>
 	
     <!--Tag It -->
     <!-- <link href="css/tagIt/jquery.tagit.css" rel="stylesheet" type="text/css">

@@ -36,12 +36,12 @@ $sess_id=$_SESSION["userid"];
 
 				<p>
 					<label for="login-username">username</label>
-					<input type="text" id="email" name="email" class="round full-width-input" />
+					<input type="text" id="email" name="email" class="round full-width-input" onkeypress="return login_form_keypress(event)" />
 				</p>
 
 				<p>
 					<label for="login-password">password</label>
-					<input type="password" id="password" name="password" class="round full-width-input" />
+					<input type="password" id="password" name="password" class="round full-width-input" onkeypress="return login_form_keypress(event)" />
 				</p>
 				
 				<input type="submit" value="LOG IN" class="round orange image-right ic-right-arrow" />
