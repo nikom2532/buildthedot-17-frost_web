@@ -39,5 +39,5 @@ else{
 	header("location: {$rootpath}download-pdf.php?pdfId=".$_POST["pdfId"]);
 }
 
-include($rootpath."include/footer.php");
+// include($rootpath."include/footer.php");
 ?>

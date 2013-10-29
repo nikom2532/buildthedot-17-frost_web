@@ -53,5 +53,5 @@ else{
 <?php
 }
 
-include($rootpath."include/footer.php");
+// include($rootpath."include/footer.php");
 ?>
