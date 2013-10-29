@@ -1,13 +1,3 @@
-<?php
-session_start();
-include ($rootpath . "lib/db.php");
-//include ($rootpath."lib/connect-db-fon.php");
-include ($rootpath . "lib/conn.inc.php");
-include ($rootpath . "lib/func_date.php");
-if (!$db -> open()) {
-	die($db -> error());
-}
-?>
 <!doctype html>
 <html>
 	<head>
@@ -21,20 +11,20 @@ if (!$db -> open()) {
 		<script src="js/jquery-1.7.1.min.js"></script>
 		<script src="js/jquery.validate.min.js"></script>
 		<!-- <script src="js/validate.message.js"></script> -->
-	<script type="text/javascript">
+		<script type="text/javascript">
+			$("input").keypress(function(event) {
+				if (event.which == 13) {
+					event.preventDefault();
+					$("search-form").submit();
+				}
+			});
 
-		$("input").keypress(function(event) {
-		       if (event.which == 13) {
-		        event.preventDefault();
-		        $("search-form").submit();
-    	}
-		});  
-		 
-		window.history.forward();
-		function noBack() { 
-			window.history.forward(); 
-		}
-        		
-	</script>
+			window.history.forward();
+			function noBack() {
+				window.history.forward();
+			}
+
+
+		</script>
 	</head>
-<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
+	<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
