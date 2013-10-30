@@ -6,7 +6,7 @@ if($_SESSION["userid"]==""){
 }
 else{
 	include ("include/top-menu.php");
-}
+
 $userID = $_GET["userID"];
 ?>
 	<div id="content">
@@ -29,10 +29,10 @@ $userID = $_GET["userID"];
 					<form action="changepassword-proc.php" method="POST">
 						<div class="grid_3" id="profile-title">
 					
-							<p>
+							<p id="change-pass">
 								Old password
 							</p>
-							<p>
+							<p id="change-pass2">
 								New password
 							</p>
 							<p>
@@ -75,5 +75,5 @@ $userID = $_GET["userID"];
 	</div><!--end content -->
 <?php
 	include ("include/footer.php");
-
+	}
 ?>
