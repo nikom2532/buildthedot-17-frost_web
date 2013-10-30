@@ -31,7 +31,9 @@ include($rootadminpath."include/checksession.php");
 	while($row = mysql_fetch_assoc($result)) {
 		$rows[] = $row;
 	}
-	echo json_encode($rows);
+	$tagResult = json_encode($rows);
+	echo $tagResult;
+	
 
 include($rootadminpath."js/module/upload-pdf.php");
 ?>
@@ -101,8 +103,6 @@ include($rootadminpath."js/module/upload-pdf.php");
 											<input type="radio" name="asian" id="asian" value="1"> Yes<br>							
 										</p>
 										
-										
-										
 									</fieldset>
 								<input type="submit" value="Save" class="round blue ic-right-arrow" />
 							</div> <!-- end half-size-column -->
@@ -112,17 +112,21 @@ include($rootadminpath."js/module/upload-pdf.php");
 								<fieldset>
 	
                   <p class="form-error-input">
-                  	<label for="tag">Tags</label>	
-                      <ul id="singleFieldTags">
-                          <!-- Existing list items will be pre-added to the tags. -->
-                          
-                      </ul>
-                      <input name="tag" id="mySingleField" value="" type="hidden">
+                  	<p>This example shows how to use Tagit on an input!</p>
+						<input type="text" id="text" name="tags" value=""/>
+						<br/>
+						<!-- <input type="button" id="submitTags" value="Value"/>
+						<br/> -->
                   </p>
                   <p class="form-error-input">
+                      <label for="uploadfile">Upload Image</label>
+                      <input type="file" name="imageUpload"/>
+              	  </p>
+                  <p class="form-error-input">
                       <label for="uploadfile">Upload File</label>
-                      <input type="file" />
-              		<p>
+                      <input type="file" name="pdfUpload"/>
+              	  </p>
+              	   
 	
 									<p class="form-error-input">
 										

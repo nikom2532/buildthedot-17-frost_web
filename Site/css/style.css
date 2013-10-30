@@ -748,4 +748,12 @@ span.inactive {
 /*main-knowledge*/
 .margin-bottom20{
 	margin-bottom: 10px;
+	
+}
+#change-pass{
+	margin-top:2px;
+	margin-bottom: 17px;
+}
+#change-pass2{
+	margin-bottom: 14px;
 }
