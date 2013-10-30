@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include("include/header.php"); 
 $userID = $_POST['userID'];
 
@@ -31,7 +32,7 @@ $renewpassword = $_POST['renewpassword'];
 	if(mysql_num_rows($cmdQuery) == 1){		
 		if($newpassword == $renewpassword){
 			$password = md5(sha1($newpassword)).sha1(md5($newpassword));
-			$strSQLUpdatePass = "UPDATE user_profile SET PASSWORD='$password'";
+			$strSQLUpdatePass = "UPDATE USER_PROFILE SET PASSWORD='$password'";
 			$strSQLUpdatePass.="WHERE ID='$userID'" ;
 			
 			echo "strQuery=>".$strSQLUpdatePass ;
@@ -40,9 +41,9 @@ $renewpassword = $_POST['renewpassword'];
 			if(mysql_affected_rows()){
 				header("location: myprofile.php?userID=$userID");
 			}
-			if($oldpassword == ($newpassword == $renewpassword)){
-				header("location: myprofile.php?userID=$userID");
-			}
+			// if($oldpassword == ($newpassword == $renewpassword)){
+				//header("location: myprofile.php?userID=$userID");
+			// }
 
 		}else {
 			$passnotmatch = "New Password don't match";
@@ -53,7 +54,7 @@ $renewpassword = $_POST['renewpassword'];
 	}else if(mysql_num_rows($cmdQuery) == 0){
 		$passincorect = "Password is incorrect";
 		echo $passincorect;
-		header("location: edit-password.php?userID=$userID&validatepass=$passincorect");
+			header("location: edit-password.php?userID=$userID&validatepass=$passincorect");
 		if($newpassword != $renewpassword){
 			$passnotmatch = "New Password don't match";
 			echo $passincorect;
@@ -62,6 +63,6 @@ $renewpassword = $_POST['renewpassword'];
 		}
 	}
 	
-
+ob_end_flush();
 ?>
 

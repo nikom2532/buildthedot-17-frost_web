@@ -18,17 +18,15 @@ if(isset($_POST['email'])) {
 	// echo $email_from;
 	// echo $phonenumber;
 	// echo $comment;
-     
-  
-    $email_message = "From details below.\n\n";
-
-     
+      
+    $email_message = "From details below.\n\n";   
     $email_message .= "Firstname: ".$firstname."\n";
 	$email_message .= "Lastname: ".$lastname."\n";
     $email_message .= "Email: ".$email_from."\n";
     $email_message .= "Telephone: ".$phonenumber."\n";
     $email_message .= "Comments: ".$comment."\n";
      
+	//echo $email_message;
      
 // create email headers
 $headers = 'From: '.$email_from."\r\n".

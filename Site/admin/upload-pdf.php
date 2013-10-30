@@ -5,7 +5,7 @@ include($rootadminpath."include/header.php");
 include($rootadminpath."include/checksession.php");
 
 	$sql="
-		SELECT t.ID AS id, t.NAME AS name
+		SELECT t.ID AS value, t.NAME AS label
 		FROM TAG t 
 	";
 	$result = mysql_query($sql);
@@ -16,14 +16,14 @@ include($rootadminpath."include/checksession.php");
 		$counter = 0;
 		while ($row = mysql_fetch_array($result)) {
 			if (++$counter == $numRow) {
-				$tagResult .= "'".$row['name']."'";
+				$tagResult .= "'".$row['label']."'";//.":".$row['id']
 			} 
 			else {
-				$tagResult .= "'".$row['name']."'".", ";	
+				$tagResult .= "'".$row['label']."'".",";	//.":".$row['id']
 	    }
 		}
 		$tagResult .= ']';
-		// echo $tagResult;
+		//echo $tagResult;
 	}
 	
 	$rows = array();
@@ -112,8 +112,7 @@ include($rootadminpath."js/module/upload-pdf.php");
 								<fieldset>
 	
                   <p class="form-error-input">
-                  	<label for="tag">Tags</label>
-	
+                  	<label for="tag">Tags</label>	
                       <ul id="singleFieldTags">
                           <!-- Existing list items will be pre-added to the tags. -->
                           
