@@ -1,5 +1,6 @@
 <?php
 include ("include/header.php");
+include ("lib/func_image.php");
 
 $gLv1 = $_POST['gLv1'];
 $gLv2 = $_POST['gLv2'];
@@ -8,24 +9,24 @@ $gLv4 = $_POST['gLv4'];
 $gLv5 = $_POST['gLv5'];
 $tag = $_POST['tags'];
 
-echo "glv1 > ".$gLv1."<br>";
-echo "glv2 > ".$gLv2."<br>";
-echo "glv3 > ".$gLv3."<br>";
-echo "glv4 > ".$gLv4."<br>";
-echo "glv5 > ".$gLv5."<br>";
-echo "tag > ".$tag."<br>";
+// echo "glv1 > ".$gLv1."<br>";
+// echo "glv2 > ".$gLv2."<br>";
+// echo "glv3 > ".$gLv3."<br>";
+// echo "glv4 > ".$gLv4."<br>";
+// echo "glv5 > ".$gLv5."<br>";
+// echo "tag > ".$tag."<br>";
 
 //upload pdf
 if(!(!file_exists($_FILES['pdfUpload']['tmp_name']) || !is_uploaded_file($_FILES['pdfUpload']['tmp_name']))){
 		
 		if ($_FILES["pdfUpload"]["error"] > 0) {
-			echo "Error: " . $_FILES["pdfUpload"]["error"] . "<br>";
+			//echo "Error: " . $_FILES["pdfUpload"]["error"] . "<br>";
 		}
 		else {
-			echo "Upload: " . $_FILES["pdfUpload"]["name"] . "<br>";
-			echo "Type: " . $_FILES["pdfUpload"]["type"] . "<br>";
-			echo "Size: " . ($_FILES["pdfUpload"]["size"] / 1024) . " kB<br>";
-			echo "Stored in: " . $_FILES["pdfUpload"]["tmp_name"]. "<br>";
+			// echo "Upload: " . $_FILES["pdfUpload"]["name"] . "<br>";
+			// echo "Type: " . $_FILES["pdfUpload"]["type"] . "<br>";
+			// echo "Size: " . ($_FILES["pdfUpload"]["size"] / 1024) . " kB<br>";
+			// echo "Stored in: " . $_FILES["pdfUpload"]["tmp_name"]. "<br>";
 		}
 
 		$pdf_target_path = "../pdf/";
@@ -33,7 +34,7 @@ if(!(!file_exists($_FILES['pdfUpload']['tmp_name']) || !is_uploaded_file($_FILES
 		$pdf_target_path = $pdf_target_path . $pdfFileName;
 		echo "target_path >".$pdf_target_path. "<br>";	
 		if (move_uploaded_file($_FILES["pdfUpload"]['tmp_name'], $pdf_target_path)) {
-			echo "The file " . basename($_FILES["pdfUpload"]['name']) . " has been uploaded". "<br />";
+			//echo "The file " . basename($_FILES["pdfUpload"]['name']) . " has been uploaded". "<br />";
 		} else {
 			echo "There was an error uploading the file, please try again!". "<br />";
 		}				
@@ -45,17 +46,55 @@ if(!(!file_exists($_FILES['imageUpload']['tmp_name']) || !is_uploaded_file($_FIL
 		if ($_FILES["imageUpload"]["error"] > 0) {
 			echo "Error: " . $_FILES["imageUpload"]["error"] . "<br>";
 		} else {
-			echo "Upload: " . $_FILES["imageUpload"]["name"] . "<br>";
-			echo "Type: " . $_FILES["imageUpload"]["type"] . "<br>";
-			echo "Size: " . ($_FILES["imageUpload"]["size"] / 1024) . " kB<br>";
-			echo "Stored in: " . $_FILES["imageUpload"]["tmp_name"] . "<br>";
+			// echo "Upload: " . $_FILES["imageUpload"]["name"] . "<br>";
+			// echo "Type: " . $_FILES["imageUpload"]["type"] . "<br>";
+			// echo "Size: " . ($_FILES["imageUpload"]["size"] / 1024) . " kB<br>";
+			// echo "Stored in: " . $_FILES["imageUpload"]["tmp_name"] . "<br>";
 		}
-
+	
 		$image_target_path = "../images/pdf_image/";
-		echo strtotime("now"). "<br>";
 		$imageFileName = strtotime("now")."_".basename($_FILES["imageUpload"]['name']);
-		$image_target_path = $image_target_path . $imageFileName;
+		$image_target_path = $image_target_path.$imageFileName;
 		
+	    // resize
+		$images = $_FILES["imageUpload"]["tmp_name"];
+        $new_images = "_".$_FILES["imageUpload"]["name"];
+        $width=150; //*** Fix Width & Heigh (Autu caculate) ***//
+        $height=150;
+        $size=GetimageSize($images);
+		if(($_FILES["imageUpload"]["type"] == "image/jpg") ||($_FILES["imageUpload"]["type"] == "image/jpeg")){
+	        $images_orig = ImageCreateFromJPEG($images);
+	        $photoX = ImagesX($images_orig);
+	        $photoY = ImagesY($images_orig);
+	        $images_fin = ImageCreateTrueColor($width, $height);
+	        ImageCopyResampled($images_fin, $images_orig, 0, 0, 0, 0, $width+1, $height+1, $photoX, $photoY);
+	        ImageJPEG($images_fin,"../images/pdf_image/".$imageFileName);
+	        ImageDestroy($images_orig);
+	        ImageDestroy($images_fin);
+		}
+		if($_FILES["imageUpload"]["type"] == "image/png"){
+	        $images_orig = ImageCreateFromPNG($images);
+	        $photoX = ImagesX($images_orig);
+	        $photoY = ImagesY($images_orig);
+	        $images_fin = ImageCreateTrueColor($width, $height);
+	        ImageCopyResampled($images_fin, $images_orig, 0, 0, 0, 0, $width+1, $height+1, $photoX, $photoY);
+	        ImagePNG($images_fin,"../images/pdf_image/".$imageFileName);
+	        ImageDestroy($images_orig);
+	        ImageDestroy($images_fin);
+		}
+		if($_FILES["imageUpload"]["type"] == "image/gif"){
+	        $images_orig = ImageCreateFromGIF($images);
+	        $photoX = ImagesX($images_orig);
+	        $photoY = ImagesY($images_orig);
+	        $images_fin = ImageCreateTrueColor($width, $height);
+	        ImageCopyResampled($images_fin, $images_orig, 0, 0, 0, 0, $width+1, $height+1, $photoX, $photoY);
+	        ImageGIF($images_fin,"../images/pdf_image/".$imageFileName);
+	        ImageDestroy($images_orig);
+	        ImageDestroy($images_fin);
+		}
+		
+        
+		/*		
 		$allowedExts = array("gif", "jpeg", "jpg", "png");
 		$temp = explode(".", $_FILES["imageUpload"]["name"]);
 		$extension = end($temp);
@@ -69,8 +108,10 @@ if(!(!file_exists($_FILES['imageUpload']['tmp_name']) || !is_uploaded_file($_FIL
 			if ($_FILES["imageUpload"]["error"] > 0) {
 				echo "Error: " . $_FILES["imageUpload"]["error"] . "<br />";
 			} else {
+				
 				if (move_uploaded_file($_FILES["imageUpload"]['tmp_name'], $image_target_path)) {
 					echo "The file " . $imageFileName . " has been uploaded". "<br />";
+					
 				} else {
 					echo "There was an error uploading the file, please try again!". "<br />";
 				}
@@ -78,6 +119,10 @@ if(!(!file_exists($_FILES['imageUpload']['tmp_name']) || !is_uploaded_file($_FIL
 		} else {
 			echo "Invalid file";
 		}
+		 * 
+		 */
+}else{
+	$imageFileName = "no-image.png";
 }
 $current_time = date("Y-m-d H:i:s");
 $sqlPdf = "
@@ -102,25 +147,25 @@ $sqlPdf = "
 ";
 
 $insertPdfResult = mysql_query($sqlPdf);
-echo mysql_insert_id(). "<br />";
+//echo mysql_insert_id(). "<br />";
 // $result = @mysql_query($sql);
 $PDF_ID = mysql_insert_id();
 
 $string_tag = explode(',', $tag);
 foreach($string_tag as $tag) {
-    echo $tag;
-	echo $sqTag="
-	INSERT INTO `TAG_RELATIONSHIP` (
-		`PDF_ID`,
-		`TAG_ID`
-	)
-	VALUE (
-		'{$PDF_ID}',
-		'{$tag}'
-	)
-";
+   // echo $tag;
+	// echo $sqTag="
+	// INSERT INTO `TAG_RELATIONSHIP` (
+		// `PDF_ID`,
+		// `TAG_ID`
+	// )
+	// VALUE (
+		// '{$PDF_ID}',
+		// '{$tag}'
+	// )
+// ";
 	$insertTagResult = mysql_query($sqTag);
-	echo mysql_insert_id(). "<br />";
+	//echo mysql_insert_id(). "<br />";
 }
 
 
@@ -146,21 +191,22 @@ elseif($gLv1 != 0 || $gLv1 !="") {
 	$GROUP_LEVEL_NAME = "1";
 }
 
-echo $sqlCat="
-	INSERT INTO `PDF_CATEGORY` (
-		`PDF_ID`,
-		`GROUP_LEVEL_NAME`,
-		`GROUP_LEVEL_ID`
-	)
-	VALUE (
-		'{$PDF_ID}',
-		'{$GROUP_LEVEL_NAME}',
-		'{$GROUP_LEVEL_ID}'
-	)
-";
+// echo $sqlCat="
+	// INSERT INTO `PDF_CATEGORY` (
+		// `PDF_ID`,
+		// `GROUP_LEVEL_NAME`,
+		// `GROUP_LEVEL_ID`
+	// )
+	// VALUE (
+		// '{$PDF_ID}',
+		// '{$GROUP_LEVEL_NAME}',
+		// '{$GROUP_LEVEL_ID}'
+	// )
+// ";
 $insertCatResult = mysql_query($sqlCat);
-echo mysql_insert_id();
-
-
-// header("location: upload-pdf.php");
+//echo mysql_insert_id();
+echo "<script>";
+echo "alert('Process Complete'); ";
+echo "location.href='pdf.php'; ";
+echo "</script>";
 ?>

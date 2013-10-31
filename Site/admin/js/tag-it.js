@@ -67,7 +67,7 @@
             this.timer = null;
 
             //add class "tagit" for theming
-            this.element.addClass("tagit ui-widget ui-widget-content");
+            this.element.addClass("tagit ui-widget ui-widget-content round full-width-input");
 
             //add any initial tags added through html to the array
             this.element.children('li').each(function () {
@@ -294,8 +294,8 @@
             var tag = this.tag(label, value);
             tag.element = $('<li class="tagit-choice ui-widget-content ui-state-default ui-corner-all tagit-choice-editable"'
                 + (value !== undefined ? ' tagValue="' + value + '"' : '') + '>'
-                + (this.options.sortable == 'handle' ? '<a class="ui-icon ui-icon-grip-dotted-vertical" style="float:left"></a>' : '')
-                + label + '<a class="tagit-close"><span class="text-icon">x</span></a></li>');
+                + (this.options.sortable == 'handle' ? '<a class="ui-icon" style="float:left"></a>' : '')
+                + label + '<a class="tagit-close text-icon">x</a></li>');
             tag.element.insertBefore(this.input.parent());
             this.tagsArray.push(tag);
 

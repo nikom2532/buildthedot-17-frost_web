@@ -36,6 +36,7 @@ include($rootadminpath."include/checksession.php");
 	
 
 include($rootadminpath."js/module/upload-pdf.php");
+
 ?>
 
 
@@ -90,49 +91,22 @@ include($rootadminpath."js/module/upload-pdf.php");
 											<label for="description">Description</label>
 											<textarea id="description" name="description" class="round full-width-textarea"></textarea>
 										</p>
-		
 										<p>
 											<label for="price">Price</label>
 											<input type="text" id="price" name="price" class="round full-width-input" />
-	                                        <em>Price in Thai Baht</em>								
+						                    <em>Price in Thai Baht</em>								
 										</p>
-										
 										<p>
 											<label for="asian">Asian country</label>
 											<input type="radio" name="asian" id="asian" value="0" checked> No<br>
 											<input type="radio" name="asian" id="asian" value="1"> Yes<br>							
 										</p>
 										
-									</fieldset>
-								<input type="submit" value="Save" class="round blue ic-right-arrow" />
-							</div> <!-- end half-size-column -->
-							
-							<div class="half-size-column fr">
-								
-								<fieldset>
-	
-                  <p class="form-error-input">
-                  	<p>This example shows how to use Tagit on an input!</p>
-						<input type="text" id="text" name="tags" value=""/>
-						<br/>
-						<!-- <input type="button" id="submitTags" value="Value"/>
-						<br/> -->
-                  </p>
-                  <p class="form-error-input">
-                      <label for="uploadfile">Upload Image</label>
-                      <input type="file" name="imageUpload"/>
-              	  </p>
-                  <p class="form-error-input">
-                      <label for="uploadfile">Upload File</label>
-                      <input type="file" name="pdfUpload"/>
-              	  </p>
-              	   
-	
-									<p class="form-error-input">
-										
+										<p class="form-error-input">
+					
 										<div id="gLv1Div">
 											<label for="group-name">Group level 1</label>
-	
+					
 											<?php
 												$sqlLv1 = "SELECT * FROM GROUP_LV1";
 												$resultLv1 = mysql_query($sqlLv1);
@@ -164,14 +138,38 @@ include($rootadminpath."js/module/upload-pdf.php");
 											
 										</div>
 									</p>
-									
-								</fieldset>
+									</fieldset>
 								
 							</div> <!-- end half-size-column -->
+							
+							<div class="half-size-column fr">
+								
+							<fieldset>
+								 
+				                  <p class="form-error-input">
+				                  		<p><label for="tag">Tag</label></p>
+										<input type="text" id="text" name="tags" value=""/>
+										<br/>
+										
+				                  </p>
+				                  <p class="form-error-input">
+				                      <label for="uploadfile">Upload Image</label>
+				                      <input type="file" name="imageUpload"/>
+				              	  </p>
+				                  <p class="form-error-input">
+				                      <label for="uploadfile">Upload File</label>
+				                      <input type="file" name="pdfUpload"/>
+				              	  </p>
+				              	  <br/>
+								  <input type="submit" value="Save" class="round blue ic-right-arrow" />
+									
+							</fieldset>
 					
-						</div> <!-- end content-module-main -->
-					</form>
-				</div> <!-- end content-module -->
+				</div> <!-- end half-size-column -->
+		
+			</div> <!-- end content-module-main -->
+		</form>
+	</div> <!-- end content-module -->
 				
 		
 		</div> <!-- end full-width -->
