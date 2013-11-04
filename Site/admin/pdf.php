@@ -1,16 +1,60 @@
 <?php include("include/header.php");?>
 <?php include("include/top-bar.php");?>
-<script LANGUAGE="JavaScript">
-function confirmSubmit()
-{
-var agree=confirm("Are you sure you want to delete?");
-if (agree)
-	return true ;
-else
-	return false ;
-}
+<?php include("lib/func_pagination.php");?>
+<script type="text/javascript">
+ 	$(document).ready(function(){ 
+    });
+	 function confirmSubmit()
+		{
+		var agree=confirm("Are you sure you want to delete?");
+		if (agree)
+			return true ;
+		else
+			return false ;
+		}   
+        function showSuccessMessage(){
+            showNotification({
+                type : "error",
+                message: "This is a sample success notification"
+            });    
+        }
+         function showErrorMessage(){
+	        showNotification({
+	                    type : "error",
+	                    message: "This is a sample success notification"
+	                });    
+	            }                                    
 </script>
-	
+<?php 
+$msg = $_GET['msg'];
+if ($msg=="Sucess") {
+    $message = "Process Complete";
+    ?>
+     <script type="text/javascript">
+        showNotification({
+            message: "<?php echo $message; ?>",
+            type: "success",
+            autoClose: true,
+            duration: 5                                        
+        });
+    </script>
+    <?php
+}if($msg=="Failed"){
+	$message = "Process Failed! Please try again";
+    ?>
+     <script type="text/javascript">
+        showNotification({
+            message: "<?php echo $message; ?>",
+            type: "error",
+            autoClose: true,
+            duration: 5                                        
+        });
+    </script>
+    <?php
+}
+
+?>
+
 	<!-- HEADER -->
 	<div id="header-with-tabs">
 		
@@ -70,16 +114,34 @@ else
 						
 						<tbody>
 						<?php 
-							$result = mysql_query("
-							SELECT p.ID AS id, 
-							p.NAME AS name,
-							p.UPDATE_DATE AS updateDate
-							FROM PDF AS p WHERE IS_ASIAN_COUNTRY = '0'
-							ORDER BY ID DESC");
+							/*---------Paging------------*/	
+							$i=$_GET['i'];
+							$page=1;//Default page
+							$limit=10;//Records per page
+							$start=0;//starts displaying records from 0
+							if(isset($_GET['page']) && $_GET['page']!=''){
+							$page=$_GET['page'];
+							$i=$page*10;			
+							}
+							$start=($page-1)*$limit;
+							/*---------end Paging------------*/	
+							$strQuery ="SELECT p.ID AS id, 
+										p.NAME AS name,
+										p.UPDATE_DATE AS updateDate
+										FROM PDF AS p WHERE IS_ASIAN_COUNTRY = '0'
+										ORDER BY ID DESC ";
+							$result = mysql_query($strQuery);	
+							$Num_Rows = mysql_num_rows($result);
+							$strQuery .= "LIMIT $start , $limit";
+							//echo $strQuery;
+							$result = mysql_query($strQuery);	
+							if($page ==1){
+								$i = 1;
+							}
 							
-							$i = 1;
 							while ($row = mysql_fetch_array($result)) {
 						?>
+						
 							<tr>
 								<td><?=$i?></td>
 								<td><?=$row['name']?></td>
@@ -109,8 +171,12 @@ else
 						</tbody>
 						
 					</table>
-									
-					
+
+							<?php
+							echo pagination($limit, $page, "pdf.php?page=", $Num_Rows);
+							//call function to show pagination
+							?>
+
 				</div> <!-- end content-module-main -->
 			
 			</div> <!-- end content-module -->

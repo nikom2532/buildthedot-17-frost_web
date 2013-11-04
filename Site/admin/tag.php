@@ -1,22 +1,65 @@
 <?php include("include/header.php");?>
 <?php include("include/top-bar.php");?>
 <?php include("include/checksession.php");?>	
+<?php include("lib/func_pagination.php");?>
 
-<script LANGUAGE="JavaScript">
-function confirmSubmit()
-	{
-	var agree=confirm("Are you sure you want to delete?");
-	if (agree)
-		return true ;
-	else
-		return false ;
-	}
-</script>	
+ <script type="text/javascript">
+ 	$(document).ready(function(){ 
+    });
+	 function confirmSubmit()
+		{
+		var agree=confirm("Are you sure you want to delete?");
+		if (agree)
+			return true ;
+		else
+			return false ;
+		}   
+        function showSuccessMessage(){
+            showNotification({
+                type : "error",
+                message: "This is a sample success notification"
+            });    
+        }
+         function showErrorMessage(){
+                showNotification({
+                            type : "error",
+                            message: "This is a sample success notification"
+                        });    
+                    }                                    
+</script>
+<?php 
+$msg = $_GET['msg'];
+if ($msg=="Sucess") {
+    $message = "Process Complete";
+    ?>
+     <script type="text/javascript">
+        showNotification({
+            message: "<?php echo $message; ?>",
+            type: "success",
+            autoClose: true,
+            duration: 5                                        
+        });
+    </script>
+    <?php
+}if($msg=="Failed"){
+	$message = "Process Failed! Please try again";
+    ?>
+     <script type="text/javascript">
+        showNotification({
+            message: "<?php echo $message; ?>",
+            type: "error",
+            autoClose: true,
+            duration: 5                                        
+        });
+    </script>
+    <?php
+}
+
+?>
 	<!-- HEADER -->
 	<div id="header-with-tabs">
 		
 		<div class="page-full-width cf">
-	
 			<ul id="tabs" class="left">
 				<li><a href="main.php" class="dashboard-tab">Dashboard</a></li>
 				<li><a href="customer.php" >Customer Management</a></li>
@@ -69,14 +112,30 @@ function confirmSubmit()
 						
 						<tbody>
 							<?php
-
-								$result = mysql_query("
-									SELECT ID as tagId ,NAME as tagName
-									FROM TAG 
-									ORDER BY ID DESC");
+								/*---------Paging------------*/	
+								$i=$_GET['i'];
+								$page=1;//Default page
+								$limit=10;//Records per page
+								$start=0;//starts displaying records from 0
+								if(isset($_GET['page']) && $_GET['page']!=''){
+								$page=$_GET['page'];
+								$i=$page*10;			
+								}
+								$start=($page-1)*$limit;
+								/*---------end Paging------------*/	
+								$strQuery = "SELECT ID as tagId ,NAME as tagName
+											FROM TAG 
+											ORDER BY ID DESC ";
+								$result = mysql_query($strQuery);
+								$Num_Rows = mysql_num_rows($result);
+								$strQuery .= "LIMIT $start , $limit";
+								//echo $strQuery;
+								$result = mysql_query($strQuery);	
 		
-								$i = 1;
-								while ($row = mysql_fetch_array($result)) {
+								if($page ==1){
+									$i = 1;
+								}
+									while ($row = mysql_fetch_array($result)) {
 									echo "<tr>";
 									echo "<td>" . $i . "</td>";
 									echo "<td>" . $row['tagName']."</td>";
@@ -102,7 +161,10 @@ function confirmSubmit()
 						</tbody>
 						
 					</table>
-									
+						<?php
+							echo pagination($limit, $page, "tag.php?page=", $Num_Rows);
+							//call function to show pagination
+						?>			
 					
 				</div> <!-- end content-module-main -->
 			

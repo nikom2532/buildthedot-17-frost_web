@@ -32,7 +32,7 @@ include($rootadminpath."include/checksession.php");
 		$rows[] = $row;
 	}
 	$tagResult = json_encode($rows);
-	echo $tagResult;
+	//echo $tagResult;
 	
 
 include($rootadminpath."js/module/upload-pdf.php");

@@ -8,7 +8,7 @@ $gLv3 = $_POST['gLv3'];
 $gLv4 = $_POST['gLv4'];
 $gLv5 = $_POST['gLv5'];
 $tag = $_POST['tags'];
-
+//echo $tag;
 // echo "glv1 > ".$gLv1."<br>";
 // echo "glv2 > ".$gLv2."<br>";
 // echo "glv3 > ".$gLv3."<br>";
@@ -153,6 +153,7 @@ $PDF_ID = mysql_insert_id();
 
 $string_tag = explode(',', $tag);
 foreach($string_tag as $tag) {
+	
     //echo $tag;
 	$sqTag="
 	INSERT INTO `TAG_RELATIONSHIP` (
@@ -204,9 +205,6 @@ $sqlCat="
 	)
 ";
 $insertCatResult = mysql_query($sqlCat);
-//echo mysql_insert_id();
-echo "<script>";
-echo "alert('Process Complete'); ";
-echo "location.href='pdf.php'; ";
-echo "</script>";
+$msg = "Sucess";
+header("location: pdf.php?msg=$msg");
 ?>
