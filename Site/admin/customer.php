@@ -2,20 +2,61 @@
 include ("include/header.php");
 include ("include/top-bar.php");
 include("include/checksession.php");
+?>
+<script type="text/javascript">
+ 	$(document).ready(function(){ 
+    });
+	 function confirmSubmit()
+		{
+		var agree=confirm("Are you sure you want to delete?");
+		if (agree)
+			return true ;
+		else
+			return false ;
+		}   
+        function showSuccessMessage(){
+            showNotification({
+                type : "error",
+                message: "This is a sample success notification"
+            });    
+        }
+         function showErrorMessage(){
+	        showNotification({
+	                    type : "error",
+	                    message: "This is a sample success notification"
+	                });    
+	            }                                    
+</script>
+<?php 
+$msg = $_GET['msg'];
+if ($msg=="Sucess") {
+    $message = "Process Complete";
+    ?>
+     <script type="text/javascript">
+        showNotification({
+            message: "<?php echo $message; ?>",
+            type: "success",
+            autoClose: true,
+            duration: 5                                        
+        });
+    </script>
+    <?php
+}
+if($msg=="Failed"){
+	$message = "Process Failed! Please try again";
+    ?>
+     <script type="text/javascript">
+        showNotification({
+            message: "<?php echo $message; ?>",
+            type: "error",
+            autoClose: true,
+            duration: 5                                        
+        });
+    </script>
+    <?php
+}
 
 ?>
-
-
-<script LANGUAGE="JavaScript">
-function confirmSubmit()
-{
-var agree=confirm("Are you sure you want to delete?");
-if (agree)
-	return true ;
-else
-	return false ;
-}
-</script>
 
 <!-- HEADER -->
 <div id="header-with-tabs">
@@ -91,17 +132,30 @@ else
 					<tbody>
 
 						<?php
-
-						$result = mysql_query("
-							SELECT DISTINCT a.FIRSTNAME AS firstname,
-							a.ID AS userId,
-							a.LASTNAME AS lastname,
-							a.COMPANY AS company,
-							a.EMAIL AS email,
-							a.IS_ACTIVE AS userActive
+						/*---------Paging------------*/	
+						$i=$_GET['i'];
+						$page=1;//Default page
+						$limit=10;//Records per page
+						$start=0;//starts displaying records from 0
+						if(isset($_GET['page']) && $_GET['page']!=''){
+						$page=$_GET['page'];
+						$i=$page*10;			
+						}
+						$start=($page-1)*$limit;
+						/*---------end Paging------------*/	
+						$strQuery = "SELECT DISTINCT a.FIRSTNAME AS firstname,
+									a.ID AS userId,
+									a.LASTNAME AS lastname,
+									a.COMPANY AS company,
+									a.EMAIL AS email,
+									a.IS_ACTIVE AS userActive
+									FROM USER_PROFILE AS a ";
+						$result = mysql_query($strQuery);
+						$Num_Rows = mysql_num_rows($result);
+						$strQuery .= "LIMIT $start , $limit";
+						//echo $strQuery;
+						$result = mysql_query($strQuery);
 							
-							FROM USER_PROFILE AS a");
-
 						$i = 1;
 						while ($row = mysql_fetch_array($result)) {
 							echo "<tr>";
@@ -142,7 +196,9 @@ else
 					</tbody>
 
 				</table>
-
+					<?php
+							echo pagination($limit, $page, "tag.php?page=", $Num_Rows);
+					?>	
 			</div>
 			<!-- end content-module-main -->
 

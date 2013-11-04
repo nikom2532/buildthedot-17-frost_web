@@ -1,7 +1,7 @@
 <?php
 include ("include/header.php");
 
-$sql = "INSERT INTO USER_PROFILE (PHOTO_NAME, 
+echo $sql = "INSERT INTO USER_PROFILE (PHOTO_NAME, 
 	FIRSTNAME, 
 	LASTNAME, 
 	EMAIL, 
@@ -33,5 +33,11 @@ $sql = "INSERT INTO USER_PROFILE (PHOTO_NAME,
 	'$_POST[fax]')";
 // echo $sql;
 $result = mysql_query($sql);
-header("location: customer.php");
+if ($result) {
+$msg = "Sucess";
+//header("location: customer.php?msg=$msg");
+}else{
+$msg = "Failed";
+//header("location: customer.php?msg=$msg");
+}
 ?>

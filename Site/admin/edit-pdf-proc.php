@@ -4,8 +4,23 @@ $pdfId = $_POST['pdfId'];
 $tag = $_POST['tag'];
 $mySingleField = $_POST['mySingleField'];
 
+$tag = $_POST['tags'];
 echo $tag;
-echo $mySingleField;
+$string_tag = explode(',', $tag);
+foreach($string_tag as $tag) {
+    //echo $tag;
+	$sqTag="
+	INSERT INTO `TAG_RELATIONSHIP` (
+		`PDF_ID`,
+		`TAG_ID`
+	)
+	VALUE (
+		'{$PDF_ID}',
+		'{$tag}'
+	)
+";
+}
+
 
 //$strSQL="UPDATE tag SET NAME='$tagName' WHERE ID='$tagId'";
 //$cmdQuery=mysql_query($strSQL);

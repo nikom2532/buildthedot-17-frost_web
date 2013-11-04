@@ -19,11 +19,10 @@
 	$cmdQuery = mysql_query($strSQL);
 	echo $filename;
 	if ($cmdQuery) {
-		header("Location: customer.php");
+		$msg = "Sucess";
+		header("location: customer.php?msg=$msg");
 	} else {
-		echo "<script>";
-		echo "alert('Update profile failed'); ";
-		echo "location.href='customer.php; ";
-		echo "</script>";
+		$msg = "Failed";
+		echo "location.href='customer.php?msg=$msg; ";
 	}
 ?>

@@ -199,47 +199,47 @@
 		}
 	}
 	
-	$(document).ready(function() {
-
-  //The demo tag array
-  var availableTags = <?=$tagResult?>;
-   $("#submitTags").click(function(){
-        $("#tagName").html('The value is :: '+$("input#text").val());
-    }); 
-  //The text input
-  var input = $("input#text");
-    
-  //The tagit list
-  var instance = $("<ul class=\"tags\"></ul>");
-    
-  //Store the current tags
-  //Note: the tags here can be split by any of the trigger keys
-  //      as tagit will split on the trigger keys anything passed  
-  var currentTags = input.val();
-    
-  //Hide the input and append tagit to the dom
-  input.hide().after(instance);
-    
-  //Initialize tagit
-  instance.tagit({
-    tagSource:availableTags,
-    tagsChanged:function () {
-                                        
-        //Get the tags            
-      var tags = instance.tagit('tags');
-      var tagString = [];
-                            
-      //Pull out only value
-      for (var i in tags){
-        tagString.push(tags[i].value);
-      }
-        
-      //Put the tags into the input, joint by a ','
-      input.val(tagString.join(','));
-    }
-  });
-    
-  //Add pre-loaded tags to tagit
-  instance.tagit('add', currentTags);
-});
+			$(document).ready(function() {
+		
+		  //The demo tag array
+		  var availableTags = <?=$tagResult?>;
+		   $("#submitTags").click(function(){
+		        $("#tagName").html('The value is :: '+$("input#text").val());
+		    }); 
+		  //The text input
+		  var input = $("input#text");
+		    
+		  //The tagit list
+		  var instance = $("<ul class=\"tags\"></ul>");
+		    
+		  //Store the current tags
+		  //Note: the tags here can be split by any of the trigger keys
+		  //      as tagit will split on the trigger keys anything passed  
+		  var currentTags = input.val();
+		    
+		  //Hide the input and append tagit to the dom
+		  input.hide().after(instance);
+		    
+		  //Initialize tagit
+		  instance.tagit({
+		    tagSource:availableTags,
+		    tagsChanged:function () {
+		                                        
+		        //Get the tags            
+		      var tags = instance.tagit('tags');
+		      var tagString = [];
+		                            
+		      //Pull out only value
+		      for (var i in tags){
+		        tagString.push(tags[i].value);
+		      }
+		        
+		      //Put the tags into the input, joint by a ','
+		      input.val(tagString.join(','));
+		    }
+		  });
+		    
+		  //Add pre-loaded tags to tagit
+		  instance.tagit('add', currentTags);
+		});
 </script>

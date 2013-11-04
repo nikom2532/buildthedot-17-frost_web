@@ -46,7 +46,37 @@
 								
 									<p>
 										<label for="name">Tag Name</label>
-										<input type="text" id="tagName" name="tagName" class="round default-width-input" />
+										<input type="text" id="tagName" name="tagName1" class="round default-width-input" />
+									</p>
+									
+									<p>
+										<label for="name">Tag Name</label>
+										<input type="text" id="tagName" name="tagName2" class="round default-width-input" />
+									</p>
+									
+									<p>
+										<label for="name">Tag Name</label>
+										<input type="text" id="tagName" name="tagName3" class="round default-width-input" />
+									</p>
+									
+									<p>
+										<label for="name">Tag Name</label>
+										<input type="text" id="tagName" name="tagName4" class="round default-width-input" />
+									</p>
+									
+									<p>
+										<label for="name">Tag Name</label>
+										<input type="text" id="tagName" name="tagName5" class="round default-width-input" />
+									</p>
+									
+									<p>
+										<label for="name">Tag Name</label>
+										<input type="text" id="tagName" name="tagName6" class="round default-width-input" />
+									</p>
+									
+									<p>
+										<label for="name">Tag Name</label>
+										<input type="text" id="tagName" name="tagName7" class="round default-width-input" />
 									</p>
 									 
                                      <input type="submit" value="Submit" class="round blue ic-right-arrow" />
