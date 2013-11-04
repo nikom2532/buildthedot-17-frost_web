@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $rootpath = "./";
 include ($rootpath."include/header.php");
 include ($rootpath."include/top-menu.php");
@@ -180,7 +180,7 @@ include ($rootpath."include/top-menu.php");
 					if(mysql_num_rows($resultcontent) > 0){
 						$Is_there_are_content1++;
 					}
-				
+			
 					//#################################
 					//####### Query 2nd List ##########
 					//#################################

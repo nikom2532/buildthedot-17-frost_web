@@ -1,17 +1,10 @@
 <?php
 		session_start();
-		include ($rootpath . "lib/db.php");
-		//include ($rootpath."lib/connect-db-fon.php");
-		include ($rootpath . "lib/conn.inc.php");
-		include ($rootpath . "lib/func_date.php");
-		if (!$db -> open()) {
-			die($db -> error());
-		}
 ?>
-<!doctype html>
+		<!doctype html>
 <html>
 	<head>
-		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>MCKANSYS</title>
 		<link href="css/reset.css" rel="stylesheet" type="text/css">
 		<link href="css/960.css" rel="stylesheet" type="text/css">
@@ -35,3 +28,12 @@
 		</script>
 	</head>
 	<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
+
+<?php 		
+		include ($rootpath . "lib/db.php");
+		include ($rootpath . "lib/conn.inc.php");
+		include ($rootpath . "lib/func_date.php");
+		if (!$db -> open()) {
+			die($db -> error());
+		}
+?>

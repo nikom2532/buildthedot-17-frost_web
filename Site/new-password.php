@@ -1,4 +1,4 @@
-<script>
+﻿<script>
 function validateForm()
 {
 var x=document.forms["forgot-password-form"]["newpassword"].value;

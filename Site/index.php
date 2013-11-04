@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $rootpath = "./";
 include ($rootpath . "include/header.php");
 include ("include/top-menu.php");

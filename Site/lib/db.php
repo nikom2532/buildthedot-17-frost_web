@@ -31,7 +31,11 @@ class DB {
 		if (@!mysql_select_db($this -> database, $this -> conn)) {
 			return false;
 		}
-		@mysql_query("SET NAMES tis620");
+		//@mysql_query("SET NAMES tis620");
+		mysql_query("SET character_set_results=utf8");
+		mysql_query("SET character_set_client=utf8");
+		mysql_query("SET character_set_connection=utf8");
+		mysql_query("SET NAME UTF8");
 		return true;
 	}
 
