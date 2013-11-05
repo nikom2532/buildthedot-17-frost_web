@@ -1,8 +1,6 @@
-<?php
-include ("include/header.php");
-include ("include/top-bar.php");
-include("include/checksession.php");
-?>
+<?php include("include/header.php");?>
+<?php include("include/top-bar.php");?>
+<?php include("lib/func_pagination.php");?>
 <script type="text/javascript">
  	$(document).ready(function(){ 
     });
@@ -41,8 +39,7 @@ if ($msg=="Sucess") {
         });
     </script>
     <?php
-}
-if($msg=="Failed"){
+}if($msg=="Failed"){
 	$message = "Process Failed! Please try again";
     ?>
      <script type="text/javascript">
@@ -58,36 +55,25 @@ if($msg=="Failed"){
 
 ?>
 
-<!-- HEADER -->
-<div id="header-with-tabs">
+	<!-- HEADER -->
+	<div id="header-with-tabs">
+		
+		<div class="page-full-width cf">
+	
+			<ul id="tabs" class="left">
+				<li><a href="main.php" class="dashboard-tab">Dashboard</a></li>
+				<li><a href="customer.php" class="active-tab">Customer Management</a></li>
+				<li><a href="pdf.php" >PDF Management</a></li>
+                <li><a href="tag.php">Tag Management</a></li>
+			</ul> <!-- end tabs -->
+			
+			<!-- company logo -->
+			<a href="#" id="company-branding-small" class="right"><img src="images/mckansys_logo.png" width="200" height="27" alt="logo"></a>
+			
+		</div> <!-- end full-width -->	
 
-	<div class="page-full-width cf">
-
-		<ul id="tabs" class="left">
-			<li>
-				<a href="main.php" class="dashboard-tab">Dashboard</a>
-			</li>
-			<li>
-				<a href="customer.php" class="active-tab">Customer Management</a>
-			</li>
-			<li>
-				<a href="pdf.php">PDF Management</a>
-			</li>
-			<li>
-				<a href="tag.php">Tag Management</a>
-			</li>
-		</ul>
-		<!-- end tabs -->
-
-		<!-- company logo -->
-		<a href="#" id="company-branding-small" class="right"><img src="images/mckansys_logo.png" width="200" height="27" alt="logo"></a>
-
-	</div>
-	<!-- end full-width -->
-
-</div>
-<!-- end header -->
-
+	</div> <!-- end header -->
+		
 <!-- MAIN CONTENT -->
 <div id="content">
 
@@ -156,49 +142,55 @@ if($msg=="Failed"){
 						//echo $strQuery;
 						$result = mysql_query($strQuery);
 							
-						$i = 1;
+						if($page ==1){
+								$i = 1;
+						}
+							
 						while ($row = mysql_fetch_array($result)) {
-							echo "<tr>";
-							echo "<td>" . $i . "</td>";
-							echo "<td>" . $row['firstname'] . "&nbsp;" . $row['lastname'] . "</td>";
-							echo "<td>" . $row['company'] . "</td>";
-							echo "<td>" . $row['email'] . "</td>";
+							?>
+							<tr>
+							<td><?=$i?></td>
+							<td><?=$row['firstname'] . "&nbsp;" . $row['lastname']?></td>
+							<td><?=$row['company']?></td>
+							<td><?=$row['email']?></td>
 
-							if ($row['userActive'] == "Y") {
-								echo "<td id='status'><img src='images/icons/message-boxes/confirmation.png' alt='active'></td>";
-							} else {
-								echo "<td id='status'><img src='images/icons/message-boxes/error.png' alt='active'></td>";
-							}
-							echo "<td>";
-							echo "<form method='post' action='edit-customer.php' id='submitform' name='submitform'>";
-							echo "<input type='hidden' name='userId' value=".$row['userId'].">";
-							echo " <INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 55px;' ALT='EDIT'> ";
-							echo "</form>";
-							
-							echo "<form method='post' action='permission.php' id='submitform' name='submitform'>";
-							echo "<input type='hidden' name='userId' value=".$row['userId']." > ";
-							echo "<input type='hidden' name='firstName' value=".$row['firstname']." > ";
-							echo "<input type='hidden' name='lastName' value=".$row['lastname']." > ";
-							echo " <INPUT TYPE='image' class='left' SRC='images/icons/table/actions-lock.png' BORDER='0' style='margin:5px 15px 5px 5px;' ALT='PERMISSION'> ";
-							echo "</form>";
-							
-							echo "<form method='post' action='customer_delete.php' id='submitform' name='submitform'>";
-							echo "<input type='hidden' name='userId' value=".$row['userId'].">";
-							echo "<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0'ALT='DELETE'  onClick='return confirmSubmit()'>";
-							echo "</form>";
-							echo "</td>";
+							<?php if ($row['userActive'] == "Y") {
+							?>
+								<td id='status'><img src='images/icons/message-boxes/confirmation.png' alt='active'></td>
+							<?php } else { ?>
+								<td id='status'><img src='images/icons/message-boxes/error.png' alt='active'></td>
+							<?php } ?>
+								<td>
+								<form method='post' action='edit-customer.php' id='submitform' name='submitform'>
+							<input type='hidden' name='userId' value="<?=$row['userId']?>">
+							<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 55px;' ALT='EDIT'>
+							</form>
+					
+							<form method='post' action='permission.php' id='submitform' name='submitform'>
+							<input type='hidden' name='userId' value="<?=$row['userId']?>
+							<input type='hidden' name='firstName' value="<?=$row['firstname']?>">
+							<input type='hidden' name='lastName' value="<?=$row['lastname']?>" >
+							<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-lock.png' BORDER='0' style='margin:5px 15px 5px 5px;' ALT='PERMISSION'>
+							</form>
+						
+							<form method='post' action='customer_delete.php' id='submitform' name='submitform'>
+							<input type='hidden' name='userId' value="<?=$row['userId']?>">
+							<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0'ALT='DELETE'  onClick='return confirmSubmit()'>
+							</form>
+							</td>
 
-							echo "</tr>";
-
+							</tr>
+						<?php 
 							$i = $i + 1;
 						}
 						?>
+						
 					</tbody>
 
 				</table>
 					<?php
-							echo pagination($limit, $page, "tag.php?page=", $Num_Rows);
-					?>	
+							echo pagination($limit, $page, "customer.php?page=", $Num_Rows);
+					?>
 			</div>
 			<!-- end content-module-main -->
 
@@ -211,6 +203,5 @@ if($msg=="Failed"){
 </div>
 <!-- end content -->
 
-<?php
-include ("include/footer.php");
-?>
+
+<?php include("include/footer.php");?>

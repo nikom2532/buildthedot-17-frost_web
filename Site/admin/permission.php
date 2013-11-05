@@ -102,12 +102,12 @@
 									
 									<p>
 										<label for="name">Start Date</label>
-										<input type="text" id="datepicker" name="startDate"/>
+										<input type="text" id="datepicker" name="startDate" class="round full-width-input"/>
 									</p>
 									
 									<p>
 										<label for="name">End Date</label>
-										<input type="text" id="datepicker2" name="endDate"/>
+										<input type="text" id="datepicker2" name="endDate" class="round full-width-input"/>
 									</p>
 									
 									<p>

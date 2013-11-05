@@ -41,7 +41,7 @@ if (!$db -> open()) {
 	<script src="js/datepicker/jquery.ui.core.js"></script>
 	<script src="js/datepicker/jquery.ui.datepicker.js"></script>
 	<script src="js/datepicker/jquery.ui.widget.js"></script>   
-	<!-- <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"> -->
+	<link href="css/jquery-ui.css" rel="stylesheet" type="text/css"> 
 	
 	<script src="js/jquery_notification_v.1.js"></script>
 	<!-- <script src="js/jquery_v_1.4.js"></script>  -->

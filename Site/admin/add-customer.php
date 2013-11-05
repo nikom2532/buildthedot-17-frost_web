@@ -7,6 +7,32 @@ include ("include/top-bar.php");
 <?php
 include ("include/checksession.php");
 ?>
+<script type="text/javascript">
+    function GetRandom()
+    {
+        var pass = document.getElementById("password")
+        var chars = "ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+	    var string_length = 8;
+	    var randomstring = '';
+	    var charCount = 0;
+	    var numCount = 0;
+	
+	    for (var i=0; i<string_length; i++) {
+	        // If random bit is 0, there are less than 3 digits already saved, and there are not already 5 characters saved, generate a numeric value. 
+	        if((Math.floor(Math.random() * 2) == 0) && numCount < 3 || charCount >= 5) {
+	            var rnum = Math.floor(Math.random() * 10);
+	            randomstring += rnum;
+	            numCount += 1;
+	        } else {
+	            // If any of the above criteria fail, go ahead and generate an alpha character from the chars string
+	            var rnum = Math.floor(Math.random() * chars.length);
+	            randomstring += chars.substring(rnum,rnum+1);
+	            charCount += 1;
+	        }
+	    }
+        pass.value = randomstring;
+    }
+</script>
 <!-- HEADER -->
 <div id="header-with-tabs">
 
@@ -64,7 +90,7 @@ include ("include/checksession.php");
 
 								<label for="picture">Profile Picture</label>
 
-								<input type="file" name="imagefile" />
+								<input type="file" name="imageUpload" />
 							<p>
 
 							<p>
@@ -148,23 +174,23 @@ include ("include/checksession.php");
 								<p class="seperator">
 									Address
 								</p>
-								<textarea style="resize: none; width: 318px; height: 100px;" id="address" name="address" class="round full-width-textarea"></textarea>																					
+								<textarea style="resize: none; width: 400px; height: 100px;" id="address" name="address" class="round full-width-textarea"></textarea>																					
 							</p>
 									
  							<p>
 								<p class="seperator">
 									City
 								</p>
-								<input type="text" id="city" name="city"/>
+								<input type="text" id="city" name="city" class="round full-width-input"/>
 							</p>
 
 							<p>
 								<p class="seperator">
 									Zip
 								</p>
-								<input type="text" id="zip" name="zip"/>
+								<input type="text" id="zip" name="zip" class="round full-width-input"/>
 							</p>
-
+							
 							<!-- country -->
 							<p class="seperator">
 								Country
@@ -185,16 +211,26 @@ include ("include/checksession.php");
 							<p class="seperator">
 								Phone
 							</p>
-							<input type="text" id="phone" name="phone"/>
+							<input type="text" id="phone" name="phone" class="round full-width-input"/>
 							</p>
 
 							<p>
 							<p class="seperator">
 								Fax
 							</p>
-							<input type="text" id="fax" name="fax"/>
+							<input type="text" id="fax" name="fax" class="round full-width-input"/>
 							</p>
-
+							
+							<p>
+								<p class="seperator">
+									Password
+								</p>
+								<input type="text" id="password" name="password" class="round full-width-input"/>
+								<button OnClick="GetRandom()" type="button">generate</button>
+								<span></span>
+							</p>
+							
+							
 							<input type="submit" value="Submit" class="round blue ic-right-arrow" />
 
 						</fieldset>
