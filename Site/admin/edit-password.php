@@ -9,7 +9,7 @@
 	
 			<ul id="tabs" class="left">
 				<li><a href="main.php" class="dashboard-tab">Dashboard</a></li>
-				<li><a href="customer.php" class="active-tab">Customer Management</a></li>
+				<li><a href="customer.php">Customer Management</a></li>
 				<li><a href="pdf.php">PDF Management</a></li>
                 <li><a href="tag.php">Tag Management</a></li>
 			</ul> <!-- end tabs -->

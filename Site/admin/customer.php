@@ -167,8 +167,8 @@ if ($msg=="Sucess") {
 							</form>
 					
 							<form method='post' action='permission.php' id='submitform' name='submitform'>
-							<input type='hidden' name='userId' value="<?=$row['userId']?>
-							<input type='hidden' name='firstName' value="<?=$row['firstname']?>">
+							<input type='hidden' name='userId' value="<?=$row['userId']?>" >
+							<input type='hidden' name='firstName' value="<?=$row['firstname']?>"> 
 							<input type='hidden' name='lastName' value="<?=$row['lastname']?>" >
 							<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-lock.png' BORDER='0' style='margin:5px 15px 5px 5px;' ALT='PERMISSION'>
 							</form>

@@ -15,14 +15,14 @@
 	FAX='$fax'";
 	
 	$strSQL .= "WHERE ID='$userID'";
-	// echo "strQuery=>".$strSQL ;
+	//echo "strQuery=>".$strSQL ;
 	$cmdQuery = mysql_query($strSQL);
-	echo $filename;
+	//echo $filename;
 	if ($cmdQuery) {
 		$msg = "Sucess";
 		header("location: customer.php?msg=$msg");
 	} else {
 		$msg = "Failed";
-		echo "location.href='customer.php?msg=$msg; ";
+		header("location: customer.php?msg=$msg");
 	}
 ?>

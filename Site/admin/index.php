@@ -16,7 +16,7 @@ $sess_id=$_SESSION["userid"];
 	
 	
 	<!-- MAIN CONTENT -->
-	<div id="content">
+	<div id="content-login">
 	
 		<form action="include/login-process.php" method="POST" id="login-form">
 			<?php
@@ -54,9 +54,7 @@ $sess_id=$_SESSION["userid"];
 	
 	
 	<!-- FOOTER -->
-	<div id="footer">
-	
-	</div> <!-- end footer -->
+	<?php include("include/footer.php");?>
 
 </body>
 </html>

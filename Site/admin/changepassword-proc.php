@@ -29,7 +29,7 @@ echo "renewpassword=>".$renewpassword ."<br/>";
 	if(mysql_num_rows($cmdQuery) == 1){		
 		if($newpassword == $renewpassword){
 			$password = md5(sha1($newpassword)).sha1(md5($newpassword));
-			$strSQLUpdatePass = "UPDATE admin SET PASSWORD='$password'";
+			$strSQLUpdatePass = "UPDATE ADMIN SET PASSWORD='$password'";
 			$strSQLUpdatePass.="WHERE ID='$userID'" ;
 			
 			echo "strQuery=>".$strSQLUpdatePass ;

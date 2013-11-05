@@ -2,7 +2,11 @@
 	include ("include/header.php");
 	$userId = $_POST['userId'];
 	$originalDateStartDate = $_POST['startDate'];
+
 	$newDateStartDate = date("Y-m-d 00:00:00", strtotime($originalDateStartDate));
+	echo $userId;
+	echo $originalDateStartDate;
+	echo $newDateStartDate;
 	
 	$originalDateEndDate = $_POST['endDate'];
 	$newDateEndDate = date("Y-m-d 00:00:00", strtotime($originalDateEndDate));

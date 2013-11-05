@@ -10,7 +10,7 @@ $email = $_POST['email'];
 // echo "name=>".$name ."<br/>";
 // echo "email=>".$email ."<br/>";
 
-$strSQLUpdateProfile = "UPDATE admin SET NAME='$name',EMAIL='$email' ";
+$strSQLUpdateProfile = "UPDATE ADMIN SET NAME='$name',EMAIL='$email' ";
 $strSQLUpdateProfile .= "WHERE ID='$userID'" ;
 
 echo "strQuery=>".$strSQLUpdateProfile ;

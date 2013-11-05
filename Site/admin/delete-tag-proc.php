@@ -2,13 +2,17 @@
 <?php
 $tagId = $_POST['tagId'];
 
-$strSQL="DELETE FROM tag WHERE ID='$tagId'";
+$strSQL="DELETE FROM TAG WHERE ID='$tagId'";
 $cmdQuery=mysql_query($strSQL);
-
+echo $strSQL;
 if($cmdQuery){
-	header("location: tag.php");
+	$msg = "Sucess";
+	echo $msg;
+	header("location: tag.php?msg=$msg");
 }else{
-	"<sript>alert('The process failed')</script>";
+	$msg = "Failed";
+	echo $msg;
+	header("location: tag.php?msg=$msg");
 	
 }
 ?>

@@ -156,7 +156,7 @@ form input[type="submit"] {
 	border: none;
 	cursor: pointer;
 	padding: 0.833em; /* 10/12 */
-
+	color:white;
 	background-position: right center;
 	padding-right: 3em; /* 36/12 */
 	background-repeat: no-repeat;
@@ -292,7 +292,7 @@ ul#nav li ul li a:hover { background-color: #7a8497; }
 }
 
 
-div#header { padding: 1.25em 0; background-color:#2A2E36;/* 20/16 */ }
+div#header { padding: 1.25em 0; background-color:#2A2E36;/* 20/16 */ margin-top:-20px;}
 
 div#header-with-tabs { padding: 1.25em 0 0 0; /* 20/16 */ }
 
@@ -413,6 +413,12 @@ div#content {
 	border: 1px solid #eeefef;
 	padding: 1.875em 0; /* 30/16 */
 }
+div#content-login {
+	background: #f8f9fa url('../images/artwork-pattern.png') repeat-x left bottom;
+	border: 1px solid #eeefef;
+	padding: 7em 0 7.5em 0; /* 30/16 */
+}
+
 
 form#login-form {
 	width: 18.75em; /* 300/16 */

@@ -9,49 +9,58 @@ $tagName6 = $_POST['tagName6'];
 $tagName7 = $_POST['tagName7'];
 
 
+
 if($tagName1 !=""){
-	$strSQL="INSERT INTO tag (NAME)
-			 VALUES ('$tagName1');";
+	$strSQL="INSERT INTO TAG (NAME)
+			 VALUES ('$tagName1')";
 	$cmdQuery=mysql_query($strSQL);
+	echo $strSQL;
 }
 if($tagName2 !=""){
-	$strSQL="INSERT INTO tag (NAME)
-			 VALUES ('$tagName2');";
+	$strSQL="INSERT INTO TAG (NAME)
+			 VALUES ('$tagName2')";
 	$cmdQuery=mysql_query($strSQL);
+	echo $strSQL;
 }
 if($tagName3 !=""){
-	$strSQL="INSERT INTO tag (NAME)
-			 VALUES ('$tagName3');";
+	$strSQL="INSERT INTO TAG (NAME)
+			 VALUES ('$tagName3')";
 	$cmdQuery=mysql_query($strSQL);
+	echo $strSQL;
 }
 if($tagName4 !=""){
-	$strSQL="INSERT INTO tag (NAME)
-			 VALUES ('$tagName4');";
+	$strSQL="INSERT INTO TAG (NAME)
+			 VALUES ('$tagName4')";
 	$cmdQuery=mysql_query($strSQL);
+	echo $strSQL;
 }
 if($tagName5 !=""){
-	$strSQL="INSERT INTO tag (NAME)
-			 VALUES ('$tagName5');";
+	$strSQL="INSERT INTO TAG (NAME)
+			 VALUES ('$tagName5')";
 	$cmdQuery=mysql_query($strSQL);
+	echo $strSQL;
 }
 if($tagName6 !=""){
-	$strSQL="INSERT INTO tag (NAME)
-			 VALUES ('$tagName6');";
+	$strSQL="INSERT INTO TAG (NAME)
+			 VALUES ('$tagName6')";
 	$cmdQuery=mysql_query($strSQL);
 }
 if($tagName7 !=""){
-	$strSQL="INSERT INTO tag (NAME)
-			 VALUES ('$tagName7');";
+	$strSQL="INSERT INTO TAG (NAME)
+			 VALUES ('$tagName7')";
 	$cmdQuery=mysql_query($strSQL);
+	echo $strSQL;
 }
 
 $result = mysql_insert_id();
 echo $result;
 if(mysql_insert_id() != ""){
 	$msg = "Sucess";
+	echo $msg;
 	header("location: tag.php?msg=$msg");
 }else{
 	$msg = "Failed";
+	echo $msg;
 	header("location: tag.php?msg=$msg");
 	
 }
