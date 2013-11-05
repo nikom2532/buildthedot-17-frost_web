@@ -2,7 +2,7 @@
 if(isset($_POST['email'])) {
      
     // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "admin@mckansys.com";
+    $email_to = "mckansys@gmail.com";//admin@mckansys.com
     $email_subject = "Message From Customer[Mckansys]";
 
     // validation expected data exists
@@ -26,14 +26,14 @@ if(isset($_POST['email'])) {
     $email_message .= "Telephone: ".$phonenumber."\n";
     $email_message .= "Comments: ".$comment."\n";
      
-	//echo $email_message;
+	$email_message;
      
 // create email headers
 $headers = 'From: '.$email_from."\r\n".
 'Reply-To: '.$email_to."\r\n" .
 'X-Mailer: PHP/' . phpversion();
 $result = @mail($email_to, $email_subject, $email_message, $headers);  
-
+//echo $result;
 if($result)
 	{
 		header("Location: sucess-page.php");
