@@ -101,6 +101,7 @@ include ("include/top-menu.php");
 				SELECT a.ID as id,
 				a.NAME as name,
 				a.DESCRIPTION as description,
+				LEFT(a.DESCRIPTION,220) AS excerpt, 
 				b.GROUP_LEVEL_NAME as glvl,
 				b.GROUP_LEVEL_ID as glvId
 				FROM PDF AS a
@@ -121,8 +122,8 @@ include ("include/top-menu.php");
 				echo "<a href='report-detail.php?pdf_id=". $row['id'] ."&id=".$row['glvId']."&glvl=".$row['glvl']."' id='new-release'>";
 				echo "<h3>" . $row['name'] . "</h3>";
 				echo "</a>";
-				echo "<p>" . substr_replace($row['description'],'',220) ."<a href='report-detail.php?pdf_id=". $row['id'] ."&id=".$row['glvId']."&glvl=".$row['glvl']."' id='new-release'>"."  "."<span class='italic text-orange'>read more..</span>"."</a></p>";
-				echo "</section>";
+				echo "<p>" . $row['excerpt']."<a href='report-detail.php?pdf_id=". $row['id'] ."&id=".$row['glvId']."&glvl=".$row['glvl']."' id='new-release'>"."  "."<span class='italic text-orange'>read more..</span>"."</a></p>";
+				echo "</section>";//substr_replace($row['description'],'',220) 
 			}
 			?>
 			<br class="clear" />

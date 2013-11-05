@@ -442,13 +442,13 @@ include ($rootpath."include/top-menu.php");
 								elseif ($_GET["id"]==11 && $_GET["glvl"]==3) {
 									if($i%4==0){
 	?>
-										<div class="prefix_2 grid_5" id="wrap-cp">
+										<div class="grid_8" id="wrap-cp">
 	<?php
 									}
 	?>
 											<div class="left" id="cp">
 												<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
-													<img src="images/coutries/<?php echo $c_PHOTO_NAME[$i]; ?>"  width="120" height="120" alt="<?php echo $c_NAME[$i]; ?>" />
+													<img src="images/coutries/<?php echo $c_PHOTO_NAME[$i]; ?>"  width="250" height="172" alt="<?php echo $c_NAME[$i]; ?>" />
 												</a>
 												<p class="center">
 													<?php echo $c_NAME[$i]; ?>
