@@ -32,6 +32,12 @@ include ("include/top-menu.php");
 					$temp_id__ = $_GET["id"];
 					$temp_glvl__ = $_GET["glvl"];
 					$str = array();
+					
+					//add the topic name on top Nav bar
+					$str[]="
+						<li class=\"text-lightorange bold  text-nav\">{$row["NAME"]}</li>
+					";
+					
 					while ($temp_glvl__ >= 1) {
 						$SQLnav = "
 							SELECT *
@@ -44,7 +50,7 @@ include ("include/top-menu.php");
 							//echo $rsnav["NAME"]."-";
 							if($temp_glvl__==$_GET["glvl"]){
 								$str[]="
-									<li class=\"text-lightorange bold  text-nav\">{$rsnav["NAME"]}</li>
+									<li class=\"ic-nav-title\">{$rsnav["NAME"]}</li>
 								";
 							}
 							// else{
