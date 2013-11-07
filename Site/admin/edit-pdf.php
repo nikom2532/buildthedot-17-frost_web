@@ -137,43 +137,6 @@ $pdfId = $_POST['pdfId'];
 								Yes
 								<br>
 							</p>
-						</fieldset>
-						<input type="submit" value="Save change" class="round blue ic-right-arrow" />
-						<!-- </form> -->
-
-					</div>
-					<!-- end half-size-column -->
-
-					<div class="half-size-column fr">
-
-						<fieldset>
-							<?php 
-							$resultTag = mysql_query("
-							SELECT t.ID AS id, t.NAME AS name
-							FROM TAG AS t
-							INNER JOIN TAG_RELATIONSHIP AS tr 
-							ON tr.TAG_ID = t.ID
-							WHERE tr.PDF_ID = $pdfId
-						");
-						?>
-							<p class="form-error-input">
-								  <p class="form-error-input">
-				                  		<p><label for="tag">Tag</label></p>
-				                  		
-										<input type="text" id="text" name="tags" value="tag1,tag2" />		
-											
-										<br/>
-										
-				                  </p>
-							</p>
-							<p class="form-error-input">
-			                      <label for="uploadfile">Upload Image</label>
-			                      <input type="file" name="imageUpload"/><?=$row['photoname'];?>
-		              	    </p>
-			                  <p class="form-error-input">
-			                      <label for="uploadfile">Upload File</label>
-			                      <input type="file" name="pdfUpload"/><?=$row['path'];?>
-			              	  </p>
 							<p class="form-error-input">
 
 								<div id="gLv1Div">
@@ -210,8 +173,48 @@ $pdfId = $_POST['pdfId'];
 
 								</div>
 							</p>
+							
+						</fieldset>
+						
+						<!-- </form> -->
+
+					</div>
+					<!-- end half-size-column -->
+
+					<div class="half-size-column fr">
+
+						<fieldset>
+							<?php 
+							$resultTag = mysql_query("
+							SELECT t.ID AS id, t.NAME AS name
+							FROM TAG AS t
+							INNER JOIN TAG_RELATIONSHIP AS tr 
+							ON tr.TAG_ID = t.ID
+							WHERE tr.PDF_ID = $pdfId
+						");
+						?>
+							<p class="form-error-input">
+								  <p class="form-error-input">
+				                  		<p><label for="tag">Tag</label></p>
+				                  		
+										<input type="text" id="text" name="tags" value="tag1,tag2" />		
+											
+										<br/>
+										
+				                  </p>
+							</p>
+							<p class="form-error-input">
+			                      <label for="uploadfile">Upload Image</label>
+			                      <input type="file" name="imageUpload"/><?=$row['photoname'];?>
+		              	    </p>
+			                  <p class="form-error-input">
+			                      <label for="uploadfile">Upload File</label>
+			                      <input type="file" name="pdfUpload"/><?=$row['path'];?>
+			              	  </p>
+							
 
 						</fieldset>
+						<input type="submit" value="Save change" class="round blue ic-right-arrow" />
 						<?php } ?>
 				</form>
 

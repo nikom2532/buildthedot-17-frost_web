@@ -527,7 +527,7 @@ include ($rootpath."include/top-menu.php");
 										<p class="text-desc">
 											<span class="text-lightgreen bold head-desc">Description: </span><?php echo substr_replace($c_DESCRIPTION["$i"],' ..',220); ?>
 											<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
-												<span class='italic text-orange'>read more..</span>
+												<span class='italic text-orange'>Read More</span>
 											</a>
 										</p>
 									</section>

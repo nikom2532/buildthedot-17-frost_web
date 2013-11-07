@@ -101,7 +101,6 @@ include ("include/top-menu.php");
 				SELECT a.ID as id,
 				a.NAME as name,
 				a.DESCRIPTION as description,
-				LEFT(a.DESCRIPTION,220) AS excerpt, 
 				b.GROUP_LEVEL_NAME as glvl,
 				b.GROUP_LEVEL_ID as glvId
 				FROM PDF AS a
@@ -118,12 +117,17 @@ include ("include/top-menu.php");
 			<?php
 			//-- Add by Fon
 			while ($row = @mysql_fetch_array($result)) {
+			
+			// $result = $segment->get_segment_array("คำไทยภาษาไทย  หน่อยแน่  เทคโนโลยี");
+			// $word = count($result);
+			// echo $word;
 				echo "<section>";
 				echo "<a href='report-detail.php?pdf_id=". $row['id'] ."&id=".$row['glvId']."&glvl=".$row['glvl']."' id='new-release'>";
 				echo "<h3>" . $row['name'] . "</h3>";
 				echo "</a>";
-				echo "<p>" . $row['excerpt']."<a href='report-detail.php?pdf_id=". $row['id'] ."&id=".$row['glvId']."&glvl=".$row['glvl']."' id='new-release'>"."  "."<span class='italic text-orange'>read more..</span>"."</a></p>";
+				echo "<p>" . mb_substr($row['description'], 0, 230, "utf-8").".."."<a href='report-detail.php?pdf_id=". $row['id'] ."&id=".$row['glvId']."&glvl=".$row['glvl']."' id='new-release'>"."  "."<span class='italic text-orange'>Read More</span>"."</a></p>";
 				echo "</section>";//substr_replace($row['description'],'',220) 
+								  // LEFT(a.DESCRIPTION,220) AS excerpt, 
 			}
 			?>
 			<br class="clear" />
