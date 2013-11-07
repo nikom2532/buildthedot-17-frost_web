@@ -49,9 +49,9 @@ include ("include/top-menu.php");
 							$temp_id__ = $rsnav["GROUP_LV" . ($temp_glvl__ - 1) . "_ID"];
 							//echo $rsnav["NAME"]."-";
 							if($temp_glvl__==$_GET["glvl"]){
-								$str[]="
-									<li class=\"ic-nav-title\">{$rsnav["NAME"]}</li>
-								";
+								// $str[]="
+									// <li class=\"ic-nav-title\">{$rsnav["NAME"]}</li>
+								// ";
 							}
 							// else{
 								// $str[]="
@@ -60,6 +60,31 @@ include ("include/top-menu.php");
 									// </li>
 								// ";
 							// }
+							
+							$temp_str="
+								<li>
+									<a href=\"main-knowledge.php?id={$rsnav["ID"]}&glvl={$temp_glvl__}&gp="
+							;
+							
+							$SQL2="
+											SELECT * 
+											FROM  `GROUP_LV".($temp_glvl__+1)."`
+											WHERE `GROUP_LV".$temp_glvl__."_ID` = '{$rsnav2["ID"]}'
+										";
+										$result2=@mysql_query($SQL2);
+										if($rs2=@mysql_fetch_array($result2)){
+											$temp_str .= "y";
+										}
+										else{
+											$temp_str .= "n";
+										}
+										
+										$temp_str .= 
+												"\">".$rsnav["NAME"]."</a>
+											</li>
+										";
+										$str[] = $temp_str;
+							
 							$SQLnav2 = "
 								SELECT *
 								FROM `GROUP_LV" . ($temp_glvl__-1) . "`
