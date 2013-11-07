@@ -125,7 +125,7 @@ include ("include/top-menu.php");
 				echo "<a href='report-detail.php?pdf_id=". $row['id'] ."&id=".$row['glvId']."&glvl=".$row['glvl']."' id='new-release'>";
 				echo "<h3>" . $row['name'] . "</h3>";
 				echo "</a>";
-				echo "<p>" . mb_substr($row['description'], 0, 230, "utf-8").".."."<a href='report-detail.php?pdf_id=". $row['id'] ."&id=".$row['glvId']."&glvl=".$row['glvl']."' id='new-release'>"."  "."<span class='italic text-orange'>Read More</span>"."</a></p>";
+				echo "<p>" . mb_substr($row['description'], 0, 220, "utf-8").".."."<a href='report-detail.php?pdf_id=". $row['id'] ."&id=".$row['glvId']."&glvl=".$row['glvl']."' id='new-release'>"."  "."<span class='italic text-orange'>Read More</span>"."</a></p>";
 				echo "</section>";//substr_replace($row['description'],'',220) 
 								  // LEFT(a.DESCRIPTION,220) AS excerpt, 
 			}

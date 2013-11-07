@@ -114,7 +114,7 @@ include ("include/top-menu.php");
 <?php 
 							if($_GET["id"]==11 && $_GET["glvl"]==3){
 ?>
-								<img src="images/coutries/<?php echo $row["PHOTO_NAME"]; ?>" /><br />
+								<img src="images/coutries/<?php echo $row["PHOTO_NAME"]; ?>" width="250" height="172" /><br />
 <?php
 							}
 							elseif(!(
