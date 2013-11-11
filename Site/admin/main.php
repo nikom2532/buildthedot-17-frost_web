@@ -196,8 +196,81 @@ include ("include/header.php");
 				//Create the CSV Report
 ?>
 				<a href="./main_export_csv_pdf.php" class="round button orange ic-download image-left">Download Report</a>
-
 				<!--end group by user -->
+				
+				<div class="stripe-separator">
+					<!--  -->
+				</div>
+				
+				<h2>Download report</h2>
+
+				<table class="fixed">
+					<col width="2em" />
+					<col width="8em" />
+					<col width="8em" />
+					<col width="3em" />
+					<col width="3em" />
+
+					<thead>
+
+						<tr>
+							<th>No.</th>
+							<th>USER</th>
+							<th>Title</th>
+							<th>Download Date</th>
+							<th>Download Time</th>
+						</tr>
+
+					</thead>
+
+					<tfoot>
+
+						<tbody>
+<?php
+							$i=1;
+							$sql_download_statistic="
+								SELECT *
+								FROM  `DOWNLOAD_STATISTICS`
+								GROUP BY `USER_ID`
+								ORDER BY `USER_ID` ;
+							";
+							$Result_download_statistic=@mysql_query($sql_download_statistic);
+							while($rs_download_statistic=@mysql_fetch_array($Result_download_statistic)){
+?>
+								<tr>
+									<td><?php echo $i++; ?></td>
+									<td><?php
+										$sql_user_name = "
+											SELECT * 
+											FROM  `USER_PROFILE` 
+											WHERE `ID` = '{$rs_download_statistic["USER_ID"]}'
+										;";
+										$result_user_name = @mysql_query($sql_user_name);
+										while ($rs_user_name = @mysql_fetch_array($result_user_name)) {
+											echo $rs_user_name["FIRSTNAME"]." ".$rs_user_name["FIRSTNAME"];
+										}
+									?></td>
+									<td><?php 
+										$sql_pdf_name = "
+											SELECT * 
+											FROM  `PDF`
+											WHERE `ID` = '{$rs_download_statistic["PDF_ID"]}'
+										;";
+										$result_pdf_name = @mysql_query($sql_pdf_name);
+										while ($rs_pdf_name = @mysql_fetch_array($result_pdf_name)) {
+											echo $rs_pdf_name["NAME"]; 
+										}
+									?></td>
+									<td><?php echo $rs_download_statistic["DOWNLOAD_DATETIME"]; ?></td>
+									<td><?php echo $rs_download_statistic["DOWNLOAD_DATETIME"]; ?></td>
+								</tr>
+<?php
+							}
+?>
+						</tbody>
+					</tfoot>
+				</table>
+				
 			</div>
 			<!-- end content-module-main -->
 
