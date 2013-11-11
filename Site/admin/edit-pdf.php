@@ -34,7 +34,7 @@ $sql="
 	}
 	$tagResult = json_encode($rows);
 
-include($rootadminpath."js/module/upload-pdf.php");
+
 ?>
 <?php
 $pdfId = $_POST['pdfId'];
@@ -137,6 +137,221 @@ $pdfId = $_POST['pdfId'];
 								Yes
 								<br>
 							</p>
+						<?php 
+							$resultPdf = mysql_query("
+										SELECT *
+										FROM PDF_CATEGORY
+										WHERE PDF_ID = $pdfId						
+									   ");
+							while ($rowPdf = mysql_fetch_array($resultPdf)) {
+								$lvName = $rowPdf['GROUP_LEVEL_NAME'];
+								$lvId = $rowPdf['GROUP_LEVEL_ID'];
+								echo "Group Lv name>".$lvName;
+								echo "Group Lv id>".$lvId;
+								$lv1 = 0;
+								$lv2 = 0;
+								$lv3 = 0;
+								$lv4 = 0;
+								
+								if($lvName == 2){
+									switch ($lvId) {
+									// lv1 = 1
+									case 1:	
+										$lv1 = 1;	
+										$lv2 = $lvId;
+									    //echo "lv1  = $lv1"."<br>";
+									    break;
+									case 2:
+										$lv1 = 1;
+										$lv2 = $lvId;
+									    // echo "lv1  = $lv1"."<br>";
+									    break;
+									case 3:
+										$lv1 = 1;
+										$lv2 = $lvId;
+									    //echo "lv1  = $lv1"."<br>";
+									    break;
+									case 10:
+										$lv1 = 1;
+									    //echo "lv1  = $lv1"."<br>";
+									    break;
+									// lv1 = 2
+									case 4:	
+										$lv1 = 2;
+										$lv2 = $lvId;
+									    //echo "lv1  = $lv1"."<br>";
+									    break;
+									case 5:
+										$lv1 = 2;
+										$lv2 = $lvId;
+									    //echo "lv1  = $lv1"."<br>";
+									    break;
+									case 6:
+										$lv1 = 2;
+										$lv2 = $lvId;
+									    //echo "lv1  = $lv1"."<br>";
+									    break;
+									case 7:
+										$lv1 = 2;
+										$lv2 = $lvId;
+									    //echo "lv1  = $lv1"."<br>";
+									    break;
+									case 8:
+										$lv1 = 2;
+										$lv2 = $lvId;
+									    //echo "lv1  = $lv1"."<br>";
+									    break;
+									case 9:
+										$lv1 = 2;
+										$lv2 = $lvId;
+									    //echo "lv1  = $lv1"."<br>";
+									    break;
+									}
+								}// end group level name = 2
+								
+								if($lvName == 3){
+									switch ($lvId) {
+									// lv2 = 3
+									case 3:	
+										$lv3 = $lvId;
+										$lv2 = 2;
+										$lv1 = 1;	
+									    // echo "lv2  = $lv2"."<br>";
+									    // echo "lv1  = $lv1"."<br>";
+									    break;
+									case 4:
+										$lv3 = $lvId;
+										$lv2 = 2;
+										$lv1 = 1;
+									    // echo "lv2  = $lv2"."<br>";
+									    // echo "lv1  = $lv1"."<br>";
+									    break;
+									case 5:
+										$lv3 = $lvId;
+										$lv2 = 2;
+										$lv1 = 1;
+									    // echo "lv2  = $lv2"."<br>";
+									    // echo "lv1  = $lv1"."<br>";
+									    break;
+									case 6:
+										$lv3 = $lvId;
+										$lv2 = 2;
+										$lv1 = 1;
+									    // echo "lv2  = $lv2"."<br>";
+									    // echo "lv1  = $lv1"."<br>";
+									    break;		
+									case 7:	
+										$lv3 = $lvId;
+										$lv2 = 2;
+										$lv1 = 1;
+									    // echo "lv2  = $lv2"."<br>";
+									    // echo "lv1  = $lv1"."<br>";
+									    break;
+									case 8:
+										$lv3 = $lvId;
+										$lv2 = 2;
+										$lv1 = 1;
+									    // echo "lv2  = $lv2"."<br>";
+									    // echo "lv1  = $lv1"."<br>";
+									    break;
+									// lv2 = 2
+									case 9:
+										$lv3 = $lvId;
+										$lv2 = 2;
+										$lv1 = 1;
+									    // echo "lv2  = $lv2"."<br>";
+									    // echo "lv1  = $lv1"."<br>";
+									    break;
+									case 10:
+										$lv3 = $lvId;
+										$lv2 = 2;
+										$lv1 = 1;
+									    // echo "lv2  = $lv2"."<br>";
+									    // echo "lv1  = $lv1"."<br>";
+									    break;
+									case 11:
+										$lv3 = $lvId;
+										$lv2 = 2;
+										$lv1 = 1;
+									    // echo "lv2  = $lv2"."<br>";
+									    // echo "lv1  = $lv1"."<br>";
+									    break;
+									case 12:
+										$lv3 = $lvId;
+										$lv2 = 4;
+										$lv1 = 1;
+									    // echo "lv2  = $lv2"."<br>";
+									    // echo "lv1  = $lv1"."<br>";
+									    break;
+									}
+								}// end group level name = 3
+								
+								if($lvName == 4){
+									switch ($lvId) {
+									// lv2 = 3
+									case 5:
+										$lv4 = $lvId;
+										$lv3 = 10;
+										$lv2 = 3;
+										$lv1 = 1;		
+									    // echo "lv3  = $lv3"."<br>";
+									    // echo "lv2  = $lv2"."<br>";
+										// echo "lv1  = $lv1"."<br>";
+									    break;
+									case 6:
+										$lv4 = $lvId;
+										$lv3 = 10;
+										$lv2 = 3;
+										$lv1 = 1;
+									    // echo "lv3  = $lv3"."<br>";
+									    // echo "lv2  = $lv2"."<br>";
+										// echo "lv1  = $lv1"."<br>";
+									    break;
+									case 7:
+										$lv4 = $lvId;
+										$lv3 = 11;
+										$lv2 = 3;
+										$lv1 = 1;
+									    // echo "lv3  = $lv3"."<br>";
+									    // echo "lv2  = $lv2"."<br>";
+										// echo "lv1  = $lv1"."<br>";
+									    break;
+									case 8:
+										$lv4 = $lvId;
+										$lv3 = 12;
+										$lv2 = 4;
+										$lv1 = 2;
+									    // echo "lv3  = $lv3"."<br>";
+									    // echo "lv2  = $lv2"."<br>";
+										// echo "lv1  = $lv1"."<br>";
+									    break;
+									
+									}
+								}// end group level name = 4
+								 echo "lv4  = $lv4"."<br>";
+								 echo "lv3  = $lv3"."<br>";
+								 echo "lv2  = $lv2"."<br>";
+								 echo "lv1  = $lv1"."<br>";
+								 
+								 $gLv4Id = $lv4;
+								 $gLv3Id = $lv3;
+								 $gLv2Id = $lv2;
+								 $gLv1Id = $lv1;
+								 
+								 echo "$gLv1Id";
+								 echo "$gLv2Id";
+								 echo "$gLv3Id";
+							}
+						
+						?>
+						<input type=hidden id="gLv1Id" name="gLv1Id" value="<?=$gLv1Id?>"/>
+						<input type=hidden id="gLv2Id" name="gLv2Id" value="<?=$gLv2Id?>"/>
+						<input type=hidden id="gLv3Id" name="gLv3Id" value="<?=$gLv3Id?>"/>
+						<input type=hidden id="gLv4Id" name="gLv4Id" value="<?=$gLv4Id?>"/>
+						
+						<script type="text/javascript">
+							getDefaultData();
+						</script>
 							<p class="form-error-input">
 
 								<div id="gLv1Div">
@@ -147,16 +362,19 @@ $pdfId = $_POST['pdfId'];
 									$resultLv1 = mysql_query($sqlLv1);
 									?>
 
-									<select name="group-name" onchange="getGLv2(this.value)">
-										<?php
-										echo "<option value='0'>--Select Menu--</option>";
+									<select name="group-name" id="group-name" onchange="getGLv2(this.value)">
+										
+										<option value='0'>--Select Menu--</option>
+										<?php 
 										while ($rowLv1 = mysql_fetch_array($resultLv1)) {
-											echo "<option value='" . $rowLv1['ID'] . "'>" . $rowLv1['NAME'] . "</option>";
+										?>
+											<option value="<?=$rowLv1['ID']?>" <?php if($lv1 == $rowLv1['ID']){ echo "selected='selected' "; } ?>><?=$rowLv1['NAME']?></option>
+										<?php 
 										}
 										?>
 									</select>
 								</div>
-
+							
 								<div id="gLv2Div">
 
 								</div>
@@ -233,5 +451,6 @@ $pdfId = $_POST['pdfId'];
 </div> <!-- end content -->
 
 <?php
+include($rootadminpath."js/module/upload-pdf-edit.php");
 	include ("include/footer.php");
 ?>
