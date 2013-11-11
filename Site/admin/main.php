@@ -229,7 +229,7 @@ include ("include/header.php");
 <?php
 							$i=1;
 							$sql_download_statistic="
-								SELECT *
+								SELECT *, Date(DOWNLOAD_DATETIME) AS download_date, Time(DOWNLOAD_DATETIME) AS download_time
 								FROM  `DOWNLOAD_STATISTICS`
 								GROUP BY `USER_ID`
 								ORDER BY `USER_ID` ;
@@ -261,8 +261,8 @@ include ("include/header.php");
 											echo $rs_pdf_name["NAME"]; 
 										}
 									?></td>
-									<td><?php echo $rs_download_statistic["DOWNLOAD_DATETIME"]; ?></td>
-									<td><?php echo $rs_download_statistic["DOWNLOAD_DATETIME"]; ?></td>
+									<td><?php echo $rs_download_statistic["download_date"]; ?></td>
+									<td><?php echo $rs_download_statistic["download_time"]; ?></td>
 								</tr>
 <?php
 							}

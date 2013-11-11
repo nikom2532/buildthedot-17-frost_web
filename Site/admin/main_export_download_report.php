@@ -28,7 +28,7 @@ function array_to_csv_download($array, $filename = "User_Statistic_Report.csv", 
 
 $i=1;
 $sql_download_statistic="
-	SELECT *
+	SELECT *, Date(DOWNLOAD_DATETIME) AS download_date, Time(DOWNLOAD_DATETIME) AS download_time
 	FROM  `DOWNLOAD_STATISTICS`
 	GROUP BY `USER_ID`
 	ORDER BY `USER_ID` ;
@@ -57,6 +57,8 @@ while($rs_download_statistic=@mysql_fetch_array($Result_download_statistic)){
 	}
 	$stat_user_No[]=$i;
 	$DOWNLOAD_DATETIME[] = $rs_download_statistic["DOWNLOAD_DATETIME"];
+	$download_date[]=$rs_download_statistic["download_date"];
+	$download_time[]=$rs_download_statistic["download_time"];
 	$i++;
 }
 
