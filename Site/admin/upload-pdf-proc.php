@@ -125,7 +125,7 @@ if(!(!file_exists($_FILES['imageUpload']['tmp_name']) || !is_uploaded_file($_FIL
 	$imageFileName = "no-image.png";
 }
 $current_time = date("Y-m-d H:i:s");
-$sqlPdf = "
+echo $sqlPdf = "
 	INSERT INTO `PDF` (
 		`NAME`, 
 		`PHOTO_NAME`,
@@ -147,8 +147,8 @@ $sqlPdf = "
 ";
 //echo $sqlPdf;
 $insertPdfResult = mysql_query($sqlPdf);
-//echo mysql_insert_id(). "<br />";
-// $result = @mysql_query($sql);
+// echo mysql_insert_id(). "<br />";
+$result = @mysql_query($sql);
 $PDF_ID = mysql_insert_id();
 
 $string_tag = explode(',', $tag);

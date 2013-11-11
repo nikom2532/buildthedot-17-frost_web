@@ -270,7 +270,7 @@ include ("include/header.php");
 						</tbody>
 					</tfoot>
 				</table>
-				
+				<a href="./main_export_download_report.php" class="round button orange ic-download image-left">Download Report</a>
 			</div>
 			<!-- end content-module-main -->
 
