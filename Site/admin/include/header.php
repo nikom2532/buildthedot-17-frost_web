@@ -42,7 +42,7 @@ if (!$db -> open()) {
 	<!--Date picker -->
 	<script src="js/jquery-ui.min.js"></script>
 	<script src="js/date-picker/jquery.ui.core.js"></script>
-	<script src="js/datep-icker/jquery.ui.datepicker.js"></script>
+	<script src="js/date-picker/jquery.ui.datepicker.js"></script>
 	<script src="js/date-picker/jquery.ui.widget.js"></script>   
 	<link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
 	
