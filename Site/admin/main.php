@@ -270,6 +270,8 @@ include ("include/header.php");
 						</tbody>
 					</tfoot>
 				</table>
+				<br />ลูกค้า ต้องการให้มันมีให้เลือก ออก Report โดยฟิวเตอร์ เฉพาะ Date, Time
+				<br />
 				<a href="./main_export_download_report.php" class="round button orange ic-download image-left">Download Report</a>
 			</div>
 			<!-- end content-module-main -->
