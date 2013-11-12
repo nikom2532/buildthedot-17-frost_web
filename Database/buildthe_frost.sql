@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 29, 2013 at 09:52 PM
+-- Generation Time: Nov 13, 2013 at 12:02 AM
 -- Server version: 5.1.66
 -- PHP Version: 5.3.3-7+squeeze15
 
@@ -51,16 +51,16 @@ INSERT INTO `ADMIN` (`ID`, `NAME`, `EMAIL`, `PASSWORD`, `DATE`) VALUES
 
 CREATE TABLE IF NOT EXISTS `ASIAN_COUNTRY` (
   `ID` int(3) NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `CAPITAL` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `LANGUAGE` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `POPULATION` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `RELIGION` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `CURRENCY` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `PARAGRAPH_1` varchar(1000) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `PARAGRAPH_2` varchar(1000) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `PARAGRAPH_3` varchar(1000) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `PHOTO_NAME` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `NAME` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `CAPITAL` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `LANGUAGE` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `POPULATION` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `RELIGION` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `CURRENCY` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `PARAGRAPH_1` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
+  `PARAGRAPH_2` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
+  `PARAGRAPH_3` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
+  `PHOTO_NAME` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
@@ -88,7 +88,7 @@ INSERT INTO `ASIAN_COUNTRY` (`ID`, `NAME`, `CAPITAL`, `LANGUAGE`, `POPULATION`, 
 
 CREATE TABLE IF NOT EXISTS `COUNTRY` (
   `ID` int(11) NOT NULL,
-  `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `NAME` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -355,7 +355,7 @@ INSERT INTO `COUNTRY` (`ID`, `NAME`) VALUES
 
 CREATE TABLE IF NOT EXISTS `DEPARTMENT` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `NAME` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
@@ -378,7 +378,7 @@ CREATE TABLE IF NOT EXISTS `DOWNLOAD_STATISTICS` (
   `PDF_ID` int(100) NOT NULL,
   `DOWNLOAD_DATETIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=28 ;
 
 --
 -- Dumping data for table `DOWNLOAD_STATISTICS`
@@ -404,7 +404,14 @@ INSERT INTO `DOWNLOAD_STATISTICS` (`ID`, `USER_ID`, `PDF_ID`, `DOWNLOAD_DATETIME
 (17, 1, 17, '2013-10-29 14:21:54'),
 (18, 1, 18, '2013-10-29 14:22:12'),
 (19, 1, 17, '2013-10-29 14:22:53'),
-(20, 1, 21, '2013-10-29 14:32:56');
+(20, 1, 21, '2013-10-29 14:32:56'),
+(21, 1, 21, '2013-10-30 04:19:07'),
+(22, 1, 17, '2013-10-30 04:20:46'),
+(23, 1, 22, '2013-11-01 04:27:03'),
+(24, 3, 7, '2013-11-05 04:44:23'),
+(25, 3, 8, '2013-11-05 04:50:21'),
+(26, 1, 22, '2013-11-05 04:53:53'),
+(27, 3, 11, '2013-11-05 04:55:45');
 
 -- --------------------------------------------------------
 
@@ -414,7 +421,7 @@ INSERT INTO `DOWNLOAD_STATISTICS` (`ID`, `USER_ID`, `PDF_ID`, `DOWNLOAD_DATETIME
 
 CREATE TABLE IF NOT EXISTS `GROUP_LV1` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `NAME` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `DESCRIPTION` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
@@ -424,8 +431,8 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV1` (
 --
 
 INSERT INTO `GROUP_LV1` (`ID`, `NAME`, `DESCRIPTION`) VALUES
-(1, 'Knowledge', ''),
-(2, 'Best Practice', '');
+(1, 'Think Tank', ''),
+(2, 'News Release', '');
 
 -- --------------------------------------------------------
 
@@ -435,7 +442,7 @@ INSERT INTO `GROUP_LV1` (`ID`, `NAME`, `DESCRIPTION`) VALUES
 
 CREATE TABLE IF NOT EXISTS `GROUP_LV2` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `NAME` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `GROUP_LV1_ID` int(11) NOT NULL,
   `DESCRIPTION` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`),
@@ -447,10 +454,10 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV2` (
 --
 
 INSERT INTO `GROUP_LV2` (`ID`, `NAME`, `GROUP_LV1_ID`, `DESCRIPTION`) VALUES
-(1, 'Market', 1, ''),
-(2, 'Technology', 1, ''),
+(1, 'Market', 1, 'Thailand Market Outlook'),
+(2, 'Knowledge', 1, ''),
 (3, 'Strategy', 1, ''),
-(4, 'Around Asian', 1, ''),
+(4, 'Around ASEAN', 1, ''),
 (5, 'E-Business', 2, ''),
 (6, 'Customer Experience Management', 2, ''),
 (7, 'Value Innovation', 2, ''),
@@ -466,28 +473,32 @@ INSERT INTO `GROUP_LV2` (`ID`, `NAME`, `GROUP_LV1_ID`, `DESCRIPTION`) VALUES
 
 CREATE TABLE IF NOT EXISTS `GROUP_LV3` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `NAME` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `GROUP_LV2_ID` int(11) NOT NULL,
   `DESCRIPTION` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_GROUP_LV3_GROUP_LV21_idx` (`GROUP_LV2_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `GROUP_LV3`
 --
 
 INSERT INTO `GROUP_LV3` (`ID`, `NAME`, `GROUP_LV2_ID`, `DESCRIPTION`) VALUES
-(3, 'E-Business', 3, ''),
-(4, 'Customer Experience Management', 3, ''),
-(5, 'Value Innovation', 3, ''),
-(6, 'Process Improvement', 3, ''),
-(7, 'Go to Market', 3, ''),
-(8, 'Competitive Analysis', 3, ''),
-(9, 'Update AEC News', 4, ''),
-(10, 'Competency Index', 4, ''),
-(11, 'Country Profile', 4, ''),
-(12, 'Company', 5, '');
+(4, 'Customer Experience', 3, 'This is a description text.'),
+(6, 'Customer Insights', 3, 'This is a description text.'),
+(7, 'E-Channel Strategy', 3, 'This is a description text.'),
+(8, 'Market Leadership', 3, 'This is a description text.'),
+(9, 'Update AEC News', 4, 'This is a description text.'),
+(10, 'Competency Index', 4, 'This is a description text.'),
+(11, 'Country Profile', 4, 'This is a description text.'),
+(12, 'Company', 5, ''),
+(15, 'ICT Market', 1, ''),
+(16, 'TechTrend Report', 1, ''),
+(17, 'Infrastructure', 2, ''),
+(18, 'Architecture', 2, ''),
+(19, 'Application', 2, ''),
+(20, 'Business Process', 2, '');
 
 -- --------------------------------------------------------
 
@@ -497,7 +508,7 @@ INSERT INTO `GROUP_LV3` (`ID`, `NAME`, `GROUP_LV2_ID`, `DESCRIPTION`) VALUES
 
 CREATE TABLE IF NOT EXISTS `GROUP_LV4` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `NAME` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `GROUP_LV3_ID` int(11) NOT NULL,
   `DESCRIPTION` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`),
@@ -510,9 +521,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV4` (
 
 INSERT INTO `GROUP_LV4` (`ID`, `NAME`, `GROUP_LV3_ID`, `DESCRIPTION`) VALUES
 (5, 'World Economic Index', 10, ''),
-(6, 'ICT Competency Index', 10, ''),
-(7, 'Country', 11, ''),
-(8, 'Year', 12, '');
+(6, 'ICT Competency Index', 10, '');
 
 -- --------------------------------------------------------
 
@@ -522,7 +531,7 @@ INSERT INTO `GROUP_LV4` (`ID`, `NAME`, `GROUP_LV3_ID`, `DESCRIPTION`) VALUES
 
 CREATE TABLE IF NOT EXISTS `GROUP_LV5` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(60) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `NAME` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `GROUP_LV4_ID` int(11) NOT NULL,
   `DESCRIPTION` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`)
@@ -550,7 +559,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV6` (
 
 CREATE TABLE IF NOT EXISTS `INDUSTRY` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `NAME` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
@@ -564,12 +573,32 @@ INSERT INTO `INDUSTRY` (`ID`, `NAME`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `INFO`
+--
+
+CREATE TABLE IF NOT EXISTS `INFO` (
+  `ID` int(2) NOT NULL AUTO_INCREMENT,
+  `DESCRIPTION` varchar(800) COLLATE utf8_unicode_ci NOT NULL,
+  `UPDATE` datetime NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `INFO`
+--
+
+INSERT INTO `INFO` (`ID`, `DESCRIPTION`, `UPDATE`) VALUES
+(1, 'welcome to mckansys.. ยินดีต้อนรับ', '2013-11-11 00:00:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `JOB_LEVEL`
 --
 
 CREATE TABLE IF NOT EXISTS `JOB_LEVEL` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `NAME` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
@@ -588,42 +617,43 @@ INSERT INTO `JOB_LEVEL` (`ID`, `NAME`) VALUES
 
 CREATE TABLE IF NOT EXISTS `PDF` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `PHOTO_NAME` varchar(100) CHARACTER SET latin1 NOT NULL,
-  `DESCRIPTION` text CHARACTER SET utf8 COLLATE utf8_bin,
+  `NAME` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `PHOTO_NAME` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `DESCRIPTION` text COLLATE utf8_unicode_ci,
   `PRICE` decimal(10,0) DEFAULT NULL,
   `UPDATE_DATE` datetime DEFAULT NULL,
   `COMPANY_ID` int(11) DEFAULT NULL,
-  `PATH` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `PATH` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Is_Asian_country` tinyint(1) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `PDF`
 --
 
 INSERT INTO `PDF` (`ID`, `NAME`, `PHOTO_NAME`, `DESCRIPTION`, `PRICE`, `UPDATE_DATE`, `COMPANY_ID`, `PATH`, `Is_Asian_country`) VALUES
-(1, 'test1', 'testPDF.jpg', 0x4c6f72656d20497073756d2069732073696d706c792064756d6d792074657874206f6620746865207072696e74696e6720616e64207479706573657474696e6720696e6475737472792e204c6f72656d20497073756d20686173206265656e2074686520696e6475737472792773207374616e646172642064756d6d79207465787420657665722073696e6365207468652031353030732c204c6f72656d2031, 100, '2013-09-01 00:00:00', 1, 'TestPdf1.pdf', 0),
-(2, 'test2', 'testPDF.jpg', 0x4c6f72656d20497073756d2069732073696d706c792064756d6d792074657874206f6620746865207072696e74696e6720616e64207479706573657474696e6720696e6475737472792e204c6f72656d20497073756d20686173206265656e2074686520696e6475737472792773207374616e646172642064756d6d79207465787420657665722073696e6365207468652031353030732c204c6f72656d2032, 200, '2013-09-02 00:00:00', 2, 'TestPdf2.pdf', 0),
-(3, 'test3', 'testPDF.jpg', 0x4c6f72656d20497073756d2069732073696d706c792064756d6d792074657874206f6620746865207072696e74696e6720616e64207479706573657474696e6720696e6475737472792e204c6f72656d20497073756d20686173206265656e2074686520696e6475737472792773207374616e646172642064756d6d79207465787420657665722073696e6365207468652031353030732c204c6f72656d2033, 300, '2013-09-03 00:00:00', 3, 'TestPdf3.pdf', 0),
-(4, 'test4', 'testPDF.jpg', 0x4c6f72656d20497073756d2069732073696d706c792064756d6d792074657874206f6620746865207072696e74696e6720616e64207479706573657474696e6720696e6475737472792e204c6f72656d20497073756d20686173206265656e2074686520696e6475737472792773207374616e646172642064756d6d79207465787420657665722073696e6365207468652031353030732c204c6f72656d2034, 400, '2013-09-04 00:00:00', 4, 'TestPdf4.pdf', 0),
-(5, 'test5', 'testPDF.jpg', 0x4c6f72656d20497073756d2069732073696d706c792064756d6d792074657874206f6620746865207072696e74696e6720616e64207479706573657474696e6720696e6475737472792e204c6f72656d20497073756d20686173206265656e2074686520696e6475737472792773207374616e646172642064756d6d79207465787420657665722073696e6365207468652031353030732c204c6f72656d2035, 500, '2013-09-05 00:00:00', 5, 'TestPdf5.pdf', 0),
-(7, 'Brunei Darussalam', 'brunei.jpg', 0x61736466, 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(8, 'Cambodia', 'cambodia.jpg', 0x4c6f72656d20497073756d2069732073696d706c792064756d6d792074657874206f6620746865207072696e74696e6720616e64207479706573657474696e6720696e6475737472792e204c6f72656d20497073756d20686173206265656e2074686520696e6475737472792773207374616e646172642064756d6d79207465787420657665722073696e636520746865203135303073, 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(9, 'Indonesia', 'indonesia.jpg', 0x616161, 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(10, 'Lao PDR', 'lao.jpg', 0x616161, 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(11, 'Malaysia', 'malaysia.jpg', 0x616161, 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(12, 'Myanmar', 'myanmar.jpg', 0x616161, 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(13, 'Philippines', 'philipine.jpg', 0x616161, 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(14, 'Singapore', 'singapore.jpg', 0x616161, 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(15, 'Thailand', 'thailand.jpg', 0x616161, 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(16, 'Viet Nam', 'vietnam.jpg', 0x616161, 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(17, 'Augmenting Mobile 3G Using WiFi', 'testPDF.jpg', 0x576520696e7665737469676174652069662057694669206163636573732063616e206265207573656420746f206175676d656e7420334720636170616369747920696e206d6f62696c6520656e7669726f6e6d656e74732e205765200c72737420636f6e6475637420612064657461696c6564207374756479206f6620334720616e642057694669206163636573732066726f6d206d6f76696e672076656869636c65732c20696e2074687265650d0a64690b6572656e74206369746965732e205765200c6e64207468617420746865206176657261676520334720616e64205769466920617661696c6162696c697479206163726f737320746865206369746965732069732038372520616e64203131252c20726573706563746976656c792e2057694669207468726f756768707574206973206c6f776572207468616e203347207468726f7567687075742c20616e642057694669206c6f737320726174657320617265206869676865722e, NULL, '2013-10-14 14:00:00', NULL, 'Augmenting3G.pdf', 0),
-(18, 'Third Generation (3G) Wireless', 'testPDF.jpg', 0x334720697320746865206e6578742067656e65726174696f6e206f6620776972656c657373206e6574776f726b20746563686e6f6c6f677920746861742070726f766964657320686967682073706565640d0a62616e6477696474682028686967682064617461207472616e736665722072617465732920746f2068616e6468656c6420646576696365732e2054686520686967682064617461207472616e736665722072617465732077696c6c20616c6c6f77203347206e6574776f726b7320746f206f66666572206d756c74696d6564696120736572766963657320636f6d62696e696e6720766f69636520616e6420646174612e, NULL, '2013-10-14 14:10:00', NULL, 'brief3G.pdf', 0),
-(19, 'THINGS YOU SHOULD KNOW ABOUT… Cloud Computing', 'testPDF.jpg', 0x496e206974732062726f61646573742075736167652c20746865207465726d20636c6f756420636f6d707574696e672072656665727320746f207468652064656c6976657279206f66207363616c61626c65204954207265736f7572636573206f7665722074686520496e7465726e65742c206173206f70706f73656420746f20686f7374696e6720616e64206f7065726174696e672074686f7365207265736f7572636573206c6f63616c6c792c2073756368206173206f6e206120636f6c6c656765206f7220756e6976657273697479206e6574776f726b2e2054686f7365207265736f75726365732063616e20696e636c756465206170706c69636174696f6e7320616e642073657276696365732c2061732077656c6c2061732074686520696e667261737472756374757265206f6e2077686963682074686579206f7065726174652e4279206465706c6f79696e6720495420696e66726173747275637475726520616e64207365727669636573206f76657220746865206e6574776f726b2c20616e206f7267616e697a6174696f6e2063616e207075726368617365207468657365207265736f7572636573206f6e20616e2061732d6e65656465642062617369730d0a616e642061766f696420746865206361706974616c20636f737473206f6620736f66747761726520616e642068617264776172652e205769746820636c6f756420636f6d707574696e672c2049542063617061636974792063616e2062652061646a757374656420717569636b6c7920616e6420656173696c7920746f206163636f6d6d6f64617465206368616e67657320696e2064656d616e642e, NULL, '2013-10-14 14:16:00', NULL, 'CloudComputing.pdf', 0),
-(20, 'The Economics of Cloud Computing', '', 0x496e206974732062726f61646573742075736167652c20746865207465726d20636c6f756420636f6d707574696e672072656665727320746f207468652064656c6976657279206f66207363616c61626c65204954207265736f7572636573206f7665722074686520496e7465726e65742c206173206f70706f73656420746f20686f7374696e6720616e64206f7065726174696e672074686f7365207265736f7572636573206c6f63616c6c792c2073756368206173206f6e206120636f6c6c656765206f7220756e6976657273697479206e6574776f726b2e2054686f7365207265736f75726365732063616e20696e636c756465206170706c69636174696f6e7320616e642073657276696365732c2061732077656c6c2061732074686520696e667261737472756374757265206f6e2077686963682074686579206f7065726174652e4279206465706c6f79696e6720495420696e66726173747275637475726520616e64207365727669636573206f76657220746865206e6574776f726b2c20616e206f7267616e697a6174696f6e2063616e207075726368617365207468657365207265736f7572636573206f6e20616e2061732d6e65656465642062617369730d0a616e642061766f696420746865206361706974616c20636f737473206f6620736f66747761726520616e642068617264776172652e205769746820636c6f756420636f6d707574696e672c2049542063617061636974792063616e2062652061646a757374656420717569636b6c7920616e6420656173696c7920746f206163636f6d6d6f64617465206368616e67657320696e2064656d616e642e, NULL, '2013-10-15 15:20:13', NULL, 'Economics-of-Cloud-Computing.pdf', 0),
-(21, 'E-Business Model', 'testPDF.jpg', 0x496e206974732062726f61646573742075736167652c20746865207465726d20636c6f756420636f6d707574696e672072656665727320746f207468652064656c6976657279206f66207363616c61626c65204954207265736f7572636573206f7665722074686520496e7465726e65742c206173206f70706f73656420746f20686f7374696e6720616e64206f7065726174696e672074686f7365207265736f7572636573206c6f63616c6c792c2073756368206173206f6e206120636f6c6c656765206f7220756e6976657273697479206e6574776f726b2e2054686f7365207265736f75726365732063616e20696e636c756465206170706c69636174696f6e7320616e642073657276696365732c2061732077656c6c2061732074686520696e667261737472756374757265206f6e2077686963682074686579206f7065726174652e204279206465706c6f79696e6720495420696e66726173747275637475726520616e64207365727669636573206f76657220746865206e6574776f726b2c20616e206f7267616e697a6174696f6e2063616e207075726368617365207468657365207265736f7572636573206f6e20616e2061732d6e65656465642062617369730d0a616e642061766f696420746865206361706974616c20636f737473206f6620736f66747761726520616e642068617264776172652e205769746820636c6f756420636f6d707574696e672c2049542063617061636974792063616e2062652061646a757374656420717569636b6c7920616e6420656173696c7920746f206163636f6d6d6f646174650d0a6368616e67657320696e2064656d616e642e, NULL, '2013-10-16 00:00:00', NULL, 'ModeleEBusiness.pdf', 0);
+(1, 'test1', 'Cover-NFC.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 1', 100, '2013-09-01 00:00:00', 1, 'TestPdf1.pdf', 0),
+(2, 'test2', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 2', 200, '2013-09-02 00:00:00', 2, 'TestPdf2.pdf', 0),
+(3, 'test3', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 3', 300, '2013-09-03 00:00:00', 3, 'TestPdf3.pdf', 0),
+(4, 'test4', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 4', 400, '2013-09-04 00:00:00', 4, 'TestPdf4.pdf', 0),
+(5, 'test5', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 5', 500, '2013-09-05 00:00:00', 5, 'TestPdf5.pdf', 0),
+(7, 'Brunei Darussalam', 'brunei.jpg', 'asdf', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(8, 'Cambodia', 'cambodia.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(9, 'Indonesia', 'indonesia.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(10, 'Lao PDR', 'lao.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(11, 'Malaysia', 'malaysia.jpg', 'มาเลเซียเป็นหนึ่งในประเทศที่มีเศรษฐกิจที่เฟื่องฟูและประสบความสำเร็จมากที่สุดในเอเซียตะวันออกเฉียงใต้ แม้เศรษฐกิจโลกจะประสบปัญหาซบเซา แต่เศรษฐกิจของมาเลเซียยังคงแข็งแกร่ง ด้วยการเติบโตของภาคอุตสาหกรรมและเสถียรภาพทางการเมืองในทศวรรษที่ผ่านมา\r\n อัตราการเจริญเติบโตของ GDP ที่แข็งแกร่งทำให้รายได้ต่อหัวเพิ่มขึ้นอย่างรวดเร็ว ซึ่งทำให้เศรษฐกิจของประเทศเปลี่ยนจากการพึ่งพาสินค้าโภคภัณฑ์ไปสู่การผลิตสินค้าเพื่อส่งออกแทนทั้งยังเริ่มหันไปสู่ภาคบริการมากขึ้น  นอกจากนี้ จำนวนประชาชนชั้นกลางที่ร่ำรวยเพิ่มมากขึ้น ทำให้ความต้องการผลิตภัณฑ์จากต่างประเทศที่มีคุณภาพเพิ่มมากขึ้นด้วย \r\n', 100, '2013-11-05 00:00:00', NULL, 'CountryProfile-Malaysia.pdf', 1),
+(12, 'Myanmar', 'myanmar.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(13, 'Philippines', 'philipine.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(14, 'Singapore', 'singapore.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(15, 'Thailand', 'thailand.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(16, 'Viet Nam', 'vietnam.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(17, 'Augmenting Mobile 3G Using WiFi', 'testPDF.jpg', 'We investigate if WiFi access can be used to augment 3G capacity in mobile environments. We rst conduct a detailed study of 3G and WiFi access from moving vehicles, in three\r\ndierent cities. We nd that the average 3G and WiFi availability across the cities is 87% and 11%, respectively. WiFi throughput is lower than 3G throughput, and WiFi loss rates are higher.', NULL, '2013-10-14 14:00:00', NULL, 'Augmenting3G.pdf', 0),
+(18, 'Third Generation (3G) Wireless', 'testPDF.jpg', '3G is the next generation of wireless network technology that provides high speed\r\nbandwidth (high data transfer rates) to handheld devices. The high data transfer rates will allow 3G networks to offer multimedia services combining voice and data.', NULL, '2013-10-14 14:10:00', NULL, 'brief3G.pdf', 0),
+(19, 'THINGS YOU SHOULD KNOW ABOUT? Cloud Computing', 'testPDF.jpg', 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate.By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis\r\nand avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate changes in demand.', NULL, '2013-10-14 14:16:00', NULL, 'CloudComputing.pdf', 0),
+(20, 'The Economics of Cloud Computing', '', 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate.By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis\r\nand avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate changes in demand.', NULL, '2013-10-15 15:20:13', NULL, 'Economics-of-Cloud-Computing.pdf', 0),
+(21, 'E-Business Model', 'testPDF.jpg', 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate. By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis\r\nand avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate\r\nchanges in demand.', NULL, '2013-10-16 00:00:00', NULL, 'ModeleEBusiness.pdf', 0),
+(22, 'Near Field Communication ', 'Cover-NFC.jpg', 'Near Field Communication (NFC) กับตลาดผู้บริโภคในประเทศไทย มัคคานซิสเชื่อว่า ปี 2557 จะเป็นช่วงเวลาแห่งการเติบโตและการใช้งานจริงอย่างแพร่หลายของเทคโนโลยีการสื่อสารระยะสั้น หรือ Near Field Communication (NFC)ซึ่งเป็นเทคโนโลยีการสื่อสารระยะสั้น มีระยะการให้บริการติดต่อระหว่างกันประมาณ 10 เซนติเมตร ผ่านทางคลื่นไร้สายที่ความถี่ 13.56 MHz จัดเป็นเทคโนโลยี RFID (Radio frequency identification) รูปแบบหนึ่ง ด้วยคุณลักษณะของเทคโนโลยี NFC เองนั้นเกิดขึ้นมาเพื่อความรวดเร็วและเรียบง่ายในการติดต่อสื่อสารระหว่างอุปกรณ์พกพา และเป็นไปตามวิถีชีวิตของผู้ใช้งานเมืองในปัจจุบัน   ', 100, '2013-11-01 00:00:00', 1, 'Tech -NFC -271013_FINAL-Cover.pdf', 0);
 
 -- --------------------------------------------------------
 
@@ -634,11 +664,11 @@ INSERT INTO `PDF` (`ID`, `NAME`, `PHOTO_NAME`, `DESCRIPTION`, `PRICE`, `UPDATE_D
 CREATE TABLE IF NOT EXISTS `PDF_CATEGORY` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `PDF_ID` int(11) NOT NULL,
-  `GROUP_LEVEL_NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `GROUP_LEVEL_NAME` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `GROUP_LEVEL_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `PDF_ID` (`PDF_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=29 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=37 ;
 
 --
 -- Dumping data for table `PDF_CATEGORY`
@@ -661,7 +691,15 @@ INSERT INTO `PDF_CATEGORY` (`ID`, `PDF_ID`, `GROUP_LEVEL_NAME`, `GROUP_LEVEL_ID`
 (25, 18, '3', 4),
 (26, 19, '3', 9),
 (27, 20, '4', 5),
-(28, 21, '3', 3);
+(28, 21, '3', 3),
+(29, 22, '2', 2),
+(30, 22, '2', 1),
+(31, 22, '2', 1),
+(32, 22, '3', 9),
+(33, 22, '4', 5),
+(34, 22, '4', 5),
+(35, 22, '4', 6),
+(36, 22, '4', 6);
 
 -- --------------------------------------------------------
 
@@ -673,13 +711,13 @@ CREATE TABLE IF NOT EXISTS `PERMISSION` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `USER_PROFILE_ID` int(11) NOT NULL,
   `GROUP_LV2_ID` int(11) NOT NULL,
-  `IS_ACTIVE` char(1) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT 'Y',
+  `IS_ACTIVE` char(1) COLLATE utf8_unicode_ci DEFAULT 'Y',
   `START_DATE` datetime NOT NULL,
   `END_DATE` datetime NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_USER_PROFILE_has_GROUP_LV2_GROUP_LV21_idx` (`GROUP_LV2_ID`),
   KEY `fk_USER_PROFILE_has_GROUP_LV2_USER_PROFILE1_idx` (`USER_PROFILE_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `PERMISSION`
@@ -691,7 +729,10 @@ INSERT INTO `PERMISSION` (`ID`, `USER_PROFILE_ID`, `GROUP_LV2_ID`, `IS_ACTIVE`, 
 (3, 4, 3, 'Y', '2013-09-01 00:00:00', '2014-09-28 00:00:00'),
 (4, 4, 1, 'N', '2013-01-01 00:00:00', '2013-01-01 00:00:00'),
 (5, 3, 3, 'N', '2013-10-01 00:00:00', '2013-10-01 00:00:00'),
-(6, 1, 3, 'Y', '2013-10-17 00:00:00', '2013-10-31 00:00:00');
+(6, 1, 3, 'Y', '2013-10-17 00:00:00', '2013-10-31 00:00:00'),
+(7, 1, 4, 'Y', '2013-10-17 00:00:00', '2013-10-31 00:00:00'),
+(8, 3, 3, 'Y', '2013-11-05 00:00:00', '2013-11-30 00:00:00'),
+(9, 3, 4, 'Y', '2013-11-05 00:00:00', '2013-11-30 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -701,7 +742,7 @@ INSERT INTO `PERMISSION` (`ID`, `USER_PROFILE_ID`, `GROUP_LV2_ID`, `IS_ACTIVE`, 
 
 CREATE TABLE IF NOT EXISTS `QUESTION` (
   `ID` int(100) NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `NAME` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
@@ -731,7 +772,7 @@ INSERT INTO `QUESTION` (`ID`, `NAME`) VALUES
 
 CREATE TABLE IF NOT EXISTS `TAG` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `NAME` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
@@ -779,7 +820,7 @@ INSERT INTO `TAG_RELATIONSHIP` (`PDF_ID`, `TAG_ID`) VALUES
 
 CREATE TABLE IF NOT EXISTS `TECHNOLOGY_ID` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `NAME` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
@@ -798,28 +839,28 @@ INSERT INTO `TECHNOLOGY_ID` (`ID`, `NAME`) VALUES
 
 CREATE TABLE IF NOT EXISTS `USER_PROFILE` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `FIRSTNAME` varchar(60) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `LASTNAME` varchar(60) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `EMAIL` varchar(60) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `COMPANY` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `PASSWORD` varchar(250) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'md5(sha1($password)) ต่อ String กับ sha1(md5($password))',
-  `JOB_TITLE` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `ADDRESS` varchar(60) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `CITY` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `ZIP` varchar(10) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `PHONE` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `FAX` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `IS_ACTIVE` varchar(1) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT 'Y',
-  `IS_ADMIN` varchar(1) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT 'N',
+  `FIRSTNAME` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `LASTNAME` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `EMAIL` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `COMPANY` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `PASSWORD` varchar(250) COLLATE utf8_unicode_ci NOT NULL COMMENT 'md5(sha1($password)) ต่อ String กับ sha1(md5($password))',
+  `JOB_TITLE` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ADDRESS` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CITY` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ZIP` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PHONE` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `FAX` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `IS_ACTIVE` varchar(1) COLLATE utf8_unicode_ci DEFAULT 'Y',
+  `IS_ADMIN` varchar(1) COLLATE utf8_unicode_ci DEFAULT 'N',
   `JOB_LEVEL` int(11) DEFAULT NULL,
   `DEPARTMENT_ID` int(11) NOT NULL,
   `INDUSTRY_ID` int(11) NOT NULL,
   `COUNTRY_ID` int(11) NOT NULL,
   `TECHNOLOGY_ID` int(11) DEFAULT NULL,
-  `USER_PROFILEcol` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `PHOTO_NAME` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `USER_PROFILEcol` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PHOTO_NAME` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `QUESTION_ID` int(50) NOT NULL,
-  `ANSWER` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `ANSWER` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `EMAIL` (`EMAIL`),
   KEY `fk_USER_PROFILE_JOB_LEVEL1_idx` (`JOB_LEVEL`),
@@ -834,7 +875,7 @@ CREATE TABLE IF NOT EXISTS `USER_PROFILE` (
 --
 
 INSERT INTO `USER_PROFILE` (`ID`, `FIRSTNAME`, `LASTNAME`, `EMAIL`, `COMPANY`, `PASSWORD`, `JOB_TITLE`, `ADDRESS`, `CITY`, `ZIP`, `PHONE`, `FAX`, `IS_ACTIVE`, `IS_ADMIN`, `JOB_LEVEL`, `DEPARTMENT_ID`, `INDUSTRY_ID`, `COUNTRY_ID`, `TECHNOLOGY_ID`, `USER_PROFILEcol`, `PHOTO_NAME`, `QUESTION_ID`, `ANSWER`) VALUES
-(1, 'A', 'A', 'a@a.com', 'A', '77de54ccf56eb6f7dbf99e4d3be949ab6f9b0a55df8ac28564cb9f63a10be8af6ab3f7c2', '', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 1, 1, NULL, 'testUserProfile.jpg', 1, 'a'),
+(1, 'sukanya', 'AA', 'a@a.com', 'AA', 'f51fc62cdba8a6e536d604b47e30b49551c560256dac08ccfc8204823a492775d669a57e', 'test', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 221, 1, NULL, 'testUserProfile.jpg', 1, 'a'),
 (3, 'B', 'B', 'b@b.com', 'B', '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e', NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'N', 1, 1, 1, 1, 1, NULL, '', 2, 'b'),
 (4, 'Voravan', 'Charn', 'wc.fone@yahoo.com', 'Buildthedot', '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e', NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'N', 1, 1, 1, 1, 1, NULL, '', 3, 'fon');
 
