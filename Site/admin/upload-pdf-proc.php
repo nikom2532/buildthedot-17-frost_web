@@ -204,6 +204,7 @@ $sqlCat="
 		'{$GROUP_LEVEL_ID}'
 	)
 ";
+echo $sqlCat;
 $insertCatResult = mysql_query($sqlCat);
 $msg = "Sucess";
 header("location: pdf.php?msg=$msg");
