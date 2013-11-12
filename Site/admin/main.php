@@ -271,8 +271,12 @@ include ("include/header.php");
 					</tfoot>
 				</table>
 				<br />ลูกค้า ต้องการให้มันมีให้เลือก ออก Report โดยฟิวเตอร์ เฉพาะ Date, Time
-				<br />
-				<a href="./main_export_download_report.php" class="round button orange ic-download image-left">Download Report</a>
+				<form id="download_report_form" name="download_report_form" action="<?php echo $rootadminpath; ?>main_expert_download_report.php" method="POST">
+					<br />
+					<input type="text" class="hasDatepicker" name="main_download_datetime" id="main_download_datetime" />
+					<br />
+					<a onclick="document.getElementById('download_report_form').submit();" href="#" class="round button orange ic-download image-left">Download Report</a>
+				</form>
 			</div>
 			<!-- end content-module-main -->
 
