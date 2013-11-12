@@ -63,7 +63,7 @@ include ("include/top-menu.php");
 							
 							$temp_str="
 								<li>
-									<a class=\"comment1\" href=\"main-knowledge.php?id={$rsnav["ID"]}&glvl={$temp_glvl__}&gp="
+									<a href=\"main-knowledge.php?id={$rsnav["ID"]}&glvl={$temp_glvl__}&gp="
 							;
 							
 							$SQL2="
@@ -101,7 +101,7 @@ include ("include/top-menu.php");
 								// else{
 									$temp_str = "
 											<li>
-												<a class=\"comment2\" href=\"main-knowledge.php?id={$rsnav2["ID"]}&glvl=".($temp_glvl__-1)."&gp="
+												<a href=\"main-knowledge.php?id={$rsnav2["ID"]}&glvl=".($temp_glvl__-1)."&gp="
 										;
 										
 										$SQL2="
