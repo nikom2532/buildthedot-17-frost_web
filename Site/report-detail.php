@@ -63,7 +63,7 @@ include ("include/top-menu.php");
 							
 							$temp_str="
 								<li>
-									<a href=\"main-knowledge.php?id={$rsnav["ID"]}&glvl={$temp_glvl__}&gp="
+									<a class=\"comment1\" href=\"main-knowledge.php?id={$rsnav["ID"]}&glvl={$temp_glvl__}&gp="
 							;
 							
 							$SQL2="
@@ -91,7 +91,8 @@ include ("include/top-menu.php");
 								WHERE `ID` = " . $temp_id__ . "
 							;";
 							$resultnav2 = @mysql_query($SQLnav2);
-							if($rsnav2 = @mysql_fetch_array($resultnav2)) {
+							//I don't know why we push this $SQLnav2, but it is not useful now. #Nov, 12, 2013
+							if(!($rsnav2 = @mysql_fetch_array($resultnav2))) {
 								// if($temp_glvl__==$_GET["glvl"]){
 									// $str[]="
 										// <li class=\"text-lightorange bold  text-nav\">{$rsnav2["NAME"]}</li>
@@ -100,7 +101,7 @@ include ("include/top-menu.php");
 								// else{
 									$temp_str = "
 											<li>
-												<a href=\"main-knowledge.php?id={$rsnav2["ID"]}&glvl=".($temp_glvl__-1)."&gp="
+												<a class=\"comment2\" href=\"main-knowledge.php?id={$rsnav2["ID"]}&glvl=".($temp_glvl__-1)."&gp="
 										;
 										
 										$SQL2="
@@ -128,6 +129,8 @@ include ("include/top-menu.php");
 							}
 							$temp_glvl__--;
 						}//end query
+						//End of ==> I don't know why we push this $SQLnav2, but it is not useful now. #Nov, 12, 2013
+						
 					}//end while
 					
 					unset($SQLnav);
