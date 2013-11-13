@@ -27,9 +27,12 @@ function array_to_csv_download($array, $filename = "User_Statistic_Report.csv", 
 }
 
 $i=1;
+$startDate = $_POST["startDate"];
+$endDate = $_POST["endDate"];
 $sql_download_statistic="
 	SELECT *, Date(DOWNLOAD_DATETIME) AS download_date, Time(DOWNLOAD_DATETIME) AS download_time
 	FROM  `DOWNLOAD_STATISTICS`
+	WHERE Date(`DOWNLOAD_DATETIME`) = 'Date({$startDate})'
 	GROUP BY `USER_ID`
 	ORDER BY `USER_ID` ;
 ";
