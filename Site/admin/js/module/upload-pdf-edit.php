@@ -1,6 +1,14 @@
 <script>
 	  $(document).ready(function() {
 		 
+		getDefaultData();
+		
+		 $('#group-name').trigger('change');
+		 $('#gLv2').trigger('change');
+		 $('#gLv3').trigger('change');
+		 $('#gLv4').trigger('change');
+		 $('#gLv5').trigger('change');
+		 
 		  //The demo tag array
 		  var availableTags = <?=$tagResult?>;
 		   $("#submitTags").click(function(){
@@ -70,7 +78,19 @@
 		 	
 		return xmlhttp;
    }
+	function getDefaultData() {
+		
+		var gLv1Id = document.getElementById('gLv1Id').value;
+		var gLv2Id = document.getElementById('gLv2Id').value;
+		var gLv3Id = document.getElementById('gLv3Id').value;
+		var gLv4Id = document.getElementById('gLv4Id').value;
 
+		getGLv2(gLv1Id);
+		getGLv3(gLv2Id);
+		getGLv4(gLv3Id);
+		getGLv5(gLv4Id);
+		
+	}
 	
 	function clearData(glv) {
 		
