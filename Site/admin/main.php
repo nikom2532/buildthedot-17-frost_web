@@ -8,6 +8,24 @@ include ("include/header.php");
 <?php
 	include ("include/checksession.php");
 ?>
+<script>
+	$(function() {
+		$( "#datepicker" ).datepicker({
+			changeMonth: true,
+			dateFormat:"dd-mm-yy",
+			onClose: function( selectedDate ) {
+				$( "#datepicker2" ).datepicker( "option", "minDate", selectedDate );
+			}
+		});
+		$( "#datepicker2" ).datepicker({
+			changeMonth: true,
+			dateFormat:"dd-mm-yy",
+			onClose: function( selectedDate ) {
+				$( "#datepicker" ).datepicker( "option", "maxDate", selectedDate );
+			}
+		});
+	});
+</script>
 <!-- HEADER -->
 <div id="header-with-tabs">
 
@@ -273,12 +291,21 @@ include ("include/header.php");
 						</tbody>
 					</tfoot>
 				</table>
-				<br />ลูกค้า ต้องการให้มันมีให้เลือก ออก Report โดยฟิวเตอร์ เฉพาะ Date, Time
+				<!-- <br />ลูกค้า ต้องการให้มันมีให้เลือก ออก Report โดยฟิวเตอร์ เฉพาะ Date, Time -->
 				<form id="download_report_form" name="download_report_form" action="<?php echo $rootadminpath; ?>main_expert_download_report.php" method="POST">
 					<br />
-					<input type="text" class="hasDatepicker" name="main_download_datetime" id="main_download_datetime" />
+					<p>
+						<label for="name">Start Date</label>
+						<input type="text" id="datepicker" name="startDate" required="required"/>
+					</p>
+					
+					<p>
+						<label for="name">End Date</label>
+						<input type="text" id="datepicker2" name="endDate" required="required"/>
+					</p>
 					<br />
-					<a onclick="document.getElementById('download_report_form').submit();" href="#" class="round button orange ic-download image-left">Download Report</a>
+					<!-- <a onclick="document.getElementById('download_report_form').submit();" href="#" class="round button orange ic-download image-left">Download Report</a> -->
+					<input type="submit" href="#" class="round button orange ic-download image-left" value="Download Report" />
 				</form>
 			</div>
 			<!-- end content-module-main -->

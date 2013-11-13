@@ -47,6 +47,7 @@ if (!$db -> open()) {
 	<link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
 	
 	<script src="js/jquery_notification_v.1.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
 	<!-- <script src="js/jquery_v_1.4.js"></script>  -->
 	
 </head>
