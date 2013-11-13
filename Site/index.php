@@ -60,9 +60,9 @@ include ("include/top-menu.php");
 					else{
 						echo "n";
 					}
-				?>"><img src="images/icon-technology.png" width="123" height="123" alt="Technology">
+				?>"><img src="images/icon-technology.png" width="123" height="123" alt="Knowledge">
 				<p class="text-blue bold">
-					Technology
+					Knowledge
 				</p> </a>
 			</div>
 			<div class="grid_3 center">
