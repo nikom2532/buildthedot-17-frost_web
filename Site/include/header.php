@@ -14,7 +14,7 @@
 		<script src="js/modernizr-1.6.min.js"></script>
 		<script src="js/jquery-1.7.1.min.js"></script>
 		<script src="js/jquery.validate.min.js"></script>
-		<!-- <script src="js/validate.message.js"></script> -->
+		<script src="js/validate.message.js"></script> 
 		<script type="text/javascript">
 			$("input").keypress(function(event) {
 				if (event.which == 13) {
@@ -22,13 +22,13 @@
 					$("search-form").submit();
 				}
 			});
-			window.history.forward();
-			function noBack() {
-				window.history.forward();
-			}
-		</script>
+			// window.history.forward();
+			// function noBack() {
+				// window.history.forward();
+			// }
+		</script> 
 	</head>
-	<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
+	<body><!-- onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="" -->
 
 <?php 		
 		include ($rootpath . "lib/db.php");
