@@ -174,13 +174,8 @@ include ("include/top-menu.php");
 							$lv2 = $lvId;
 						    //echo "lv1  = $lv1"."<br>";
 						    break;
-						case 10:
-							$lv1 = 1;
-						    //echo "lv1  = $lv1"."<br>";
-						    break;
-						// lv1 = 2
 						case 4:	
-							$lv1 = 2;
+							$lv1 = 1;
 							$lv2 = $lvId;
 						    //echo "lv1  = $lv1"."<br>";
 						    break;
@@ -209,50 +204,41 @@ include ("include/top-menu.php");
 							$lv2 = $lvId;
 						    //echo "lv1  = $lv1"."<br>";
 						    break;
+						case 10:
+							$lv1 = 2;
+							$lv2 = $lvId;
+						    //echo "lv1  = $lv1"."<br>";
+						    break;
 						}
 					}// end group level name = 2
 					
 					if($lvName == 3){
 						switch ($lvId) {
 						// lv2 = 3
-						case 3:	
-							$lv3 = $lvId;
-							$lv2 = 2;
-							$lv1 = 1;	
-						    // echo "lv2  = $lv2"."<br>";
-						    // echo "lv1  = $lv1"."<br>";
-						    break;
 						case 4:
 							$lv3 = $lvId;
-							$lv2 = 2;
-							$lv1 = 1;
-						    // echo "lv2  = $lv2"."<br>";
-						    // echo "lv1  = $lv1"."<br>";
-						    break;
-						case 5:
-							$lv3 = $lvId;
-							$lv2 = 2;
+							$lv2 = 3;
 							$lv1 = 1;
 						    // echo "lv2  = $lv2"."<br>";
 						    // echo "lv1  = $lv1"."<br>";
 						    break;
 						case 6:
 							$lv3 = $lvId;
-							$lv2 = 2;
+							$lv2 = 3;
 							$lv1 = 1;
 						    // echo "lv2  = $lv2"."<br>";
 						    // echo "lv1  = $lv1"."<br>";
 						    break;		
 						case 7:	
 							$lv3 = $lvId;
-							$lv2 = 2;
+							$lv2 = 3;
 							$lv1 = 1;
 						    // echo "lv2  = $lv2"."<br>";
 						    // echo "lv1  = $lv1"."<br>";
 						    break;
 						case 8:
 							$lv3 = $lvId;
-							$lv2 = 2;
+							$lv2 = 3;
 							$lv1 = 1;
 						    // echo "lv2  = $lv2"."<br>";
 						    // echo "lv1  = $lv1"."<br>";
@@ -260,28 +246,42 @@ include ("include/top-menu.php");
 						// lv2 = 2
 						case 9:
 							$lv3 = $lvId;
-							$lv2 = 2;
+							$lv2 = 4;
 							$lv1 = 1;
 						    // echo "lv2  = $lv2"."<br>";
 						    // echo "lv1  = $lv1"."<br>";
 						    break;
 						case 10:
 							$lv3 = $lvId;
-							$lv2 = 2;
+							$lv2 = 4;
 							$lv1 = 1;
 						    // echo "lv2  = $lv2"."<br>";
 						    // echo "lv1  = $lv1"."<br>";
 						    break;
 						case 11:
 							$lv3 = $lvId;
-							$lv2 = 2;
+							$lv2 = 4;
+							$lv1 = 1;
+						    // echo "lv2  = $lv2"."<br>";
+						    // echo "lv1  = $lv1"."<br>";
+						    break;
+						case 15:
+							$lv3 = $lvId;
+							$lv2 = 1;
 							$lv1 = 1;
 						    // echo "lv2  = $lv2"."<br>";
 						    // echo "lv1  = $lv1"."<br>";
 						    break;
 						case 12:
 							$lv3 = $lvId;
-							$lv2 = 4;
+							$lv2 = 5;
+							$lv1 = 2;
+						    // echo "lv2  = $lv2"."<br>";
+						    // echo "lv1  = $lv1"."<br>";
+						    break;
+						case 16:
+							$lv3 = $lvId;
+							$lv2 = 1;
 							$lv1 = 1;
 						    // echo "lv2  = $lv2"."<br>";
 						    // echo "lv1  = $lv1"."<br>";
@@ -295,7 +295,7 @@ include ("include/top-menu.php");
 						case 5:
 							$lv4 = $lvId;
 							$lv3 = 10;
-							$lv2 = 3;
+							$lv2 = 4;
 							$lv1 = 1;		
 						    // echo "lv3  = $lv3"."<br>";
 						    // echo "lv2  = $lv2"."<br>";
@@ -304,16 +304,7 @@ include ("include/top-menu.php");
 						case 6:
 							$lv4 = $lvId;
 							$lv3 = 10;
-							$lv2 = 3;
-							$lv1 = 1;
-						    // echo "lv3  = $lv3"."<br>";
-						    // echo "lv2  = $lv2"."<br>";
-							// echo "lv1  = $lv1"."<br>";
-						    break;
-						case 7:
-							$lv4 = $lvId;
-							$lv3 = 11;
-							$lv2 = 3;
+							$lv2 = 4;
 							$lv1 = 1;
 						    // echo "lv3  = $lv3"."<br>";
 						    // echo "lv2  = $lv2"."<br>";
@@ -322,7 +313,7 @@ include ("include/top-menu.php");
 						case 8:
 							$lv4 = $lvId;
 							$lv3 = 12;
-							$lv2 = 4;
+							$lv2 = 5;
 							$lv1 = 2;
 						    // echo "lv3  = $lv3"."<br>";
 						    // echo "lv2  = $lv2"."<br>";
