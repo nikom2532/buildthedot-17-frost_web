@@ -138,19 +138,10 @@ include ("include/top-menu.php");
 
 						
 			while ($row = @mysql_fetch_array($result)) {
-				// query group level 2
-				$pdfId = $row['id'];
-				$resultPdf = mysql_query("
-				SELECT *
-				FROM PDF_CATEGORY
-				WHERE PDF_ID = '$pdfId'				
-			   ");
-						   
-				while ($rowPdf = mysql_fetch_array($resultPdf)) {
-					$lvName = $rowPdf['GROUP_LEVEL_NAME'];
-					$lvId = $rowPdf['GROUP_LEVEL_ID'];
-					//echo "Group Lv name>".$lvName;
-					//echo "Group Lv id>".$lvId;
+					$lvName = $row['glvl'];
+					$lvId = $row['glvId'];
+					// echo "Group Lv name>".$lvName."<br/>";
+					// echo "Group Lv id>".$lvId."<br/>";
 					$lv1 = 0;
 					$lv2 = 0;
 					$lv3 = 0;
@@ -341,11 +332,11 @@ include ("include/top-menu.php");
 								  FROM GROUP_LV2
 								  WHERE ID = '$gLv2Id'				
 			   					  ");
-			   	     while ($rowLv2 = mysql_fetch_array($resultLv2)) {
+			   	     $rowLv2 = mysql_fetch_array($resultLv2);
 			   	     	   $lvname = $rowLv2['NAME'];
-					 }
+ 
 					 
-				}
+				
 			
 			// $result = $segment->get_segment_array("คำไทยภาษาไทย  หน่อยแน่  เทคโนโลยี");
 			// $word = count($result);
