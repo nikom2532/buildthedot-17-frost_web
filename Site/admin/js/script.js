@@ -9,4 +9,15 @@ $(document).ready(function() {
 		$(this).children(".expand-collapse-text").toggle();
 	});
 	
+	$( "#main_download_datetime" ).datepicker({
+		inline:true,
+		showOtherMonths:true,
+		changeMonth: true,
+		dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+		dateFormat:"yy-mm-dd",
+		onClose: function( selectedDate ) {
+			$( "#main_download_datetime" ).datepicker( "option", "minDate", selectedDate );
+		}
+	});
+	
 });

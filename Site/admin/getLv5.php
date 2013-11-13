@@ -12,7 +12,7 @@ if ($gLv4Id!=0 && $count!=0) {?>
 	<select name="gLv5")">
 		<option value="0">--Select Menu--</option>
 		<?php while($row=mysql_fetch_array($result)) { ?>
-		<option value=<?=$row['ID']?>><?=$row['NAME']?></option>
+		<option value="<?=$row['ID']?>" <?php if($gLv4Id== $row['ID']){ echo "selected='selected' "; } ?>><?=$row['NAME']?></option>
 		<?php } ?>
 	</select>
 </div>
