@@ -30,6 +30,9 @@
 .text-title-report{
 	font-size:1.15em;
 }
+.text-title{
+	color:#129793;
+}
 .search-hightlight{
 	color:#EB500B;
 }
@@ -134,4 +137,9 @@ form input.error-input { border: 1px solid #ff876f; }
 }
 #psd {
 	margin-top: 10px;
+}
+#editor{
+	color: black;
+	margin-left: 10px;
+	margin-right: 5px;
 }

@@ -344,7 +344,7 @@ include ("include/top-menu.php");
 				// $originalDate = $row['UPDATE_DATE'];
 				// $newDate = date("M d, Y", strtotime($originalDate));
 				echo "<section>";
-				echo "$lvname - ". date("d F Y", strtotime($row['date']));
+				echo "$lvname - ". date("F d, Y", strtotime($row['date']));
 				echo "<a href='report-detail.php?pdf_id=". $row['id'] ."&id=".$row['glvId']."&glvl=".$row['glvl']."' id='new-release'>";
 				echo "<h3>" . $row['name'] . "</h3>";
 				echo "</a>";

@@ -150,23 +150,24 @@ include ("include/top-menu.php");
 ?>
 								<img src="images/coutries/<?php echo $row["PHOTO_NAME"]; ?>" width="250" height="172" /><br />
 <?php
-							}
-							elseif(!(
-								($_GET["id"]==3 && $_GET["glvl"]==2) ||
-								($_GET["id"]==9 && $_GET["glvl"]==3) ||
-								($_GET["id"]==10 && $_GET["glvl"]==3)
-							)){
+							}else{
+							// elseif(!(
+								// ($_GET["id"]==3 && $_GET["glvl"]==2) ||
+								// ($_GET["id"]==9 && $_GET["glvl"]==3) ||
+								// ($_GET["id"]==10 && $_GET["glvl"]==3)
+							// )){
 ?>
 								<img src="images/pdf_image/<?php echo $row["PHOTO_NAME"]; ?>" /><br />
 <?php 
 							}
 ?>
 						</p>
-						<p class="text-blue bold">
-							<?php echo $row['NAME']; ?>
+						<p class="bold">
+							<h2 class="text-title"><?php echo $row['NAME']; ?></h2>
 						</p>
 						<p class="date bold">
-							<?php echo date("M, d Y", strtotime($row['UPDATE_DATE'])); ?>
+							<?php echo date("F d, Y", strtotime($row['UPDATE_DATE'])); ?>
+							<?php echo "<span id=\"editor\">By ".$row['BY']. "</span>"; ?>
 						</p>
 						<p class="indent">
 							<?php echo $row['DESCRIPTION']; ?>
@@ -196,6 +197,8 @@ include ("include/top-menu.php");
 					</ul>
 
 				</div>
+			<!-- price = 0, disable download box  -->
+			<?php if(!($row['PRICE'] == null || $row['PRICE'] == 0)){?>
 				<div class="grid_1 center" id="price-box">
 					<!-- <p><b class="center">฿ <?php echo $row['PRICE']; ?></b></p> -->
 <?php
@@ -285,23 +288,28 @@ include ("include/top-menu.php");
 ?>
 				<!--end content-middle -->
 				<br/><br/>
-				<b id="download-no"> Dowload
-<?php
-				$sql_amount_download="
-					SELECT COUNT(`PDF_ID`) AS Number_PDF
-					FROM  `DOWNLOAD_STATISTICS`
-					WHERE `PDF_ID` = '".$_GET["pdf_id"]."' 
-				";
-				$result_amount_download = @mysql_query($sql_amount_download);
-				while($rs_amount_download = @mysql_fetch_array($result_amount_download)){
-					echo $rs_amount_download["Number_PDF"]." time";
-					if($rs_amount_download["Number_PDF"]>1){
-						echo "s";
+				<?php if(!($row['PRICE'] == null || $row['PRICE'] == 0)){?>
+					<b id="download-no">
+	<?php
+					$sql_amount_download="
+						SELECT COUNT(`PDF_ID`) AS Number_PDF
+						FROM  `DOWNLOAD_STATISTICS`
+						WHERE `PDF_ID` = '".$_GET["pdf_id"]."' 
+					";
+					$result_amount_download = @mysql_query($sql_amount_download);
+					while($rs_amount_download = @mysql_fetch_array($result_amount_download)){
+						echo $rs_amount_download["Number_PDF"]." download";
+						if($rs_amount_download["Number_PDF"]>1){
+							echo "s";
+						}
 					}
-				}
-?>	
-			  </b>
+	?>	
+				  </b>
+			  <?php }
+			
+			 }?><!-- end price-box -->
 			</div>
+
 		<!-- </div> -->
 	</div><!--end container_12 -->
 </div><!--end content -->
