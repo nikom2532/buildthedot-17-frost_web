@@ -41,9 +41,9 @@ if (!$db -> open()) {
  	 
   <script src="js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/tag-it.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/date-picker/jquery.ui.core.js"></script>
+	<!-- <script src="js/date-picker/jquery.ui.core.js"></script>
 	<script src="js/date-picker/jquery.ui.datepicker.js"></script>
-	<script src="js/date-picker/jquery.ui.widget.js"></script>   
+	<script src="js/date-picker/jquery.ui.widget.js"></script>    -->
 	
 	<script src="js/jquery_notification_v.1.js"></script>
 	<script src="../js/jquery.validate.min.js"></script>
