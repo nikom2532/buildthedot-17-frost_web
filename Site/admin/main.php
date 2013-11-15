@@ -292,7 +292,7 @@ include ("include/header.php");
 					</tfoot>
 				</table>
 				<!-- <br />ลูกค้า ต้องการให้มันมีให้เลือก ออก Report โดยฟิวเตอร์ เฉพาะ Date, Time -->
-				<form id="download_report_form" name="download_report_form" action="<?php echo $rootadminpath; ?>main_expert_download_report.php" method="POST">
+				<form id="download_report_form" name="download_report_form" action="<?php echo $rootadminpath; ?>main_export_download_report.php" method="POST">
 					<br />
 					<p>
 						<label for="name">Start Date</label>

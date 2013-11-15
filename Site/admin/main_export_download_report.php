@@ -30,9 +30,9 @@ $i=1;
 $startDate = $_POST["startDate"];
 $endDate = $_POST["endDate"];
 $sql_download_statistic="
-	SELECT *, Date(DOWNLOAD_DATETIME) AS download_date, Time(DOWNLOAD_DATETIME) AS download_time
+	SELECT *, Date(`DOWNLOAD_DATETIME`) AS download_date, Time(`DOWNLOAD_DATETIME`) AS download_time
 	FROM  `DOWNLOAD_STATISTICS`
-	WHERE Date(`DOWNLOAD_DATETIME`) = 'Date({$startDate})'
+	WHERE Date(`DOWNLOAD_DATETIME`) = '{$startDate}'
 	GROUP BY `USER_ID`
 	ORDER BY `USER_ID` ;
 ";
@@ -73,7 +73,6 @@ for($i=0; $i<count($stat_user_No); $i++){
 	$user_array[$i][2] = $pdf_name[$i];
 	$user_array[$i][3] = $DOWNLOAD_DATETIME[$i];
 }
-
 array_to_csv_download(
 	$user_array, // this array is going to be the second row
   "User_Statistic_Report.csv"
