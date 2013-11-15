@@ -12,14 +12,14 @@ include ("include/header.php");
 	$(function() {
 		$( "#datepicker" ).datepicker({
 			changeMonth: true,
-			dateFormat:"dd-mm-yy",
+			dateFormat:"yy-mm-dd",
 			onClose: function( selectedDate ) {
 				$( "#datepicker2" ).datepicker( "option", "minDate", selectedDate );
 			}
 		});
 		$( "#datepicker2" ).datepicker({
 			changeMonth: true,
-			dateFormat:"dd-mm-yy",
+			dateFormat:"yy-mm-dd",
 			onClose: function( selectedDate ) {
 				$( "#datepicker" ).datepicker( "option", "maxDate", selectedDate );
 			}
