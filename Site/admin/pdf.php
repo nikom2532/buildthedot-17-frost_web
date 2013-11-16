@@ -128,8 +128,13 @@ if ($msg=="Sucess") {
 							/*---------end Paging------------*/	
 							$strQuery ="SELECT p.ID AS id, 
 										p.NAME AS name,
+										a.GROUP_LEVEL_NAME AS glvName,
+										a.GROUP_LEVEL_ID AS glvId,
 										p.UPDATE_DATE AS updateDate
-										FROM PDF AS p WHERE IS_ASIAN_COUNTRY = '0'
+										FROM PDF AS p 
+										INNER JOIN PDF_CATEGORY AS a
+										ON p.ID = a.ID
+										WHERE IS_ASIAN_COUNTRY = '0'
 										ORDER BY ID DESC ";
 							$result = mysql_query($strQuery);	
 							$Num_Rows = mysql_num_rows($result);
@@ -155,10 +160,14 @@ if ($msg=="Sucess") {
 								<td>
 									<form method='post' action='edit-pdf.php' id='submitform' name='submitform'>
 										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 75px;' ALT='EDIT'> 
-										<input type='hidden' name='pdfId' value="<?=$row['id']?>"/>	
+										<input type='hidden' name='pdfId' value="<?=$row['id']?>"/>
+										<input type='hidden' name='glvName' value="<?=$row['glvName']?>"/>
+										<input type='hidden' name='glvId' value="<?=$row['glvId']?>"/>	
 									</form>
 									<form method='post' action='delete-pdf.php'id='submitform' name='submitform'>
 										<input type='hidden' name='pdfId' value="<?=$row['id']?>"/>
+										<input type='hidden' name='glvName' value="<?=$row['glvName']?>"/>
+										<input type='hidden' name='glvId' value="<?=$row['glvId']?>"/>	
 										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0' ALT='DELETE'  onClick='return confirmSubmit()'>
 									</form>
 								</td>
