@@ -65,6 +65,7 @@ if ($msg=="Sucess") {
 				<li><a href="customer.php" >Customer Management</a></li>
 				<li><a href="pdf.php" class="active-tab">PDF Management</a></li>
                 <li><a href="tag.php">Tag Management</a></li>
+                <li><a href="home-info.php">Home Info</a></li>
 			</ul> <!-- end tabs -->
 			
 			<!-- company logo -->

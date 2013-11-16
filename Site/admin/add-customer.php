@@ -51,6 +51,9 @@ include ("include/checksession.php");
 			<li>
 				<a href="tag.php">Tag Management</a>
 			</li>
+			<li>
+				<a href="home-info.php">Home Info</a>
+			</li>
 		</ul>
 		<!-- end tabs -->
 
