@@ -105,7 +105,9 @@ $pdfId = $_POST['pdfId'];
 							p.PHOTO_NAME AS photoname,
 							p.PATH AS path,
 							p.PRICE AS price,
-							p.UPDATE_DATE AS updateDate
+							p.UPDATE_DATE AS updateDate,
+							c.GROUP_LEVEL_NAME as glvl,
+							c.GROUP_LEVEL_ID as glvId
 							FROM PDF AS p
 							INNER JOIN PDF_CATEGORY AS c
 							ON c.PDF_ID = p.ID
@@ -141,14 +143,14 @@ $pdfId = $_POST['pdfId'];
 								<br>
 							</p>
 						<?php 
-							$resultPdf = mysql_query("
-										SELECT *
-										FROM PDF_CATEGORY
-										WHERE PDF_ID = $pdfId						
-									   ");
-							while ($rowPdf = mysql_fetch_array($resultPdf)) {
-								$lvName = $rowPdf['GROUP_LEVEL_NAME'];
-								$lvId = $rowPdf['GROUP_LEVEL_ID'];
+							// $resultPdf = mysql_query("
+										// SELECT *
+										// FROM PDF_CATEGORY
+										// WHERE PDF_ID = $pdfId						
+									   // ");
+							// while ($rowPdf = mysql_fetch_array($resultPdf)) {
+								$lvName = $row['glvl'];
+								$lvId = $row['glvId'];
 								echo "Group Lv name>".$lvName;
 								echo "Group Lv id>".$lvId;
 								$lv1 = 0;
@@ -345,6 +347,7 @@ $pdfId = $_POST['pdfId'];
 								 echo "$gLv2Id";
 								 echo "$gLv3Id";
 							}
+							
 						
 						?>
 						<input type=hidden id="gLv1Id" name="gLv1Id" value="<?=$gLv1Id?>"/>
@@ -436,7 +439,7 @@ $pdfId = $_POST['pdfId'];
 
 						</fieldset>
 						<input type="submit" value="Save change" class="round blue ic-right-arrow" />
-						<?php } ?>
+						<?php  ?>
 				</form>
 
 			</div>
