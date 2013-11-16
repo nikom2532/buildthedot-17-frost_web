@@ -133,7 +133,7 @@ if ($msg=="Sucess") {
 										p.UPDATE_DATE AS updateDate
 										FROM PDF AS p 
 										INNER JOIN PDF_CATEGORY AS a
-										ON p.ID = a.ID
+										ON p.ID = a.PDF_ID
 										WHERE IS_ASIAN_COUNTRY = '0'
 										ORDER BY ID DESC ";
 							$result = mysql_query($strQuery);	
