@@ -38,7 +38,8 @@ $sql="
 ?>
 <?php
 $pdfId = $_POST['pdfId'];
-//echo $pdfId ;
+$glvId = $_POST['glvId'];
+$glvName = $_POST['glvName']; 
 ?>
 <?php
 	include ("include/top-bar.php");
@@ -109,7 +110,7 @@ $pdfId = $_POST['pdfId'];
 							FROM PDF AS p
 							INNER JOIN PDF_CATEGORY AS c
 							ON c.PDF_ID = p.ID
-							WHERE p.ID = $pdfId AND p.IS_ASIAN_COUNTRY = '0'
+							WHERE p.ID = $pdfId AND p.IS_ASIAN_COUNTRY = '0' AND c.GROUP_LEVEL_NAME = $glvName AND c.GROUP_LEVEL_ID = $glvId;
 						");
 
 						while ($row = mysql_fetch_array($result)) {
