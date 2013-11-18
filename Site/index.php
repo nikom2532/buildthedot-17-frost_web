@@ -419,7 +419,18 @@ include ("include/top-menu.php");
 							}
 ?>
 
-<?php */ ?>
+<?php */
+  					  // $sqlDesc = "SELECT * FROM  INFO WHERE ID = '2' ";
+					  // $resultDescription = @mysql_query($sqlDesc) or die(mysql_error());
+					  // echo $sqlDesc;
+// 					 
+			          // $rowDescription = @mysql_fetch_array($resultDescription);
+					  // echo $rowDescription["ID"];
+					  
+					  
+
+ ?>
+
 		</div><!--end new-release -->
 	</div><!--end container_12 -->
 </div><!--end content -->

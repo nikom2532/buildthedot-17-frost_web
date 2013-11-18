@@ -358,12 +358,13 @@ ul.report-tag li {
 
 #price-box{
 	background-color: #F2F2F2;
-	margin-top: 8px;
 	width: 100px;
 	border: 1px solid #E5E5E5;
 	padding: 8px;
 	padding-bottom:10px;
 	margin-bottom:10px;
+	text-align: center;
+	margin:8px auto;
 }
 #download-button{
 	margin-top:5px;
@@ -740,10 +741,18 @@ span.inactive {
 }
 #download-no{
 	padding-top:20px;
-	padding-left:26px;
 	color:#036D67;
 }
-
+#wrap-download{
+	margin-top:20px;
+	padding:18px;
+	background-color: #EDF0F2;
+	font-size:0.9em;
+	text-justify: auto;
+}
+#wrap-description{
+	margin-top:10px;
+}
 /*main-knowledge*/
 .margin-bottom20{
 	margin-bottom: 10px;

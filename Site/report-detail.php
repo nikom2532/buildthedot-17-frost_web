@@ -142,8 +142,8 @@ include ("include/top-menu.php");
 ?>
 				</ul>
 				<br class="clear"/>
-				<div class="grid_6">
-					<section class="report-detail" class="grid_4">
+				<div class="grid_4">
+					<section class="report-detail" >
 						<p class="text-blue bold">
 <?php 
 							if($_GET["id"]==11 && $_GET["glvl"]==3){
@@ -198,8 +198,9 @@ include ("include/top-menu.php");
 
 				</div>
 			<!-- price = 0, disable download box  -->
+		<div class="grid_3 right" id="wrap-download">
 			<?php if(!($row['PRICE'] == null || $row['PRICE'] == 0)){?>
-				<div class="grid_1 center" id="price-box">
+				<div class="center" id="price-box">
 					<!-- <p><b class="center">฿ <?php echo $row['PRICE']; ?></b></p> -->
 <?php
 					
@@ -287,9 +288,9 @@ include ("include/top-menu.php");
 				} //### end if($count > 0)
 ?>
 				<!--end content-middle -->
-				<br/><br/>
+				
 				<?php if(!($row['PRICE'] == null || $row['PRICE'] == 0)){?>
-					<b id="download-no">
+					<p class="center"><b id="download-no">
 	<?php
 					$sql_amount_download="
 						SELECT COUNT(`PDF_ID`) AS Number_PDF
@@ -304,12 +305,27 @@ include ("include/top-menu.php");
 						}
 					}
 	?>	
-				  </b>
+				  </b></p>
 			  <?php }
 			
 			 }?><!-- end price-box -->
+			 <div id="wrap-description">
+			 	<?php 
+			 		  $sqlDesc1 = "SELECT * FROM  INFO WHERE ID = '2' ";
+					  $resultDesc1 = @mysql_query($sqlDesc1);					  
+			          $rowDesc1 = @mysql_fetch_array($resultDesc1);
+					  
+					  $sqlDesc2 = "SELECT * FROM  INFO WHERE ID = '3' ";
+					  $resultDesc2 = @mysql_query($sqlDesc2);					  
+			          $rowDesc2 = @mysql_fetch_array($resultDesc2);
+				?>
+				
+				 <b><?=$rowDesc1["DESCRIPTION"]?></b>
+				 <p><?=$rowDesc2["DESCRIPTION"]?></p>
+		
+			 </div>
 			</div>
-
+		</div><!-- end description -->
 		<!-- </div> -->
 	</div><!--end container_12 -->
 </div><!--end content -->
