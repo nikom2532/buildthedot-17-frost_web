@@ -139,7 +139,7 @@ form input.error-input { border: 1px solid #ff876f; }
 	margin-top: 10px;
 }
 #editor{
-	color: black;
+	color: #666;
 	margin-left: 10px;
 	margin-right: 5px;
 }
