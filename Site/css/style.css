@@ -355,6 +355,9 @@ ul.report-tag li {
 	margin-right:10px;
 	cursor:pointer;
 }
+ul.report-tag a {
+	color:#EB500B;
+}
 
 #price-box{
 	background-color: #F2F2F2;

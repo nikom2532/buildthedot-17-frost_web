@@ -185,15 +185,23 @@ include ("include/top-menu.php");
 						INNER JOIN TAG AS b
 						ON a.TAG_ID = b.ID
 						WHERE PDF_ID =".$id) or die(mysql_error());
-				
+						$numrow = mysql_num_rows($tagResult);
+						$i = 1;
 						while ($tagRow = mysql_fetch_array($tagResult)) {
-							echo "<a href='tagSearch.php?tagId=". $tagRow['TAG_ID'] ."&tagName=".$tagRow['NAME']."'>";
-							echo "<li class='button orange'>";
+					
+							echo "<a class='text-orange' href='tagSearch.php?tagId=". $tagRow['TAG_ID'] ."&tagName=".$tagRow['NAME']."'>";
+							//echo "<li class='text-orange'>";//button orange'
 							echo $tagRow['NAME'];
-							echo "</li>";
+							//echo "</li>";
 							echo "</a>";
+							
+							if($i < $numrow){
+								echo ", ";
+							}
+							$i++;
 						}
 						?>
+						
 					</ul>
 
 				</div>
