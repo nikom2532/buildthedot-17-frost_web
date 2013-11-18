@@ -94,13 +94,15 @@ if ($msg=="Sucess") {
 				<div class="content-module-main">
 					
 					<table class="fixed">
-						<col width="22em" />
+						<col width="5em" />
+						<col width="17em" />
 	    				<col width="5em" />
 	    				<col width="5em" />
 					
 						<thead>
 					
 							<tr>
+								<th>Detail</th>
 								<th>Description</th>
                                 <th>Update dated</th>
 								<th>Actions</th>
@@ -120,6 +122,7 @@ if ($msg=="Sucess") {
 							?>
 						
 							<tr>
+								<td class="left"><?=$row['DETAIL']?></td>
 								<td class="left"><?=$row['DESCRIPTION']?></td>
 								<?php
 									$originalDate = $row['UPDATE'];
