@@ -1,6 +1,7 @@
 <?php
 include("include/header.php");
 
+$id = $_POST['infoId'];
 $description = $_POST['description'];
 echo "Desc".$description;
 
@@ -8,7 +9,7 @@ echo "Desc".$description;
 // echo "name=>".$name ."<br/>";
 // echo "email=>".$email ."<br/>";
 
-$strSQLUpdateInfo = "UPDATE INFO SET DESCRIPTION='$description' WHERE ID ='1'";
+$strSQLUpdateInfo = "UPDATE INFO SET DESCRIPTION='$description' WHERE ID =$id";
 
 //echo "strQuery=>".$strSQLUpdateInfo ;
 $cmdQuery = mysql_query($strSQLUpdateInfo);

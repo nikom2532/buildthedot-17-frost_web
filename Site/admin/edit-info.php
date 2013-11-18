@@ -1,7 +1,7 @@
 <?php
 include ("include/header.php");
 include ("include/checksession.php");
-
+$infoId = $_POST['infoId'];
 $msg = $_GET['msg'];
 if ($msg=="Sucess") {
     $message = "Process Complete";
@@ -89,7 +89,7 @@ include ("include/top-bar.php");
 						$result = mysql_query("
 							SELECT *
 							FROM INFO AS i
-							WHERE i.ID = '1'
+							WHERE i.ID = $infoId
 						");
 
 						while ($row = mysql_fetch_array($result)) {
@@ -102,6 +102,7 @@ include ("include/top-bar.php");
 							</p>
 
 						</fieldset>
+						<input type='hidden' name='infoId' value="<?=$infoId?>"/>	
 						<input type="submit" value="Save change" class="round blue ic-right-arrow" />
 					</div>
 					<!-- end half-size-column -->

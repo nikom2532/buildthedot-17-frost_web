@@ -113,7 +113,6 @@ if ($msg=="Sucess") {
 							$SQLINFO="
 										SELECT * 
 										FROM  `INFO`
-										WHERE `ID` = '1'
 										";
 										$resultInfo =@mysql_query($SQLINFO);
 										while($row =@mysql_fetch_array($resultInfo)){		
@@ -131,11 +130,7 @@ if ($msg=="Sucess") {
 								<td>
 									<form method='post' action='edit-info.php' id='submitform' name='submitform'>
 										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 75px;' ALT='EDIT'> 
-										<input type='hidden' name='pdfId' value="<?=$row['ID']?>"/>	
-									</form>
-									<form method='post' action='delete-info.php'id='submitform' name='submitform'>
-										<input type='hidden' name='pdfId' value="<?=$row['ID']?>"/>
-										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0' ALT='DELETE'  onClick='return confirmSubmit()'>
+										<input type='hidden' name='infoId' value="<?=$row['ID']?>"/>	
 									</form>
 								</td>
 							</tr>
