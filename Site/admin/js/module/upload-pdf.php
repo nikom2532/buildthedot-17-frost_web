@@ -85,7 +85,7 @@
 	}
 	
 	function getGLv2(gLv1Id) {		
-		alert(gLv1Id);
+		//alert(gLv1Id);
 		if (oldSelected2 == -1) {
 			oldSelected2 = gLv1Id;
 		}
@@ -138,7 +138,7 @@
 	}
 	
 	function getGLv3(gLv2Id) {		
-		alert(gLv2Id);
+		//alert(gLv2Id);
 		if (oldSelected3 == -1) {
 			oldSelected3 = gLv2Id;
 		}
@@ -187,7 +187,7 @@
 		}
 	}
 	function getGLv4(gLv3Id) {		
-		alert(gLv3Id);
+		//alert(gLv3Id);
 		if (oldSelected4 == -1) {
 			oldSelected4 = gLv3Id;
 		}
@@ -229,7 +229,7 @@
 		}
 	}
 	function getGLv5(gLv4Id) {	
-		alert(gLv4Id);
+		//alert(gLv4Id);
 		if (oldSelected5 == -1) {
 			oldSelected5 = gLv4Id;
 		}
