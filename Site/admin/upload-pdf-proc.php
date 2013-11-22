@@ -165,7 +165,7 @@ foreach($string_tag as $tag) {
 		'{$tag}'
 	)
 ;";
-	$insertTagResult = mysql_query($sqTag);
+$insertTagResult = mysql_query($sqTag);
 	// echo mysql_insert_id(). "<br />";
 }
 

@@ -72,34 +72,39 @@
    }
 
 	
-	function clearData(glv) {
-		
+	function clearData(gLv) {
+		/*
 		var textToFind = '--Select Menu--';
-		var dd = document.getElementById(glv);
+		var dd = document.getElementById(gLv);
 		for (var i = 0; i < dd.options.length; i++) {
 		    if (dd.options[i].text === textToFind) {
 		        dd.selectedIndex = i;
 		        break;
 		    }
 		}
+		if(gLv="gLv2"){
+			$(("#"+gLv)).val( theValue ).prop('selected',true);
+		}
+		*/
+		event.preventDefault();
 	}
 	
-	function getGLv2(gLv1Id) {		
+	function getGLv2(gLv1Id) {
 		//alert(gLv1Id);
 		if (oldSelected2 == -1) {
 			oldSelected2 = gLv1Id;
 		}
 		
-		if (gLv1Id == 0) {
+		if ((gLv1Id == 0) || (gLv1Id == "")) {
 			document.getElementById('gLv2Div').style.visibility = 'hidden';
 			document.getElementById('gLv3Div').style.visibility = 'hidden';
 			document.getElementById('gLv4Div').style.visibility = 'hidden';
 			document.getElementById('gLv5Div').style.visibility = 'hidden';
+			clearData("gLv2");
+			clearData("gLv3");
+			clearData("gLv4");
+			clearData("gLv5");
 			
-			// clearData("glv2");
-			// clearData("glv3");
-			// clearData("glv4");
-			// clearData("glv5");
 		} else{
 			
 			var strURL="getLv2.php?gLv1Id="+gLv1Id;
@@ -109,10 +114,10 @@
 				document.getElementById('gLv3Div').style.visibility = 'hidden';
 				document.getElementById('gLv4Div').style.visibility = 'hidden';
 				document.getElementById('gLv5Div').style.visibility = 'hidden';
+				clearData("gLv3");
+				clearData("gLv4");
+				clearData("gLv5");
 				
-				// clearData("glv3");
-				// clearData("glv4");
-				// clearData("glv5");
 			} else {
 				document.getElementById('gLv2Div').style.visibility = 'visible';	
 			}
@@ -134,7 +139,7 @@
 				}
 			
 			oldSelected2 = gLv1Id;	
-		};	
+		};
 	}
 	
 	function getGLv3(gLv2Id) {		
@@ -143,13 +148,13 @@
 			oldSelected3 = gLv2Id;
 		}
 		
-		if (gLv2Id == 0) {
+		if ((gLv2Id == 0) || (gLv2Id == "")) {
 			document.getElementById('gLv3Div').style.visibility = 'hidden';
 			document.getElementById('gLv4Div').style.visibility = 'hidden';
 			document.getElementById('gLv5Div').style.visibility = 'hidden';
-			// clearData("glv3");
-			// clearData("glv4");
-			// clearData("glv5");
+			clearData("gLv3");
+			clearData("gLv4");
+			clearData("gLv5");
 			
 		} else{
 			
@@ -159,8 +164,8 @@
 			if (oldSelected3 != gLv2Id) {
 				document.getElementById('gLv4Div').style.visibility = 'hidden';
 				document.getElementById('gLv5Div').style.visibility = 'hidden';
-			// clearData("glv4");
-			// clearData("glv5");
+			clearData("gLv4");
+			clearData("gLv5");
 			} else {
 				document.getElementById('gLv2Div').style.visibility = 'visible';
 				document.getElementById('gLv3Div').style.visibility = 'visible';
@@ -192,11 +197,11 @@
 			oldSelected4 = gLv3Id;
 		}
 		
-		if (gLv3Id == 0) {
+		if (gLv3Id == 0 || (gLv3Id == "")) {
 			document.getElementById('gLv4Div').style.visibility = 'hidden';
 			document.getElementById('gLv5Div').style.visibility = 'hidden';
-			// clearData("glv4");
-			// clearData("glv5");
+			clearData("gLv4");
+			clearData("gLv5");
 		} else{
 			
 			var strURL="getLv4.php?gLv3Id="+gLv3Id;
@@ -204,7 +209,7 @@
 			
 			if (oldSelected4 != gLv3Id) {
 				document.getElementById('gLv5Div').style.visibility = 'hidden';
-				// clearData("glv5");
+				clearData("gLv5");
 			} else {
 				document.getElementById('gLv2Div').style.visibility = 'visible';
 				document.getElementById('gLv3Div').style.visibility = 'visible';
@@ -234,10 +239,10 @@
 			oldSelected5 = gLv4Id;
 		}
 		
-		if (gLv1Id == 0) {
+		if (gLv4Id == 0 || (gLv4Id == "")) {
 			document.getElementById('gLv5Div').style.visibility = 'hidden';
+			clearData("gLv5");
 			
-			// clearData("glv5");
 		} else{
 				
 			var strURL="getLv5.php?gLv4Id="+gLv4Id;

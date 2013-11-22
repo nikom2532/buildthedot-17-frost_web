@@ -11,9 +11,12 @@ if ($gLv1Id!=0 && $count!=0) {?>
 	<label for="group-name">Group level 2</label>
 	<select name="gLv2" id="gLv2" onchange="getGLv3(this.value)">
 		<option value="0">--Select Menu--</option>
-		<?php while($row=mysql_fetch_array($result)) { ?>
-		<option value="<?=$row['ID']?>" <?php if($gLv1Id== $row['ID']){ echo "selected='selected' "; } ?>><?=$row['NAME']?></option>
-		<?php } ?>
+<?php
+		while($row=mysql_fetch_array($result)) { ?>
+			<option value="<?=$row['ID']?>" <?php if($gLv1Id== $row['ID']){ echo "selected='selected' "; } ?>><?=$row['NAME']?></option>
+<?php 
+		} 
+?>
 	</select>
 	</div>
-<?php }?>
+<?php } ?>
