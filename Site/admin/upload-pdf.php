@@ -118,7 +118,7 @@ include($rootadminpath."js/module/upload-pdf.php");
 												echo "<option value='0'>--Select Menu--</option>";
 												while ($rowLv1 = mysql_fetch_array($resultLv1)) {
 													echo "<option value='" . $rowLv1['ID'] . "'>" . $rowLv1['NAME'] . "</option>";
-												}
+												}//
 												?>
 											</select>
 										</div>
