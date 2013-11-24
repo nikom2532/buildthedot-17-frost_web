@@ -113,7 +113,7 @@ include($rootadminpath."js/module/upload-pdf.php");
 												$resultLv1 = mysql_query($sqlLv1);
 											?>
 									
-											<select name="gLv1" onchange="getGLv2(this.value)">
+											<select name="gLv1" id="gLv1" onchange="getGLv2(this.value)">
 												<?php
 												echo "<option value='0'>--Select Menu--</option>";
 												while ($rowLv1 = mysql_fetch_array($resultLv1)) {
