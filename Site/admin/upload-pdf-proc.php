@@ -9,12 +9,12 @@ $gLv4 = $_POST['gLv4'];
 $gLv5 = $_POST['gLv5'];
 $tag = $_POST['tags'];
 //echo $tag;
-// echo "glv1 > ".$gLv1."<br>";
-// echo "glv2 > ".$gLv2."<br>";
-// echo "glv3 > ".$gLv3."<br>";
-// echo "glv4 > ".$gLv4."<br>";
-// echo "glv5 > ".$gLv5."<br>";
-// echo "tag > ".$tag."<br>";
+echo "glv1 > ".$gLv1."<br>";
+echo "glv2 > ".$gLv2."<br>";
+echo "glv3 > ".$gLv3."<br>";
+echo "glv4 > ".$gLv4."<br>";
+echo "glv5 > ".$gLv5."<br>";
+echo "tag > ".$tag."<br>";
 
 //upload pdf
 if(!(!file_exists($_FILES['pdfUpload']['tmp_name']) || !is_uploaded_file($_FILES['pdfUpload']['tmp_name']))){
@@ -146,7 +146,7 @@ echo $sqlPdf = "
 	)
 ;";
 //echo $sqlPdf;
-$insertPdfResult = mysql_query($sqlPdf);
+// $insertPdfResult = mysql_query($sqlPdf);
 // echo mysql_insert_id(). "<br />";
 // $result = @mysql_query($sql);
 $PDF_ID = mysql_insert_id();
@@ -165,7 +165,7 @@ foreach($string_tag as $tag) {
 		'{$tag}'
 	)
 ;";
-$insertTagResult = mysql_query($sqTag);
+// $insertTagResult = mysql_query($sqTag);
 	// echo mysql_insert_id(). "<br />";
 }
 
@@ -204,7 +204,7 @@ echo $sqlCat="
 		'{$GROUP_LEVEL_ID}'
 	);";
 
-$insertCatResult = mysql_query($sqlCat);
+// $insertCatResult = mysql_query($sqlCat);
 $msg = "Sucess";
-header("location: pdf.php?msg=$msg");
+// header("location: pdf.php?msg=$msg");
 ?>

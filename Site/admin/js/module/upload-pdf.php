@@ -146,7 +146,6 @@
 		//alert(gLv2Id);
 		if (oldSelected3 == -1) {
 			oldSelected3 = gLv2Id;
-			debugger;
 		}
 		
 		if ((gLv2Id == 0) || (gLv2Id == "")) {

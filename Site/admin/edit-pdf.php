@@ -1,48 +1,40 @@
 <?php
 include ("include/header.php");
-?>
-<?php
-	include ("include/checksession.php");
-?>
-<?php
+include ("include/checksession.php");
 $sql="
-		SELECT t.ID AS value, t.NAME AS label
-		FROM TAG t 
-	";
-	$result = mysql_query($sql);
-	
-	$numRow = mysql_num_rows($result);
-	if(mysql_num_rows($result)){
-		$tagResult =  '[';
-		$counter = 0;
-		while ($row = mysql_fetch_array($result)) {
-			if (++$counter == $numRow) {
-				$tagResult .= "'".$row['label']."'";//.":".$row['id']
-			} 
-			else {
-				$tagResult .= "'".$row['label']."'".",";	//.":".$row['id']
-	    }
-		}
-		$tagResult .= ']';
-		//echo $tagResult;
-	}
-	
-	$rows = array();
-	$result = mysql_query($sql);
-	while($row = mysql_fetch_assoc($result)) {
-		$rows[] = $row;
-	}
-	$tagResult = json_encode($rows);
+	SELECT t.ID AS value, t.NAME AS label
+	FROM TAG t 
+";
+$result = mysql_query($sql);
 
+$numRow = mysql_num_rows($result);
+if(mysql_num_rows($result)){
+	$tagResult =  '[';
+	$counter = 0;
+	while ($row = mysql_fetch_array($result)) {
+		if (++$counter == $numRow) {
+			$tagResult .= "'".$row['label']."'";//.":".$row['id']
+		} 
+		else {
+			$tagResult .= "'".$row['label']."'".",";	//.":".$row['id']
+    }
+	}
+	$tagResult .= ']';
+	//echo $tagResult;
+}
 
-?>
-<?php
+$rows = array();
+$result = mysql_query($sql);
+while($row = mysql_fetch_assoc($result)) {
+	$rows[] = $row;
+}
+$tagResult = json_encode($rows);
+
 $pdfId = $_POST['pdfId'];
 $glvId = $_POST['glvId'];
 $glvName = $_POST['glvName']; 
-?>
-<?php
-	include ("include/top-bar.php");
+
+include ("include/top-bar.php");
 ?>
 <!-- HEADER -->
 <div id="header-with-tabs">
@@ -98,8 +90,8 @@ $glvName = $_POST['glvName'];
 					<div class="half-size-column fl">
 
 						<!-- <form action="edit-pdf-proc.php" method='POST' name="editpdf" id="editpdf"> -->
-						<?php
-						$result = mysql_query("
+<?php
+						$sql="
 							SELECT p.ID AS id,
 							p.NAME AS name,
 							p.DESCRIPTION AS description,
@@ -112,11 +104,15 @@ $glvName = $_POST['glvName'];
 							FROM PDF AS p
 							INNER JOIN PDF_CATEGORY AS c
 							ON c.PDF_ID = p.ID
-							WHERE p.ID = $pdfId AND p.IS_ASIAN_COUNTRY = '0' AND c.GROUP_LEVEL_NAME = $glvName AND c.GROUP_LEVEL_ID = $glvId;
-						");
+							WHERE p.ID = $pdfId 
+							AND p.IS_ASIAN_COUNTRY = '0' 
+							AND c.GROUP_LEVEL_NAME = $glvName 
+							AND c.GROUP_LEVEL_ID = $glvId;
+						";
+						$result = mysql_query($sql);
 
 						while ($row = mysql_fetch_array($result)) {
-						?>
+?>
 						<fieldset>
 
 							<p>
@@ -143,7 +139,7 @@ $glvName = $_POST['glvName'];
 								Yes
 								<br>
 							</p>
-						<?php 
+<?php 
 							// $resultPdf = mysql_query("
 										// SELECT *
 										// FROM PDF_CATEGORY
@@ -407,26 +403,34 @@ $glvName = $_POST['glvName'];
 					<!-- end half-size-column -->
 
 					<div class="half-size-column fr">
-
 						<fieldset>
-							<?php 
-							$resultTag = mysql_query("
-							SELECT t.ID AS id, t.NAME AS name
-							FROM TAG AS t
-							INNER JOIN TAG_RELATIONSHIP AS tr 
-							ON tr.TAG_ID = t.ID
-							WHERE tr.PDF_ID = $pdfId
-						");
-						?>
+<?php 
+							$str_sql = "
+								SELECT t.ID AS id, t.NAME AS name
+								FROM TAG AS t
+								INNER JOIN TAG_RELATIONSHIP AS tr 
+								ON tr.TAG_ID = t.ID
+								WHERE tr.PDF_ID = $pdfId
+							";
+							$resultTag = @mysql_query($str_sql);
+							while($rsTag = @mysql_fetch_array($resultTag)){
+								$Tag_result[] = $rsTag["name"]; 
+							}
+							// print_r($Tag_result);
+?>
 							<p class="form-error-input">
-								  <p class="form-error-input">
-				                  		<p><label for="tag">Tag</label></p>
-				                  		
-										<input type="text" id="text" name="tags" value="tag1,tag2" />		
-											
-										<br/>
-										
-				                  </p>
+								<p class="form-error-input">
+              		<p><label for="tag">Tag</label></p>
+									<input type="text" id="text" name="tags" value="<?php 
+										for($i=0; $i<count($Tag_result); $i++){
+											echo $Tag_result[$i];
+											if($i<count($Tag_result)-1){
+												echo ",";
+											}
+										}
+									?>" />		
+									<br/>
+                </p>
 							</p>
 							<p class="form-error-input">
 			                      <label for="uploadfile">Upload Image</label>
