@@ -2,7 +2,7 @@
 	  $(document).ready(function() {
 		 
 		  //The demo tag array
-		  var availableTags = <?=$tagResult?>;
+		  var availableTags = <?php echo $tagResult; ?>;
 		   $("#submitTags").click(function(){
 		        $("#tagName").html('The value is :: '+$("input#text").val());
 		    }); 
@@ -73,20 +73,20 @@
 
 	
 	function clearData(gLv) {
-		/*
 		var textToFind = '--Select Menu--';
 		var dd = document.getElementById(gLv);
-		for (var i = 0; i < dd.options.length; i++) {
-		    if (dd.options[i].text === textToFind) {
-		        dd.selectedIndex = i;
-		        break;
-		    }
+		if(dd){
+			for (var i = 0; i < dd.options.length; i++) {
+			    if (dd.options[i].text === textToFind) {
+			        dd.selectedIndex = i;
+			        break;
+			    }
+			}
 		}
-		if(gLv="gLv2"){
-			$(("#"+gLv)).val( theValue ).prop('selected',true);
-		}
-		*/
-		event.preventDefault();
+		// if(gLv="gLv2"){
+			// $(("#"+gLv)).val( theValue ).prop('selected',true);
+		// }
+		// event.preventDefault();
 	}
 	
 	function getGLv2(gLv1Id) {
@@ -119,7 +119,7 @@
 				clearData("gLv5");
 				
 			} else {
-				document.getElementById('gLv2Div').style.visibility = 'visible';	
+				document.getElementById('gLv2Div').style.visibility = 'visible';
 			}
 			
 			if (req) {
@@ -127,7 +127,7 @@
 					req.onreadystatechange = function() {
 						if (req.readyState == 4) {
 							// only if "OK"
-							if (req.status == 200) {						
+							if (req.status == 200) {
 								document.getElementById('gLv2Div').innerHTML=req.responseText;						
 							} else {
 								alert("There was a problem while using XMLHTTP:\n" + req.statusText);
@@ -146,6 +146,7 @@
 		//alert(gLv2Id);
 		if (oldSelected3 == -1) {
 			oldSelected3 = gLv2Id;
+			debugger;
 		}
 		
 		if ((gLv2Id == 0) || (gLv2Id == "")) {
