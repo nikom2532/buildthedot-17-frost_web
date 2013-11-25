@@ -433,21 +433,18 @@ include ("include/top-bar.php");
                 </p>
 							</p>
 							<p class="form-error-input">
-			                      <label for="uploadfile">Upload Image</label>
-			                      <input type="file" name="imageUpload"/><?=$row['photoname'];?>
-		              	    </p>
-			                  <p class="form-error-input">
-			                      <label for="uploadfile">Upload File</label>
-			                      <input type="file" name="pdfUpload"/><?=$row['path'];?>
-			              	  </p>
-							
-
+                <label for="uploadfile">Upload Image</label>
+                <input type="file" name="imageUpload"/><?=$row['photoname'];?>
+        	    </p>
+              <p class="form-error-input">
+                <label for="uploadfile">Upload File</label>
+                <input type="file" name="pdfUpload"/><?=$row['path'];?>
+          	  </p>
 						</fieldset>
 						<input type="submit" value="Save change" class="round blue ic-right-arrow" />
-						<?php  ?>
-				</form>
 
-			</div>
+					</div>
+				</form>
 			<!-- end half-size-column -->
 
 		</div>
