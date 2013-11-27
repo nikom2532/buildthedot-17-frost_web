@@ -118,17 +118,17 @@ include ("include/top-bar.php");
 
 							<p>
 								<label for="title">Title</label>
-								<input type="text" id="name" class="round full-width-input" value="<?=$row['name']; ?>"/>
+								<input type="text" name="name" id="name" class="round full-width-input" value="<?=$row['name']; ?>"/>
 							</p>
 
 							<p>
 								<label for="description">Description</label>
-								<textarea id="description" class="round full-width-textarea" ><?=$row['description']; ?></textarea>
+								<textarea name="description" id="description" class="round full-width-textarea" ><?=$row['description']; ?></textarea>
 							</p>
 
 							<p>
 								<label for="price">Price</label>
-								<input type="text" id="price" class="round full-width-input" value="<?=$row['price']; ?>"/>
+								<input type="text" name="price" id="price" class="round full-width-input" value="<?=$row['price']; ?>"/>
 							</p>
 
 							<p>

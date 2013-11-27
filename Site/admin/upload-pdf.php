@@ -4,7 +4,7 @@ $rootadminpath="./";
 include($rootadminpath."include/header.php");
 include($rootadminpath."include/checksession.php");
 
-echo $sql="
+$sql="
 	SELECT t.ID AS value, t.NAME AS label
 	FROM TAG t 
 ";
