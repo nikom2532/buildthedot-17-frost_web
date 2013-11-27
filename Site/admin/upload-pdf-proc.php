@@ -8,7 +8,7 @@ $gLv3 = $_POST['gLv3'];
 $gLv4 = $_POST['gLv4'];
 $gLv5 = $_POST['gLv5'];
 $tag = $_POST['tags'];
-//echo $tag;
+echo $tag;
 echo "glv1 > ".$gLv1."<br>";
 echo "glv2 > ".$gLv2."<br>";
 echo "glv3 > ".$gLv3."<br>";
@@ -153,20 +153,25 @@ $PDF_ID = mysql_insert_id();
 
 $string_tag = explode(',', $tag);
 foreach($string_tag as $tag) {
-	
-    //echo $tag;
+	echo $tag_to_id = "
+		SELECT `ID`
+		FROM `TAG` 
+		WHERE `NAME` = '{$tag}'
+	";
+	$result_tag_to_id = @mysql_query($tag_to_id);
+	while ($rs_tag_to_id = @mysql_fetch_array($result_tag_to_id)) {
 	echo $sqTag="
-	INSERT INTO `TAG_RELATIONSHIP` (
-		`PDF_ID`,
-		`TAG_ID`
-	)
-	VALUE (
-		'{$PDF_ID}',
-		'{$tag}'
-	)
-;";
-// $insertTagResult = mysql_query($sqTag);
-	// echo mysql_insert_id(). "<br />";
+		INSERT INTO `TAG_RELATIONSHIP` (
+			`PDF_ID`,
+			`TAG_ID`
+		)
+		VALUE (
+			'{$PDF_ID}',
+			'".$rs_tag_to_id["ID"]."'
+		)
+	;";
+	// $insertTagResult = mysql_query($sqTag);
+	}
 }
 
 
@@ -192,7 +197,7 @@ elseif($gLv1 != 0 || $gLv1 !="") {
 	$GROUP_LEVEL_NAME = "1";
 }
 
-echo $sqlCat="
+	echo $sqlCat="
 	INSERT INTO `PDF_CATEGORY` (
 		`PDF_ID`,
 		`GROUP_LEVEL_NAME`,
