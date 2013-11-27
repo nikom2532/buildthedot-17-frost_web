@@ -125,7 +125,7 @@ if(!(!file_exists($_FILES['imageUpload']['tmp_name']) || !is_uploaded_file($_FIL
 	$imageFileName = "no-image.png";
 }
 $current_time = date("Y-m-d H:i:s");
-echo $sqlPdf = "
+$sqlPdf = "
 	INSERT INTO `PDF` (
 		`NAME`, 
 		`PHOTO_NAME`,
@@ -146,13 +146,14 @@ echo $sqlPdf = "
 	)
 ;";
 //echo $sqlPdf;
-// $insertPdfResult = mysql_query($sqlPdf);
-// echo mysql_insert_id(). "<br />";
-// $result = @mysql_query($sql);
+$insertPdfResult = mysql_query($sqlPdf);
+//echo mysql_insert_id(). "<br />";
+$result = @mysql_query($sql);
 $PDF_ID = mysql_insert_id();
 
 $string_tag = explode(',', $tag);
 foreach($string_tag as $tag) {
+	/*
 	echo $tag_to_id = "
 		SELECT `ID`
 		FROM `TAG` 
@@ -160,18 +161,19 @@ foreach($string_tag as $tag) {
 	";
 	$result_tag_to_id = @mysql_query($tag_to_id);
 	while ($rs_tag_to_id = @mysql_fetch_array($result_tag_to_id)) {
-	echo $sqTag="
+	*/
+	$sqTag="
 		INSERT INTO `TAG_RELATIONSHIP` (
 			`PDF_ID`,
 			`TAG_ID`
 		)
 		VALUE (
 			'{$PDF_ID}',
-			'".$rs_tag_to_id["ID"]."'
+			'{$tag}'
 		)
 	;";
-	// $insertTagResult = mysql_query($sqTag);
-	}
+	$insertTagResult = mysql_query($sqTag);
+	//}
 }
 
 
@@ -197,19 +199,24 @@ elseif($gLv1 != 0 || $gLv1 !="") {
 	$GROUP_LEVEL_NAME = "1";
 }
 
-	echo $sqlCat="
-	INSERT INTO `PDF_CATEGORY` (
-		`PDF_ID`,
-		`GROUP_LEVEL_NAME`,
-		`GROUP_LEVEL_ID`
-	)
-	VALUE (
-		'{$PDF_ID}',
-		'{$GROUP_LEVEL_NAME}',
-		'{$GROUP_LEVEL_ID}'
-	);";
+$sqlCat="
+INSERT INTO `PDF_CATEGORY` (
+	`PDF_ID`,
+	`GROUP_LEVEL_NAME`,
+	`GROUP_LEVEL_ID`
+)
+VALUE (
+	'{$PDF_ID}',
+	'{$GROUP_LEVEL_NAME}',
+	'{$GROUP_LEVEL_ID}'
+);";
 
-// $insertCatResult = mysql_query($sqlCat);
+$insertCatResult = mysql_query($sqlCat);
 $msg = "Sucess";
-// header("location: pdf.php?msg=$msg");
+//header("location: pdf.php?msg=$msg");
 ?>
+<script>
+<!--
+window.location = "pdf.php?msg=<?php echo $msg; ?>"
+//-->
+</script>

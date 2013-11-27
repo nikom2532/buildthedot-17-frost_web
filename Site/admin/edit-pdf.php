@@ -91,6 +91,7 @@ include ("include/top-bar.php");
 
 						<!-- <form action="edit-pdf-proc.php" method='POST' name="editpdf" id="editpdf"> -->
 <?php
+						echo "pdfId = ".$_POST["pdfId"]."<Br />glvId = ".$_POST["glvId"]."<Br />glvName = ".$_POST["glvName"]."<Br /></br />";
 						$sql="
 							SELECT p.ID AS id,
 							p.NAME AS name,
@@ -347,10 +348,11 @@ include ("include/top-bar.php");
 							
 						
 						?>
-						<input type=hidden id="gLv1Id" name="gLv1Id" value="<?=$gLv1Id?>"/>
-						<input type=hidden id="gLv2Id" name="gLv2Id" value="<?=$gLv2Id?>"/>
-						<input type=hidden id="gLv3Id" name="gLv3Id" value="<?=$gLv3Id?>"/>
-						<input type=hidden id="gLv4Id" name="gLv4Id" value="<?=$gLv4Id?>"/>
+						<input type=hidden id="gLv1Id" name="gLv1Id" value="<?php echo $gLv1Id; ?>"/>
+						<input type=hidden id="gLv2Id" name="gLv2Id" value="<?php echo $gLv2Id; ?>"/>
+						<input type=hidden id="gLv3Id" name="gLv3Id" value="<?php echo $gLv3Id; ?>"/>
+						<input type=hidden id="gLv4Id" name="gLv4Id" value="<?php echo $gLv4Id; ?>"/>
+						<input type=hidden id="pdfId" name="pdfId" value="<?php echo $pdfId; ?>"/>
 						
 						<script type="text/javascript">
 							getDefaultData();

@@ -4,7 +4,7 @@ $rootadminpath="./";
 include($rootadminpath."include/header.php");
 include($rootadminpath."include/checksession.php");
 
-$sql="
+echo $sql="
 	SELECT t.ID AS value, t.NAME AS label
 	FROM TAG t 
 ";
@@ -130,6 +130,9 @@ include("include/top-bar.php");
 					</div> <!-- end half-size-column -->
 				</div> <!-- end content-module-main -->
 			</form>
+			<script>
+			
+			</script>
 		</div> <!-- end content-module -->
 	</div> <!-- end full-width -->
 </div> <!-- end content -->
