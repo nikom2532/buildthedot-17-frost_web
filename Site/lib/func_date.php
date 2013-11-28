@@ -1,4 +1,4 @@
-﻿<?
+﻿<?php
 function mydatetime($date_value){
                 if ($date_value){
                         $x=substr($date_value,0,10);
