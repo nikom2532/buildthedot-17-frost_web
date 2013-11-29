@@ -15,6 +15,10 @@
 			$("#tagName").html('The value is :: ' + $("input#tags").val());
 		});
 		
+		// $("#editpdf").submit(function() {
+			// var data = $()
+			// $(input#tags_val).val();
+		// }
 		//The text input
 		var input = $("input#tags");
 	

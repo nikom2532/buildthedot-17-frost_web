@@ -431,8 +431,9 @@ include ("include/top-bar.php");
 											// }
 										// }
 									?>" />
-									<!-- <input type="text" id="tagName" />
-									<input type="button" id="submitTags" name="submitTags" value="asdff" /> -->
+									<input type="hidden" id="tags_val" name="tags_val" value="" />
+									<div id="tagName"></div>
+									<input type="button" id="submitTags" name="submitTags" value="asdff" />
 									<br/>
                 </p>
 							</p>
@@ -445,7 +446,7 @@ include ("include/top-bar.php");
                 <input type="file" name="pdfUpload"/><?=$row['path'];?>
           	  </p>
 						</fieldset>
-						<input type="submit" value="Save change" class="round blue ic-right-arrow" />
+						<input type="submit" id="tags_val" name="tags_val" value="Save change" class="round blue ic-right-arrow" />
 
 					</div>
 				</form>
