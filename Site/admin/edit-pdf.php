@@ -20,7 +20,7 @@ if(mysql_num_rows($result)){
     }
 	}
 	$tagResult .= ']';
-	//echo $tagResult;
+	echo $tagResult;
 }
 
 $rows = array();
@@ -423,14 +423,16 @@ include ("include/top-bar.php");
 							<p class="form-error-input">
 								<p class="form-error-input">
               		<p><label for="tag">Tag</label></p>
-									<input type="text" id="text" name="tags" value="<?php 
-										for($i=0; $i<count($Tag_result); $i++){
-											echo $Tag_result[$i];
-											if($i<count($Tag_result)-1){
-												echo ",";
-											}
-										}
-									?>" />		
+									<input type="text" id="tags" name="tags" value="<?php 
+										// for($i=0; $i<count($Tag_result); $i++){
+											// echo $Tag_result[$i];
+											// if($i<count($Tag_result)-1){
+												// echo ",";
+											// }
+										// }
+									?>" />
+									<!-- <input type="text" id="tagName" />
+									<input type="button" id="submitTags" name="submitTags" value="asdff" /> -->
 									<br/>
                 </p>
 							</p>

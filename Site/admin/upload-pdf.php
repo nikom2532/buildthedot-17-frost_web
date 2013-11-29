@@ -32,7 +32,7 @@ while($row = mysql_fetch_assoc($result)) {
 	$rows[] = $row;
 }
 $tagResult = json_encode($rows);
-//echo $tagResult;
+echo $tagResult;
 include($rootadminpath."js/module/upload-pdf.php");
 include("include/top-bar.php");
 ?>	

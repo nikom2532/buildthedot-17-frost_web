@@ -10,12 +10,13 @@
 		$('#gLv5').trigger('change');
 		
 		//The demo tag array
-		var availableTags = <?=$tagResult ?>;
+		var availableTags = <?php echo $tagResult; ?>;
 		$("#submitTags").click(function() {
-			$("#tagName").html('The value is :: ' + $("input#text").val());
+			$("#tagName").html('The value is :: ' + $("input#tags").val());
 		});
+		
 		//The text input
-		var input = $("input#text");
+		var input = $("input#tags");
 	
 		//The tagit list
 		var instance = $("<ul class=\"tags\"></ul>");
