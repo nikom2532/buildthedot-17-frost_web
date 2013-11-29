@@ -3,7 +3,7 @@
 	$email = $_GET['email'];
 	$key = $_GET['key'];
 	
-	session_start();
+	@session_start();
 	$sessionKey = $_SESSION['keySession'];
 	$sessionEmail = $_SESSION['emailSession'];
 	$now = time(); 

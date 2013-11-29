@@ -148,7 +148,7 @@ foreach($string_tag as $tag) {
 	echo $sqTag="
 		UPDATE `TAG_RELATIONSHIP`
 		SET `TAG_ID` = '{$tag}'
-		WHERE `PDF_ID` = '{$PDF_ID}' 		
+		WHERE `PDF_ID` = '{$PDF_ID}'
 	;";
 	//$insertTagResult = @mysql_query($sqTag);
 }

@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	@session_start();
 	//echo "before".$_SESSION["userid"];
 	unset($_SESSION["userid"]);
 	session_destroy();

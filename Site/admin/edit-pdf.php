@@ -10,17 +10,21 @@ $result = mysql_query($sql);
 $numRow = mysql_num_rows($result);
 if(mysql_num_rows($result)){
 	$tagResult =  '[';
+	//$tagResult_id =  '[';
 	$counter = 0;
 	while ($row = mysql_fetch_array($result)) {
 		if (++$counter == $numRow) {
 			$tagResult .= "'".$row['label']."'";//.":".$row['id']
+			//$tagResult_id .= "'".$row['value']."'";//.":".$row['id']
 		} 
 		else {
 			$tagResult .= "'".$row['label']."'".",";	//.":".$row['id']
-    }
+			//$tagResult_id .= "'".$row['value']."'".",";	//.":".$row['id']
+    	}
 	}
 	$tagResult .= ']';
-	echo $tagResult;
+	//$tagResult_id .= ']';
+	//echo $tagResult;
 }
 
 $rows = array();
@@ -29,6 +33,14 @@ while($row = mysql_fetch_assoc($result)) {
 	$rows[] = $row;
 }
 $tagResult = json_encode($rows);
+
+$rows = array();
+$result = mysql_query($sql);
+while($row = mysql_fetch_assoc($result)) {
+	$rows[] = $row;
+}
+$tagResult_id = json_encode($rows);
+
 
 $pdfId = $_POST['pdfId'];
 $glvId = $_POST['glvId'];
