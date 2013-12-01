@@ -104,7 +104,7 @@ include ("include/top-bar.php");
 						<!-- <form action="edit-pdf-proc.php" method='POST' name="editpdf" id="editpdf"> -->
 <?php
 						echo "pdfId = ".$_POST["pdfId"]."<Br />glvId = ".$_POST["glvId"]."<Br />glvName = ".$_POST["glvName"]."<Br /></br />";
-						$sql="
+					echo	$sql="
 							SELECT p.ID AS id,
 							p.NAME AS name,
 							p.DESCRIPTION AS description,
@@ -127,22 +127,18 @@ include ("include/top-bar.php");
 						while ($row = mysql_fetch_array($result)) {
 ?>
 						<fieldset>
-
 							<p>
 								<label for="title">Title</label>
 								<input type="text" name="name" id="name" class="round full-width-input" value="<?=$row['name']; ?>"/>
 							</p>
-
 							<p>
 								<label for="description">Description</label>
 								<textarea name="description" id="description" class="round full-width-textarea" ><?=$row['description']; ?></textarea>
 							</p>
-
 							<p>
 								<label for="price">Price</label>
 								<input type="text" name="price" id="price" class="round full-width-input" value="<?=$row['price']; ?>"/>
 							</p>
-
 							<p>
 								<label for="asian">Asian country</label>
 								<input type="radio" name="asian" id="asian" value="0" checked>
@@ -343,10 +339,10 @@ include ("include/top-bar.php");
 									
 									}
 								}// end group level name = 4
-								 echo "lv4  = $lv4"."<br>";
-								 echo "lv3  = $lv3"."<br>";
-								 echo "lv2  = $lv2"."<br>";
-								 echo "lv1  = $lv1"."<br>";
+								 echo "lv4  = $lv4"."<br/>";
+								 echo "lv3  = $lv3"."<br/>";
+								 echo "lv2  = $lv2"."<br/>";
+								 echo "lv1  = $lv1"."<br/>";
 								 
 								 $gLv4Id = $lv4;
 								 $gLv3Id = $lv3;

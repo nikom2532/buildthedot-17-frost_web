@@ -185,7 +185,7 @@ echo $sqlCat="
 		`PDF_ID` = '{$PDF_ID}'
 ;";
 
-//$insertCatResult = mysql_query($sqlCat);
+$insertCatResult = mysql_query($sqlCat);
 $msg = "Success";
 
 //header("location: pdf.php?msg=$msg");
