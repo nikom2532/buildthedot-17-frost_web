@@ -104,7 +104,7 @@ include ("include/top-bar.php");
 						<!-- <form action="edit-pdf-proc.php" method='POST' name="editpdf" id="editpdf"> -->
 <?php
 						echo "pdfId = ".$_POST["pdfId"]."<Br />glvId = ".$_POST["glvId"]."<Br />glvName = ".$_POST["glvName"]."<Br /></br />";
-					echo	$sql="
+						$sql="
 							SELECT p.ID AS id,
 							p.NAME AS name,
 							p.DESCRIPTION AS description,
@@ -149,12 +149,12 @@ include ("include/top-bar.php");
 								<br>
 							</p>
 <?php 
-							// $resultPdf = mysql_query("
-										// SELECT *
-										// FROM PDF_CATEGORY
-										// WHERE PDF_ID = $pdfId						
-									   // ");
-							// while ($rowPdf = mysql_fetch_array($resultPdf)) {
+							$resultPdf = mysql_query("
+										SELECT *
+										FROM PDF_CATEGORY
+										WHERE PDF_ID = $pdfId						
+									   ");
+							while ($rowPdf = mysql_fetch_array($resultPdf)) {
 								$lvName = $row['glvl'];
 								$lvId = $row['glvId'];
 								echo "Group Lv name>".$lvName;
@@ -353,6 +353,7 @@ include ("include/top-bar.php");
 								 echo "$gLv2Id";
 								 echo "$gLv3Id";
 							}
+						}
 							
 						
 						?>
@@ -424,7 +425,7 @@ include ("include/top-bar.php");
 							";
 							$resultTag = @mysql_query($str_sql);
 							while($rsTag = @mysql_fetch_array($resultTag)){
-								$Tag_result[] = $rsTag["name"]; 
+								$Tag_result[] = $rsTag["name"];
 							}
 							// print_r($Tag_result);
 ?>
