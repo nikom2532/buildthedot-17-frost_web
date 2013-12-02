@@ -47,6 +47,8 @@ $glvId = $_POST['glvId'];
 $glvName = $_POST['glvName']; 
 
 include ("include/top-bar.php");
+
+include ("include/side-menu-knowledge.php");
 ?>
 <!-- HEADER -->
 <div id="header-with-tabs">
