@@ -2,6 +2,7 @@
 include ("include/header.php");
 @session_start();
 $rootpath = "../";
+$rootadminpath = "./";
 include ($rootpath . "lib/db.php");
 include ($rootpath . "lib/conn.inc.php");
 include ($rootpath . "lib/func_date.php");
@@ -52,7 +53,7 @@ $tagResult_id = json_encode($rows);
 
 $pdfId = $_POST['pdfId'];
 $glvId = $_POST['glvId'];
-$glvName = $_POST['glvName']; 
+$glvName = $_POST['glvName'];
 
 include ("include/top-bar.php");
 ?>
@@ -156,7 +157,12 @@ include ("include/top-bar.php");
 								Yes
 								<br>
 							</p>
-<?php 
+<?php
+							$lv1 = $parentGroup2;
+							$lv2 = $parentGroup3;
+							$lv3 = $parentGroup4;
+							$lv4 = $parentGroup5;
+/*
 							$resultPdf = mysql_query("
 										SELECT *
 										FROM PDF_CATEGORY
@@ -361,6 +367,7 @@ include ("include/top-bar.php");
 								 echo "$gLv2Id";
 								 echo "$gLv3Id";
 							}
+*/
 						}
 							
 						/* ?>
@@ -389,30 +396,117 @@ include ("include/top-bar.php");
 									<select name="group-name" id="group-name" onchange="getGLv2(this.value)">
 										
 										<option value='0'>--Select Menu--</option>
-										<?php 
+<?php 
 										while ($rowLv1 = mysql_fetch_array($resultLv1)) {
-										?>
+?>
 											<option value="<?=$rowLv1['ID']?>" <?php if($lv1 == $rowLv1['ID']){ echo "selected='selected' "; } ?>><?=$rowLv1['NAME']?></option>
-										<?php 
+<?php 
 										}
-										?>
+?>
 									</select>
 								</div>
 							
 								<div id="gLv2Div">
+<?php
+								if($lvName==2){
+?>
+									<label for="group-name">Group level 2</label>
+<?php
+									$sqlLv2 = "SELECT * FROM GROUP_LV2";
+									$resultLv2 = mysql_query($sqlLv2);
+?>
 
+									<select name="group-name" id="group-name" onchange="getGLv3(this.value)">
+										
+										<option value='0'>--Select Menu--</option>
+<?php 
+										while ($rowLv2 = mysql_fetch_array($resultLv2)) {
+?>
+											<option value="<?=$rowLv2['ID']?>" <?php if($lv2 == $rowLv2['ID']){ echo "selected='selected' "; } ?>><?=$rowLv2['NAME']?></option>
+<?php 
+										}
+?>
+									</select>
+<?php
+								}
+?>
 								</div>
-
 								<div id="gLv3Div">
+<?php
+								if($lvName==3){
+?>
+									<label for="group-name">Group level 3</label>
+<?php
+									$sqlLv3 = "SELECT * FROM GROUP_LV3";
+									$resultLv3 = mysql_query($sqlLv3);
+?>
 
+									<select name="group-name" id="group-name" onchange="getGLv4(this.value)">
+										
+										<option value='0'>--Select Menu--</option>
+<?php 
+										while ($rowLv3 = mysql_fetch_array($resultLv3)) {
+?>
+											<option value="<?=$rowLv3['ID']?>" <?php if($lv3 == $rowLv3['ID']){ echo "selected='selected' "; } ?>><?=$rowLv3['NAME']?></option>
+<?php 
+										}
+?>
+									</select>
+<?php
+								}
+?>
 								</div>
 
 								<div id="gLv4Div">
+<?php
+								if($lvName==4){
+?>
+									<label for="group-name">Group level 4</label>
+<?php
+									$sqlLv4 = "SELECT * FROM GROUP_LV4";
+									$resultLv4 = mysql_query($sqlLv4);
+?>
 
+									<select name="group-name" id="group-name" onchange="getGLv5(this.value)">
+										
+										<option value='0'>--Select Menu--</option>
+<?php 
+										while ($rowLv4 = mysql_fetch_array($resultLv4)) {
+?>
+											<option value="<?=$rowLv4['ID']?>" <?php if($lv4 == $rowLv4['ID']){ echo "selected='selected' "; } ?>><?=$rowLv4['NAME']?></option>
+<?php 
+										}
+?>
+									</select>
+<?php
+								}
+?>
 								</div>
 
 								<div id="gLv5Div">
+<?php
+								if($lvName==5){
+?>
+									<label for="group-name">Group level 5</label>
+<?php
+									$sqlLv5 = "SELECT * FROM GROUP_LV5";
+									$resultLv5 = mysql_query($sqlLv5);
+?>
 
+									<select name="group-name" id="group-name" onchange="getGLv6(this.value)">
+										
+										<option value='0'>--Select Menu--</option>
+<?php 
+										while ($rowLv5 = mysql_fetch_array($resultLv5)) {
+?>
+											<option value="<?=$rowLv5['ID']?>" <?php if($lv5 == $rowLv5['ID']){ echo "selected='selected' "; } ?>><?=$rowLv5['NAME']?></option>
+<?php 
+										}
+?>
+									</select>
+<?php
+								}
+?>
 								</div>
 							</p>
 							
@@ -481,13 +575,10 @@ include ("include/top-bar.php");
 <!-- end full-width -->
 
 </div> <!-- end content -->
-
 <?php
 include($rootadminpath."js/module/upload-pdf-edit.php");
-?>
-<script type="text/javascript">
+?><script type="text/javascript">
 	getDefaultData();
-</script>
-<?php
+</script><?php
 	include ("include/footer.php");
 ?>
