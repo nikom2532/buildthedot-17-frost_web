@@ -355,26 +355,28 @@ include ("include/top-bar.php");
 							}
 						}
 							
-						
-						?>
+						/* ?>
 						<input type=hidden id="gLv1Id" name="gLv1Id" value="<?php echo $gLv1Id; ?>"/>
 						<input type=hidden id="gLv2Id" name="gLv2Id" value="<?php echo $gLv2Id; ?>"/>
 						<input type=hidden id="gLv3Id" name="gLv3Id" value="<?php echo $gLv3Id; ?>"/>
 						<input type=hidden id="gLv4Id" name="gLv4Id" value="<?php echo $gLv4Id; ?>"/>
 						<input type=hidden id="pdfId" name="pdfId" value="<?php echo $pdfId; ?>"/>
+						*/ 
+?>
+						<input type=hidden id="gLv1Id" name="gLv1Id" value="<?php echo $parentGroup2; ?>"/>
+						<input type=hidden id="gLv2Id" name="gLv2Id" value="<?php echo $parentGroup3; ?>"/>
+						<input type=hidden id="gLv3Id" name="gLv3Id" value="<?php echo $parentGroup4; ?>"/>
+						<input type=hidden id="gLv4Id" name="gLv4Id" value="<?php echo $parentGroup5; ?>"/>
+						<input type=hidden id="pdfId" name="pdfId" value="<?php echo $pdfId; ?>"/>
 						
-						<script type="text/javascript">
-							getDefaultData();
-						</script>
 							<p class="form-error-input">
 
 								<div id="gLv1Div">
 									<label for="group-name">Group level 1</label>
-
-									<?php
+<?php
 									$sqlLv1 = "SELECT * FROM GROUP_LV1";
 									$resultLv1 = mysql_query($sqlLv1);
-									?>
+?>
 
 									<select name="group-name" id="group-name" onchange="getGLv2(this.value)">
 										
@@ -474,5 +476,10 @@ include ("include/top-bar.php");
 
 <?php
 include($rootadminpath."js/module/upload-pdf-edit.php");
+?>
+<script type="text/javascript">
+	getDefaultData();
+</script>
+<?php
 	include ("include/footer.php");
 ?>

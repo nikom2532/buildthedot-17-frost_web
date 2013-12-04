@@ -48,13 +48,14 @@
 				$temp_glvl--;
 				//echo "temp_glvl=".$temp_glvl." temp_id=".$temp_id;
 			}
+		}
 		echo "<br/>1 = ".$parentGroup2;
 		echo "<br/>2 = ".$parentGroup3;
 		echo "<br/>3 = ".$parentGroup4;
 		echo "<br/>4 = ".$parentGroup5;
 		echo "<br/>____";		
-		}
 		
+/*
 		//generate the dynamic menu on the LHS
 		if(!isset($_GET["glvl"])){
   	$SQL="
@@ -68,7 +69,7 @@
 				FROM  `GROUP_LV".$glvName."`
   	;";
 		}
-	echo	$SQL="
+		$SQL="
 	 		SELECT * 
 				FROM  `GROUP_LV2`
 				WHERE `GROUP_LV1_ID` = {$temp_id}
@@ -221,4 +222,5 @@
 ?>
 			<!--end Technology--><?php
 		}// end glvl=1
+*/
 ?>
