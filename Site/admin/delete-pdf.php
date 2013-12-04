@@ -1,5 +1,13 @@
 <?php
 	include ("include/header.php");
+@session_start();
+$rootpath = "../";
+include ($rootpath . "lib/db.php");
+include ($rootpath . "lib/conn.inc.php");
+include ($rootpath . "lib/func_date.php");
+if (!$db -> open()) {
+	die($db -> error());
+}
 	
 	$pdfId = $_POST['pdfId'];
 	//echo $pdfId;

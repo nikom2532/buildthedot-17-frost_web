@@ -1,5 +1,13 @@
-<?php include("include/header.php");?>
 <?php
+include ("include/header.php");
+@session_start();
+$rootpath = "../";
+include ($rootpath . "lib/db.php");
+include ($rootpath . "lib/conn.inc.php");
+include ($rootpath . "lib/func_date.php");
+if (!$db -> open()) {
+	die($db -> error());
+}
 $tagName1 = $_POST['tagName1'];
 $tagName2 = $_POST['tagName2'];
 $tagName3 = $_POST['tagName3'];

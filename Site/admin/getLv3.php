@@ -1,5 +1,13 @@
 <?php
 include ("include/header.php");
+@session_start();
+$rootpath = "../";
+include ($rootpath . "lib/db.php");
+include ($rootpath . "lib/conn.inc.php");
+include ($rootpath . "lib/func_date.php");
+if (!$db -> open()) {
+	die($db -> error());
+}
 $gLv2Id=intval($_GET['gLv2Id']);
 
 $query="SELECT * FROM GROUP_LV3 WHERE GROUP_LV2_ID = '".$gLv2Id."'";

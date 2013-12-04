@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 	<meta charset="utf-8">
 	<title>CMS Mckansys</title>	
@@ -38,13 +38,3 @@
 	<script src="../js/scripts.js"></script>
 </head>
 <body>
-<?php
-@session_start();
-$rootpath = "../";
-include ($rootpath . "lib/db.php");
-include ($rootpath . "lib/conn.inc.php");
-include ($rootpath . "lib/func_date.php");
-if (!$db -> open()) {
-	die($db -> error());
-}
-?>

@@ -1,7 +1,14 @@
 <?php
 
-	include("include/header.php");
-	
+include ("include/header.php");
+@session_start();
+$rootpath = "../";
+include ($rootpath . "lib/db.php");
+include ($rootpath . "lib/conn.inc.php");
+include ($rootpath . "lib/func_date.php");
+if (!$db -> open()) {
+	die($db -> error());
+}
 	$userId=$_POST['userId'];
 	$editId=$_POST['editId'];
 	$groupId=$_POST['groupLv2'];
