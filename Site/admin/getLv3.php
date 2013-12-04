@@ -20,7 +20,7 @@ if ($gLv2Id!=0 && $count!=0) {?>
 	<select name="gLv3" id="gLv3" onchange="getGLv4(this.value)">
 		<option value="0">--Select Menu--</option>
 		<?php while($row=mysql_fetch_array($result)) { ?>
-		<option value="<?=$row['ID']?>" <?php if($gLv2Id== $row['ID']){ echo "selected='selected' "; } ?>><?=$row['NAME'] ?></option>
+		<option value="<?php echo $row['ID']; ?>" <?php if($gLv2Id== $row['ID']){ echo "selected='selected' "; } ?>><?php echo $row['NAME']; ?></option>
 		<?php } ?>
 	</select>
 	</div>

@@ -162,6 +162,11 @@ include ("include/top-bar.php");
 							$lv2 = $parentGroup3;
 							$lv3 = $parentGroup4;
 							$lv4 = $parentGroup5;
+							
+							$gLv4Id = $lv4;
+							$gLv3Id = $lv3;
+							$gLv2Id = $lv2;
+							$gLv1Id = $lv1;
 /*
 							$resultPdf = mysql_query("
 										SELECT *
