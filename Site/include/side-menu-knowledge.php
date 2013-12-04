@@ -1,3 +1,5 @@
+<nav id="side-menu" class="grid_3">
+	<ul>
 <?php
 		//find lvl1 page
 		$temp_glvl = $_GET["glvl"];
@@ -66,6 +68,7 @@
 		$db->query($SQL);
 		while($rs=$db->fetchAssoc()){
 ?>
+			<li id="link-main">
 				<a href="./main-knowledge.php?id=<?php echo $rs["ID"]?>&glvl=2&gp=<?php 
 					$SQL2="
 						SELECT * 
@@ -99,7 +102,8 @@
 						if($rs2["GROUP_LV2_ID"]==$ID_lvl2){
 						//if($rs2["GROUP_LV2_ID"]==1){
 ?>
-									<a href="./main-knowledge.php?id=<?php echo $rs2["ID"]; ?>&glvl=3&gp=<?php 
+							<ul>
+								<li><a href="./main-knowledge.php?id=<?php echo $rs2["ID"]; ?>&glvl=3&gp=<?php 
 									$SQL3="
 										SELECT * 
 										FROM  `GROUP_LV4`
@@ -129,7 +133,8 @@
 											if($rs3["GROUP_LV3_ID"]==$ID_lvl3){
 											//if($rs3["GROUP_LV3_ID"]==1){
 ?>
-													<a href="./main-knowledge.php?id=<?php echo $rs3["ID"]; ?>&glvl=4&gp=<?php 
+												<ul> 
+													<li><a href="./main-knowledge.php?id=<?php echo $rs3["ID"]; ?>&glvl=4&gp=<?php 
 														$SQL4="
 															SELECT * 
 															FROM  `GROUP_LV5`
@@ -159,7 +164,8 @@
 																if($rs4["GROUP_LV4_ID"]==$ID_lvl4){
 																//if($rs4["GROUP_LV4_ID"]==1){
 ?>
-																	<a href="./main-knowledge.php?id=<?php echo $rs4["ID"]; ?>&glvl=5&gp=<?php 
+																<ul>
+																	<li><a href="./main-knowledge.php?id=<?php echo $rs4["ID"]; ?>&glvl=5&gp=<?php 
 																		$SQL5="
 																			SELECT * 
 																			FROM  `GROUP_LV6`
@@ -188,27 +194,38 @@
 																				if($rs5["GROUP_LV5_ID"]==$ID_lvl5){
 																				//if($rs5["GROUP_LV5_ID"]==1){
 ?>
-																							<a href="./main-knowledge.php?id=<?php echo $rs5["ID"]; ?>&glvl=6&gp=y"><?php echo $rs5["NAME"]; ?></a>
+																					<ul>
+																						<li><a href="./main-knowledge.php?id=<?php echo $rs5["ID"]; ?>&glvl=6&gp=y"><?php echo $rs5["NAME"]; ?></a>
+																						</li>
+																					</ul>
 <?php
 																				}
 																			}
 																		}// end glvl=5
 ?>
+																	</li>
+																</ul>
 <?php
 																}
 															}
 														}// end glvl=4
 ?>
+													</li><!--end Telecom Market Data -->
+												</ul>
 <?php
 											}
 										}
 									}// end glvl=3
 ?>
+								</li><!--end Research Thailand(2)-->
+							</ul>
 <?php
 						}
 					}
 				}// end glvl=2
 ?>
-			<!--end Technology--><?php
+			</li><!--end Technology--><?php
 		}// end glvl=1
 ?>
+ </ul>
+</nav>	
