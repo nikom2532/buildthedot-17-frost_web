@@ -6,15 +6,17 @@
 		$temp_glvl = $glvName;
 		$temp_id = $glvId;
 		
+		
 		while($temp_glvl>1){
 			$SQL="
 				SELECT *
 				FROM `GROUP_LV".$temp_glvl."`
 				WHERE `ID` = ".$temp_id."
 			;";
-			$db->query($SQL);
+			$resultGlvl = @mysql_query($SQL);
+			//$db->query($SQL);
 			//unset($SQL);
-			while($rs=$db->fetchAssoc()){
+			while($rs=@mysql_fetch_array($resultGlvl)){
 				//find ID
 				if($temp_glvl==5){
 				 $ID_lvl5= $rs["ID"];
@@ -43,10 +45,14 @@
 				elseif($temp_glvl==2){
 					$parentGroup2 = $temp_id;
 				}
-				
 				$temp_glvl--;
 				//echo "temp_glvl=".$temp_glvl." temp_id=".$temp_id;
 			}
+		echo "<br/>1 = ".$parentGroup2;
+		echo "<br/>2 = ".$parentGroup3;
+		echo "<br/>3 = ".$parentGroup4;
+		echo "<br/>4 = ".$parentGroup5;
+		echo "<br/>____";		
 		}
 		
 		//generate the dynamic menu on the LHS
@@ -59,14 +65,14 @@
 		else{
   	$SQL="
   		SELECT * 
-				FROM  `GROUP_LV".$_GET["glvl"]."`
+				FROM  `GROUP_LV".$glvName."`
   	;";
 		}
-		$SQL="
- 		SELECT * 
-			FROM  `GROUP_LV2`
-			WHERE `GROUP_LV1_ID` = {$temp_id}
- 	;";
+	echo	$SQL="
+	 		SELECT * 
+				FROM  `GROUP_LV2`
+				WHERE `GROUP_LV1_ID` = {$temp_id}
+	 	;";
 		$db->query($SQL);
 		while($rs=$db->fetchAssoc()){
 ?>
@@ -83,11 +89,11 @@
 					else{
 						echo "n";
 					}
-				?>" class="bold"><?php echo $rs["NAME"]; ?></a>
+				?>" class="bold"><?php echo $rs["NAME"]; ?>222</a>
 <?php
 				//&& $_GET["id"]==$rs["ID"] && $rs["GROUP_LV1_ID"]==1
 				//&& $_GET["id"]=="1"
-				if($_GET["glvl"]>=2){
+				if($glvName>=2){
 					
 					$SQL2="
 						SELECT * 
@@ -116,9 +122,9 @@
 									else{
 										echo "n";
 									}
-								?>" class="bold text-green"><?php echo $rs2["NAME"]; ?></a>
+								?>" class="bold text-green"><?php echo $rs2["NAME"]; ?>333</a>
 <?php
-									if($_GET["glvl"]>=3){ //&& $_GET["id"]==$rs2["ID"]
+									if($glvName>=3){ //&& $_GET["id"]==$rs2["ID"]
 										
 										$SQL3="
 											SELECT * 
@@ -146,9 +152,9 @@
 														else{
 															echo "n";
 														}
-													?>" class="bold"><?php echo $rs3["NAME"]; ?></a>
+													?>" class="bold"><?php echo $rs3["NAME"]; ?>444</a>
 <?php
-														if($_GET["glvl"]>=4){
+														if($glvName>=4){
 															
 															$SQL4="
 																SELECT * 
@@ -176,9 +182,9 @@
 																		else{
 																			echo "n";
 																		}
-																	?>"><?php echo $rs4["NAME"]; ?></a>
+																	?>"><?php echo $rs4["NAME"]; ?>555</a>
 <?php
-																		if($_GET["glvl"]>=5){
+																		if($glvName>=5){
 																			$SQL5="
 																				SELECT * 
 																				FROM  `GROUP_LV6`

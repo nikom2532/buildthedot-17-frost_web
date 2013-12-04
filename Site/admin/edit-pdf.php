@@ -47,14 +47,10 @@ $glvId = $_POST['glvId'];
 $glvName = $_POST['glvName']; 
 
 include ("include/top-bar.php");
-
-include ("include/side-menu-knowledge.php");
 ?>
 <!-- HEADER -->
 <div id="header-with-tabs">
-
 	<div class="page-full-width cf">
-
 		<ul id="tabs" class="left">
 			<li>
 				<a href="main.php" class="dashboard-tab">Dashboard</a>
@@ -102,7 +98,9 @@ include ("include/side-menu-knowledge.php");
 
 				<form action="edit-pdf-proc.php" method='POST' name="editpdf" id="editpdf">
 					<div class="half-size-column fl">
-
+<?php
+						include ("include/side-menu-knowledge.php");
+?>
 						<!-- <form action="edit-pdf-proc.php" method='POST' name="editpdf" id="editpdf"> -->
 <?php
 						echo "pdfId = ".$_POST["pdfId"]."<Br />glvId = ".$_POST["glvId"]."<Br />glvName = ".$_POST["glvName"]."<Br /></br />";
