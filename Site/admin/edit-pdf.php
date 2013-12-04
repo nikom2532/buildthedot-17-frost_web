@@ -508,6 +508,14 @@ include ("include/top-bar.php");
 								}
 ?>
 								</div>
+								
+								<select name="aaa" id="aaa" >
+		<option value="0">--Select Menu--</option>
+			<option value="1" 1selected="selected">Market</option>
+			<option value="2" 1="">Knowledge</option>
+			<option value="3" 1="">Strategy</option>
+			<option value="4" 1="">Around ASEAN</option>
+	</select>
 							</p>
 							
 						</fieldset>

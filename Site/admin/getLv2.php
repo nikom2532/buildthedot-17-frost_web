@@ -21,7 +21,7 @@ if ($gLv1Id!=0 && $count!=0) {?>
 		<option value="0">--Select Menu--</option>
 <?php
 		while($row=mysql_fetch_array($result)) { ?>
-			<option value="<?=$row['ID']?>" <?php echo $gLv1Id; if($gLv1Id== $row['ID']){ echo "selected='selected' "; } ?>><?=$row['NAME']?></option>
+			<option value="<?=$row['ID']?>" <?php if($gLv1Id== $row['ID']){ echo "selected='selected' "; } ?>><?=$row['NAME']?></option>
 <?php 
 		} 
 ?>
