@@ -1,13 +1,13 @@
 <script>
 	$(document).ready(function() {
 
-		getDefaultData();
+		//getDefaultData();
 		
-		$('#group-name').trigger('change');
-		$('#gLv2').trigger('change');
-		$('#gLv3').trigger('change');
-		$('#gLv4').trigger('change');
-		$('#gLv5').trigger('change');
+		//$('#group-name').trigger('change');
+		//$('#gLv2').trigger('change');
+		//$('#gLv3').trigger('change');
+		//$('#gLv4').trigger('change');
+		//$('#gLv5').trigger('change');
 		
 		//The demo tag array
 		var availableTags = <?php echo $tagResult; ?>;
@@ -114,7 +114,6 @@
 		if (oldSelected2 == -1) {
 			oldSelected2 = gLv1Id;
 		}
-
 		if (gLv1Id == 0) {
 			document.getElementById('gLv2Div').style.visibility = 'hidden';
 			document.getElementById('gLv3Div').style.visibility = 'hidden';
@@ -126,8 +125,8 @@
 			clearData("gLv4");
 			clearData("gLv5");
 		} else {
-
 			var strURL = "getLv2.php?gLv1Id=" + gLv1Id;
+			//alert(strURL);
 			var req = getXMLHTTP();
 
 			if (oldSelected2 != gLv1Id) {

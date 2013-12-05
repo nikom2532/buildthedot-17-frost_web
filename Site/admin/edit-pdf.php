@@ -394,7 +394,7 @@ include ("include/top-bar.php");
 								<div id="gLv1Div">
 									<label for="group-name">Group level 1</label>
 <?php
-									$sqlLv1 = "SELECT * FROM GROUP_LV1";
+									$sqlLv1 = "SELECT * FROM GROUP_LV1 WHERE `ID` = '{$gLv1Id}'";
 									$resultLv1 = mysql_query($sqlLv1);
 ?>
 
@@ -405,7 +405,7 @@ include ("include/top-bar.php");
 										while ($rowLv1 = mysql_fetch_array($resultLv1)) {
 ?>
 											<option value="<?=$rowLv1['ID']?>" <?php if($lv1 == $rowLv1['ID']){ echo "selected='selected' "; } ?>><?=$rowLv1['NAME']?></option>
-<?php 
+<?php
 										}
 ?>
 									</select>
@@ -413,11 +413,11 @@ include ("include/top-bar.php");
 							
 								<div id="gLv2Div">
 <?php
-								if($lvName==2){
+								// if($glvName==2){
 ?>
 									<label for="group-name">Group level 2</label>
 <?php
-									$sqlLv2 = "SELECT * FROM GROUP_LV2";
+									$sqlLv2 = "SELECT * FROM GROUP_LV2 WHERE `ID` = '{$gLv2Id}";
 									$resultLv2 = mysql_query($sqlLv2);
 ?>
 
@@ -433,19 +433,18 @@ include ("include/top-bar.php");
 ?>
 									</select>
 <?php
-								}
+								//}
 ?>
 								</div>
 								<div id="gLv3Div">
 <?php
-								if($lvName==3){
+								//if($glvName==3){
 ?>
 									<label for="group-name">Group level 3</label>
 <?php
-									$sqlLv3 = "SELECT * FROM GROUP_LV3";
+									$sqlLv3 = "SELECT * FROM GROUP_LV3 WHERE `ID` = '{$gLv3Id}";
 									$resultLv3 = mysql_query($sqlLv3);
 ?>
-
 									<select name="group-name" id="group-name" onchange="getGLv4(this.value)">
 										
 										<option value='0'>--Select Menu--</option>
@@ -458,17 +457,17 @@ include ("include/top-bar.php");
 ?>
 									</select>
 <?php
-								}
+								//}
 ?>
 								</div>
 
 								<div id="gLv4Div">
 <?php
-								if($lvName==4){
+								//if($glvName==4){
 ?>
 									<label for="group-name">Group level 4</label>
 <?php
-									$sqlLv4 = "SELECT * FROM GROUP_LV4";
+									$sqlLv4 = "SELECT * FROM GROUP_LV4 WHERE `ID` = '{$gLv4Id}";
 									$resultLv4 = mysql_query($sqlLv4);
 ?>
 
@@ -484,17 +483,17 @@ include ("include/top-bar.php");
 ?>
 									</select>
 <?php
-								}
+								//}
 ?>
 								</div>
 
 								<div id="gLv5Div">
 <?php
-								if($lvName==5){
+								//if($glvName==5){
 ?>
 									<label for="group-name">Group level 5</label>
 <?php
-									$sqlLv5 = "SELECT * FROM GROUP_LV5";
+									$sqlLv5 = "SELECT * FROM GROUP_LV5 WHERE `ID` = '{$gLv5Id}";
 									$resultLv5 = mysql_query($sqlLv5);
 ?>
 
@@ -510,17 +509,9 @@ include ("include/top-bar.php");
 ?>
 									</select>
 <?php
-								}
+								//}
 ?>
 								</div>
-								
-								<select name="aaa" id="aaa" >
-		<option value="0">--Select Menu--</option>
-			<option value="1" 1selected="selected">Market</option>
-			<option value="2" 1="">Knowledge</option>
-			<option value="3" 1="">Strategy</option>
-			<option value="4" 1="">Around ASEAN</option>
-	</select>
 							</p>
 							
 						</fieldset>
@@ -591,7 +582,7 @@ include ("include/top-bar.php");
 <?php
 include($rootadminpath."js/module/upload-pdf-edit.php");
 ?><script type="text/javascript">
-	getDefaultData();
+	//getDefaultData();
 </script><?php
 	include ("include/footer.php");
 ?>

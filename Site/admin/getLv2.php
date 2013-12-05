@@ -11,7 +11,7 @@ if (!$db -> open()) {
 $gLv1Id=intval($_GET['gLv1Id']);
 
 $query="SELECT * FROM GROUP_LV2 WHERE GROUP_LV1_ID = '".$gLv1Id."'";
-$result=mysql_query($query);
+$result=@mysql_query($query);
 
 $count = mysql_num_rows($result);
 if ($gLv1Id!=0 && $count!=0) {?>
