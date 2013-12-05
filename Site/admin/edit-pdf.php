@@ -394,17 +394,25 @@ include ("include/top-bar.php");
 								<div id="gLv1Div">
 									<label for="group-name">Group level 1</label>
 <?php
-									$sqlLv1 = "SELECT * FROM GROUP_LV1 WHERE `ID` = '{$gLv1Id}'";
+									$sqlLv1 = "SELECT * FROM GROUP_LV1";
 									$resultLv1 = mysql_query($sqlLv1);
 ?>
-
 									<select name="group-name" id="group-name" onchange="getGLv2(this.value)">
 										
 										<option value='0'>--Select Menu--</option>
 <?php 
 										while ($rowLv1 = mysql_fetch_array($resultLv1)) {
 ?>
-											<option value="<?=$rowLv1['ID']?>" <?php if($lv1 == $rowLv1['ID']){ echo "selected='selected' "; } ?>><?=$rowLv1['NAME']?></option>
+											<option value="<?php echo $rowLv1['ID']; ?>" <?php 
+												$sqlLv1_selected = "SELECT * FROM GROUP_LV1 WHERE `ID` = '{$gLv1Id}'";
+												$resultLv1_selected = mysql_query($sqlLv1_selected);
+												while ($rs_Lv1_selected = @mysql_fetch_array($resultLv1_selected)) {
+													if($rowLv1['ID'] == $rs_Lv1_selected['ID']){
+														echo "selected='selected' ";
+													}
+												}
+												?>><?php echo $rowLv1['NAME']; ?>
+											</option>
 <?php
 										}
 ?>
@@ -413,103 +421,146 @@ include ("include/top-bar.php");
 							
 								<div id="gLv2Div">
 <?php
-								// if($glvName==2){
+									$sqlLv_select="SELECT * FROM GROUP_LV2 WHERE `ID` = '{$gLv2Id}'";
+									$resultLv_selected = @mysql_query($sqlLv_select);
+									if(@mysql_fetch_array($resultLv_selected)){
 ?>
-									<label for="group-name">Group level 2</label>
+										<label for="group-name">Group level 2</label>
 <?php
-									$sqlLv2 = "SELECT * FROM GROUP_LV2 WHERE `ID` = '{$gLv2Id}";
-									$resultLv2 = mysql_query($sqlLv2);
+										$sqlLv2 = "SELECT * FROM GROUP_LV2";
+										$resultLv2 = mysql_query($sqlLv2);
 ?>
-
-									<select name="group-name" id="group-name" onchange="getGLv3(this.value)">
-										
-										<option value='0'>--Select Menu--</option>
+										<select name="group-name" id="group-name" onchange="getGLv3(this.value)">
+											
+											<option value='0'>--Select Menu--</option>
 <?php 
-										while ($rowLv2 = mysql_fetch_array($resultLv2)) {
+											while ($rowLv2 = mysql_fetch_array($resultLv2)) {
 ?>
-											<option value="<?=$rowLv2['ID']?>" <?php if($lv2 == $rowLv2['ID']){ echo "selected='selected' "; } ?>><?=$rowLv2['NAME']?></option>
-<?php 
-										}
-?>
-									</select>
+												<option value="<?php echo $rowLv2['ID']; ?>" <?php 
+													$sqlLv2_selected = "SELECT * FROM GROUP_LV2 WHERE `ID` = '{$gLv2Id}'";
+													$resultLv2_selected = mysql_query($sqlLv2_selected);
+													while ($rs_Lv2_selected = @mysql_fetch_array($resultLv2_selected)) {
+														if($rowLv2['ID'] == $rs_Lv2_selected['ID']){
+															echo "selected='selected' ";
+														}
+													}
+													?>><?php echo $rowLv2['NAME']; ?>
+												</option>
 <?php
-								//}
+											}
+?>
+										</select>
+<?php
+									}
 ?>
 								</div>
 								<div id="gLv3Div">
 <?php
-								//if($glvName==3){
+									$sqlLv_select="SELECT * FROM GROUP_LV3 WHERE `ID` = '{$gLv3Id}'";
+									$resultLv_selected = @mysql_query($sqlLv_select);
+									if(@mysql_fetch_array($resultLv_selected)){
 ?>
-									<label for="group-name">Group level 3</label>
-<?php
-									$sqlLv3 = "SELECT * FROM GROUP_LV3 WHERE `ID` = '{$gLv3Id}";
-									$resultLv3 = mysql_query($sqlLv3);
-?>
-									<select name="group-name" id="group-name" onchange="getGLv4(this.value)">
-										
-										<option value='0'>--Select Menu--</option>
-<?php 
-										while ($rowLv3 = mysql_fetch_array($resultLv3)) {
-?>
-											<option value="<?=$rowLv3['ID']?>" <?php if($lv3 == $rowLv3['ID']){ echo "selected='selected' "; } ?>><?=$rowLv3['NAME']?></option>
-<?php 
-										}
-?>
-									</select>
-<?php
-								//}
+										<label for="group-name">Group level 3</label>
+	<?php
+										$sqlLv3 = "SELECT * FROM GROUP_LV3";
+										$resultLv3 = mysql_query($sqlLv3);
+	?>
+										<select name="group-name" id="group-name" onchange="getGLv4(this.value)">
+											
+											<option value='0'>--Select Menu--</option>
+	<?php 
+											while ($rowLv3 = mysql_fetch_array($resultLv3)) {
+	?>
+												<option value="<?php echo $rowLv3['ID']; ?>" <?php 
+													$sqlLv3_selected = "SELECT * FROM GROUP_LV3 WHERE `ID` = '{$gLv3Id}'";
+													$resultLv3_selected = mysql_query($sqlLv3_selected);
+													while ($rs_Lv3_selected = @mysql_fetch_array($resultLv3_selected)) {
+														if($rowLv3['ID'] == $rs_Lv3_selected['ID']){
+															echo "selected='selected' ";
+														}
+													}
+													?>><?php echo $rowLv3['NAME']; ?>
+												</option>
+	<?php
+											}
+	?>
+										</select>
+	<?php
+									}
 ?>
 								</div>
 
 								<div id="gLv4Div">
 <?php
-								//if($glvName==4){
+									$sqlLv_select="SELECT * FROM GROUP_LV4 WHERE `ID` = '{$gLv4Id}'";
+									$resultLv_selected = @mysql_query($sqlLv_select);
+									if(@mysql_fetch_array($resultLv_selected)){
 ?>
-									<label for="group-name">Group level 4</label>
+										<label for="group-name">Group level 4</label>
 <?php
-									$sqlLv4 = "SELECT * FROM GROUP_LV4 WHERE `ID` = '{$gLv4Id}";
-									$resultLv4 = mysql_query($sqlLv4);
+										$sqlLv4 = "SELECT * FROM GROUP_LV4";
+										$resultLv4 = mysql_query($sqlLv4);
 ?>
-
-									<select name="group-name" id="group-name" onchange="getGLv5(this.value)">
-										
-										<option value='0'>--Select Menu--</option>
-<?php 
-										while ($rowLv4 = mysql_fetch_array($resultLv4)) {
-?>
-											<option value="<?=$rowLv4['ID']?>" <?php if($lv4 == $rowLv4['ID']){ echo "selected='selected' "; } ?>><?=$rowLv4['NAME']?></option>
-<?php 
-										}
-?>
-									</select>
-<?php
-								//}
+	
+										<select name="group-name" id="group-name" onchange="getGLv5(this.value)">
+											
+											<option value='0'>--Select Menu--</option>
+	<?php 
+											while ($rowLv4 = mysql_fetch_array($resultLv4)) {
+	?>
+												<option value="<?php echo $rowLv4['ID']; ?>" <?php 
+													$sqlLv4_selected = "SELECT * FROM GROUP_LV4 WHERE `ID` = '{$gLv4Id}'";
+													$resultLv4_selected = mysql_query($sqlLv4_selected);
+													while ($rs_Lv4_selected = @mysql_fetch_array($resultLv4_selected)) {
+														if($rowLv4['ID'] == $rs_Lv4_selected['ID']){
+															echo "selected='selected' ";
+														}
+													}
+													?>><?php echo $rowLv4['NAME']; ?>
+												</option>
+	<?php
+											}
+	?>
+										</select>
+	<?php
+									}
 ?>
 								</div>
 
 								<div id="gLv5Div">
 <?php
-								//if($glvName==5){
+									$sqlLv_select="SELECT * FROM GROUP_LV5 WHERE `ID` = '{$gLv5Id}'";
+									$resultLv_selected = @mysql_query($sqlLv_select);
+									if(@mysql_fetch_array($resultLv_selected)){
 ?>
-									<label for="group-name">Group level 5</label>
+										<label for="group-name">Group level 5</label>
+	<?php
+										$sqlLv5 = "SELECT * FROM GROUP_LV5";
+										$resultLv5 = mysql_query($sqlLv5);
+	?>
+	
+										<select name="group-name" id="group-name" onchange="getGLv6(this.value)">
+											
+											<option value='0'>--Select Menu--</option>
+	<?php 
+											while ($rowLv5 = mysql_fetch_array($resultLv5)) {
+	?>
+												<option value="<?php echo $rowLv5['ID']; ?>" <?php 
+													$sqlLv5_selected = "SELECT * FROM GROUP_LV5 WHERE `ID` = '{$gLv5Id}'";
+													$resultLv5_selected = mysql_query($sqlLv5_selected);
+													while ($rs_Lv5_selected = @mysql_fetch_array($resultLv5_selected)) {
+														if($rowLv5['ID'] == $rs_Lv5_selected['ID']){
+															echo "selected='selected' ";
+														}
+													}
+													?>><?php echo $rowLv5['NAME']; ?>
+												</option>
+	<?php
+											}
+	?>
+										</select>
 <?php
-									$sqlLv5 = "SELECT * FROM GROUP_LV5 WHERE `ID` = '{$gLv5Id}";
-									$resultLv5 = mysql_query($sqlLv5);
-?>
-
-									<select name="group-name" id="group-name" onchange="getGLv6(this.value)">
-										
-										<option value='0'>--Select Menu--</option>
-<?php 
-										while ($rowLv5 = mysql_fetch_array($resultLv5)) {
-?>
-											<option value="<?=$rowLv5['ID']?>" <?php if($lv5 == $rowLv5['ID']){ echo "selected='selected' "; } ?>><?=$rowLv5['NAME']?></option>
-<?php 
-										}
-?>
-									</select>
-<?php
-								//}
+									}
 ?>
 								</div>
 							</p>

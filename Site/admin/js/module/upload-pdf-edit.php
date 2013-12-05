@@ -248,6 +248,7 @@
 				}
 				req.open("GET", strURL, true);
 				req.send(null);
+				
 			}
 			oldSelected4 = gLv3Id;
 		}
