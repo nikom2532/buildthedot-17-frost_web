@@ -112,7 +112,7 @@ include ("include/top-bar.php");
 ?>
 						<!-- <form action="edit-pdf-proc.php" method='POST' name="editpdf" id="editpdf"> -->
 <?php
-						echo "pdfId = ".$_POST["pdfId"]."<Br />glvId = ".$_POST["glvId"]."<Br />glvName = ".$_POST["glvName"]."<Br /></br />";
+						//echo "pdfId = ".$_POST["pdfId"]."<Br />glvId = ".$_POST["glvId"]."<Br />glvName = ".$_POST["glvName"]."<Br /></br />";
 						$sql="
 							SELECT p.ID AS id,
 							p.NAME AS name,
@@ -388,7 +388,6 @@ include ("include/top-bar.php");
 						<input type=hidden id="gLv3Id" name="gLv3Id" value="<?php echo $parentGroup4; ?>"/>
 						<input type=hidden id="gLv4Id" name="gLv4Id" value="<?php echo $parentGroup5; ?>"/>
 						<input type=hidden id="pdfId" name="pdfId" value="<?php echo $pdfId; ?>"/>
-						
 							<p class="form-error-input">
 
 								<div id="gLv1Div">
@@ -397,7 +396,7 @@ include ("include/top-bar.php");
 									$sqlLv1 = "SELECT * FROM GROUP_LV1";
 									$resultLv1 = mysql_query($sqlLv1);
 ?>
-									<select name="group-name" id="group-name" onchange="getGLv2(this.value)">
+									<select name="group-name" id="group-name" class="group-name1" onchange="getGLv2(this.value)">
 										
 										<option value='0'>--Select Menu--</option>
 <?php 
@@ -430,7 +429,7 @@ include ("include/top-bar.php");
 										$sqlLv2 = "SELECT * FROM GROUP_LV2";
 										$resultLv2 = mysql_query($sqlLv2);
 ?>
-										<select name="group-name" id="group-name" onchange="getGLv3(this.value)">
+										<select name="group-name" id="group-name" class="group-name2" onchange="getGLv3(this.value)">
 											
 											<option value='0'>--Select Menu--</option>
 <?php 
@@ -465,7 +464,7 @@ include ("include/top-bar.php");
 										$sqlLv3 = "SELECT * FROM GROUP_LV3";
 										$resultLv3 = mysql_query($sqlLv3);
 	?>
-										<select name="group-name" id="group-name" onchange="getGLv4(this.value)">
+										<select name="group-name" id="group-name" class="group-name3" onchange="getGLv4(this.value)">
 											
 											<option value='0'>--Select Menu--</option>
 	<?php 
@@ -502,7 +501,7 @@ include ("include/top-bar.php");
 										$resultLv4 = mysql_query($sqlLv4);
 ?>
 	
-										<select name="group-name" id="group-name" onchange="getGLv5(this.value)">
+										<select name="group-name" id="group-name" class="group-name4" onchange="getGLv5(this.value)">
 											
 											<option value='0'>--Select Menu--</option>
 	<?php 
@@ -539,7 +538,7 @@ include ("include/top-bar.php");
 										$resultLv5 = mysql_query($sqlLv5);
 	?>
 	
-										<select name="group-name" id="group-name" onchange="getGLv6(this.value)">
+										<select name="group-name" id="group-name" class="group-name5" onchange="getGLv6(this.value)">
 											
 											<option value='0'>--Select Menu--</option>
 	<?php 
@@ -600,8 +599,8 @@ include ("include/top-bar.php");
 										// }
 									?>" />
 									<input type="hidden" id="tags_val" name="tags_val" value="" />
-									<div id="tagName"></div>
-									<input type="button" id="submitTags" name="submitTags" value="asdff" />
+									<!-- <div id="tagName"></div> -->
+									<!-- <input type="button" id="submitTags" name="submitTags" value="asdff" /> -->
 									<br/>
                 </p>
 							</p>

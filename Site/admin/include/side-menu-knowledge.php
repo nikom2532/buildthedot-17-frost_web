@@ -61,11 +61,11 @@
 		elseif(!$parentGroup5){
 			$parentGroup5 = $glvId;
 		}
-		echo "<br/>1 = ".$parentGroup2;
-		echo "<br/>2 = ".$parentGroup3;
-		echo "<br/>3 = ".$parentGroup4;
-		echo "<br/>4 = ".$parentGroup5;
-		echo "<br/>____";
+		//echo "<br/>1 = ".$parentGroup2;
+		//echo "<br/>2 = ".$parentGroup3;
+		//echo "<br/>3 = ".$parentGroup4;
+		//echo "<br/>4 = ".$parentGroup5;
+		//echo "<br/>____";
 /*
 		//generate the dynamic menu on the LHS
 		if(!isset($_GET["glvl"])){

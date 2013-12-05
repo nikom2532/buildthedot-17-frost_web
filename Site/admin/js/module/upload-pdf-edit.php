@@ -1,6 +1,19 @@
 <script>
 	$(document).ready(function() {
-
+		
+		$("#group-name1").change(function(){
+			getGLv2(this.value);
+		});
+		$("#group-name2").change(function(){
+			getGLv3(this.value);
+		});
+		$("#group-name3").change(function(){
+			getGLv4(this.value);
+			debugger;
+		});
+		$("#group-name4").change(function(){
+			getGLv5(this.value);
+		});
 		//getDefaultData();
 		
 		//$('#group-name').trigger('change');
@@ -248,7 +261,6 @@
 				}
 				req.open("GET", strURL, true);
 				req.send(null);
-				
 			}
 			oldSelected4 = gLv3Id;
 		}
