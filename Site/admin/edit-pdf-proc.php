@@ -14,7 +14,7 @@ $mySingleField = $_POST['mySingleField'];
 
 
 $tag = $_POST['tags'];
-echo "tag = ".$tag."<br />";
+//echo "tag = ".$tag."<br />";
 
 //upload pdf
 if(!(!file_exists($_FILES['pdfUpload']['tmp_name']) || !is_uploaded_file($_FILES['pdfUpload']['tmp_name']))){
@@ -140,13 +140,39 @@ $insertPdfResult = @mysql_query($sqlPdf);
 
 $string_tag = explode(',', $tag);
 foreach($string_tag as $tag) {
-	echo $sqTag="
-		INSERT INTO `TAG_RELATIONSHIP`
-		(`PDF_ID`, `TAG_ID`)
-		VALUES
-		('{$PDF_ID}', '{$tag}')
+	$sql_find_tag="
+		SELECT `ID`
+		FROM `TAG`
+		WHERE `NAME` = '{$tag}' 
 	;";
-	$insertTagResult = @mysql_query($sqTag);
+	$result_find_tag=@mysql_query($sql_find_tag);
+	if($rs_find_tag = @mysql_fetch_array($result_find_tag)) {
+		$sqTag="
+			INSERT INTO `TAG_RELATIONSHIP`
+			(`PDF_ID`, `TAG_ID`)
+			VALUES
+			('{$PDF_ID}', '".$rs_find_tag["ID"]."')
+		;";
+		$insertTagResult = @mysql_query($sqTag);
+	}
+	else{
+		$sql_find_tag="
+			INSERT INTO `TAG`
+			(`NAME`)
+			VALUE
+			('{$tag}')
+		;";
+		@mysql_query($sql_find_tag);
+		$tag_id=@mysql_insert_id();
+		
+		$sqTag="
+			INSERT INTO `TAG_RELATIONSHIP`
+			(`PDF_ID`, `TAG_ID`)
+			VALUES
+			('{$PDF_ID}', '".$tag_id."')
+		;";
+		$insertTagResult = @mysql_query($sqTag);
+	}
 }
 
 $msg = "Success";
@@ -164,6 +190,6 @@ $msg = "Success";
 ?>
 <script>
 <!--
-//window.location = "pdf.php?msg=<?php echo $msg; ?>"
+window.location = "pdf.php?msg=<?php echo $msg; ?>"
 //-->
 </script>
