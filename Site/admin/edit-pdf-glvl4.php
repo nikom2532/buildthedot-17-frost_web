@@ -132,7 +132,7 @@ include ("include/top-bar.php");
 								<div id="gLv4Div">
 									<label for="gLv4Id">Group level 4</label>
 <?php
-									$sqlLv4 = "SELECT * FROM GROUP_LV4";
+									$sqlLv4 = "SELECT * FROM GROUP_LV4 WHERE `GROUP_LV3_ID` = '{$gLv3Id}';";
 									$resultLv4 = mysql_query($sqlLv4);
 ?>
 									<select name="gLv4Id" id="gLv4Id" >
@@ -155,9 +155,9 @@ include ("include/top-bar.php");
 										}
 ?>
 									</select>
+									<input type="submit" value="Choose" />
 								</div>
 							</p>
-						</fieldset>
 					</div>
 					<!-- end half-size-column -->
 

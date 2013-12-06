@@ -151,9 +151,9 @@ include ("include/top-bar.php");
 										}
 ?>
 									</select>
+									<input type="submit" value="Choose" />
 								</div>
 							</p>
-						</fieldset>
 					</div>
 					<!-- end half-size-column -->
 

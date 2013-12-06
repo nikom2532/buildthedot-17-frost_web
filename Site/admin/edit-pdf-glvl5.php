@@ -128,14 +128,14 @@ include ("include/top-bar.php");
 					<input type="hidden" name="gLv2Id" value="<?php echo $gLv2Id; ?>" />
 					<input type="hidden" name="gLv3Id" value="<?php echo $gLv3Id; ?>" />
 					<input type="hidden" name="gLv4Id" value="<?php echo $gLv4Id; ?>" />
-					<input type="hidden" name="state_change" value="1" />
+					<!-- <input type="hidden" name="state_change" value="1" /> -->
 
 					<div class="half-size-column fl">
 							<p class="form-error-input">
 								<div id="gLv5Div">
 									<label for="gLv5Id">Group level 5</label>
 <?php
-									$sqlLv5 = "SELECT * FROM GROUP_LV5";
+									$sqlLv5 = "SELECT * FROM GROUP_LV5 WHERE `GROUP_LV4_ID` = '{$gLv4Id}'";
 									$resultLv5 = mysql_query($sqlLv5);
 ?>
 									<select name="gLv5Id" id="gLv5Id" >
@@ -158,9 +158,9 @@ include ("include/top-bar.php");
 										}
 ?>
 									</select>
+									<input type="submit" value="Choose" />
 								</div>
 							</p>
-						</fieldset>
 					</div>
 					<!-- end half-size-column -->
 

@@ -407,7 +407,7 @@ include ("include/top-bar.php");
 									$sqlLv1 = "SELECT * FROM GROUP_LV1";
 									$resultLv1 = mysql_query($sqlLv1);
 ?>
-									<select name="gLv1" id="gLv1" onchange="getGLv2(this.value)">
+									<select name="gLv1" id="gLv1" onchange="getGLv2(this.value)" disabled="disabled">
 										
 										<option value='0'>--Select Menu--</option>
 <?php 
@@ -427,7 +427,6 @@ include ("include/top-bar.php");
 										}
 ?>
 									</select>
-									<a href="edit-pdf-glvl1.php?pdfId=<?php echo $pdfId; ?>&glvId=<?php echo $glvId; ?>&glvName=<?php echo $glvName; ?>&gLv1Id=<?php echo $gLv1Id; ?>">Change Group Level 1</a>
 								</div>
 							
 								<div id="gLv2Div">
@@ -441,7 +440,7 @@ include ("include/top-bar.php");
 										$sqlLv2 = "SELECT * FROM GROUP_LV2";
 										$resultLv2 = mysql_query($sqlLv2);
 ?>
-										<select name="gLv2" id="gLv2" onchange="getGLv3(this.value)">
+										<select name="gLv2" id="gLv2" onchange="getGLv3(this.value)" disabled="disabled">
 											
 											<option value='0'>--Select Menu--</option>
 <?php 
@@ -476,7 +475,7 @@ include ("include/top-bar.php");
 										$sqlLv3 = "SELECT * FROM GROUP_LV3";
 										$resultLv3 = mysql_query($sqlLv3);
 	?>
-										<select name="gLv3" id="gLv3" onchange="getGLv4(this.value)">
+										<select name="gLv3" id="gLv3" onchange="getGLv4(this.value)" disabled="disabled">
 											
 											<option value='0'>--Select Menu--</option>
 	<?php 
@@ -513,7 +512,7 @@ include ("include/top-bar.php");
 										$resultLv4 = mysql_query($sqlLv4);
 ?>
 	
-										<select name="gLv4" id="gLv4" onchange="getGLv5(this.value)">
+										<select name="gLv4" id="gLv4" onchange="getGLv5(this.value)" disabled="disabled">
 											
 											<option value='0'>--Select Menu--</option>
 	<?php 
@@ -550,7 +549,7 @@ include ("include/top-bar.php");
 										$resultLv5 = mysql_query($sqlLv5);
 	?>
 	
-										<select name="gLv5" id="gLv5" onchange="getGLv6(this.value)">
+										<select name="gLv5" id="gLv5" onchange="getGLv6(this.value)" disabled="disabled">
 											
 											<option value='0'>--Select Menu--</option>
 	<?php 
@@ -573,7 +572,8 @@ include ("include/top-bar.php");
 <?php
 									}
 ?>
-								</div>
+								</div><br />
+								<a href="edit-pdf-glvl1.php?pdfId=<?php echo $pdfId; ?>&glvId=<?php echo $glvId; ?>&glvName=<?php echo $glvName; ?>&gLv1Id=<?php echo $gLv1Id; ?>">Change Group Level</a>
 							</p>
 							
 						</fieldset>

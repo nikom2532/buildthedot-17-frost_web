@@ -62,15 +62,7 @@ $insertCatResult = mysql_query($sqlCat);
 $msg = "Success";
 
 //header("location: pdf.php?msg=$msg");
-	
-//$strSQL="UPDATE tag SET NAME='$tagName' WHERE ID='$tagId'";
-//$cmdQuery=mysql_query($strSQL);
 
-// if(mysql_affected_rows()){
-	//header("location: tag.php");
-// }else{
-	//"<sript>alert('The process failed')</script>";
-// }
 ?>
 <form id="edit-pdf-glvl" name="edit-pdf-glvl" action="edit-pdf.php" method="POST">
 	<input type="hidden" name="pdfId" value="<?php echo $PDF_ID; ?>" />
