@@ -19,13 +19,13 @@ $gLv3 = $_POST['gLv3'];
 $gLv4 = $_POST['gLv4'];
 $gLv5 = $_POST['gLv5'];
 $tag = $_POST['tags'];
-echo $tag;
-//echo "glv1 > ".$gLv1."<br>";
-//echo "glv2 > ".$gLv2."<br>";
-//echo "glv3 > ".$gLv3."<br>";
-//echo "glv4 > ".$gLv4."<br>";
-//echo "glv5 > ".$gLv5."<br>";
-//echo "tag > ".$tag."<br>";
+//echo $tag;
+echo "glv1 > ".$gLv1."<br>";
+echo "glv2 > ".$gLv2."<br>";
+echo "glv3 > ".$gLv3."<br>";
+echo "glv4 > ".$gLv4."<br>";
+echo "glv5 > ".$gLv5."<br>";
+echo "tag > ".$tag."<br>";
 
 //upload pdf
 if(!(!file_exists($_FILES['pdfUpload']['tmp_name']) || !is_uploaded_file($_FILES['pdfUpload']['tmp_name']))){

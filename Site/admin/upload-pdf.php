@@ -91,7 +91,7 @@ include("include/top-bar.php");
 								</p>
 								<p class="form-error-input">
 									<div id="gLv1Div">
-										<label for="group-name">Group level 1</label>
+										<label for="gLv1">Group level 1</label>
 <?php
 										$sqlLv1 = "SELECT * FROM GROUP_LV1";
 										$resultLv1 = mysql_query($sqlLv1);

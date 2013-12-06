@@ -167,6 +167,17 @@ include ("include/top-bar.php");
 							$gLv3Id = $lv3;
 							$gLv2Id = $lv2;
 							$gLv1Id = $lv1;
+							
+							//if($_POST["state_change"]==1){
+							//	$gLv1Id = $_POST["gLv1Id"];
+							//	$gLv2Id = $_POST["gLv2Id"];
+							//	$gLv3Id = $_POST["gLv3Id"];
+							//	$gLv4Id = $_POST["gLv4Id"];
+							//	$lv1 = $gLv1Id;
+							//	$lv2 = $gLv2Id;
+							//	$lv3 = $gLv3Id;
+							//	$lv4 = $gLv4Id;
+							//}
 /*
 							$resultPdf = mysql_query("
 										SELECT *
@@ -391,12 +402,12 @@ include ("include/top-bar.php");
 							<p class="form-error-input">
 
 								<div id="gLv1Div">
-									<label for="group-name">Group level 1</label>
+									<label for="gLv1">Group level 1</label>
 <?php
 									$sqlLv1 = "SELECT * FROM GROUP_LV1";
 									$resultLv1 = mysql_query($sqlLv1);
 ?>
-									<select name="group-name" id="group-name" class="group-name1" onchange="getGLv2(this.value)">
+									<select name="gLv1" id="gLv1" onchange="getGLv2(this.value)">
 										
 										<option value='0'>--Select Menu--</option>
 <?php 
@@ -416,6 +427,7 @@ include ("include/top-bar.php");
 										}
 ?>
 									</select>
+									<a href="edit-pdf-glvl1.php?pdfId=<?php echo $pdfId; ?>&glvId=<?php echo $glvId; ?>&glvName=<?php echo $glvName; ?>&gLv1Id=<?php echo $gLv1Id; ?>">Change Group Level 1</a>
 								</div>
 							
 								<div id="gLv2Div">
@@ -424,12 +436,12 @@ include ("include/top-bar.php");
 									$resultLv_selected = @mysql_query($sqlLv_select);
 									if(@mysql_fetch_array($resultLv_selected)){
 ?>
-										<label for="group-name">Group level 2</label>
+										<label for="gLv3">Group level 2</label>
 <?php
 										$sqlLv2 = "SELECT * FROM GROUP_LV2";
 										$resultLv2 = mysql_query($sqlLv2);
 ?>
-										<select name="group-name" id="group-name" class="group-name2" onchange="getGLv3(this.value)">
+										<select name="gLv2" id="gLv2" onchange="getGLv3(this.value)">
 											
 											<option value='0'>--Select Menu--</option>
 <?php 
@@ -459,12 +471,12 @@ include ("include/top-bar.php");
 									$resultLv_selected = @mysql_query($sqlLv_select);
 									if(@mysql_fetch_array($resultLv_selected)){
 ?>
-										<label for="group-name">Group level 3</label>
+										<label for="gLv3">Group level 3</label>
 	<?php
 										$sqlLv3 = "SELECT * FROM GROUP_LV3";
 										$resultLv3 = mysql_query($sqlLv3);
 	?>
-										<select name="group-name" id="group-name" class="group-name3" onchange="getGLv4(this.value)">
+										<select name="gLv3" id="gLv3" onchange="getGLv4(this.value)">
 											
 											<option value='0'>--Select Menu--</option>
 	<?php 
@@ -495,13 +507,13 @@ include ("include/top-bar.php");
 									$resultLv_selected = @mysql_query($sqlLv_select);
 									if(@mysql_fetch_array($resultLv_selected)){
 ?>
-										<label for="group-name">Group level 4</label>
+										<label for="gLv4">Group level 4</label>
 <?php
 										$sqlLv4 = "SELECT * FROM GROUP_LV4";
 										$resultLv4 = mysql_query($sqlLv4);
 ?>
 	
-										<select name="group-name" id="group-name" class="group-name4" onchange="getGLv5(this.value)">
+										<select name="gLv4" id="gLv4" onchange="getGLv5(this.value)">
 											
 											<option value='0'>--Select Menu--</option>
 	<?php 
@@ -532,13 +544,13 @@ include ("include/top-bar.php");
 									$resultLv_selected = @mysql_query($sqlLv_select);
 									if(@mysql_fetch_array($resultLv_selected)){
 ?>
-										<label for="group-name">Group level 5</label>
+										<label for="gLv5">Group level 5</label>
 	<?php
 										$sqlLv5 = "SELECT * FROM GROUP_LV5";
 										$resultLv5 = mysql_query($sqlLv5);
 	?>
 	
-										<select name="group-name" id="group-name" class="group-name5" onchange="getGLv6(this.value)">
+										<select name="gLv5" id="gLv5" onchange="getGLv6(this.value)">
 											
 											<option value='0'>--Select Menu--</option>
 	<?php 
@@ -614,7 +626,6 @@ include ("include/top-bar.php");
           	  </p>
 						</fieldset>
 						<input type="submit" id="tags_val" name="tags_val" value="Save change" class="round blue ic-right-arrow" />
-
 					</div>
 				</form>
 			<!-- end half-size-column -->
