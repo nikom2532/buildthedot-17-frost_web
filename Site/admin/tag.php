@@ -133,9 +133,9 @@ if ($msg=="Sucess") {
 								}
 								$start=($page-1)*$limit;
 								/*---------end Paging------------*/	
-								$strQuery = "SELECT ID as tagId ,NAME as tagName
-											FROM TAG 
-											ORDER BY ID DESC ";
+								$strQuery = "SELECT `ID` as tagId ,`NAME` as tagName
+											FROM `TAG` 
+											ORDER BY `ID` DESC ";
 								$result = mysql_query($strQuery);
 								$Num_Rows = mysql_num_rows($result);
 								$strQuery .= "LIMIT $start , $limit";
