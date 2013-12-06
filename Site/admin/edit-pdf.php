@@ -10,8 +10,15 @@ if (!$db -> open()) {
 	die($db -> error());
 }
 include ("include/checksession.php");
+/*
+//Old version
 $sql="
 	SELECT t.ID AS value, t.NAME AS label
+	FROM TAG t 
+";
+*/
+$sql="
+	SELECT t.NAME AS value, t.NAME AS label
 	FROM TAG t 
 ";
 $result = mysql_query($sql);
@@ -58,8 +65,15 @@ $glvName = $_POST['glvName'];
 
 //----------------------
 
+//$sql_tagResult_db = "
+//	SELECT t.ID AS value, t.NAME AS label
+//	FROM TAG AS t
+//	INNER JOIN TAG_RELATIONSHIP AS tr 
+//	ON tr.TAG_ID = t.ID
+//	WHERE tr.PDF_ID = $pdfId
+//";
 $sql_tagResult_db = "
-	SELECT t.ID AS value, t.NAME AS label
+	SELECT t.NAME AS value, t.NAME AS label
 	FROM TAG AS t
 	INNER JOIN TAG_RELATIONSHIP AS tr 
 	ON tr.TAG_ID = t.ID
@@ -69,10 +83,11 @@ $tagResults_db = array();
 $result_tagResult_db = @mysql_query($sql_tagResult_db);
 while($row_tagResult_db = @mysql_fetch_assoc($result_tagResult_db)){
 	$tagResults_db[] = $row_tagResult_db;
+	$tagResults_db_value[] = $row_tagResult_db["value"];
+	$tagResults_db_label[] = $row_tagResult_db["label"];
 }
 $tagResult_db = json_encode($tagResults_db);
-//print_r($tagResult_db);
-
+print_r($tagResult_db);
 //----------------------
 
 
@@ -616,16 +631,16 @@ include ("include/top-bar.php");
 							<p class="form-error-input">
 								<p class="form-error-input">
               		<p><label for="tag">Tag</label></p>
-									<input type="text" id="tags" name="tags" style="display:block" value="<?php 
-										/*
-										for($i=0; $i<count($tagResult); $i++){
-											echo $tagResult[$i];
-											if($i<count($tagResult)-1){
+									<input type="text" id="tags" name="tags" value="<?php
+										for($i=0; $i<count($tagResults_db_value); $i++){
+											echo $tagResults_db_value[$i];
+											if($i<count($tagResults_db_value)-1){
 												echo ",";
 											}
 										}
-										*/
+										
 									?>" />
+									
 									<input type="hidden" id="tags_val" name="tags_val" value="" />
 									<div id="tagName"></div>
 									<input type="button" id="submitTags" name="submitTags" value="asdff" />
@@ -658,8 +673,18 @@ include ("include/top-bar.php");
 </div> <!-- end content -->
 <?php
 include($rootadminpath."js/module/upload-pdf-edit.php");
-?><script type="text/javascript">
+?><script>
 	//getDefaultData();
-</script><?php
+<?php
+/*
+	for($i=0; $i<count($tagResults_db_label); $i++){
+?>
+		//$("p.form-error-input").html("<?php echo $tagResults_db_label[$i]; ?>");
+		$("ul.tags.tagit li.tagit-choice:nth-child(<?php echo ($i+1); ?>)").html("<?php echo $tagResults_db_label[$i]; ?>");
+		//$("ul.tags.tagit li").html("asdfasdfasddff<?php echo $tagResults_db_label[$i]; ?>");
+<?php
+	}
+*/
+?></script><?php
 	include ("include/footer.php");
 ?>
