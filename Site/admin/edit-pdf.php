@@ -49,11 +49,35 @@ while($row = mysql_fetch_assoc($result)) {
 	$rows[] = $row;
 }
 $tagResult_id = json_encode($rows);
+//print_r($tagResult);
 
-
+//----------------------
 $pdfId = $_POST['pdfId'];
 $glvId = $_POST['glvId'];
 $glvName = $_POST['glvName'];
+
+//----------------------
+
+$sql_tagResult_db = "
+	SELECT t.ID AS value, t.NAME AS label
+	FROM TAG AS t
+	INNER JOIN TAG_RELATIONSHIP AS tr 
+	ON tr.TAG_ID = t.ID
+	WHERE tr.PDF_ID = $pdfId
+";
+$tagResults_db = array();
+$result_tagResult_db = @mysql_query($sql_tagResult_db);
+while($row_tagResult_db = @mysql_fetch_assoc($result_tagResult_db)){
+	$tagResults_db[] = $row_tagResult_db;
+}
+$tagResult_db = json_encode($tagResults_db);
+//print_r($tagResult_db);
+
+//----------------------
+
+
+
+//----------------------
 
 include ("include/top-bar.php");
 ?>
@@ -586,33 +610,25 @@ include ("include/top-bar.php");
 					<div class="half-size-column fr">
 						<fieldset>
 <?php 
-							$str_sql = "
-								SELECT t.ID AS id, t.NAME AS name
-								FROM TAG AS t
-								INNER JOIN TAG_RELATIONSHIP AS tr 
-								ON tr.TAG_ID = t.ID
-								WHERE tr.PDF_ID = $pdfId
-							";
-							$resultTag = @mysql_query($str_sql);
-							while($rsTag = @mysql_fetch_array($resultTag)){
-								$Tag_result[] = $rsTag["name"];
-							}
-							// print_r($Tag_result);
+							 //print_r($Tag_result);
+							 print_r($tagResult);
 ?>
 							<p class="form-error-input">
 								<p class="form-error-input">
               		<p><label for="tag">Tag</label></p>
-									<input type="text" id="tags" name="tags" value="<?php 
-										// for($i=0; $i<count($Tag_result); $i++){
-											// echo $Tag_result[$i];
-											// if($i<count($Tag_result)-1){
-												// echo ",";
-											// }
-										// }
+									<input type="text" id="tags" name="tags" style="display:block" value="<?php 
+										/*
+										for($i=0; $i<count($tagResult); $i++){
+											echo $tagResult[$i];
+											if($i<count($tagResult)-1){
+												echo ",";
+											}
+										}
+										*/
 									?>" />
 									<input type="hidden" id="tags_val" name="tags_val" value="" />
-									<!-- <div id="tagName"></div> -->
-									<!-- <input type="button" id="submitTags" name="submitTags" value="asdff" /> -->
+									<div id="tagName"></div>
+									<input type="button" id="submitTags" name="submitTags" value="asdff" />
 									<br/>
                 </p>
 							</p>

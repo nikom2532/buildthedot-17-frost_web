@@ -59,12 +59,10 @@
 				for (var i in tags) {
 					tagString.push(tags[i].value);
 				}
-	
 				//Put the tags into the input, joint by a ','
 				input.val(tagString.join(','));
 			}
 		});
-	
 		//Add pre-loaded tags to tagit
 		instance.tagit('add', currentTags);
 	});

@@ -14,30 +14,28 @@ $mySingleField = $_POST['mySingleField'];
 
 
 $tag = $_POST['tags'];
-echo "tag = ".$tag."<br>";
+echo "tag = ".$tag."<br />";
 
 //upload pdf
 if(!(!file_exists($_FILES['pdfUpload']['tmp_name']) || !is_uploaded_file($_FILES['pdfUpload']['tmp_name']))){
-		
-		if ($_FILES["pdfUpload"]["error"] > 0) {
-			//echo "Error: " . $_FILES["pdfUpload"]["error"] . "<br>";
-		}
-		else {
-			// echo "Upload: " . $_FILES["pdfUpload"]["name"] . "<br>";
-			// echo "Type: " . $_FILES["pdfUpload"]["type"] . "<br>";
-			// echo "Size: " . ($_FILES["pdfUpload"]["size"] / 1024) . " kB<br>";
-			// echo "Stored in: " . $_FILES["pdfUpload"]["tmp_name"]. "<br>";
-		}
-
-		$pdf_target_path = "../pdf/";
-		$pdfFileName = basename($_FILES["pdfUpload"]['name']);
-		$pdf_target_path = $pdf_target_path . $pdfFileName;
-		echo "target_path >".$pdf_target_path. "<br>";	
-		if (move_uploaded_file($_FILES["pdfUpload"]['tmp_name'], $pdf_target_path)) {
-			//echo "The file " . basename($_FILES["pdfUpload"]['name']) . " has been uploaded". "<br />";
-		} else {
-			echo "There was an error uploading the file, please try again!". "<br />";
-		}				
+	if ($_FILES["pdfUpload"]["error"] > 0) {
+		//echo "Error: " . $_FILES["pdfUpload"]["error"] . "<br>";
+	}
+	else {
+		// echo "Upload: " . $_FILES["pdfUpload"]["name"] . "<br>";
+		// echo "Type: " . $_FILES["pdfUpload"]["type"] . "<br>";
+		// echo "Size: " . ($_FILES["pdfUpload"]["size"] / 1024) . " kB<br>";
+		// echo "Stored in: " . $_FILES["pdfUpload"]["tmp_name"]. "<br>";
+	}
+	$pdf_target_path = "../pdf/";
+	$pdfFileName = basename($_FILES["pdfUpload"]['name']);
+	$pdf_target_path = $pdf_target_path . $pdfFileName;
+	echo "target_path >".$pdf_target_path. "<br>";
+	if (move_uploaded_file($_FILES["pdfUpload"]['tmp_name'], $pdf_target_path)) {
+		//echo "The file " . basename($_FILES["pdfUpload"]['name']) . " has been uploaded". "<br />";
+	} else {
+		echo "There was an error uploading the file, please try again!". "<br />";
+	}				
 }
 
 // upload image
@@ -143,9 +141,10 @@ $insertPdfResult = @mysql_query($sqlPdf);
 $string_tag = explode(',', $tag);
 foreach($string_tag as $tag) {
 	echo $sqTag="
-		UPDATE `TAG_RELATIONSHIP`
-		SET `TAG_ID` = '{$tag}'
-		WHERE `PDF_ID` = '{$PDF_ID}'
+		INSERT INTO `TAG_RELATIONSHIP`
+		(`PDF_ID`, `TAG_ID`)
+		VALUES
+		('{$PDF_ID}', '{$tag}')
 	;";
 	$insertTagResult = @mysql_query($sqTag);
 }
@@ -165,6 +164,6 @@ $msg = "Success";
 ?>
 <script>
 <!--
-window.location = "pdf.php?msg=<?php echo $msg; ?>"
+//window.location = "pdf.php?msg=<?php echo $msg; ?>"
 //-->
 </script>
