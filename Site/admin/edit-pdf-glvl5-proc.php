@@ -13,38 +13,37 @@ $tag = $_POST['tag'];
 $mySingleField = $_POST['mySingleField'];
 
 
-$gLv1 = $_POST['$gLv1Id'];
-$gLv2 = $_POST['$gLv2Id'];
-$gLv3 = $_POST['$gLv3Id'];
-$gLv4 = $_POST['$gLv4Id'];
-$gLv5 = $_POST['$gLv5Id'];
+$gLv1 = $_POST['gLv1Id'];
+$gLv2 = $_POST['gLv2Id'];
+$gLv3 = $_POST['gLv3Id'];
+$gLv4 = $_POST['gLv4Id'];
+$gLv5 = $_POST['gLv5Id'];
 
-//echo $tag;
-echo "glv1 > ".$gLv1."<br>";
-echo "glv2 > ".$gLv2."<br>";
-echo "glv3 > ".$gLv3."<br>";
-echo "glv4 > ".$gLv4."<br>";
-echo "glv5 > ".$gLv5."<br>";
+echo "glv1 = ".$gLv1."<br />";
+echo "glv2 = ".$gLv2."<br />";
+echo "glv3 = ".$gLv3."<br />";
+echo "glv4 = ".$gLv4."<br />";
+echo "glv5 = ".$gLv5."<br />";
 
 
-if ($gLv5 != 0 || $gLv5 !="") {
+if ($gLv5 != 0) {
 	$GROUP_LEVEL_ID = $gLv5;
 	$GROUP_LEVEL_NAME = "5";
 }
-elseif($gLv4 != 0 || $gLv4 !="") {
+elseif($gLv4 != 0) {
 	$GROUP_LEVEL_ID = $gLv4;
 	$GROUP_LEVEL_NAME = "4";
 }
-elseif($gLv3 != 0 || $gLv3 !="") {
+elseif($gLv3 != 0) {
 	$GROUP_LEVEL_ID = $gLv3;
 	$GROUP_LEVEL_NAME = "3";
 }
-elseif($gLv2 != 0 || $gLv2 !="") {
+elseif($gLv2 != 0) {
 	$GROUP_LEVEL_ID = $gLv2;
 	$GROUP_LEVEL_NAME = "2";
 	;
 }
-elseif($gLv1 != 0 || $gLv1 !="") {
+elseif($gLv1 != 0) {
 	$GROUP_LEVEL_ID = $gLv1;
 	$GROUP_LEVEL_NAME = "1";
 }
@@ -71,7 +70,7 @@ $msg = "Success";
 </form>
 <script>
 <!--
-	//document.getElementById("edit-pdf-glvl").submit();
+	document.getElementById("edit-pdf-glvl").submit();
 /*window.location = "pdf.php?msg=<?php //echo $msg; ?>"*/
 //-->
 </script>
