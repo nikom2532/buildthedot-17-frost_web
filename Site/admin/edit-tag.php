@@ -1,4 +1,4 @@
-<?php 
+<?php
 include ("include/header.php");
 @session_start();
 $rootpath = "../";
@@ -10,7 +10,6 @@ if (!$db -> open()) {
 }
 include("include/top-bar.php");?>
 <?php include("include/checksession.php");?>	
-	
 	<!-- HEADER -->
 	<div id="header-with-tabs">
 		
@@ -68,12 +67,12 @@ include("include/top-bar.php");?>
 								
 									<p>
 										<label for="tag-name">Tag Name</label>
-										<input type="text" id="tagName" name="tagName" class="round default-width-input" value="<?=$row['tagName'] ?>"/>
+										<input type="text" id="tagName" name="tagName" class="round default-width-input" value="<?php echo $row['tagName']; ?>"/>
 									</p>
-									 <input type="hidden" name="tagId" value="<?=$row['tagId'] ?>">
+									 <input type="hidden" name="tagId" value="<?php echo $row['tagId']; ?>">
                                      <input type="submit" value="Save change" class="round blue ic-right-arrow" />
 									
-									<?}?>
+									<?php } ?>
                            		</fieldset>
 							
 							</form>
