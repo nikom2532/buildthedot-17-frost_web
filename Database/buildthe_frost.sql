@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 13, 2013 at 12:02 AM
+-- Generation Time: Dec 07, 2013 at 01:14 AM
 -- Server version: 5.1.66
 -- PHP Version: 5.3.3-7+squeeze15
 
@@ -378,7 +378,7 @@ CREATE TABLE IF NOT EXISTS `DOWNLOAD_STATISTICS` (
   `PDF_ID` int(100) NOT NULL,
   `DOWNLOAD_DATETIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=28 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=29 ;
 
 --
 -- Dumping data for table `DOWNLOAD_STATISTICS`
@@ -411,7 +411,8 @@ INSERT INTO `DOWNLOAD_STATISTICS` (`ID`, `USER_ID`, `PDF_ID`, `DOWNLOAD_DATETIME
 (24, 3, 7, '2013-11-05 04:44:23'),
 (25, 3, 8, '2013-11-05 04:50:21'),
 (26, 1, 22, '2013-11-05 04:53:53'),
-(27, 3, 11, '2013-11-05 04:55:45');
+(27, 3, 11, '2013-11-05 04:55:45'),
+(28, 1, 18, '2013-11-21 04:39:46');
 
 -- --------------------------------------------------------
 
@@ -513,7 +514,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV4` (
   `DESCRIPTION` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_GROUP_LV4_GROUP_LV31_idx` (`GROUP_LV3_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `GROUP_LV4`
@@ -535,7 +536,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV5` (
   `GROUP_LV4_ID` int(11) NOT NULL,
   `DESCRIPTION` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -579,16 +580,19 @@ INSERT INTO `INDUSTRY` (`ID`, `NAME`) VALUES
 CREATE TABLE IF NOT EXISTS `INFO` (
   `ID` int(2) NOT NULL AUTO_INCREMENT,
   `DESCRIPTION` varchar(800) COLLATE utf8_unicode_ci NOT NULL,
+  `DETAIL` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `UPDATE` datetime NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `INFO`
 --
 
-INSERT INTO `INFO` (`ID`, `DESCRIPTION`, `UPDATE`) VALUES
-(1, 'welcome to mckansys.. ยินดีต้อนรับ', '2013-11-11 00:00:00');
+INSERT INTO `INFO` (`ID`, `DESCRIPTION`, `DETAIL`, `UPDATE`) VALUES
+(1, 'welcome to mckansys.. ยินดีต้อนรับสู่ Omni Knowledge Portal ', 'รายละเอียดหน้าแรก', '2013-11-11 00:00:00'),
+(2, 'Please sign in to download ', 'หัวข้อใน download box', '2013-11-18 00:00:00'),
+(3, 'or contact us to be a membership', 'รายละเอียดใน download box', '2013-11-18 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -620,6 +624,7 @@ CREATE TABLE IF NOT EXISTS `PDF` (
   `NAME` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `PHOTO_NAME` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `DESCRIPTION` text COLLATE utf8_unicode_ci,
+  `BY` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
   `PRICE` decimal(10,0) DEFAULT NULL,
   `UPDATE_DATE` datetime DEFAULT NULL,
   `COMPANY_ID` int(11) DEFAULT NULL,
@@ -632,28 +637,28 @@ CREATE TABLE IF NOT EXISTS `PDF` (
 -- Dumping data for table `PDF`
 --
 
-INSERT INTO `PDF` (`ID`, `NAME`, `PHOTO_NAME`, `DESCRIPTION`, `PRICE`, `UPDATE_DATE`, `COMPANY_ID`, `PATH`, `Is_Asian_country`) VALUES
-(1, 'test1', 'Cover-NFC.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 1', 100, '2013-09-01 00:00:00', 1, 'TestPdf1.pdf', 0),
-(2, 'test2', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 2', 200, '2013-09-02 00:00:00', 2, 'TestPdf2.pdf', 0),
-(3, 'test3', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 3', 300, '2013-09-03 00:00:00', 3, 'TestPdf3.pdf', 0),
-(4, 'test4', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 4', 400, '2013-09-04 00:00:00', 4, 'TestPdf4.pdf', 0),
-(5, 'test5', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 5', 500, '2013-09-05 00:00:00', 5, 'TestPdf5.pdf', 0),
-(7, 'Brunei Darussalam', 'brunei.jpg', 'asdf', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(8, 'Cambodia', 'cambodia.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(9, 'Indonesia', 'indonesia.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(10, 'Lao PDR', 'lao.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(11, 'Malaysia', 'malaysia.jpg', 'มาเลเซียเป็นหนึ่งในประเทศที่มีเศรษฐกิจที่เฟื่องฟูและประสบความสำเร็จมากที่สุดในเอเซียตะวันออกเฉียงใต้ แม้เศรษฐกิจโลกจะประสบปัญหาซบเซา แต่เศรษฐกิจของมาเลเซียยังคงแข็งแกร่ง ด้วยการเติบโตของภาคอุตสาหกรรมและเสถียรภาพทางการเมืองในทศวรรษที่ผ่านมา\r\n อัตราการเจริญเติบโตของ GDP ที่แข็งแกร่งทำให้รายได้ต่อหัวเพิ่มขึ้นอย่างรวดเร็ว ซึ่งทำให้เศรษฐกิจของประเทศเปลี่ยนจากการพึ่งพาสินค้าโภคภัณฑ์ไปสู่การผลิตสินค้าเพื่อส่งออกแทนทั้งยังเริ่มหันไปสู่ภาคบริการมากขึ้น  นอกจากนี้ จำนวนประชาชนชั้นกลางที่ร่ำรวยเพิ่มมากขึ้น ทำให้ความต้องการผลิตภัณฑ์จากต่างประเทศที่มีคุณภาพเพิ่มมากขึ้นด้วย \r\n', 100, '2013-11-05 00:00:00', NULL, 'CountryProfile-Malaysia.pdf', 1),
-(12, 'Myanmar', 'myanmar.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(13, 'Philippines', 'philipine.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(14, 'Singapore', 'singapore.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(15, 'Thailand', 'thailand.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(16, 'Viet Nam', 'vietnam.jpg', 'aaa', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(17, 'Augmenting Mobile 3G Using WiFi', 'testPDF.jpg', 'We investigate if WiFi access can be used to augment 3G capacity in mobile environments. We rst conduct a detailed study of 3G and WiFi access from moving vehicles, in three\r\ndierent cities. We nd that the average 3G and WiFi availability across the cities is 87% and 11%, respectively. WiFi throughput is lower than 3G throughput, and WiFi loss rates are higher.', NULL, '2013-10-14 14:00:00', NULL, 'Augmenting3G.pdf', 0),
-(18, 'Third Generation (3G) Wireless', 'testPDF.jpg', '3G is the next generation of wireless network technology that provides high speed\r\nbandwidth (high data transfer rates) to handheld devices. The high data transfer rates will allow 3G networks to offer multimedia services combining voice and data.', NULL, '2013-10-14 14:10:00', NULL, 'brief3G.pdf', 0),
-(19, 'THINGS YOU SHOULD KNOW ABOUT? Cloud Computing', 'testPDF.jpg', 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate.By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis\r\nand avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate changes in demand.', NULL, '2013-10-14 14:16:00', NULL, 'CloudComputing.pdf', 0),
-(20, 'The Economics of Cloud Computing', '', 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate.By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis\r\nand avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate changes in demand.', NULL, '2013-10-15 15:20:13', NULL, 'Economics-of-Cloud-Computing.pdf', 0),
-(21, 'E-Business Model', 'testPDF.jpg', 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate. By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis\r\nand avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate\r\nchanges in demand.', NULL, '2013-10-16 00:00:00', NULL, 'ModeleEBusiness.pdf', 0),
-(22, 'Near Field Communication ', 'Cover-NFC.jpg', 'Near Field Communication (NFC) กับตลาดผู้บริโภคในประเทศไทย มัคคานซิสเชื่อว่า ปี 2557 จะเป็นช่วงเวลาแห่งการเติบโตและการใช้งานจริงอย่างแพร่หลายของเทคโนโลยีการสื่อสารระยะสั้น หรือ Near Field Communication (NFC)ซึ่งเป็นเทคโนโลยีการสื่อสารระยะสั้น มีระยะการให้บริการติดต่อระหว่างกันประมาณ 10 เซนติเมตร ผ่านทางคลื่นไร้สายที่ความถี่ 13.56 MHz จัดเป็นเทคโนโลยี RFID (Radio frequency identification) รูปแบบหนึ่ง ด้วยคุณลักษณะของเทคโนโลยี NFC เองนั้นเกิดขึ้นมาเพื่อความรวดเร็วและเรียบง่ายในการติดต่อสื่อสารระหว่างอุปกรณ์พกพา และเป็นไปตามวิถีชีวิตของผู้ใช้งานเมืองในปัจจุบัน   ', 100, '2013-11-01 00:00:00', 1, 'Tech -NFC -271013_FINAL-Cover.pdf', 0);
+INSERT INTO `PDF` (`ID`, `NAME`, `PHOTO_NAME`, `DESCRIPTION`, `BY`, `PRICE`, `UPDATE_DATE`, `COMPANY_ID`, `PATH`, `Is_Asian_country`) VALUES
+(1, 'test1', 'Cover-NFC.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 1', '', 100, '2013-09-01 00:00:00', 1, 'TestPdf1.pdf', 0),
+(2, 'test2', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 2', '', 200, '2013-09-02 00:00:00', 2, 'TestPdf2.pdf', 0),
+(3, 'test3', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 3', '', 300, '2013-09-03 00:00:00', 3, 'TestPdf3.pdf', 0),
+(4, 'test4', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 4', '', 400, '2013-09-04 00:00:00', 4, 'TestPdf4.pdf', 0),
+(5, 'test5', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 5', '', 500, '2013-09-05 00:00:00', 5, 'TestPdf5.pdf', 0),
+(7, 'Brunei Darussalam', 'brunei.jpg', 'asdf', '', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(8, 'Cambodia', 'cambodia.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s', '', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(9, 'Indonesia', 'indonesia.jpg', 'aaa', '', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(10, 'Lao PDR', 'lao.jpg', 'aaa', '', 0, NULL, NULL, 'TestPdf1.pdf', 1),
+(11, 'Malaysia', 'malaysia.jpg', 'มาเลเซียเป็นหนึ่งในประเทศที่มีเศรษฐกิจที่เฟื่องฟูและประสบความสำเร็จมากที่สุดในเอเซียตะวันออกเฉียงใต้ แม้เศรษฐกิจโลกจะประสบปัญหาซบเซา แต่เศรษฐกิจของมาเลเซียยังคงแข็งแกร่ง ด้วยการเติบโตของภาคอุตสาหกรรมและเสถียรภาพทางการเมืองในทศวรรษที่ผ่านมา\r\n อัตราการเจริญเติบโตของ GDP ที่แข็งแกร่งทำให้รายได้ต่อหัวเพิ่มขึ้นอย่างรวดเร็ว ซึ่งทำให้เศรษฐกิจของประเทศเปลี่ยนจากการพึ่งพาสินค้าโภคภัณฑ์ไปสู่การผลิตสินค้าเพื่อส่งออกแทนทั้งยังเริ่มหันไปสู่ภาคบริการมากขึ้น  นอกจากนี้ จำนวนประชาชนชั้นกลางที่ร่ำรวยเพิ่มมากขึ้น ทำให้ความต้องการผลิตภัณฑ์จากต่างประเทศที่มีคุณภาพเพิ่มมากขึ้นด้วย \r\n', '', 100, '2013-11-05 00:00:00', NULL, 'CountryProfile-Malaysia.pdf', 1),
+(12, 'Myanmar', 'myanmar.jpg', 'aaa', '', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(13, 'Philippines', 'philipine.jpg', 'aaa', '', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(14, 'Singapore', 'singapore.jpg', 'aaa', '', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(15, 'Thailand', 'thailand.jpg', 'aaa', '', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(16, 'Viet Nam', 'vietnam.jpg', 'aaa', '', 100, NULL, NULL, 'TestPdf1.pdf', 1),
+(17, 'Augmenting Mobile 3G Using WiFi', 'testPDF.jpg', 'We investigate if WiFi access can be used to augment 3G capacity in mobile environments. We rst conduct a detailed study of 3G and WiFi access from moving vehicles, in three\r\ndierent cities. We nd that the average 3G and WiFi availability across the cities is 87% and 11%, respectively. WiFi throughput is lower than 3G throughput, and WiFi loss rates are higher.', '', NULL, '2013-10-14 14:00:00', NULL, 'Augmenting3G.pdf', 0),
+(18, 'Third Generation (3G) Wireless', 'testPDF.jpg', '3G is the next generation of wireless network technology that provides high speed\r\nbandwidth (high data transfer rates) to handheld devices. The high data transfer rates will allow 3G networks to offer multimedia services combining voice and data.', 'Mckansys', 100, '2013-10-14 14:10:00', NULL, 'brief3G.pdf', 0),
+(19, 'THINGS YOU SHOULD KNOW ABOUT? Cloud Computing', 'testPDF.jpg', 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate.By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis\r\nand avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate changes in demand.', '', NULL, '2013-10-14 14:16:00', NULL, 'CloudComputing.pdf', 0),
+(20, 'The Economics of Cloud Computing', '', 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate.By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis\r\nand avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate changes in demand.', '', NULL, '2013-10-15 15:20:13', NULL, 'Economics-of-Cloud-Computing.pdf', 0),
+(21, 'E-Business Model', 'testPDF.jpg', 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate. By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis\r\nand avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate\r\nchanges in demand.', '', NULL, '2013-10-16 00:00:00', NULL, 'ModeleEBusiness.pdf', 0),
+(22, 'Near Field Communication ', 'Cover-NFC.jpg', 'Near Field Communication (NFC) กับตลาดผู้บริโภคในประเทศไทย มัคคานซิสเชื่อว่า ปี 2557 จะเป็นช่วงเวลาแห่งการเติบโตและการใช้งานจริงอย่างแพร่หลายของเทคโนโลยีการสื่อสารระยะสั้น หรือ Near Field Communication (NFC)ซึ่งเป็นเทคโนโลยีการสื่อสารระยะสั้น มีระยะการให้บริการติดต่อระหว่างกันประมาณ 10 เซนติเมตร ผ่านทางคลื่นไร้สายที่ความถี่ 13.56 MHz จัดเป็นเทคโนโลยี RFID (Radio frequency identification) รูปแบบหนึ่ง ด้วยคุณลักษณะของเทคโนโลยี NFC เองนั้นเกิดขึ้นมาเพื่อความรวดเร็วและเรียบง่ายในการติดต่อสื่อสารระหว่างอุปกรณ์พกพา และเป็นไปตามวิถีชีวิตของผู้ใช้งานเมืองในปัจจุบัน   ', 'John', 0, '2013-11-01 00:00:00', 1, 'Tech -NFC -271013_FINAL-Cover.pdf', 0);
 
 -- --------------------------------------------------------
 
@@ -729,7 +734,7 @@ INSERT INTO `PERMISSION` (`ID`, `USER_PROFILE_ID`, `GROUP_LV2_ID`, `IS_ACTIVE`, 
 (3, 4, 3, 'Y', '2013-09-01 00:00:00', '2014-09-28 00:00:00'),
 (4, 4, 1, 'N', '2013-01-01 00:00:00', '2013-01-01 00:00:00'),
 (5, 3, 3, 'N', '2013-10-01 00:00:00', '2013-10-01 00:00:00'),
-(6, 1, 3, 'Y', '2013-10-17 00:00:00', '2013-10-31 00:00:00'),
+(6, 1, 3, 'Y', '2013-10-17 00:00:00', '2014-10-31 00:00:00'),
 (7, 1, 4, 'Y', '2013-10-17 00:00:00', '2013-10-31 00:00:00'),
 (8, 3, 3, 'Y', '2013-11-05 00:00:00', '2013-11-30 00:00:00'),
 (9, 3, 4, 'Y', '2013-11-05 00:00:00', '2013-11-30 00:00:00');
@@ -808,9 +813,11 @@ CREATE TABLE IF NOT EXISTS `TAG_RELATIONSHIP` (
 INSERT INTO `TAG_RELATIONSHIP` (`PDF_ID`, `TAG_ID`) VALUES
 (1, 1),
 (2, 1),
+(22, 1),
 (1, 2),
 (2, 2),
-(1, 3);
+(1, 3),
+(22, 3);
 
 -- --------------------------------------------------------
 
@@ -868,7 +875,7 @@ CREATE TABLE IF NOT EXISTS `USER_PROFILE` (
   KEY `fk_USER_PROFILE_INDUSTRY_ID1_idx` (`INDUSTRY_ID`),
   KEY `fk_USER_PROFILE_COUNTRY_ID1_idx` (`COUNTRY_ID`),
   KEY `fk_USER_PROFILE_TECHNOLOGY_ID1_idx` (`TECHNOLOGY_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `USER_PROFILE`
