@@ -87,7 +87,7 @@ while($row_tagResult_db = @mysql_fetch_assoc($result_tagResult_db)){
 	$tagResults_db_label[] = $row_tagResult_db["label"];
 }
 $tagResult_db = json_encode($tagResults_db);
-print_r($tagResult_db);
+//print_r($tagResult_db);
 //----------------------
 
 
@@ -626,7 +626,7 @@ include ("include/top-bar.php");
 						<fieldset>
 <?php 
 							 //print_r($Tag_result);
-							 print_r($tagResult);
+							 //print_r($tagResult);
 ?>
 							<p class="form-error-input">
 								<p class="form-error-input">
