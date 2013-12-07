@@ -15,9 +15,10 @@ if (!$db -> open()) {
 	$deletePdf = mysql_query("DELETE FROM PDF WHERE ID=$pdfId");
 	$deletePdfCategory = mysql_query("DELETE FROM PDF_CATEGORY WHERE PDF_ID=$pdfId");
     if($deletePdf){
-        header("location: pdf.php");
+			//header("location: pdf.php");
+			?><script>window.location = "pdf.php";</script><?php
     } else {
-    	header("location: pdf.php");
-		
+    	//header("location: pdf.php");
+			?><script>window.location = "pdf.php";</script><?php
     }
 ?>

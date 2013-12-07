@@ -16,11 +16,12 @@ echo $strSQL;
 if($cmdQuery){
 	$msg = "Sucess";
 	echo $msg;
-	header("location: tag.php?msg=$msg");
+	//header("location: tag.php?msg=$msg");
+	?><script>window.location = "tag.php?msg=<?php echo $msg;?>";</script><?php
 }else{
 	$msg = "Failed";
 	echo $msg;
-	header("location: tag.php?msg=$msg");
-	
+	//header("location: tag.php?msg=$msg");
+	?><script>window.location = "tag.php?msg=<?php echo $msg;?>";</script><?php
 }
 ?>

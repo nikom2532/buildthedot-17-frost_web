@@ -224,6 +224,6 @@ $msg = "Sucess";
 ?>
 <script>
 <!--
-window.location = "pdf.php?msg=<?php echo $msg; ?>"
+window.location = "pdf.php?msg=<?php echo $msg; ?>";
 //-->
 </script>

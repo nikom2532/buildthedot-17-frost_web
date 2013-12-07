@@ -37,7 +37,8 @@ if(($email!="")&&($password!="")) {
 		$_SESSION["userid"] = $fetchArray["ID"];
 		//echo "ID=>".$fetchArray["ID"]."<br/>";
 		$_SESSION['sessid']=session_id();
-		header("location: ../main.php");
+		//header("location: ../main.php");
+		?><script>window.location = "../main.php";</script><?php
 		//echo "session".$_SESSION[sessid];
 	}
 	else{

@@ -5,6 +5,6 @@
 	session_destroy();
 	
 	//echo "after".$_SESSION["userid"];
-	header('location: ../index.php');
-
+	//header('location: ../index.php');
+	?><script>window.location = "../index.php";</script><?php
 ?>

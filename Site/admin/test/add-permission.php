@@ -13,4 +13,5 @@
 	
 	$result = mysql_query($sql);
 	header("location: permission.php?userId=$userId");
+	?><script>window.location = "permission.php?userId=<?php echo $userId; ?>";</script><?php
 ?>

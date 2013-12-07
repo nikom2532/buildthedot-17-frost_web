@@ -42,4 +42,5 @@ $sql = "INSERT INTO USER_PROFILE (PHOTO_NAME,
 // echo $sql;
 $result = mysql_query($sql);
 header("location: customer.php");
+?><script>window.location = "customer.php";</script><?php
 ?>

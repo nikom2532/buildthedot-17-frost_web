@@ -86,7 +86,8 @@ if(!(!file_exists($_FILES['imageUpload']['tmp_name']) || !is_uploaded_file($_FIL
 	echo "Num row>".$numRow."<br/>";
 	if($numRow>=1){
 		$msg = "Duplicate Email";
-		header("location: customer.php?msg=$msg");		
+		header("location: customer.php?msg=$msg");
+		?><script>window.location = "customer.php?msg=<?php echo $msg; ?>";</script><?php		
 	}
 
 
@@ -135,11 +136,14 @@ $numChk = mysql_num_rows($resultChk);
 echo "Num row chk>".$numChk."<br/>";
 
 if($numChk==1){
-	$msg = "Sucess";
-	header("location: customer.php?msg=$msg");	
+	$msg = "Success";
+	//header("location: customer.php?msg=$msg");
+	?><script>window.location = "customer.php?msg=<?php echo $msg; ?>";</script><?php
+		
 }else{
 	$msg = "Failed";
-	header("location: customer.php?msg=$msg");
+	//header("location: customer.php?msg=$msg");
+	?><script>window.location = "customer.php?msg=<?php echo $msg; ?>";</script><?php
 }
 
 ?>

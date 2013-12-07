@@ -14,9 +14,11 @@ if (!$db -> open()) {
 	$deleteInPermission = mysql_query("DELETE FROM PERMISSION WHERE USER_PROFILE_ID=$userId");
     $deleteInUserProfile = mysql_query("DELETE FROM USER_PROFILE WHERE ID=$userId");
     if($delete && $deleteInPermission){
-        header("location: customer.php");
-    } else {
-    	header("location: customer.php");
-		
+			//header("location: customer.php");
+			?><script>window.location = "customer.php";</script><?php
+    }
+    else{
+			//header("location: customer.php");
+			?><script>window.location = "customer.php";</script><?php
     }
 ?>

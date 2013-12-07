@@ -44,27 +44,31 @@ echo "renewpassword=>".$renewpassword ."<br/>";
 			$cmdQuery = mysql_query($strSQLUpdatePass);
 			
 			if(mysql_affected_rows()){
-				header("location: my-profile.php?userID=$userID");
+				//header("location: my-profile.php?userID=$userID");
+				?><script>window.location = "my-profile.php?userID=<?php echo $userID; ?>";</script><?php
 			}
 			if($oldpassword == ($newpassword == $renewpassword)){
-				header("location: my-profile.php?userID=$userID");
+				//header("location: my-profile.php?userID=$userID");
+				?><script>window.location = "my-profile.php?userID=<?php echo $userID; ?>";</script><?php
 			}
 
 		}else {
 			$passnotmatch = "New Password don't match";
 			echo $passnotmatch;
-			header("location: edit-password.php?userID=$userID&validatepass=$passnotmatch");
+			//header("location: edit-password.php?userID=$userID&validatepass=$passnotmatch");
+			?><script>window.location = "edit-password.php?userID=<?php echo $userID; ?>&validatepass=<?php echo $passnotmatch; ?>";</script><?php
 		}
 		
 	}else if(mysql_num_rows($cmdQuery) == 0){
 		$passincorect = "Old password is incorrect";
 		echo $passincorect;
-		header("location: edit-password.php?userID=$userID&validatepass=$passincorect");
+		//header("location: edit-password.php?userID=$userID&validatepass=$passincorect");
+		?><script>window.location = "edit-password.php?userID=<?php echo $userID; ?>&validatepass=<?php echo $passincorect; ?>";</script><?php
 		if($newpassword != $renewpassword){
 			$passnotmatch = "New Password don't match";
 			echo $passincorect;
-			header("location: edit-password.php?userID=$userID&validatepass=$passnotmatch");
-		
+			//header("location: edit-password.php?userID=$userID&validatepass=$passnotmatch");
+			?><script>window.location = "edit-password.php?userID=<?php echo $userID; ?>&validatepass=<?php echo $passnotmatch; ?>";</script><?php
 		}
 	}
 	
