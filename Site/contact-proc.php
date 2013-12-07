@@ -36,11 +36,13 @@ $result = @mail($email_to, $email_subject, $email_message, $headers);
 //echo $result;
 if($result)
 	{
-		header("Location: sucess-page.php");
+		//header("Location: sucess-page.php");
+		?><script>window.location = "sucess-page.php";</script><?php
 	}
 else
 	{
-		header("Location: fail-page.php");
+		//header("Location: fail-page.php");
+		?><script>window.location = "fail-page.php";</script><?php
 	}
 
 }

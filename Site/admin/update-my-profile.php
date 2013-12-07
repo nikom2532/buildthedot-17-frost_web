@@ -24,7 +24,8 @@ $strSQLUpdateProfile .= "WHERE ID='$userID'" ;
 echo "strQuery=>".$strSQLUpdateProfile ;
 $cmdQuery = mysql_query($strSQLUpdateProfile);
 if(mysql_affected_rows()){
-	header("location: my-profile.php?userID=$userID");
+	//header("location: my-profile.php?userID=$userID");
+	?><script>window.location = "my-profile.php?userID=<?php echo $userID; ?>";</script><?php
 }else{
 ?>
 	<form id="msg-error-form" action="edit-my-profile.php" method="POST">

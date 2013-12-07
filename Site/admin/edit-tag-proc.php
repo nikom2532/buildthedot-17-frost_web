@@ -15,7 +15,8 @@ $strSQL="UPDATE `TAG` SET NAME='$tagName' WHERE ID='$tagId'";
 $cmdQuery=mysql_query($strSQL);
 
 if(mysql_affected_rows()){
-	header("location: tag.php");
+	//header("location: tag.php");
+	?><script>window.location = "tag.php";</script><?php
 }else{
 	"<sript>alert('The process failed')</script>";
 	

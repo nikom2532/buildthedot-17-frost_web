@@ -19,7 +19,8 @@
 	$cmdQuery = mysql_query($strSQL);
 	echo $filename;
 	if ($cmdQuery) {
-		header("location: myprofile.php?userID=$userID");
+		//header("location: myprofile.php?userID=$userID");
+		?><script>window.location = "myprofile.php?userID=<?php echo $userID; ?>";</script><?php
 		exit;
 	} else {
 		echo "<script>";

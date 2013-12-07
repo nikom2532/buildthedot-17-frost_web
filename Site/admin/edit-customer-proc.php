@@ -20,9 +20,11 @@
 	//echo $filename;
 	if ($cmdQuery) {
 		$msg = "Sucess";
-		header("location: customer.php?msg=$msg");
+		//header("location: customer.php?msg=$msg");
+		?><script>window.location = "customer.php?msg=<?php echo $msg; ?>";</script><?php
 	} else {
 		$msg = "Failed";
-		header("location: customer.php?msg=$msg");
+		//header("location: customer.php?msg=$msg");
+		?><script>window.location = "customer.php?msg=<?php echo $msg; ?>";</script><?php
 	}
 ?>

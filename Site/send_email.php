@@ -63,7 +63,8 @@ if($result)
 	{
 		echo "Email Can Not Send."+$result;
 	}
-header("Location: index.php");
+//header("Location: index.php");
+?><script>window.location = "index.php?";</script><?php
 }
 ?>
  

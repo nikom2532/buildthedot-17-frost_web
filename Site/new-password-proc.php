@@ -27,7 +27,8 @@ $renewpassword = $_POST['renewpassword'];
 			unset($_SESSION['keySession']); 
 			unset($_SESSION['emailSession']); 
 			
-			header("location: index.php");
+			//header("location: index.php");
+			?><script>window.location = "index.php?";</script><?php
 	}
 	
 

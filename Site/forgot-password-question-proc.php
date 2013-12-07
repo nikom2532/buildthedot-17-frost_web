@@ -10,9 +10,10 @@
 	if($count > 0) {
 		$row = mysql_fetch_array($result);
 		
-		header("location: {$rootpath}new-password.php?userID=".$row['ID']);
+		//header("location: {$rootpath}new-password.php?userID=".$row['ID']);
+		?><script>window.location = "<?php echo $rootpath; ?>new-password.php?userID=<?php echo $row['ID']; ?>";</script><?php
 	} else {
-		
-		header("location: {$rootpath}index.php");
+		//header("location: {$rootpath}index.php");
+		?><script>window.location = "<?php echo $rootpath; ?>index.php";</script><?php
 	}
 ?>

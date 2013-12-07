@@ -34,7 +34,8 @@ $strSQL .= "WHERE ID='$userID'";
 $cmdQuery = mysql_query($strSQL);
 
 if ($cmdQuery) {
-	header("Location: customer.php");
+	//header("Location: customer.php");
+	?><script>window.location = "customer.php";</script><?php
 } else {
 	echo "<script>";
 	echo "alert('Update profile failed'); ";

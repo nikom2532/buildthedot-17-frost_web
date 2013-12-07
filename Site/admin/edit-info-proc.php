@@ -23,11 +23,12 @@ $strSQLUpdateInfo = "UPDATE INFO SET DESCRIPTION='$description' WHERE ID =$id";
 $cmdQuery = mysql_query($strSQLUpdateInfo);
 if(mysql_affected_rows()){
 	$msg = "Sucess";
-	header("location: home-info.php?msg=$msg");
+	//header("location: home-info.php?msg=$msg");
+	?><script>window.location = "home-info.php?msg=<?php echo $msg; ?>";</script><?php
 }else{
-
 	$msg = "Failed";
-	header("location: home-info.php?msg=$msg");
+	//header("location: home-info.php?msg=$msg");
+	?><script>window.location = "home-info.php?msg=<?php echo $msg; ?>";</script><?php
 }			
 
 

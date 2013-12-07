@@ -9,9 +9,10 @@ include("include/header.php");
 	if($count > 0) {
 		$row = mysql_fetch_array($result);
 		
-		header("location: {$rootpath}forgot-password-question.php?qId=".$row['QUESTION_ID']."&id=".$row['ID']);
+		//header("location: {$rootpath}forgot-password-question.php?qId=".$row['QUESTION_ID']."&id=".$row['ID']);
+		?><script>window.location = "<?php echo $rootpath; ?>forgot-password-question.php?qId=<?php echo $row['QUESTION_ID']; ?>&id=<?php echo $row['ID']; ?>";</script><?php
 	} else {
-		
 		header("location: {$rootpath}index.php");
+		?><script>window.location = "<?php echo $rootpath; ?>index.php";</script><?php
 	}
 ?>

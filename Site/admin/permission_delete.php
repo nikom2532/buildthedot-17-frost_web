@@ -12,5 +12,6 @@ if (!$db -> open()) {
 	$userId = $_POST['userId'];
 	$delId = $_POST['delId'];
 	$deleteInPermission = mysql_query("DELETE FROM PERMISSION WHERE ID=$delId");
-    header("location: permission.php?userId=$userId");
+	//header("location: permission.php?userId=$userId");
+	?><script>window.location = "permission.php?userId=<?php echo $userId; ?>";</script><?php
 ?>

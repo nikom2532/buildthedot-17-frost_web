@@ -10,7 +10,8 @@
 
     if($now > $_SESSION['forgotPassExpire']) {
        // session expired
-       header("location: index.php");
+       //header("location: index.php");
+			 ?><script>window.location = "index.php";</script><?php
 	   
     } else {
     	if ($sessionKey == $key && $sessionEmail == $email) {
@@ -21,14 +22,15 @@
 			
 			if($count > 0) {
 				$row = mysql_fetch_array($result);
-				header("location: new-password.php?userID=".$row['ID']);
+				//header("location: new-password.php?userID=".$row['ID']);
+				?><script>window.location = "new-password.php?userID=<?php echo $row['ID']; ?>";</script><?php
 			}
 		
-		} else {
-			
-			// Email or key not match.
-			header("location: forgetPassFail.php?e=3");
-		}
+			} else {
+				// Email or key not match.
+				header("location: forgetPassFail.php?e=3");
+				?><script>window.location = "forgetPassFail.php?e=3";</script><?php
+			}
     }
 	
 ?>

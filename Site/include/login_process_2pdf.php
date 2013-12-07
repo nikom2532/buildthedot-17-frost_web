@@ -22,7 +22,8 @@ if(($email!="")&&($password!="")) {
 	if($rs=$db->fetchAssoc()){
 		$_SESSION["userid"]=$rs["ID"];
 		// header("location: {$rootpath}download-pdf.php?pdfId=".$_POST["pdfId"]);
-			header("location: {$rootpath}report-detail-no-sidemenu.php?id=".$_POST["pdfId"]);
+		// header("location: {$rootpath}report-detail-no-sidemenu.php?id=".$_POST["pdfId"]);
+		?><script>window.location = "<?php echo $rootpath; ?>report-detail-no-sidemenu.php?id=<?php echo $_POST["pdfId"]; ?>";</script><?php
 	}
 	else{
 ?>
@@ -36,7 +37,8 @@ if(($email!="")&&($password!="")) {
 	}
 }
 else{
-	header("location: {$rootpath}download-pdf.php?pdfId=".$_POST["pdfId"]);
+	//header("location: {$rootpath}download-pdf.php?pdfId=".$_POST["pdfId"]);
+	?><script>window.location = "<?php echo $rootpath; ?>download-pdf.php?pdfId=<?php echo $_POST["pdfId"]; ?>";</script><?php
 }
 
 // include($rootpath."include/footer.php");
