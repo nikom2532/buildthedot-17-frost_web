@@ -38,39 +38,10 @@ if ($msg=="Sucess") {
 }
 
 include ("include/top-bar.php");
+
+$header_with_tag = "info";
+include("include/header-with-tabs.php");
 ?>
-<!-- HEADER -->
-<div id="header-with-tabs">
-
-	<div class="page-full-width cf">
-
-		<ul id="tabs" class="left">
-			<li>
-				<a href="main.php" >Dashboard</a>
-			</li>
-			<li>
-				<a href="customer.php">Customer Management</a>
-			</li>
-			<li>
-				<a href="pdf.php">PDF Management</a>
-			</li>
-			<li>
-				<a href="tag.php">Tag Management</a>
-			</li>
-			<li>
-				<a href="home-info.php" class="active-tab">Home Info</a>
-			</li>
-		</ul>
-		<!-- end tabs -->
-
-		<!-- company logo -->
-		<a href="#" id="company-branding-small" class="right"><img src="images/mckansys_logo.png" width="200" height="27" alt="logo"></a>
-
-	</div>
-	<!-- end full-width -->
-
-</div>
-<!-- end header -->
 
 <!-- MAIN CONTENT -->
 <div id="content">
