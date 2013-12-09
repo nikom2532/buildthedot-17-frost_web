@@ -85,11 +85,13 @@ include("include/header-with-tabs.php");
     				<col width="20em" />
     				<col width="5em" />
     				<col width="5em" />
+    				<col width="5em" />
 						<thead>
 							<tr>
 								<th>No.</th>
-								<th>Title</th>
-								<th>Update dated</th>
+								<th>Group Level Title Name</th>
+								<th>Description</th>
+								<th>Group Parent Title Name</th>
 								<th>Actions</th>
 							</tr>
 						</thead>
@@ -121,12 +123,29 @@ include("include/header-with-tabs.php");
 							while ($row = mysql_fetch_array($result)) {
 ?>
 								<tr>
-									<td><?=$i?></td>
-									<td><?=$row['NAME']?></td>
+									<td><?php echo $i; ?></td>
+									<td><?php echo $row['NAME']; ?></td>
+									<td><?php echo $row['DESCRIPTION']; ?></td>
+									<td><?php
+										if($_GET["grouplevel"] != 1){
+											$sql_parent_group="
+												SELECT * 
+												FROM `GROUP_LV".$_GET["grouplevel"]."`
+												WHERE `ID` = '".$row["GROUP_LV".($_GET["grouplevel"]-1)."_ID"]."' 
+											;";
+											$result_parent_group = @mysql_query($sql_parent_group);
+											while($rs_parent_group = @mysql_fetch_array($result_parent_group)){
+												echo $rs_parent_group["NAME"];
+											}
+										}
+										else{
+											echo "-";
+										}
+									?></td>
 <?php
-									$originalDate = $row['updateDate'];
-									$newDate = date("M d, Y", strtotime($originalDate));
-									echo "<td>" . $newDate . "</td>";
+									// $originalDate = $row['updateDate'];
+									// $newDate = date("M d, Y", strtotime($originalDate));
+									// echo "<td>" . $newDate . "</td>";
 ?>
 									<td>
 										<form method='post' action='edit-pdf.php' id='submitform' name='submitform'>
