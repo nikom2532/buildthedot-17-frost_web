@@ -130,7 +130,7 @@ include("include/header-with-tabs.php");
 										if($_GET["grouplevel"] != 1){
 											$sql_parent_group="
 												SELECT * 
-												FROM `GROUP_LV".$_GET["grouplevel"]."`
+												FROM `GROUP_LV".(($_GET["grouplevel"])-1)."`
 												WHERE `ID` = '".$row["GROUP_LV".($_GET["grouplevel"]-1)."_ID"]."' 
 											;";
 											$result_parent_group = @mysql_query($sql_parent_group);
