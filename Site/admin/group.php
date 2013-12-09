@@ -11,6 +11,32 @@ if (!$db -> open()) {
 include("include/top-bar.php");
 include("lib/func_pagination.php");
 
+$msg = $_GET['msg'];
+if ($msg=="Sucess") {
+    $message = "Process Complete";
+    ?>
+     <script type="text/javascript">
+        showNotification({
+            message: "<?php echo $message; ?>",
+            type: "success",
+            autoClose: true,
+            duration: 5                                        
+        });
+    </script>
+    <?php
+}if($msg=="Failed"){
+	$message = "Process Failed! Please try again";
+    ?>
+     <script type="text/javascript">
+        showNotification({
+            message: "<?php echo $message; ?>",
+            type: "error",
+            autoClose: true,
+            duration: 5                                        
+        });
+    </script>
+    <?php
+}
 $header_with_tag = "group";
 include("include/header-with-tabs.php");
 ?>
@@ -27,9 +53,33 @@ include("include/header-with-tabs.php");
 					<div id="wrap-add-customer">
 						<a href="upload-pdf.php" class="round button orange ic-add image-left" >Upload PDF</a>
           </div>
-          <?php
-					include ("include/side-menu-knowledge3.php");
+<?php
+					//include ("include/side-menu-knowledge3.php");
 ?>
+					<div>
+						<a href="group.php?grouplevel=1">Group level 1</a><?php 
+						if($_GET["grouplevel"]==1){ ?> &lt;---<?php }
+					?></div>
+					<div>
+						<a href="group.php?grouplevel=2">Group level 2</a><?php 
+						if($_GET["grouplevel"]==2){ ?> &lt;---<?php }
+					?></div>
+					<div>
+						<a href="group.php?grouplevel=3">Group level 3</a><?php 
+						if($_GET["grouplevel"]==3){ ?> &lt;---<?php }
+					?></div>
+					<div>
+						<a href="group.php?grouplevel=4">Group level 4</a><?php 
+						if($_GET["grouplevel"]==4){ ?> &lt;---<?php }
+					?></div>
+					<div>
+						<a href="group.php?grouplevel=5">Group level 5</a><?php 
+						if($_GET["grouplevel"]==5){ ?> &lt;---<?php }
+					?></div>
+					<div>
+						<a href="group.php?grouplevel=6">Group level 6</a><?php 
+						if($_GET["grouplevel"]==6){ ?> &lt;---<?php }
+					?></div>
 					<table class="fixed">
 						<col width="2em" />
     				<col width="20em" />
@@ -57,17 +107,9 @@ include("include/header-with-tabs.php");
 							$start=($page-1)*$limit;
 							/*---------end Paging------------*/	
 							$strQuery ="
-								SELECT p.ID AS id, 
-								p.NAME AS name,
-								a.GROUP_LEVEL_NAME AS glvName,
-								a.GROUP_LEVEL_ID AS glvId,
-								p.UPDATE_DATE AS updateDate
-								FROM PDF AS p 
-								INNER JOIN PDF_CATEGORY AS a
-								ON p.ID = a.PDF_ID
-								WHERE IS_ASIAN_COUNTRY = '0'
-								ORDER BY ID DESC 
-							;";
+								SELECT * 
+								FROM  `GROUP_LV".$_GET["grouplevel"]."` 
+							";
 							$result = mysql_query($strQuery);	
 							$Num_Rows = mysql_num_rows($result);
 							$strQuery .= "LIMIT $start , $limit";
@@ -79,8 +121,8 @@ include("include/header-with-tabs.php");
 							while ($row = mysql_fetch_array($result)) {
 ?>
 								<tr>
-									<td><?=$i ?></td>
-									<td><?=$row['name'] ?></td>
+									<td><?=$i?></td>
+									<td><?=$row['NAME']?></td>
 <?php
 									$originalDate = $row['updateDate'];
 									$newDate = date("M d, Y", strtotime($originalDate));
@@ -89,14 +131,14 @@ include("include/header-with-tabs.php");
 									<td>
 										<form method='post' action='edit-pdf.php' id='submitform' name='submitform'>
 											<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 75px;' ALT='EDIT'> 
-											<input type='hidden' name='pdfId' value="<?=$row['id'] ?>"/>
-											<input type='hidden' name='glvId' value="<?=$row['glvId'] ?>"/>	
-											<input type='hidden' name='glvName' value="<?=$row['glvName'] ?>"/>	
+											<input type='hidden' name='pdfId' value="<?=$row['id']?>"/>
+											<input type='hidden' name='glvId' value="<?=$row['glvId']?>"/>	
+											<input type='hidden' name='glvName' value="<?=$row['glvName']?>"/>	
 										</form>
 										<form method='post' action='delete-pdf.php'id='submitform' name='submitform'>
-											<input type='hidden' name='pdfId' value="<?=$row['id'] ?>"/>
-											<input type='hidden' name='glvId' value="<?=$row['glvId'] ?>"/>	
-											<input type='hidden' name='glvName' value="<?=$row['glvName'] ?>"/>	
+											<input type='hidden' name='pdfId' value="<?=$row['id']?>"/>
+											<input type='hidden' name='glvId' value="<?=$row['glvId']?>"/>	
+											<input type='hidden' name='glvName' value="<?=$row['glvName']?>"/>	
 											<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0' ALT='DELETE'  onClick='return confirmSubmit()'>
 										</form>
 									</td>
