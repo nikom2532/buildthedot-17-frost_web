@@ -55,35 +55,38 @@ include("include/header-with-tabs.php");
           </div>
 <?php
 					//include ("include/side-menu-knowledge3.php");
+					if($_GET["grouplevel"]==""){
+						$_GET["grouplevel"]=1;
+					}
 ?>
-					<div>
+					<div id="wrap-add-customer">
 						<a href="group.php?grouplevel=1">Group level 1</a><?php 
 						if($_GET["grouplevel"]==1){ ?> &lt;---<?php }
 					?></div>
-					<div>
+					<div id="wrap-add-customer">
 						<a href="group.php?grouplevel=2">Group level 2</a><?php 
 						if($_GET["grouplevel"]==2){ ?> &lt;---<?php }
 					?></div>
-					<div>
+					<div id="wrap-add-customer">
 						<a href="group.php?grouplevel=3">Group level 3</a><?php 
 						if($_GET["grouplevel"]==3){ ?> &lt;---<?php }
 					?></div>
-					<div>
+					<div id="wrap-add-customer">
 						<a href="group.php?grouplevel=4">Group level 4</a><?php 
 						if($_GET["grouplevel"]==4){ ?> &lt;---<?php }
 					?></div>
-					<div>
+					<div id="wrap-add-customer">
 						<a href="group.php?grouplevel=5">Group level 5</a><?php 
 						if($_GET["grouplevel"]==5){ ?> &lt;---<?php }
 					?></div>
-					<div>
+					<div id="wrap-add-customer">
 						<a href="group.php?grouplevel=6">Group level 6</a><?php 
 						if($_GET["grouplevel"]==6){ ?> &lt;---<?php }
 					?></div>
 					<table class="fixed">
 						<col width="2em" />
-    				<col width="20em" />
-    				<col width="5em" />
+    				<col width="8em" />
+    				<col width="15em" />
     				<col width="5em" />
     				<col width="5em" />
 						<thead>
