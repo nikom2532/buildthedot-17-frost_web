@@ -27,6 +27,9 @@ include("include/header-with-tabs.php");
 					<div id="wrap-add-customer">
 						<a href="upload-pdf.php" class="round button orange ic-add image-left" >Upload PDF</a>
           </div>
+          <?php
+					include ("include/side-menu-knowledge3.php");
+?>
 					<table class="fixed">
 						<col width="2em" />
     				<col width="20em" />
@@ -48,8 +51,8 @@ include("include/header-with-tabs.php");
 							$limit=10;//Records per page
 							$start=0;//starts displaying records from 0
 							if(isset($_GET['page']) && $_GET['page']!=''){
-							$page=$_GET['page'];
-							$i=$page*10;			
+								$page=$_GET['page'];
+								$i=$page*10;
 							}
 							$start=($page-1)*$limit;
 							/*---------end Paging------------*/	
