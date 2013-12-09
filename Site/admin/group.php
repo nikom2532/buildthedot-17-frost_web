@@ -32,18 +32,14 @@ include("include/header-with-tabs.php");
     				<col width="20em" />
     				<col width="5em" />
     				<col width="5em" />
-					
 						<thead>
-					
 							<tr>
 								<th>No.</th>
 								<th>Title</th>
-                                <th>Update dated</th>
+								<th>Update dated</th>
 								<th>Actions</th>
 							</tr>
-						
 						</thead>
-						
 						<tbody>
 <?php 
 							/*---------Paging------------*/	
@@ -79,30 +75,29 @@ include("include/header-with-tabs.php");
 							}
 							while ($row = mysql_fetch_array($result)) {
 ?>
-							<tr>
-								<td><?=$i ?></td>
-								<td><?=$row['name'] ?></td>
+								<tr>
+									<td><?=$i ?></td>
+									<td><?=$row['name'] ?></td>
 <?php
-								$originalDate = $row['updateDate'];
-								$newDate = date("M d, Y", strtotime($originalDate));
-								echo "<td>" . $newDate . "</td>";
+									$originalDate = $row['updateDate'];
+									$newDate = date("M d, Y", strtotime($originalDate));
+									echo "<td>" . $newDate . "</td>";
 ?>
-
-								<td>
-									<form method='post' action='edit-pdf.php' id='submitform' name='submitform'>
-										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 75px;' ALT='EDIT'> 
-										<input type='hidden' name='pdfId' value="<?=$row['id'] ?>"/>
-										<input type='hidden' name='glvId' value="<?=$row['glvId'] ?>"/>	
-										<input type='hidden' name='glvName' value="<?=$row['glvName'] ?>"/>	
-									</form>
-									<form method='post' action='delete-pdf.php'id='submitform' name='submitform'>
-										<input type='hidden' name='pdfId' value="<?=$row['id'] ?>"/>
-										<input type='hidden' name='glvId' value="<?=$row['glvId'] ?>"/>	
-										<input type='hidden' name='glvName' value="<?=$row['glvName'] ?>"/>	
-										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0' ALT='DELETE'  onClick='return confirmSubmit()'>
-									</form>
-								</td>
-							</tr>
+									<td>
+										<form method='post' action='edit-pdf.php' id='submitform' name='submitform'>
+											<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 75px;' ALT='EDIT'> 
+											<input type='hidden' name='pdfId' value="<?=$row['id'] ?>"/>
+											<input type='hidden' name='glvId' value="<?=$row['glvId'] ?>"/>	
+											<input type='hidden' name='glvName' value="<?=$row['glvName'] ?>"/>	
+										</form>
+										<form method='post' action='delete-pdf.php'id='submitform' name='submitform'>
+											<input type='hidden' name='pdfId' value="<?=$row['id'] ?>"/>
+											<input type='hidden' name='glvId' value="<?=$row['glvId'] ?>"/>	
+											<input type='hidden' name='glvName' value="<?=$row['glvName'] ?>"/>	
+											<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0' ALT='DELETE'  onClick='return confirmSubmit()'>
+										</form>
+									</td>
+								</tr>
 <?php
 							$i = $i + 1;
 							}

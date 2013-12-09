@@ -1,8 +1,8 @@
 ﻿<?php
 	$host="localhost";
-	$username="root";
-	$password="root";
-	$database="buildthe_frost";
+	$username="iming";
+	$password="iming";
+	$database="buildthedot_17mckansys";
 	$db=new DB($host,$username,$password,$database);
 
 ?>
