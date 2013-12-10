@@ -1,4 +1,6 @@
 <?php
+ob_start();
+
 @session_start();
 $rootpath = "../";
 include ($rootpath . "lib/db.php");
@@ -79,4 +81,6 @@ array_to_csv_download(
 	$user_array, // this array is going to be the second row
   "User_Statistic_Report.csv"
 );
+*/
+ob_end_flush();
 ?>
