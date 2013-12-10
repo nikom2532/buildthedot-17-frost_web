@@ -39,7 +39,7 @@ if ($msg=="Sucess") {
 
 include ("include/top-bar.php");
 
-$header_with_tag = "info";
+$header_with_tag = "group";
 include("include/header-with-tabs.php");
 
 $glvl_id = $_POST["glvl_id"];
@@ -62,9 +62,10 @@ $glvl_glvl = $_POST	["glvl_glvl"];
 			</div>
 			<!-- end content-module-heading -->
 			<div class="content-module-main cf">
-				<form action="edit-info-proc.php" method='POST' name="editinfo" id="editinfo">
+				<form action="edit-group-proc.php" method='POST' name="editinfo" id="editinfo">
+					<input type="hidden" name="glvl_glvl" id="glvl_glvl" value="<?php echo $glvl_glvl; ?>" />
+					<input type="hidden" name="glvl_id" id="glvl_id" value="<?php echo $glvl_id; ?>" />
 					<div class="half-size-column fl">
-						<!-- <form action="edit-pdf-proc.php" method='POST' name="editpdf" id="editpdf"> -->
 <?php
 						$sql_group = "
 							SELECT * 
@@ -81,7 +82,7 @@ $glvl_glvl = $_POST	["glvl_glvl"];
 								</p>
 								<p>
 									<label for="description">Description</label>
-									<textarea id="description" class="round full-width-textarea" name="description" ><?php echo $row['DESCRIPTION']; ?></textarea>
+									<textarea name="description" id="description" class="round full-width-textarea" ><?php echo $row['DESCRIPTION']; ?></textarea>
 								</p>
 								<p>
 <?php
@@ -97,7 +98,17 @@ $glvl_glvl = $_POST	["glvl_glvl"];
 											$result_glvl_parent = @mysql_query($sql_glvl_parent);
 											while ($rs_glvl_parent = @mysql_fetch_array($result_glvl_parent)) {
 ?>
-												<option value="<?php echo $rs_glvl_parent["ID"]; ?>">
+												<option value="<?php echo $rs_glvl_parent["ID"]; ?>"<?php
+													$sql_group_selected = "
+														SELECT `ID`
+														FROM  `GROUP_LV".($glvl_glvl-1)."`
+														WHERE `ID` = '".$row["GROUP_LV".($glvl_glvl-1)."_ID"]."'
+													;";
+													$result_group_selected = @mysql_query($sql_group_selected);
+													if($rs_group_selected = @mysql_fetch_array($result_group_selected)){
+														echo "selected = \"selected\"";
+													}
+												?>>
 													<?php echo $rs_glvl_parent["NAME"]; ?>
 												</option>
 <?php
