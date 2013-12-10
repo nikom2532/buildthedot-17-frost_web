@@ -151,14 +151,20 @@ include("include/header-with-tabs.php");
 									// echo "<td>" . $newDate . "</td>";
 ?>
 									<td>
-										<form method='post' action='edit-pdf.php' id='submitform' name='submitform'>
+										<form method='post' action='edit-group.php' id='submitform' name='submitform'>
 											<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 75px;' ALT='EDIT'> 
-											<input type='hidden' name='pdfId' value="<?=$row['id']?>"/>
-											<input type='hidden' name='glvId' value="<?=$row['glvId']?>"/>	
-											<input type='hidden' name='glvName' value="<?=$row['glvName']?>"/>	
+											<input type='hidden' name='glvl_id' value="<?php echo $row['ID'];?>"/>
+<?php
+											if($_GET["grouplevel"] != 1){
+?>
+												<input type='hidden' name='glvl_id_parent' value="<?php echo $row["GROUP_LV".($_GET["grouplevel"]-1)."_ID"]; ?>"/>
+<?php
+											}
+?>
+											<input type='hidden' name='glvl_glvl' value="<?php echo $_GET["grouplevel"]; ?>"/>
 										</form>
-										<form method='post' action='delete-pdf.php'id='submitform' name='submitform'>
-											<input type='hidden' name='pdfId' value="<?=$row['id']?>"/>
+										<form method='post' action='delete-group.php'id='submitform' name='submitform'>
+											<input type='hidden' name='pdfId' value="<?=$row['ID']?>"/>
 											<input type='hidden' name='glvId' value="<?=$row['glvId']?>"/>	
 											<input type='hidden' name='glvName' value="<?=$row['glvName']?>"/>	
 											<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0' ALT='DELETE'  onClick='return confirmSubmit()'>

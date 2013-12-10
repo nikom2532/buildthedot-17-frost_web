@@ -483,16 +483,15 @@ include("include/header-with-tabs.php");
 									if(@mysql_fetch_array($resultLv_selected)){
 ?>
 										<label for="gLv3">Group level 3</label>
-	<?php
+<?php
 										$sqlLv3 = "SELECT * FROM GROUP_LV3";
 										$resultLv3 = mysql_query($sqlLv3);
-	?>
+?>
 										<select name="gLv3" id="gLv3" onchange="getGLv4(this.value)" disabled="disabled">
-											
 											<option value='0'>--Select Menu--</option>
-	<?php 
+<?php 
 											while ($rowLv3 = mysql_fetch_array($resultLv3)) {
-	?>
+?>
 												<option value="<?php echo $rowLv3['ID']; ?>" <?php 
 													$sqlLv3_selected = "SELECT * FROM GROUP_LV3 WHERE `ID` = '{$gLv3Id}'";
 													$resultLv3_selected = mysql_query($sqlLv3_selected);
