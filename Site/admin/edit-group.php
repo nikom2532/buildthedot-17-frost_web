@@ -98,15 +98,9 @@ $glvl_glvl = $_POST	["glvl_glvl"];
 											$result_glvl_parent = @mysql_query($sql_glvl_parent);
 											while ($rs_glvl_parent = @mysql_fetch_array($result_glvl_parent)) {
 ?>
-												<option value="<?php echo $rs_glvl_parent["ID"]; ?>"<?php
-													$sql_group_selected = "
-														SELECT `ID`
-														FROM  `GROUP_LV".($glvl_glvl-1)."`
-														WHERE `ID` = '".$row["GROUP_LV".($glvl_glvl-1)."_ID"]."'
-													;";
-													$result_group_selected = @mysql_query($sql_group_selected);
-													if($rs_group_selected = @mysql_fetch_array($result_group_selected)){
-														echo "selected = \"selected\"";
+												<option value="<?php echo $rs_glvl_parent["ID"]; ?>" <?php
+													if($rs_glvl_parent["ID"] == $row["GROUP_LV".($glvl_glvl-1)."_ID"]){
+														echo "selected = \"selected\""; 
 													}
 												?>>
 													<?php echo $rs_glvl_parent["NAME"]; ?>
