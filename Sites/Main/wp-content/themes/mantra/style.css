@@ -717,6 +717,13 @@ font-size:1.9em;
 	-webkit-text-shadow:2px 2px 0px #FFF,-2px -2px 0px #FFF,3px 3px 1px #ccc;
 	text-shadow:2px 2px 0px #FFF,-2px -2px 0px #FFF,3px 3px 1px #ccc;
 }
+#content .entry-title-onecolumn {
+	color: #EB500B;
+	font-size: 30px;
+	font-weight: bold;
+	line-height: 1.3em;
+	margin-bottom: 0;
+}
 .entry-title a:link,
 .entry-title a:visited {
 	color:inherit;
@@ -2583,3 +2590,8 @@ a.short-button-color:hover, a.short-button-light:hover, a.short-button-dark:hove
 
 
 /* FIN! */
+
+header#header #masthead nav#access div#menu{
+	text-transform:uppercase;
+	color: #EB500B;
+}

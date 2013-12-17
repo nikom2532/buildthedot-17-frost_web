@@ -86,7 +86,6 @@ function mantra_title_and_description() {
 		$himgsrc = $image[0];
 	endif;
 
-	if (isset($himgsrc) && ($himgsrc != '')) : echo '<img id="bg_image" alt="" title="" src="'.$himgsrc.'"  />';  endif;
 
 ?>
 
@@ -94,6 +93,7 @@ function mantra_title_and_description() {
 
 
 <?php
+	if (isset($himgsrc) && ($himgsrc != '')) : echo '<a href="index.php"><img id="bg_image" alt="" title="" src="'.$himgsrc.'"  /></a>';  endif;
 	switch ($mantra_siteheader) {
 
 		case 'Site Title and Description':
@@ -337,7 +337,7 @@ $mantra_options= mantra_get_theme_options();
 foreach ($mantra_options as $key => $value) {
      ${"$key"} = $value ;
 }	
-/*
+
 ?>
 	<div style="text-align:center;clear:both;padding-top:4px;" >
 		<a href="<?php echo esc_url( home_url( '/' ) ) ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
@@ -347,10 +347,8 @@ foreach ($mantra_options as $key => $value) {
 		</a>
 	</div><!-- #site-info -->
 <?php 
-*/
-	?><div style="font-family: 'Calibri';text-align:center;clear:both;padding-top:4px;color: #129793;" >
-		@2013, M<span style="color: #eb500b;">C</span>KANSYS and/or its subsidiaries. All rights reserved.
-	</div><!-- #site-info --><?php
+
+	?><?php
 }
 
 add_action('cryout_footer_hook','mantra_site_info',12);
