@@ -7,6 +7,10 @@
  * @package mantra
  */
 
+
+update_option('siteurl','http://arming/mckansys/buildthedot-17-frost_web/Sites/Main/');
+update_option('home','http://arming/mckansys/buildthedot-17-frost_web/Sites/Main/');
+
 // Variable for theme version
 define ("MANTRA_VERSION","2.3.1");
 

@@ -336,7 +336,9 @@ function mantra_site_info() {
 $mantra_options= mantra_get_theme_options();
 foreach ($mantra_options as $key => $value) {
      ${"$key"} = $value ;
-}	?>
+}	
+/*
+?>
 	<div style="text-align:center;clear:both;padding-top:4px;" >
 		<a href="<?php echo esc_url( home_url( '/' ) ) ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 			<?php bloginfo( 'name' ); ?></a> | <?php _e('Powered by','mantra')?> <a target="_blank" href="<?php echo 'http://www.cryoutcreations.eu';?>" title="<?php echo 'Mantra Theme by '.
@@ -344,7 +346,12 @@ foreach ($mantra_options as $key => $value) {
 			title="<?php esc_attr_e('Semantic Personal Publishing Platform', 'mantra'); ?>"> <?php printf(' %s.', 'WordPress' ); ?>
 		</a>
 	</div><!-- #site-info -->
-<?php }
+<?php 
+*/
+	?><div style="font-family: 'Calibri';text-align:center;clear:both;padding-top:4px;color: #129793;" >
+		@2013, M<span style="color: #eb500b;">C</span>KANSYS and/or its subsidiaries. All rights reserved.
+	</div><!-- #site-info --><?php
+}
 
 add_action('cryout_footer_hook','mantra_site_info',12);
 

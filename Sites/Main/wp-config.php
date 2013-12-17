@@ -16,13 +16,16 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'landing');
+define('DB_NAME', 'buildthedot_17mckansys_wordpress');
+//define('DB_NAME', 'landing');
 
 /** MySQL database username */
-define('DB_USER', 'sukanya');
+//define('DB_USER', 'sukanya');
+define('DB_USER', 'iming');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'mouse119');
+//define('DB_PASSWORD', 'mouse119');
+define('DB_PASSWORD', 'iming');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
@@ -88,3 +91,6 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
+//define('RELOCATE',true);
+define('WP_HOME','http://arming/mckansys/buildthedot-17-frost_web/Sites/Main/');
+define('WP_SITEURL','http://arming/mckansys/buildthedot-17-frost_web/Sites/Main/');

@@ -27,7 +27,9 @@
 			<?php cryout_footer_hook(); ?>
 			
 		</div><!-- #footer2 -->
-
+		<div style="background-color: #FFFFFF;font-family: 'Calibri';text-align:center;clear:both;padding-top:4px;color: #129793;" >
+			@2013, M<span style="color: #eb500b;font-family: 'Calibri';">C</span>KANSYS and/or its subsidiaries. All rights reserved.
+		</div><!-- #site-info -->
 	</footer><!-- #footer -->
 
 </div><!-- #wrapper -->
