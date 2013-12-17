@@ -2591,7 +2591,7 @@ a.short-button-color:hover, a.short-button-light:hover, a.short-button-dark:hove
 
 /* FIN! */
 
-header#header #masthead nav#access div#menu{
-	text-transform:uppercase;
+header#header #masthead nav#access div.menu ul li a{
 	color: #EB500B;
+	text-transform:uppercase;
 }
