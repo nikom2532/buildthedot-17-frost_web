@@ -93,7 +93,7 @@ function mantra_title_and_description() {
 
 
 <?php
-	if (isset($himgsrc) && ($himgsrc != '')) : echo '<a href="index.php"><img id="bg_image" alt="" title="" src="'.$himgsrc.'"  /></a>';  endif;
+	if (isset($himgsrc) && ($himgsrc != '')) : echo '<a href="http://www.mckansys.com"><img id="bg_image" alt="" title="" src="'.$himgsrc.'"  /></a>';  endif;
 	switch ($mantra_siteheader) {
 
 		case 'Site Title and Description':
