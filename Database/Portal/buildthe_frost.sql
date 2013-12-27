@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.3.1
+-- version 4.0.6deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 27, 2013 at 01:34 PM
--- Server version: 5.1.66
--- PHP Version: 5.3.3-7+squeeze15
+-- Generation Time: Dec 27, 2013 at 09:58 AM
+-- Server version: 5.5.34-0ubuntu0.13.10.1
+-- PHP Version: 5.5.3-1ubuntu2.1
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `mckansys`
+-- Database: `buildthedot_17mckansys`
 --
 
 -- --------------------------------------------------------
@@ -380,40 +380,6 @@ CREATE TABLE IF NOT EXISTS `DOWNLOAD_STATISTICS` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=29 ;
 
---
--- Dumping data for table `DOWNLOAD_STATISTICS`
---
-
-INSERT INTO `DOWNLOAD_STATISTICS` (`ID`, `USER_ID`, `PDF_ID`, `DOWNLOAD_DATETIME`) VALUES
-(1, 1, 21, '2013-10-17 05:37:16'),
-(2, 1, 21, '2013-10-17 05:42:15'),
-(3, 3, 21, '2013-10-17 05:42:58'),
-(4, 3, 21, '2013-10-17 05:43:20'),
-(5, 3, 21, '2013-10-17 05:43:23'),
-(6, 3, 21, '2013-10-17 05:43:25'),
-(7, 3, 21, '2013-10-17 05:43:28'),
-(8, 3, 21, '2013-10-17 09:50:34'),
-(9, 3, 21, '2013-10-17 09:51:03'),
-(10, 3, 21, '2013-10-17 11:10:02'),
-(11, 1, 2, '2013-10-17 11:16:49'),
-(12, 1, 2, '2013-10-17 11:17:05'),
-(13, 1, 2, '2013-10-17 11:23:50'),
-(14, 1, 1, '2013-10-17 11:28:03'),
-(15, 3, 21, '2013-10-22 07:28:01'),
-(16, 3, 21, '2013-10-22 07:29:28'),
-(17, 1, 17, '2013-10-29 14:21:54'),
-(18, 1, 18, '2013-10-29 14:22:12'),
-(19, 1, 17, '2013-10-29 14:22:53'),
-(20, 1, 21, '2013-10-29 14:32:56'),
-(21, 1, 21, '2013-10-30 04:19:07'),
-(22, 1, 17, '2013-10-30 04:20:46'),
-(23, 1, 22, '2013-11-01 04:27:03'),
-(24, 3, 7, '2013-11-05 04:44:23'),
-(25, 3, 8, '2013-11-05 04:50:21'),
-(26, 1, 22, '2013-11-05 04:53:53'),
-(27, 3, 11, '2013-11-05 04:55:45'),
-(28, 1, 18, '2013-11-21 04:39:46');
-
 -- --------------------------------------------------------
 
 --
@@ -638,44 +604,22 @@ CREATE TABLE IF NOT EXISTS `PDF` (
 --
 
 INSERT INTO `PDF` (`ID`, `NAME`, `PHOTO_NAME`, `DESCRIPTION`, `BY`, `PRICE`, `UPDATE_DATE`, `COMPANY_ID`, `PATH`, `Is_Asian_country`) VALUES
-(1, 'test1', 'Cover-NFC.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 1', '', 100, '2013-09-01 00:00:00', 1, 'TestPdf1.pdf', 0),
-(2, 'test2', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 2', '', 200, '2013-09-02 00:00:00', 2, 'TestPdf2.pdf', 0),
-(3, 'test3', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 3', '', 300, '2013-09-03 00:00:00', 3, 'TestPdf3.pdf', 0),
-(4, 'test4', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 4', '', 400, '2013-09-04 00:00:00', 4, 'TestPdf4.pdf', 0),
-(5, 'test5', 'testPDF.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, Lorem 5', '', 500, '2013-09-05 00:00:00', 5, 'TestPdf5.pdf', 0),
-(7, 'Brunei Darussalam', 'brunei.jpg', 'asdf', '', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(8, 'Cambodia', 'cambodia.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s', '', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(9, 'Indonesia', 'indonesia.jpg', 'aaa', '', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(10, 'Lao PDR', 'lao.jpg', 'aaa', '', 0, NULL, NULL, 'TestPdf1.pdf', 1),
-(11, 'Malaysia', 'malaysia.jpg', 'มาเลเซียเป็นหนึ่งในประเทศที่มีเศรษฐกิจที่เฟื่องฟูและประสบความสำเร็จมากที่สุดในเอเซียตะวันออกเฉียงใต้ แม้เศรษฐกิจโลกจะประสบปัญหาซบเซา แต่เศรษฐกิจของมาเลเซียยังคงแข็งแกร่ง ด้วยการเติบโตของภาคอุตสาหกรรมและเสถียรภาพทางการเมืองในทศวรรษที่ผ่านมา\r\n อัตราการเจริญเติบโตของ GDP ที่แข็งแกร่งทำให้รายได้ต่อหัวเพิ่มขึ้นอย่างรวดเร็ว ซึ่งทำให้เศรษฐกิจของประเทศเปลี่ยนจากการพึ่งพาสินค้าโภคภัณฑ์ไปสู่การผลิตสินค้าเพื่อส่งออกแทนทั้งยังเริ่มหันไปสู่ภาคบริการมากขึ้น  นอกจากนี้ จำนวนประชาชนชั้นกลางที่ร่ำรวยเพิ่มมากขึ้น ทำให้ความต้องการผลิตภัณฑ์จากต่างประเทศที่มีคุณภาพเพิ่มมากขึ้นด้วย \r\n', '', 100, '2013-11-05 00:00:00', NULL, 'CountryProfile-Malaysia.pdf', 1),
-(12, 'Myanmar', 'myanmar.jpg', 'aaa', '', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(13, 'Philippines', 'philipine.jpg', 'aaa', '', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(14, 'Singapore', 'singapore.jpg', 'aaa', '', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(15, 'Thailand', 'thailand.jpg', 'aaa', '', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(16, 'Viet Nam', 'vietnam.jpg', 'aaa', '', 100, NULL, NULL, 'TestPdf1.pdf', 1),
-(17, 'Augmenting Mobile 3G Using WiFi', 'testPDF.jpg', 'We investigate if WiFi access can be used to augment 3G capacity in mobile environments. We rst conduct a detailed study of 3G and WiFi access from moving vehicles, in three\r\ndierent cities. We nd that the average 3G and WiFi availability across the cities is 87% and 11%, respectively. WiFi throughput is lower than 3G throughput, and WiFi loss rates are higher.', '', NULL, '2013-10-14 14:00:00', NULL, 'Augmenting3G.pdf', 0),
-(18, 'Third Generation (3G) Wireless', 'testPDF.jpg', '3G is the next generation of wireless network technology that provides high speed\r\nbandwidth (high data transfer rates) to handheld devices. The high data transfer rates will allow 3G networks to offer multimedia services combining voice and data.', 'Mckansys', 100, '2013-10-14 14:10:00', NULL, 'brief3G.pdf', 0),
-(19, 'THINGS YOU SHOULD KNOW ABOUT? Cloud Computing', 'testPDF.jpg', 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate.By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis\r\nand avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate changes in demand.', '', NULL, '2013-10-14 14:16:00', NULL, 'CloudComputing.pdf', 0),
-(20, 'The Economics of Cloud Computing', '', 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate.By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis\r\nand avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate changes in demand.', '', NULL, '2013-10-15 15:20:13', NULL, 'Economics-of-Cloud-Computing.pdf', 0),
-(21, 'E-Business Model', 'testPDF.jpg', 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate. By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis\r\nand avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate\r\nchanges in demand.', '', NULL, '2013-10-16 00:00:00', NULL, 'ModeleEBusiness.pdf', 0),
-(22, 'Near Field Communication ', 'Cover-NFC.jpg', 'Near Field Communication (NFC) กับตลาดผู้บริโภคในประเทศไทย มัคคานซิสเชื่อว่า ปี 2557 จะเป็นช่วงเวลาแห่งการเติบโตและการใช้งานจริงอย่างแพร่หลายของเทคโนโลยีการสื่อสารระยะสั้น หรือ Near Field Communication (NFC)ซึ่งเป็นเทคโนโลยีการสื่อสารระยะสั้น มีระยะการให้บริการติดต่อระหว่างกันประมาณ 10 เซนติเมตร ผ่านทางคลื่นไร้สายที่ความถี่ 13.56 MHz จัดเป็นเทคโนโลยี RFID (Radio frequency identification) รูปแบบหนึ่ง ด้วยคุณลักษณะของเทคโนโลยี NFC เองนั้นเกิดขึ้นมาเพื่อความรวดเร็วและเรียบง่ายในการติดต่อสื่อสารระหว่างอุปกรณ์พกพา และเป็นไปตามวิถีชีวิตของผู้ใช้งานเมืองในปัจจุบัน   ', 'John', 0, '2013-11-01 00:00:00', 1, 'Tech -NFC -271013_FINAL-Cover.pdf', 0),
-(23, 'Near Field Communication เทคโนโลยีการสื่อสารระยะสั้นจะเกิดขึ้นจริงในกลุ่มผู้ใช้งานทั่วไปในประเทศไทย', '1_CoverNFC.jpg', 'มัคคานซิสเชื่อว่า ภายในปี 2557  Near Field Communication (NFC) ซึ่งเป็นเทคโนโลยีการสื่อสารระยะสั้น จะเป็นช่วงเวลาแห่งการเติบโตและการใช้งานจริงอย่างแพร่หลายกับตลาดผู้บริโภคในประเทศไทย', 'Att', NULL, '2013-11-08 00:00:00', NULL, '1_Tech-NFC-271013_FINAL-Cover2.pdf', 0),
-(24, 'ทิศทาง OTT โมเดลในประเทศไทย', '2_CoverOTT.jpg', 'ทิศทางรูปแบบธุรกิจ OTT หรือ Over-The-Top ที่กำลังเกิดขึ้นและได้รับความนิยมในปัจจุบันจากผู้พัฒนาโมบายแอพพลิเคชั่น และส่งผลกระทบโดยตรงต่อผู้ให้บริการสื่อสารข้อมูลไร้สายทั่วโลก', 'Att', NULL, '2013-12-05 00:00:00', NULL, NULL, 0),
-(25, 'การบูรณาการองค์กรด้วย Business Intelligence', '3_CoverBI.jpg', 'Business Intelligence (BI) คือ เทคโนโลยีในรูปแบบซอฟแวร์ เป็นระบบที่ถูกนำมาใช้เพื่อวิเคราะห์ข้อมูลในการปรับปรุงการบริการและผลิตภัณฑ์ รวมทั้งกลยุทธ์ในการเปิดตลาดใหม่ๆเป็นอันดับต้นๆใน 4-5 ปีมานี้ ', 'Yah', NULL, '2013-12-19 00:00:00', NULL, '3_BusinessIntelligence-yah-cover.pdf', 0),
-(26, 'ภาพรวมสถานการณ์อุตสาหกรรมการสื่อสารโทรคมนาคมก่อนสิ้นปี 2556', '4_CoverOverall.jpg', 'ภาพรวมของสถานการณ์เศรษฐกิจภายในประเทศตั้งแต่ช่วงต้นปี 2555 เป็นต้นมา อุตสาหกรรมการสื่อสารโทรคมนาคมอยู่ในทิศทางที่ดีขึ้นอย่างต่อเนื่อง ความต้องการใช้บริการทางการสื่อสารมีการเติบโตอย่างชัดเจน   ', 'Cee', NULL, '2013-11-21 00:00:00', NULL, '4_TelecomOVERALL2013.pdf', 0),
-(27, 'ภาพรวมสถานการณ์อุตสาหกรรมโทรคมนาคมก่อนปิดปี 2556 ในภาคส่วนของกลุ่มบริการเสียงแบบไร้สาย (Mobile services)', '5_CoverMobile.jpg', 'การเติบโตของการใช้งานโทรศัพท์เคลื่อนที่ในประเทศไทยนั้น เริ่มจากการใช้บริการเสียงที่มีโปรโมชั่นแข่งขันกันอย่างหลากหลาย ตั้งแต่ปี 2553 เป็นต้นเริ่มมีกระแสนิยมในการใช้โทรศัพท์เคลื่อนที่แบบสมาร์ทโฟนในประเทศไทยมากขึ้น', 'Cee', NULL, '2013-11-21 00:00:00', NULL, '5_TelcomVoice2013.pdf', 0),
-(28, 'ภาพรวมสถานการณ์อุตสาหกรรมโทรคมนาคมก่อนปิดปี 2556 ในภาคส่วนของกลุ่มบริการเสียงพื้นฐาน (Fixed-voice services)', '6_CoverFixed.jpg', 'กลุ่มบริการเสียงพื้นฐานเงียบเหงามามากกว่า 5 ปี หลังจากโทรศัพท์เคลื่อนที่ได้เข้ามาแทนที่และได้รับความนิยมอย่างต่อเนื่อง  การลดลงที่เห็นผลกระทบได้ชัดเจนนั้น เพิ่งจะเกิดขึ้นในช่วงปี 2553  เนื่องจากความสามารถของบริการโทรศัพท์เคลื่อนที่และบริการอินเทอร์เน็ตความเร็วสูงเข้ามามีบทบาทและได้รับความนิยมมากขึ้นในประเทศไทย', 'Cee', NULL, '2013-11-21 00:00:00', NULL, '6_TelecomMobile2013.pdf', 0),
-(29, 'ภาพรวมสถานการณ์อุตสาหกรรมโทรคมนาคมก่อนปิดปี 2556 ในภาคส่วนของกลุ่มสื่อสารข้อมูล (Data Services)', '7_CoverData.jpg', 'ตลอดช่วงระยะเวลาในปี 2554-2555 ที่ผ่านมา กลุ่มบริการสื่อสารข้อมูลได้ถูกขับเคลื่อนการใช้งานจาก ผู้ให้บริการโทรศัพท์เคลื่อนที่, กลุ่มการเงินธนาคาร และกลุ่มขายปลีก-ส่ง เพราะผู้ใช้บริการกลุ่มนี้ได้มีการขยายพื้นที่การให้บริการและสาขาไปยังตามชุมชนต่างจังหวัดมากขึ้น ', 'Cee', NULL, '2013-11-21 00:00:00', NULL, '7_TelecomData2013.pdf', 0),
-(30, 'Country Profile - Brunei', '8_CoverBrunei.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศบรูไน', 'Yah/Prae/kung', NULL, '2013-12-16 00:00:00', NULL, '8_CountryProfile-Brunei.pdf', 1),
-(31, 'Country Profile - Cambodia', '9_CoverCambodia.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศกัมพูชา', 'Yah/Prae/kung', NULL, '2013-12-16 00:00:00', NULL, '9_CountryProfile-Cambodia.pdf', 1),
-(32, 'Country Profile - Indonesia', '10_CoverIndo.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศอินโดนีเซีย', 'Yah/Prae/kung', NULL, '2013-12-16 00:00:00', NULL, '10_CountryProfile-Indonesia.pdf', 1),
-(33, 'Country Profile - Laos', '11_CoverLaos.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศลาว', 'Yah/Prae/kung', NULL, '2013-12-16 00:00:00', NULL, '11_CountryProfile-Laos.pdf', 1),
-(34, 'Country Profile - Malaysia', '12_CoverMalaysia.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศมาเลเซีย', 'Yah/Prae/kung', NULL, '2013-12-16 00:00:00', NULL, '12_CountryProfile-MalaysiaPlus.pdf', 1),
-(35, 'Country Profile - Malaysia', '12_CoverMalaysia.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศมาเลเซีย', 'Yah/Prae/kung', NULL, '2013-12-16 00:00:00', NULL, '12_CountryProfile-MalaysiaPlus.pdf', 1),
-(36, 'Country Profile - Myanmar', '13_CoverMyanmar.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศพม่า', 'Yah/Prae/kung', NULL, '2013-12-16 00:00:00', NULL, '13_CountryProfile-Myanmar.pdf', 1),
-(37, 'Country Profile - Philippines', '14_CoverPhilippines.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศฟิลิปปินส์', 'Yah/Prae/kung', NULL, '2013-12-16 00:00:00', NULL, '14_CountryProfile-Philippines.pdf', 1),
-(38, 'Country Profile - Singapore', '15_CoverSingapore.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศสิงคโปร์', 'Yah/Prae/kung', NULL, '2013-12-16 00:00:00', NULL, '15_CountryProfile-Singapore.pdf', 1),
-(39, 'Country Profile - Vietnam', '17_CoverVietnam.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศเวียดนาม', 'Yah/Prae/kung', NULL, '2013-12-16 00:00:00', NULL, '17_CountryProfile-Vietnam', 1);
+(23, 'Near Field Communication เทคโนโลยีการสื่อสารระยะสั้นจะเกิดขึ้นจริงในกลุ่มผู้ใช้งานทั่วไปในประเทศไทย', '1_CoverNFC.jpg', 'มัคคานซิสเชื่อว่า ภายในปี 2557  Near Field Communication (NFC) ซึ่งเป็นเทคโนโลยีการสื่อสารระยะสั้น จะเป็นช่วงเวลาแห่งการเติบโตและการใช้งานจริงอย่างแพร่หลายกับตลาดผู้บริโภคในประเทศไทย', 'Mckansys', NULL, '2013-11-08 00:00:00', NULL, '1_Tech-NFC-271013_FINAL-Cover2.pdf', 0),
+(24, 'ทิศทาง OTT โมเดลในประเทศไทย', '2_CoverOTT.jpg', 'ทิศทางรูปแบบธุรกิจ OTT หรือ Over-The-Top ที่กำลังเกิดขึ้นและได้รับความนิยมในปัจจุบันจากผู้พัฒนาโมบายแอพพลิเคชั่น และส่งผลกระทบโดยตรงต่อผู้ให้บริการสื่อสารข้อมูลไร้สายทั่วโลก', 'Mckansys', NULL, '2013-12-05 00:00:00', NULL, '2_OTT_Complete_Cover.pdf', 0),
+(25, 'การบูรณาการองค์กรด้วย Business Intelligence', '3_CoverBI.jpg', 'Business Intelligence (BI) คือ เทคโนโลยีในรูปแบบซอฟแวร์ เป็นระบบที่ถูกนำมาใช้เพื่อวิเคราะห์ข้อมูลในการปรับปรุงการบริการและผลิตภัณฑ์ รวมทั้งกลยุทธ์ในการเปิดตลาดใหม่ๆเป็นอันดับต้นๆใน 4-5 ปีมานี้ ', 'Mckansys', NULL, '2013-12-19 00:00:00', NULL, '3_BusinessIntelligence-yah-cover.pdf', 0),
+(26, 'ภาพรวมสถานการณ์อุตสาหกรรมการสื่อสารโทรคมนาคมก่อนสิ้นปี 2556', '4_CoverOverall.jpg', 'ภาพรวมของสถานการณ์เศรษฐกิจภายในประเทศตั้งแต่ช่วงต้นปี 2555 เป็นต้นมา อุตสาหกรรมการสื่อสารโทรคมนาคมอยู่ในทิศทางที่ดีขึ้นอย่างต่อเนื่อง ความต้องการใช้บริการทางการสื่อสารมีการเติบโตอย่างชัดเจน   ', 'Mckansys', NULL, '2013-11-21 00:00:00', NULL, '4_TelecomOVERALL2013.pdf', 0),
+(27, 'ภาพรวมสถานการณ์อุตสาหกรรมโทรคมนาคมก่อนปิดปี 2556 ในภาคส่วนของกลุ่มบริการเสียงแบบไร้สาย (Mobile services)', '5_CoverMobile.jpg', 'การเติบโตของการใช้งานโทรศัพท์เคลื่อนที่ในประเทศไทยนั้น เริ่มจากการใช้บริการเสียงที่มีโปรโมชั่นแข่งขันกันอย่างหลากหลาย ตั้งแต่ปี 2553 เป็นต้นเริ่มมีกระแสนิยมในการใช้โทรศัพท์เคลื่อนที่แบบสมาร์ทโฟนในประเทศไทยมากขึ้น', 'Mckansys', NULL, '2013-11-21 00:00:00', NULL, '5_TelcomVoice2013.pdf', 0),
+(28, 'ภาพรวมสถานการณ์อุตสาหกรรมโทรคมนาคมก่อนปิดปี 2556 ในภาคส่วนของกลุ่มบริการเสียงพื้นฐาน (Fixed-voice services)', '6_CoverFixed.jpg', 'กลุ่มบริการเสียงพื้นฐานเงียบเหงามามากกว่า 5 ปี หลังจากโทรศัพท์เคลื่อนที่ได้เข้ามาแทนที่และได้รับความนิยมอย่างต่อเนื่อง  การลดลงที่เห็นผลกระทบได้ชัดเจนนั้น เพิ่งจะเกิดขึ้นในช่วงปี 2553  เนื่องจากความสามารถของบริการโทรศัพท์เคลื่อนที่และบริการอินเทอร์เน็ตความเร็วสูงเข้ามามีบทบาทและได้รับความนิยมมากขึ้นในประเทศไทย', 'Mckansys', NULL, '2013-11-21 00:00:00', NULL, '6_TelecomMobile2013.pdf', 0),
+(29, 'ภาพรวมสถานการณ์อุตสาหกรรมโทรคมนาคมก่อนปิดปี 2556 ในภาคส่วนของกลุ่มสื่อสารข้อมูล (Data Services)', '7_CoverData.jpg', 'ตลอดช่วงระยะเวลาในปี 2554-2555 ที่ผ่านมา กลุ่มบริการสื่อสารข้อมูลได้ถูกขับเคลื่อนการใช้งานจาก ผู้ให้บริการโทรศัพท์เคลื่อนที่, กลุ่มการเงินธนาคาร และกลุ่มขายปลีก-ส่ง เพราะผู้ใช้บริการกลุ่มนี้ได้มีการขยายพื้นที่การให้บริการและสาขาไปยังตามชุมชนต่างจังหวัดมากขึ้น ', 'Mckansys', NULL, '2013-11-21 00:00:00', NULL, '7_TelecomData2013.pdf', 0),
+(30, 'Country Profile - Brunei', '8_CoverBrunei.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศบรูไน', 'Mckansys', NULL, '2013-12-16 00:00:00', NULL, '8_CountryProfile-Brunei.pdf', 1),
+(31, 'Country Profile - Cambodia', '9_CoverCambodia.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศกัมพูชา', 'Mckansys', NULL, '2013-12-16 00:00:00', NULL, '9_CountryProfile-Cambodia.pdf', 1),
+(32, 'Country Profile - Indonesia', '10_CoverIndo.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศอินโดนีเซีย', 'Mckansys', NULL, '2013-12-16 00:00:00', NULL, '10_CountryProfile-Indonesia.pdf', 1),
+(33, 'Country Profile - Laos', '11_CoverLaos.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศลาว', 'Mckansys', NULL, '2013-12-16 00:00:00', NULL, '11_CountryProfile-Laos.pdf', 1),
+(34, 'Country Profile - Malaysia', '12_CoverMalaysia.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศมาเลเซีย', 'Mckansys', NULL, '2013-12-16 00:00:00', NULL, '12_CountryProfile-MalaysiaPlus.pdf', 1),
+(36, 'Country Profile - Myanmar', '13_CoverMyanmar.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศพม่า', 'Mckansys', NULL, '2013-12-16 00:00:00', NULL, '13_CountryProfile-Myanmar.pdf', 1),
+(37, 'Country Profile - Philippines', '14_CoverPhilippines.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศฟิลิปปินส์', 'Mckansys', NULL, '2013-12-16 00:00:00', NULL, '14_CountryProfile-Philippines.pdf', 1),
+(38, 'Country Profile - Singapore', '15_CoverSingapore.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศสิงคโปร์', 'Mckansys', NULL, '2013-12-16 00:00:00', NULL, '15_CountryProfile-Singapore.pdf', 1),
+(39, 'Country Profile - Vietnam', '17_CoverVietnam.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศเวียดนาม', 'Mckansys', NULL, '2013-12-16 00:00:00', NULL, '17_CountryProfile-Vietnam', 1);
 
 -- --------------------------------------------------------
 
@@ -697,31 +641,6 @@ CREATE TABLE IF NOT EXISTS `PDF_CATEGORY` (
 --
 
 INSERT INTO `PDF_CATEGORY` (`ID`, `PDF_ID`, `GROUP_LEVEL_NAME`, `GROUP_LEVEL_ID`) VALUES
-(1, 1, '2', 2),
-(2, 2, '3', 3),
-(3, 7, '3', 11),
-(4, 8, '3', 11),
-(5, 9, '3', 11),
-(6, 10, '3', 11),
-(7, 11, '3', 11),
-(8, 12, '3', 11),
-(9, 13, '3', 11),
-(10, 14, '3', 11),
-(11, 15, '3', 11),
-(12, 16, '3', 11),
-(24, 17, '3', 3),
-(25, 18, '3', 4),
-(26, 19, '3', 9),
-(27, 20, '4', 5),
-(28, 21, '3', 3),
-(29, 22, '2', 2),
-(30, 22, '2', 1),
-(31, 22, '2', 1),
-(32, 22, '3', 9),
-(33, 22, '4', 5),
-(34, 22, '4', 5),
-(35, 22, '4', 6),
-(36, 22, '4', 6),
 (37, 23, '3', 16),
 (38, 24, '3', 16),
 (39, 25, '3', 7),
@@ -734,7 +653,6 @@ INSERT INTO `PDF_CATEGORY` (`ID`, `PDF_ID`, `GROUP_LEVEL_NAME`, `GROUP_LEVEL_ID`
 (46, 32, '3', 11),
 (47, 33, '3', 11),
 (48, 34, '3', 11),
-(49, 35, '3', 11),
 (50, 36, '3', 11),
 (51, 37, '3', 11),
 (52, 38, '3', 11),
@@ -839,19 +757,6 @@ CREATE TABLE IF NOT EXISTS `TAG_RELATIONSHIP` (
   KEY `fk_PDF_has_TAG_TAG1_idx` (`TAG_ID`),
   KEY `fk_PDF_has_TAG_PDF1_idx` (`PDF_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `TAG_RELATIONSHIP`
---
-
-INSERT INTO `TAG_RELATIONSHIP` (`PDF_ID`, `TAG_ID`) VALUES
-(1, 1),
-(2, 1),
-(22, 1),
-(1, 2),
-(2, 2),
-(1, 3),
-(22, 3);
 
 -- --------------------------------------------------------
 

@@ -117,7 +117,7 @@ include("include/header-with-tabs.php");
 							}
 							$start=($page-1)*$limit;
 							/*---------end Paging------------*/	
-							$strQuery ="SELECT p.ID AS id, 
+						echo	$strQuery ="SELECT p.ID AS id, 
 										p.NAME AS name,
 										a.GROUP_LEVEL_NAME AS glvName,
 										a.GROUP_LEVEL_ID AS glvId,

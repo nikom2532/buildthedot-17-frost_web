@@ -4,7 +4,7 @@
 		<div class="page-full-width cf">
 			
             <ul id="nav" class="left">
-    			<li class="v-sep"><a href="http://mckansys.buildthedot.com" class="round button green ic-left-arrow image-left">Go to website</a></li>
+    			<li class="v-sep"><a href="http://portal.mckansys.com" class="round button green ic-left-arrow image-left">Go to website</a></li>
                 <li class="v-sep"><a href="#" class="round button dark menu-user image-left">Logged in as <strong>admin</strong></a>
                     <ul>
                         <li><a href="my-profile.php">My Profile</a></li>
