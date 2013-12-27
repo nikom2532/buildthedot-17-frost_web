@@ -484,6 +484,9 @@ include ($rootpath."include/top-menu.php");
 											if($i%2==0){
 												echo "class=\"grid_4\" ";
 											}
+											else{
+												echo "class=\"grid_4\" style=\"margin:0\"";
+											}
 										?>>
 	<?php
 									}
@@ -498,7 +501,7 @@ include ($rootpath."include/top-menu.php");
 											)){
 	?>
 												<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
-													<img src="images/pdf_image/<?php echo $c_PHOTO_NAME["$i"]; ?>" />
+													<img class="thinktank" src="images/pdf_image/<?php echo $c_PHOTO_NAME["$i"]; ?>" />
 												</a>
 	<?php
 											}
