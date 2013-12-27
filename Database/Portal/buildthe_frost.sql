@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 07, 2013 at 01:14 AM
+-- Generation Time: Dec 27, 2013 at 01:34 PM
 -- Server version: 5.1.66
 -- PHP Version: 5.3.3-7+squeeze15
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `mckansys5`
+-- Database: `mckansys`
 --
 
 -- --------------------------------------------------------
@@ -479,7 +479,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV3` (
   `DESCRIPTION` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_GROUP_LV3_GROUP_LV21_idx` (`GROUP_LV2_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `GROUP_LV3`
@@ -631,7 +631,7 @@ CREATE TABLE IF NOT EXISTS `PDF` (
   `PATH` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Is_Asian_country` tinyint(1) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=40 ;
 
 --
 -- Dumping data for table `PDF`
@@ -658,7 +658,24 @@ INSERT INTO `PDF` (`ID`, `NAME`, `PHOTO_NAME`, `DESCRIPTION`, `BY`, `PRICE`, `UP
 (19, 'THINGS YOU SHOULD KNOW ABOUT? Cloud Computing', 'testPDF.jpg', 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate.By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis\r\nand avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate changes in demand.', '', NULL, '2013-10-14 14:16:00', NULL, 'CloudComputing.pdf', 0),
 (20, 'The Economics of Cloud Computing', '', 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate.By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis\r\nand avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate changes in demand.', '', NULL, '2013-10-15 15:20:13', NULL, 'Economics-of-Cloud-Computing.pdf', 0),
 (21, 'E-Business Model', 'testPDF.jpg', 'In its broadest usage, the term cloud computing refers to the delivery of scalable IT resources over the Internet, as opposed to hosting and operating those resources locally, such as on a college or university network. Those resources can include applications and services, as well as the infrastructure on which they operate. By deploying IT infrastructure and services over the network, an organization can purchase these resources on an as-needed basis\r\nand avoid the capital costs of software and hardware. With cloud computing, IT capacity can be adjusted quickly and easily to accommodate\r\nchanges in demand.', '', NULL, '2013-10-16 00:00:00', NULL, 'ModeleEBusiness.pdf', 0),
-(22, 'Near Field Communication ', 'Cover-NFC.jpg', 'Near Field Communication (NFC) กับตลาดผู้บริโภคในประเทศไทย มัคคานซิสเชื่อว่า ปี 2557 จะเป็นช่วงเวลาแห่งการเติบโตและการใช้งานจริงอย่างแพร่หลายของเทคโนโลยีการสื่อสารระยะสั้น หรือ Near Field Communication (NFC)ซึ่งเป็นเทคโนโลยีการสื่อสารระยะสั้น มีระยะการให้บริการติดต่อระหว่างกันประมาณ 10 เซนติเมตร ผ่านทางคลื่นไร้สายที่ความถี่ 13.56 MHz จัดเป็นเทคโนโลยี RFID (Radio frequency identification) รูปแบบหนึ่ง ด้วยคุณลักษณะของเทคโนโลยี NFC เองนั้นเกิดขึ้นมาเพื่อความรวดเร็วและเรียบง่ายในการติดต่อสื่อสารระหว่างอุปกรณ์พกพา และเป็นไปตามวิถีชีวิตของผู้ใช้งานเมืองในปัจจุบัน   ', 'John', 0, '2013-11-01 00:00:00', 1, 'Tech -NFC -271013_FINAL-Cover.pdf', 0);
+(22, 'Near Field Communication ', 'Cover-NFC.jpg', 'Near Field Communication (NFC) กับตลาดผู้บริโภคในประเทศไทย มัคคานซิสเชื่อว่า ปี 2557 จะเป็นช่วงเวลาแห่งการเติบโตและการใช้งานจริงอย่างแพร่หลายของเทคโนโลยีการสื่อสารระยะสั้น หรือ Near Field Communication (NFC)ซึ่งเป็นเทคโนโลยีการสื่อสารระยะสั้น มีระยะการให้บริการติดต่อระหว่างกันประมาณ 10 เซนติเมตร ผ่านทางคลื่นไร้สายที่ความถี่ 13.56 MHz จัดเป็นเทคโนโลยี RFID (Radio frequency identification) รูปแบบหนึ่ง ด้วยคุณลักษณะของเทคโนโลยี NFC เองนั้นเกิดขึ้นมาเพื่อความรวดเร็วและเรียบง่ายในการติดต่อสื่อสารระหว่างอุปกรณ์พกพา และเป็นไปตามวิถีชีวิตของผู้ใช้งานเมืองในปัจจุบัน   ', 'John', 0, '2013-11-01 00:00:00', 1, 'Tech -NFC -271013_FINAL-Cover.pdf', 0),
+(23, 'Near Field Communication เทคโนโลยีการสื่อสารระยะสั้นจะเกิดขึ้นจริงในกลุ่มผู้ใช้งานทั่วไปในประเทศไทย', '1_CoverNFC.jpg', 'มัคคานซิสเชื่อว่า ภายในปี 2557  Near Field Communication (NFC) ซึ่งเป็นเทคโนโลยีการสื่อสารระยะสั้น จะเป็นช่วงเวลาแห่งการเติบโตและการใช้งานจริงอย่างแพร่หลายกับตลาดผู้บริโภคในประเทศไทย', 'Att', NULL, '2013-11-08 00:00:00', NULL, '1_Tech-NFC-271013_FINAL-Cover2.pdf', 0),
+(24, 'ทิศทาง OTT โมเดลในประเทศไทย', '2_CoverOTT.jpg', 'ทิศทางรูปแบบธุรกิจ OTT หรือ Over-The-Top ที่กำลังเกิดขึ้นและได้รับความนิยมในปัจจุบันจากผู้พัฒนาโมบายแอพพลิเคชั่น และส่งผลกระทบโดยตรงต่อผู้ให้บริการสื่อสารข้อมูลไร้สายทั่วโลก', 'Att', NULL, '2013-12-05 00:00:00', NULL, NULL, 0),
+(25, 'การบูรณาการองค์กรด้วย Business Intelligence', '3_CoverBI.jpg', 'Business Intelligence (BI) คือ เทคโนโลยีในรูปแบบซอฟแวร์ เป็นระบบที่ถูกนำมาใช้เพื่อวิเคราะห์ข้อมูลในการปรับปรุงการบริการและผลิตภัณฑ์ รวมทั้งกลยุทธ์ในการเปิดตลาดใหม่ๆเป็นอันดับต้นๆใน 4-5 ปีมานี้ ', 'Yah', NULL, '2013-12-19 00:00:00', NULL, '3_BusinessIntelligence-yah-cover.pdf', 0),
+(26, 'ภาพรวมสถานการณ์อุตสาหกรรมการสื่อสารโทรคมนาคมก่อนสิ้นปี 2556', '4_CoverOverall.jpg', 'ภาพรวมของสถานการณ์เศรษฐกิจภายในประเทศตั้งแต่ช่วงต้นปี 2555 เป็นต้นมา อุตสาหกรรมการสื่อสารโทรคมนาคมอยู่ในทิศทางที่ดีขึ้นอย่างต่อเนื่อง ความต้องการใช้บริการทางการสื่อสารมีการเติบโตอย่างชัดเจน   ', 'Cee', NULL, '2013-11-21 00:00:00', NULL, '4_TelecomOVERALL2013.pdf', 0),
+(27, 'ภาพรวมสถานการณ์อุตสาหกรรมโทรคมนาคมก่อนปิดปี 2556 ในภาคส่วนของกลุ่มบริการเสียงแบบไร้สาย (Mobile services)', '5_CoverMobile.jpg', 'การเติบโตของการใช้งานโทรศัพท์เคลื่อนที่ในประเทศไทยนั้น เริ่มจากการใช้บริการเสียงที่มีโปรโมชั่นแข่งขันกันอย่างหลากหลาย ตั้งแต่ปี 2553 เป็นต้นเริ่มมีกระแสนิยมในการใช้โทรศัพท์เคลื่อนที่แบบสมาร์ทโฟนในประเทศไทยมากขึ้น', 'Cee', NULL, '2013-11-21 00:00:00', NULL, '5_TelcomVoice2013.pdf', 0),
+(28, 'ภาพรวมสถานการณ์อุตสาหกรรมโทรคมนาคมก่อนปิดปี 2556 ในภาคส่วนของกลุ่มบริการเสียงพื้นฐาน (Fixed-voice services)', '6_CoverFixed.jpg', 'กลุ่มบริการเสียงพื้นฐานเงียบเหงามามากกว่า 5 ปี หลังจากโทรศัพท์เคลื่อนที่ได้เข้ามาแทนที่และได้รับความนิยมอย่างต่อเนื่อง  การลดลงที่เห็นผลกระทบได้ชัดเจนนั้น เพิ่งจะเกิดขึ้นในช่วงปี 2553  เนื่องจากความสามารถของบริการโทรศัพท์เคลื่อนที่และบริการอินเทอร์เน็ตความเร็วสูงเข้ามามีบทบาทและได้รับความนิยมมากขึ้นในประเทศไทย', 'Cee', NULL, '2013-11-21 00:00:00', NULL, '6_TelecomMobile2013.pdf', 0),
+(29, 'ภาพรวมสถานการณ์อุตสาหกรรมโทรคมนาคมก่อนปิดปี 2556 ในภาคส่วนของกลุ่มสื่อสารข้อมูล (Data Services)', '7_CoverData.jpg', 'ตลอดช่วงระยะเวลาในปี 2554-2555 ที่ผ่านมา กลุ่มบริการสื่อสารข้อมูลได้ถูกขับเคลื่อนการใช้งานจาก ผู้ให้บริการโทรศัพท์เคลื่อนที่, กลุ่มการเงินธนาคาร และกลุ่มขายปลีก-ส่ง เพราะผู้ใช้บริการกลุ่มนี้ได้มีการขยายพื้นที่การให้บริการและสาขาไปยังตามชุมชนต่างจังหวัดมากขึ้น ', 'Cee', NULL, '2013-11-21 00:00:00', NULL, '7_TelecomData2013.pdf', 0),
+(30, 'Country Profile - Brunei', '8_CoverBrunei.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศบรูไน', 'Yah/Prae/kung', NULL, '2013-12-16 00:00:00', NULL, '8_CountryProfile-Brunei.pdf', 1),
+(31, 'Country Profile - Cambodia', '9_CoverCambodia.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศกัมพูชา', 'Yah/Prae/kung', NULL, '2013-12-16 00:00:00', NULL, '9_CountryProfile-Cambodia.pdf', 1),
+(32, 'Country Profile - Indonesia', '10_CoverIndo.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศอินโดนีเซีย', 'Yah/Prae/kung', NULL, '2013-12-16 00:00:00', NULL, '10_CountryProfile-Indonesia.pdf', 1),
+(33, 'Country Profile - Laos', '11_CoverLaos.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศลาว', 'Yah/Prae/kung', NULL, '2013-12-16 00:00:00', NULL, '11_CountryProfile-Laos.pdf', 1),
+(34, 'Country Profile - Malaysia', '12_CoverMalaysia.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศมาเลเซีย', 'Yah/Prae/kung', NULL, '2013-12-16 00:00:00', NULL, '12_CountryProfile-MalaysiaPlus.pdf', 1),
+(35, 'Country Profile - Malaysia', '12_CoverMalaysia.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศมาเลเซีย', 'Yah/Prae/kung', NULL, '2013-12-16 00:00:00', NULL, '12_CountryProfile-MalaysiaPlus.pdf', 1),
+(36, 'Country Profile - Myanmar', '13_CoverMyanmar.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศพม่า', 'Yah/Prae/kung', NULL, '2013-12-16 00:00:00', NULL, '13_CountryProfile-Myanmar.pdf', 1),
+(37, 'Country Profile - Philippines', '14_CoverPhilippines.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศฟิลิปปินส์', 'Yah/Prae/kung', NULL, '2013-12-16 00:00:00', NULL, '14_CountryProfile-Philippines.pdf', 1),
+(38, 'Country Profile - Singapore', '15_CoverSingapore.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศสิงคโปร์', 'Yah/Prae/kung', NULL, '2013-12-16 00:00:00', NULL, '15_CountryProfile-Singapore.pdf', 1),
+(39, 'Country Profile - Vietnam', '17_CoverVietnam.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศเวียดนาม', 'Yah/Prae/kung', NULL, '2013-12-16 00:00:00', NULL, '17_CountryProfile-Vietnam', 1);
 
 -- --------------------------------------------------------
 
@@ -673,7 +690,7 @@ CREATE TABLE IF NOT EXISTS `PDF_CATEGORY` (
   `GROUP_LEVEL_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `PDF_ID` (`PDF_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=37 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=54 ;
 
 --
 -- Dumping data for table `PDF_CATEGORY`
@@ -704,7 +721,24 @@ INSERT INTO `PDF_CATEGORY` (`ID`, `PDF_ID`, `GROUP_LEVEL_NAME`, `GROUP_LEVEL_ID`
 (33, 22, '4', 5),
 (34, 22, '4', 5),
 (35, 22, '4', 6),
-(36, 22, '4', 6);
+(36, 22, '4', 6),
+(37, 23, '3', 16),
+(38, 24, '3', 16),
+(39, 25, '3', 7),
+(40, 26, '3', 15),
+(41, 27, '3', 15),
+(42, 28, '3', 15),
+(43, 29, '3', 15),
+(44, 30, '3', 11),
+(45, 31, '3', 11),
+(46, 32, '3', 11),
+(47, 33, '3', 11),
+(48, 34, '3', 11),
+(49, 35, '3', 11),
+(50, 36, '3', 11),
+(51, 37, '3', 11),
+(52, 38, '3', 11),
+(53, 39, '3', 11);
 
 -- --------------------------------------------------------
 
@@ -735,7 +769,7 @@ INSERT INTO `PERMISSION` (`ID`, `USER_PROFILE_ID`, `GROUP_LV2_ID`, `IS_ACTIVE`, 
 (4, 4, 1, 'N', '2013-01-01 00:00:00', '2013-01-01 00:00:00'),
 (5, 3, 3, 'N', '2013-10-01 00:00:00', '2013-10-01 00:00:00'),
 (6, 1, 3, 'Y', '2013-10-17 00:00:00', '2014-10-31 00:00:00'),
-(7, 1, 4, 'Y', '2013-10-17 00:00:00', '2013-10-31 00:00:00'),
+(7, 1, 4, 'N', '2013-10-17 00:00:00', '2013-10-31 00:00:00'),
 (8, 3, 3, 'Y', '2013-11-05 00:00:00', '2013-11-30 00:00:00'),
 (9, 3, 4, 'Y', '2013-11-05 00:00:00', '2013-11-30 00:00:00');
 
@@ -875,7 +909,7 @@ CREATE TABLE IF NOT EXISTS `USER_PROFILE` (
   KEY `fk_USER_PROFILE_INDUSTRY_ID1_idx` (`INDUSTRY_ID`),
   KEY `fk_USER_PROFILE_COUNTRY_ID1_idx` (`COUNTRY_ID`),
   KEY `fk_USER_PROFILE_TECHNOLOGY_ID1_idx` (`TECHNOLOGY_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `USER_PROFILE`
@@ -884,7 +918,8 @@ CREATE TABLE IF NOT EXISTS `USER_PROFILE` (
 INSERT INTO `USER_PROFILE` (`ID`, `FIRSTNAME`, `LASTNAME`, `EMAIL`, `COMPANY`, `PASSWORD`, `JOB_TITLE`, `ADDRESS`, `CITY`, `ZIP`, `PHONE`, `FAX`, `IS_ACTIVE`, `IS_ADMIN`, `JOB_LEVEL`, `DEPARTMENT_ID`, `INDUSTRY_ID`, `COUNTRY_ID`, `TECHNOLOGY_ID`, `USER_PROFILEcol`, `PHOTO_NAME`, `QUESTION_ID`, `ANSWER`) VALUES
 (1, 'sukanya', 'AA', 'a@a.com', 'AA', 'f51fc62cdba8a6e536d604b47e30b49551c560256dac08ccfc8204823a492775d669a57e', 'test', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 221, 1, NULL, 'testUserProfile.jpg', 1, 'a'),
 (3, 'B', 'B', 'b@b.com', 'B', '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e', NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'N', 1, 1, 1, 1, 1, NULL, '', 2, 'b'),
-(4, 'Voravan', 'Charn', 'wc.fone@yahoo.com', 'Buildthedot', '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e', NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'N', 1, 1, 1, 1, 1, NULL, '', 3, 'fon');
+(4, 'Voravan', 'Charn', 'wc.fone@yahoo.com', 'Buildthedot', '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e', NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'N', 1, 1, 1, 1, 1, NULL, '', 3, 'fon'),
+(5, 'warunee', 'p', 'warunee.p@oto.samartcorp.com', '', 'a4348cf950a2b573b8eaf169a958b50b13576648d569acb33ef97a0c1f8c9a3452b24cf4', '', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 221, 1, NULL, 'no-image.png', 0, '');
 
 -- --------------------------------------------------------
 
