@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.6deb1
+-- version 3.4.3.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 27, 2013 at 12:34 PM
--- Server version: 5.5.34-0ubuntu0.13.10.1
--- PHP Version: 5.5.3-1ubuntu2.1
+-- Generation Time: Dec 30, 2013 at 02:14 AM
+-- Server version: 5.1.66
+-- PHP Version: 5.3.3-7+squeeze15
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `buildthedot_17mckansys`
+-- Database: `mckansys`
 --
 
 -- --------------------------------------------------------
@@ -378,7 +378,17 @@ CREATE TABLE IF NOT EXISTS `DOWNLOAD_STATISTICS` (
   `PDF_ID` int(100) NOT NULL,
   `DOWNLOAD_DATETIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `DOWNLOAD_STATISTICS`
+--
+
+INSERT INTO `DOWNLOAD_STATISTICS` (`ID`, `USER_ID`, `PDF_ID`, `DOWNLOAD_DATETIME`) VALUES
+(1, 1, 26, '2013-12-29 17:26:36'),
+(2, 1, 26, '2013-12-29 17:28:21'),
+(3, 1, 29, '2013-12-29 17:30:46'),
+(4, 1, 43, '2013-12-29 18:10:30');
 
 -- --------------------------------------------------------
 
@@ -452,20 +462,10 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV3` (
 --
 
 INSERT INTO `GROUP_LV3` (`ID`, `NAME`, `GROUP_LV2_ID`, `DESCRIPTION`) VALUES
-(4, 'Customer Experience', 3, 'This is a description text.'),
-(6, 'Customer Insights', 3, 'This is a description text.'),
-(7, 'E-Channel Strategy', 3, 'This is a description text.'),
-(8, 'Market Leadership', 3, 'This is a description text.'),
-(9, 'Update AEC News', 4, 'This is a description text.'),
-(10, 'Competency Index', 4, 'This is a description text.'),
-(11, 'Country Profile', 4, 'This is a description text.'),
+(11, 'Country Profile', 4, ''),
 (12, 'Company', 5, ''),
 (15, 'ICT Market', 1, ''),
-(16, 'TechTrend Report', 1, ''),
-(17, 'Infrastructure', 2, ''),
-(18, 'Architecture', 2, ''),
-(19, 'Application', 2, ''),
-(20, 'Business Process', 2, '');
+(16, 'TechTrend Report', 1, '');
 
 -- --------------------------------------------------------
 
@@ -481,14 +481,6 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV4` (
   PRIMARY KEY (`ID`),
   KEY `fk_GROUP_LV4_GROUP_LV31_idx` (`GROUP_LV3_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
-
---
--- Dumping data for table `GROUP_LV4`
---
-
-INSERT INTO `GROUP_LV4` (`ID`, `NAME`, `GROUP_LV3_ID`, `DESCRIPTION`) VALUES
-(5, 'World Economic Index', 10, ''),
-(6, 'ICT Competency Index', 10, '');
 
 -- --------------------------------------------------------
 
@@ -597,20 +589,19 @@ CREATE TABLE IF NOT EXISTS `PDF` (
   `PATH` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Is_Asian_country` tinyint(1) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=41 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=44 ;
 
 --
 -- Dumping data for table `PDF`
 --
 
 INSERT INTO `PDF` (`ID`, `NAME`, `PHOTO_NAME`, `DESCRIPTION`, `BY`, `PRICE`, `UPDATE_DATE`, `COMPANY_ID`, `PATH`, `Is_Asian_country`) VALUES
-(23, 'Near Field Communication เทคโนโลยีการสื่อสารระยะสั้นจะเกิดขึ้นจริงในกลุ่มผู้ใช้งานทั่วไปในประเทศไทย', '1_CoverNFC.jpg', 'มัคคานซิสเชื่อว่า ภายในปี 2557  Near Field Communication (NFC) ซึ่งเป็นเทคโนโลยีการสื่อสารระยะสั้น จะเป็นช่วงเวลาแห่งการเติบโตและการใช้งานจริงอย่างแพร่หลายกับตลาดผู้บริโภคในประเทศไทย', 'Mckansys', NULL, '2013-11-08 00:00:00', NULL, '1_Tech-NFC-271013_FINAL-Cover2.pdf', 0),
-(24, 'ทิศทาง OTT โมเดลในประเทศไทย', '2_CoverOTT.jpg', 'ทิศทางรูปแบบธุรกิจ OTT หรือ Over-The-Top ที่กำลังเกิดขึ้นและได้รับความนิยมในปัจจุบันจากผู้พัฒนาโมบายแอพพลิเคชั่น และส่งผลกระทบโดยตรงต่อผู้ให้บริการสื่อสารข้อมูลไร้สายทั่วโลก', 'Mckansys', NULL, '2013-12-05 00:00:00', NULL, '2_OTT_Complete_Cover.pdf', 0),
-(25, 'การบูรณาการองค์กรด้วย Business Intelligence', '3_CoverBI.jpg', 'Business Intelligence (BI) คือ เทคโนโลยีในรูปแบบซอฟแวร์ เป็นระบบที่ถูกนำมาใช้เพื่อวิเคราะห์ข้อมูลในการปรับปรุงการบริการและผลิตภัณฑ์ รวมทั้งกลยุทธ์ในการเปิดตลาดใหม่ๆเป็นอันดับต้นๆใน 4-5 ปีมานี้ ', 'Mckansys', NULL, '2013-12-19 00:00:00', NULL, '3_BusinessIntelligence-yah-cover.pdf', 0),
-(26, 'ภาพรวมสถานการณ์อุตสาหกรรมการสื่อสารโทรคมนาคมก่อนสิ้นปี 2556', '4_CoverOverall.jpg', 'ภาพรวมของสถานการณ์เศรษฐกิจภายในประเทศตั้งแต่ช่วงต้นปี 2555 เป็นต้นมา อุตสาหกรรมการสื่อสารโทรคมนาคมอยู่ในทิศทางที่ดีขึ้นอย่างต่อเนื่อง ความต้องการใช้บริการทางการสื่อสารมีการเติบโตอย่างชัดเจน   ', 'Mckansys', NULL, '2013-11-21 00:00:00', NULL, '4_TelecomOVERALL2013.pdf', 0),
-(27, 'ภาพรวมสถานการณ์อุตสาหกรรมโทรคมนาคมก่อนปิดปี 2556 ในภาคส่วนของกลุ่มบริการเสียงแบบไร้สาย (Mobile services)', '5_CoverMobile.jpg', 'การเติบโตของการใช้งานโทรศัพท์เคลื่อนที่ในประเทศไทยนั้น เริ่มจากการใช้บริการเสียงที่มีโปรโมชั่นแข่งขันกันอย่างหลากหลาย ตั้งแต่ปี 2553 เป็นต้นเริ่มมีกระแสนิยมในการใช้โทรศัพท์เคลื่อนที่แบบสมาร์ทโฟนในประเทศไทยมากขึ้น', 'Mckansys', NULL, '2013-11-21 00:00:00', NULL, '5_TelcomVoice2013.pdf', 0),
-(28, 'ภาพรวมสถานการณ์อุตสาหกรรมโทรคมนาคมก่อนปิดปี 2556 ในภาคส่วนของกลุ่มบริการเสียงพื้นฐาน (Fixed-voice services)', '6_CoverFixed.jpg', 'กลุ่มบริการเสียงพื้นฐานเงียบเหงามามากกว่า 5 ปี หลังจากโทรศัพท์เคลื่อนที่ได้เข้ามาแทนที่และได้รับความนิยมอย่างต่อเนื่อง  การลดลงที่เห็นผลกระทบได้ชัดเจนนั้น เพิ่งจะเกิดขึ้นในช่วงปี 2553  เนื่องจากความสามารถของบริการโทรศัพท์เคลื่อนที่และบริการอินเทอร์เน็ตความเร็วสูงเข้ามามีบทบาทและได้รับความนิยมมากขึ้นในประเทศไทย', 'Mckansys', NULL, '2013-11-21 00:00:00', NULL, '6_TelecomMobile2013.pdf', 0),
-(29, 'ภาพรวมสถานการณ์อุตสาหกรรมโทรคมนาคมก่อนปิดปี 2556 ในภาคส่วนของกลุ่มสื่อสารข้อมูล (Data Services)', '7_CoverData.jpg', 'ตลอดช่วงระยะเวลาในปี 2554-2555 ที่ผ่านมา กลุ่มบริการสื่อสารข้อมูลได้ถูกขับเคลื่อนการใช้งานจาก ผู้ให้บริการโทรศัพท์เคลื่อนที่, กลุ่มการเงินธนาคาร และกลุ่มขายปลีก-ส่ง เพราะผู้ใช้บริการกลุ่มนี้ได้มีการขยายพื้นที่การให้บริการและสาขาไปยังตามชุมชนต่างจังหวัดมากขึ้น ', 'Mckansys', NULL, '2013-11-21 00:00:00', NULL, '7_TelecomData2013.pdf', 0),
+(23, 'Near Field Communication ', 'no-image.png', 'มัคคานซิสเชื่อว่า ภายในปี 2557  Near Field Communication (NFC) ซึ่งเป็นเทคโนโลยีการสื่อสารระยะสั้น จะเป็นช่วงเวลาแห่งการเติบโตและการใช้งานจริงอย่างแพร่หลายกับตลาดผู้บริโภคในประเทศไทย', 'Mckansys', 100, '2013-12-30 00:21:06', NULL, '', 0),
+(24, 'ทิศทาง OTT โมเดลในประเทศไทย', 'no-image.png', 'ทิศทางรูปแบบธุรกิจ OTT หรือ Over-The-Top ที่กำลังเกิดขึ้นและได้รับความนิยมในปัจจุบันจากผู้พัฒนาโมบายแอพพลิเคชั่น และส่งผลกระทบโดยตรงต่อผู้ให้บริการสื่อสารข้อมูลไร้สายทั่วโลก', 'Mckansys', 100, '2013-12-30 00:20:59', NULL, '', 0),
+(26, 'ภาพรวมสถานการณ์อุตสาหกรรมการสื่อสารโทรคมนาคมก่อนสิ้นปี 2556', 'no-image.png', 'ภาพรวมของสถานการณ์เศรษฐกิจภายในประเทศตั้งแต่ช่วงต้นปี 2555 เป็นต้นมา อุตสาหกรรมการสื่อสารโทรคมนาคมอยู่ในทิศทางที่ดีขึ้นอย่างต่อเนื่อง ความต้องการใช้บริการทางการสื่อสารมีการเติบโตอย่างชัดเจน   ', 'Mckansys', 100, '2013-12-30 00:20:46', NULL, '', 0),
+(27, 'ภาพรวมกลุ่มบริการเสียงแบบไร้สาย (Mobile services) ก่อนปิดปี 2556 ', 'no-image.png', 'การเติบโตของการใช้งานโทรศัพท์เคลื่อนที่ในประเทศไทยนั้น เริ่มจากการใช้บริการเสียงที่มีโปรโมชั่นแข่งขันกันอย่างหลากหลาย ตั้งแต่ปี 2553 เป็นต้นเริ่มมีกระแสนิยมในการใช้โทรศัพท์เคลื่อนที่แบบสมาร์ทโฟนในประเทศไทยมากขึ้น', 'Mckansys', 100, '2013-12-30 00:20:39', NULL, '', 0),
+(28, 'ภาพรวมกลุ่มบริการเสียงพื้นฐาน (Fixed-voice services) ก่อนปิดปี 2556', 'no-image.png', 'กลุ่มบริการเสียงพื้นฐานเงียบเหงามามากกว่า 5 ปี หลังจากโทรศัพท์เคลื่อนที่ได้เข้ามาแทนที่และได้รับความนิยมอย่างต่อเนื่อง  การลดลงที่เห็นผลกระทบได้ชัดเจนนั้น เพิ่งจะเกิดขึ้นในช่วงปี 2553  เนื่องจากความสามารถของบริการโทรศัพท์เคลื่อนที่และบริการอินเทอร์เน็ตความเร็วสูงเข้ามามีบทบาทและได้รับความนิยมมากขึ้นในประเทศไทย', 'Mckansys', 100, '2013-12-30 00:20:30', NULL, '', 0),
+(29, 'ภาพรวมกลุ่มสื่อสารข้อมูล (Data Services) ก่อนปิดปี 2556', 'no-image.png', 'ตลอดช่วงระยะเวลาในปี 2554-2555 ที่ผ่านมา กลุ่มบริการสื่อสารข้อมูลได้ถูกขับเคลื่อนการใช้งานจาก ผู้ให้บริการโทรศัพท์เคลื่อนที่, กลุ่มการเงินธนาคาร และกลุ่มขายปลีก-ส่ง เพราะผู้ใช้บริการกลุ่มนี้ได้มีการขยายพื้นที่การให้บริการและสาขาไปยังตามชุมชนต่างจังหวัดมากขึ้น \r\n\r\n', 'Mckansys', 100, '2013-12-30 00:30:29', NULL, '', 0),
 (30, 'Country Profile - Brunei', '8_CoverBrunei.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศบรูไน', 'Mckansys', NULL, '2013-12-16 00:00:00', NULL, '8_CountryProfile-Brunei.pdf', 1),
 (31, 'Country Profile - Cambodia', '9_CoverCambodia.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศกัมพูชา', 'Mckansys', NULL, '2013-12-16 00:00:00', NULL, '9_CountryProfile-Cambodia.pdf', 1),
 (32, 'Country Profile - Indonesia', '10_CoverIndo.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศอินโดนีเซีย', 'Mckansys', NULL, '2013-12-16 00:00:00', NULL, '10_CountryProfile-Indonesia.pdf', 1),
@@ -619,7 +610,9 @@ INSERT INTO `PDF` (`ID`, `NAME`, `PHOTO_NAME`, `DESCRIPTION`, `BY`, `PRICE`, `UP
 (36, 'Country Profile - Myanmar', '13_CoverMyanmar.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศพม่า', 'Mckansys', NULL, '2013-12-16 00:00:00', NULL, '13_CountryProfile-Myanmar.pdf', 1),
 (37, 'Country Profile - Philippines', '14_CoverPhilippines.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศฟิลิปปินส์', 'Mckansys', NULL, '2013-12-16 00:00:00', NULL, '14_CountryProfile-Philippines.pdf', 1),
 (38, 'Country Profile - Singapore', '15_CoverSingapore.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศสิงคโปร์', 'Mckansys', NULL, '2013-12-16 00:00:00', NULL, '15_CountryProfile-Singapore.pdf', 1),
-(39, 'Country Profile - Vietnam', '17_CoverVietnam.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศเวียดนาม', 'Mckansys', NULL, '2013-12-16 00:00:00', NULL, '17_CountryProfile-Vietnam', 1);
+(39, 'Country Profile - Vietnam', '17_CoverVietnam.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศเวียดนาม', 'Mckansys', NULL, '2013-12-16 00:00:00', NULL, '17_CountryProfile-Vietnam', 1),
+(42, 'Country Profile - Thailand', '1388337487_16_CoverThai.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ ประเทศไทย', '', 100, '2013-12-30 00:18:07', NULL, '', 1),
+(43, 'การบูรณาการองค์กรด้วย Business Intelligence', '1388340604_3_CoverBI.jpg', 'Business Intelligence (BI) คือ เทคโนโลยีในรูปแบบซอฟแวร์ เป็นระบบที่ถูกนำมาใช้เพื่อวิเคราะห์ข้อมูลในการปรับปรุงการบริการและผลิตภัณฑ์ รวมทั้งกลยุทธ์ในการเปิดตลาดใหม่ๆเป็นอันดับต้นๆใน 4-5 ปีมานี้ ', '', 100, '2013-12-30 01:10:04', NULL, '3_BusinessIntelligence-yah-cover.pdf', 0);
 
 -- --------------------------------------------------------
 
@@ -634,7 +627,7 @@ CREATE TABLE IF NOT EXISTS `PDF_CATEGORY` (
   `GROUP_LEVEL_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `PDF_ID` (`PDF_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=55 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=58 ;
 
 --
 -- Dumping data for table `PDF_CATEGORY`
@@ -643,7 +636,6 @@ CREATE TABLE IF NOT EXISTS `PDF_CATEGORY` (
 INSERT INTO `PDF_CATEGORY` (`ID`, `PDF_ID`, `GROUP_LEVEL_NAME`, `GROUP_LEVEL_ID`) VALUES
 (37, 23, '3', 16),
 (38, 24, '3', 16),
-(39, 25, '3', 7),
 (40, 26, '3', 15),
 (41, 27, '3', 15),
 (42, 28, '3', 15),
@@ -656,7 +648,9 @@ INSERT INTO `PDF_CATEGORY` (`ID`, `PDF_ID`, `GROUP_LEVEL_NAME`, `GROUP_LEVEL_ID`
 (50, 36, '3', 11),
 (51, 37, '3', 11),
 (52, 38, '3', 11),
-(53, 39, '3', 11);
+(53, 39, '3', 11),
+(56, 42, '3', 11),
+(57, 43, '2', 3);
 
 -- --------------------------------------------------------
 
@@ -674,7 +668,7 @@ CREATE TABLE IF NOT EXISTS `PERMISSION` (
   PRIMARY KEY (`ID`),
   KEY `fk_USER_PROFILE_has_GROUP_LV2_GROUP_LV21_idx` (`GROUP_LV2_ID`),
   KEY `fk_USER_PROFILE_has_GROUP_LV2_USER_PROFILE1_idx` (`USER_PROFILE_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=43 ;
 
 --
 -- Dumping data for table `PERMISSION`
@@ -687,9 +681,38 @@ INSERT INTO `PERMISSION` (`ID`, `USER_PROFILE_ID`, `GROUP_LV2_ID`, `IS_ACTIVE`, 
 (4, 4, 1, 'N', '2013-01-01 00:00:00', '2013-01-01 00:00:00'),
 (5, 3, 3, 'N', '2013-10-01 00:00:00', '2013-10-01 00:00:00'),
 (6, 1, 3, 'Y', '2013-10-17 00:00:00', '2014-10-31 00:00:00'),
-(7, 1, 4, 'N', '2013-10-17 00:00:00', '2013-10-31 00:00:00'),
+(7, 1, 4, 'Y', '2013-12-30 00:00:00', '2014-12-31 00:00:00'),
 (8, 3, 3, 'Y', '2013-11-05 00:00:00', '2013-11-30 00:00:00'),
-(9, 3, 4, 'Y', '2013-11-05 00:00:00', '2013-11-30 00:00:00');
+(9, 3, 4, 'Y', '2013-11-05 00:00:00', '2013-11-30 00:00:00'),
+(10, 7, 1, 'N', '2014-01-01 00:00:00', '2014-06-30 00:00:00'),
+(11, 7, 2, 'N', '2014-01-01 00:00:00', '2014-06-30 00:00:00'),
+(12, 7, 3, 'N', '2014-01-01 00:00:00', '2014-06-30 00:00:00'),
+(13, 7, 4, 'N', '2013-12-30 00:00:00', '2014-06-30 00:00:00'),
+(14, 1, 1, 'Y', '2013-12-30 00:00:00', '2014-12-31 00:00:00'),
+(19, 9, 1, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(20, 9, 2, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(21, 9, 3, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(22, 9, 3, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(23, 10, 1, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(24, 10, 2, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(25, 10, 3, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(26, 10, 4, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(27, 11, 1, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(28, 11, 2, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(29, 11, 3, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(30, 11, 4, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(31, 12, 1, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(32, 12, 2, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(33, 12, 3, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(34, 12, 4, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(35, 13, 1, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(36, 13, 2, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(37, 13, 3, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(38, 13, 4, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(39, 14, 1, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(40, 14, 2, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(41, 14, 3, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00'),
+(42, 14, 4, 'N', '2013-12-31 00:00:00', '2014-06-30 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -731,7 +754,7 @@ CREATE TABLE IF NOT EXISTS `TAG` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `TAG`
@@ -742,7 +765,8 @@ INSERT INTO `TAG` (`ID`, `NAME`) VALUES
 (2, 'tag2'),
 (3, 'tag3'),
 (4, 'tag4'),
-(5, 'tag5');
+(5, 'tag5'),
+(6, '');
 
 -- --------------------------------------------------------
 
@@ -757,6 +781,18 @@ CREATE TABLE IF NOT EXISTS `TAG_RELATIONSHIP` (
   KEY `fk_PDF_has_TAG_TAG1_idx` (`TAG_ID`),
   KEY `fk_PDF_has_TAG_PDF1_idx` (`PDF_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `TAG_RELATIONSHIP`
+--
+
+INSERT INTO `TAG_RELATIONSHIP` (`PDF_ID`, `TAG_ID`) VALUES
+(23, 6),
+(24, 6),
+(26, 6),
+(27, 6),
+(28, 6),
+(29, 6);
 
 -- --------------------------------------------------------
 
@@ -814,7 +850,7 @@ CREATE TABLE IF NOT EXISTS `USER_PROFILE` (
   KEY `fk_USER_PROFILE_INDUSTRY_ID1_idx` (`INDUSTRY_ID`),
   KEY `fk_USER_PROFILE_COUNTRY_ID1_idx` (`COUNTRY_ID`),
   KEY `fk_USER_PROFILE_TECHNOLOGY_ID1_idx` (`TECHNOLOGY_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `USER_PROFILE`
@@ -824,7 +860,13 @@ INSERT INTO `USER_PROFILE` (`ID`, `FIRSTNAME`, `LASTNAME`, `EMAIL`, `COMPANY`, `
 (1, 'sukanya', 'AA', 'a@a.com', 'AA', 'f51fc62cdba8a6e536d604b47e30b49551c560256dac08ccfc8204823a492775d669a57e', 'test', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 221, 1, NULL, 'testUserProfile.jpg', 1, 'a'),
 (3, 'B', 'B', 'b@b.com', 'B', '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e', NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'N', 1, 1, 1, 1, 1, NULL, '', 2, 'b'),
 (4, 'Voravan', 'Charn', 'wc.fone@yahoo.com', 'Buildthedot', '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e', NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'N', 1, 1, 1, 1, 1, NULL, '', 3, 'fon'),
-(5, 'warunee', 'p', 'warunee.p@oto.samartcorp.com', '', 'a4348cf950a2b573b8eaf169a958b50b13576648d569acb33ef97a0c1f8c9a3452b24cf4', '', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 221, 1, NULL, 'no-image.png', 0, '');
+(7, 'Yuthana', 'Siri', 'yuthana@mckansys.com', 'Mckansys (Thailand) Co., Ltd.', 'f51fc62cdba8a6e536d604b47e30b49551c560256dac08ccfc8204823a492775d669a57e', '', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 221, 1, NULL, 'no-image.png', 0, ''),
+(9, 'Warunee', 'P', 'warunee.p@oto.samartcorp.com', 'One to One Contact Center', '48ee13603e6787fcb67f822b3ea35835cbfeef0cf18bfcb92f1fe02755b61c3112c7bbcd', '', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 221, 1, NULL, 'no-image.png', 0, ''),
+(10, 'Yugijo', 'D', 'Yugijo.d@aapico.com', 'Aapica', 'fdd6a13634952d950883fd6d4e40274f94836ddcda485e1e19f409322e0da43066fabd13', '', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 221, 1, NULL, 'no-image.png', 0, ''),
+(11, 'Siribhorn', '', 'siribhorn@etda.or.th', 'ETDA', '9519950266969f700abfbe7ae55a1bd188736b4a7919bc0543ba54e39a4624d125665f0d', '', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 221, 1, NULL, 'no-image.png', 0, ''),
+(12, 'Thaveesak', 'D', 'thaveesak.d@irpc.co.th', 'IRPC', '1210fe92ce4d4ab06b68c9750907dc4fcd08b85bb85beecfec9094b601a7edad8260da27', '', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 221, 1, NULL, 'no-image.png', 0, ''),
+(13, 'Panida', 'w', 'panidaw@scg.co.th', 'SCG', '98cd8e68c6d6c00b35d721f1a71bb086ffdac90d66558bc8b9d7566d1f761aa52960ce42', '', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 221, 1, NULL, 'no-image.png', 0, ''),
+(14, 'Thanit', 'Sor', 'thanit_sor@truecorp.co.th', 'True Coporation', 'a9d05e92dad95b06c12fca58a0ab921b241c87ee7c2458ccba77fc9f030ea97bb526d911', '', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 221, 1, NULL, 'no-image.png', 0, '');
 
 -- --------------------------------------------------------
 
