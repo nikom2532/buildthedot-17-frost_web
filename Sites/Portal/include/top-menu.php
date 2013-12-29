@@ -91,18 +91,20 @@
 <?php
 				}
 ?>
+<?php /* 
 				<li><a href="contact-us.php">Contact us</a></li>
-				<!-- <li>
-				<a href="">Knowledge</a>
-				<span>
-				<a href="">Technology</a> |
-				<a href="">Strategy</a> |
-				<a href="">Around Asean</a>
-				</span>
+				<li>
+					<a href="">Knowledge</a>
+					<span>
+						<a href="">Technology</a> |
+						<a href="">Strategy</a> |
+						<a href="">Around Asean</a>
+					</span>
 				</li>
 				<li>
-				<a href="best-practice.php">Best Practice</a>
-				</li> -->
+					<a href="best-practice.php">Best Practice</a>
+				</li> 
+*/ ?>
 			</ul>
 			<div class="right">
 				<ul id="top-nav-search" class="grid_4">
