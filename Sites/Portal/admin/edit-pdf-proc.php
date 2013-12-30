@@ -28,7 +28,7 @@ if(!(!file_exists($_FILES['pdfUpload']['tmp_name']) || !is_uploaded_file($_FILES
 		// echo "Stored in: " . $_FILES["pdfUpload"]["tmp_name"]. "<br>";
 	}
 	$pdf_target_path = "../pdf/";
-	$pdfFileName = basename($_FILES["pdfUpload"]['name']);
+	$pdfFileName = strtotime("now")."_".basename($_FILES["pdfUpload"]['name']);
 	$pdf_target_path = $pdf_target_path . $pdfFileName;
 	echo "target_path >".$pdf_target_path. "<br>";
 	if (move_uploaded_file($_FILES["pdfUpload"]['tmp_name'], $pdf_target_path)) {
