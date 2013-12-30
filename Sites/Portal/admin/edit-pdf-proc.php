@@ -52,42 +52,41 @@ if(!(!file_exists($_FILES['imageUpload']['tmp_name']) || !is_uploaded_file($_FIL
 	
     // resize
 	$images = $_FILES["imageUpload"]["tmp_name"];
-      $new_images = "_".$_FILES["imageUpload"]["name"];
-      $width=150; //*** Fix Width & Heigh (Autu caculate) ***//
-      $height=150;//#
-      $size=GetimageSize($images);
+  $new_images = "_".$_FILES["imageUpload"]["name"];
+  $width=150; //*** Fix Width & Heigh (Autu caculate) ***//
+  $height=150;//#
+  $size=GetimageSize($images);
 	if(($_FILES["imageUpload"]["type"] == "image/jpg") ||($_FILES["imageUpload"]["type"] == "image/jpeg")){
-        $images_orig = ImageCreateFromJPEG($images);
-        $photoX = ImagesX($images_orig);
-        $photoY = ImagesY($images_orig);
-        $images_fin = ImageCreateTrueColor($width, $height);
-        ImageCopyResampled($images_fin, $images_orig, 0, 0, 0, 0, $width+1, $height+1, $photoX, $photoY);
-        ImageJPEG($images_fin,"../images/pdf_image/".$imageFileName);
-        ImageDestroy($images_orig);
-        ImageDestroy($images_fin);
+	  $images_orig = ImageCreateFromJPEG($images);
+	  $photoX = ImagesX($images_orig);
+	  $photoY = ImagesY($images_orig);
+	  $images_fin = ImageCreateTrueColor($width, $height);
+	  ImageCopyResampled($images_fin, $images_orig, 0, 0, 0, 0, $width+1, $height+1, $photoX, $photoY);
+	  ImageJPEG($images_fin,"../images/pdf_image/".$imageFileName);
+	  ImageDestroy($images_orig);
+	  ImageDestroy($images_fin);
 	}
 	if($_FILES["imageUpload"]["type"] == "image/png"){
-        $images_orig = ImageCreateFromPNG($images);
-        $photoX = ImagesX($images_orig);
-        $photoY = ImagesY($images_orig);
-        $images_fin = ImageCreateTrueColor($width, $height);
-        ImageCopyResampled($images_fin, $images_orig, 0, 0, 0, 0, $width+1, $height+1, $photoX, $photoY);
-        ImagePNG($images_fin,"../images/pdf_image/".$imageFileName);
-        ImageDestroy($images_orig);
-        ImageDestroy($images_fin);
+	  $images_orig = ImageCreateFromPNG($images);
+	  $photoX = ImagesX($images_orig);
+	  $photoY = ImagesY($images_orig);
+	  $images_fin = ImageCreateTrueColor($width, $height);
+	  ImageCopyResampled($images_fin, $images_orig, 0, 0, 0, 0, $width+1, $height+1, $photoX, $photoY);
+	  ImagePNG($images_fin,"../images/pdf_image/".$imageFileName);
+	  ImageDestroy($images_orig);
+	  ImageDestroy($images_fin);
 	}
 	if($_FILES["imageUpload"]["type"] == "image/gif"){
-        $images_orig = ImageCreateFromGIF($images);
-        $photoX = ImagesX($images_orig);
-        $photoY = ImagesY($images_orig);
-        $images_fin = ImageCreateTrueColor($width, $height);
-        ImageCopyResampled($images_fin, $images_orig, 0, 0, 0, 0, $width+1, $height+1, $photoX, $photoY);
-        ImageGIF($images_fin,"../images/pdf_image/".$imageFileName);
-        ImageDestroy($images_orig);
-        ImageDestroy($images_fin);
+	  $images_orig = ImageCreateFromGIF($images);
+	  $photoX = ImagesX($images_orig);
+	  $photoY = ImagesY($images_orig);
+	  $images_fin = ImageCreateTrueColor($width, $height);
+	  ImageCopyResampled($images_fin, $images_orig, 0, 0, 0, 0, $width+1, $height+1, $photoX, $photoY);
+	  ImageGIF($images_fin,"../images/pdf_image/".$imageFileName);
+	  ImageDestroy($images_orig);
+	  ImageDestroy($images_fin);
 	}
 	
-      
 	/*		
 	$allowedExts = array("gif", "jpeg", "jpg", "png");
 	$temp = explode(".", $_FILES["imageUpload"]["name"]);
@@ -115,7 +114,7 @@ if(!(!file_exists($_FILES['imageUpload']['tmp_name']) || !is_uploaded_file($_FIL
 	}
 	*/
 	$SQLFindPath="
-		SELECT * FROM PDF WHERE ID={$pdfId};
+		SELECT * FROM PDF WHERE ID = {$pdfId};
 	";
 	$result_FindPath=@mysql_query($SQLFindPath);
 	while ($rsFindPath=@mysql_fetch_array($result_FindPath)) {
