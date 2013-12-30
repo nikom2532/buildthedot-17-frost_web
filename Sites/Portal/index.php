@@ -130,12 +130,13 @@ include ("include/top-menu.php");
 				LIMIT 10
 			";
 			$result = @mysql_query($sql_new_release) or die(mysql_error());
+			/*
 			?> 
 			
 			<h2 class="text-lightgreen2 uppercase">LATEST UPDATES</h2>
 			<?php
+			
 			//-- Add by Fon
-
 						
 			while ($row = @mysql_fetch_array($result)) {
 					$lvName = $row['glvl'];
@@ -352,6 +353,7 @@ include ("include/top-menu.php");
 				echo "</section>";//substr_replace($row['description'],'',220) 
 								  // LEFT(a.DESCRIPTION,220) AS excerpt, 
 			}
+			*/
 			?>
 			<br class="clear" />
 			<?php /* ?>
