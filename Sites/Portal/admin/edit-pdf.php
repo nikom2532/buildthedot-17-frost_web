@@ -139,7 +139,6 @@ include("include/header-with-tabs.php");
 							INNER JOIN PDF_CATEGORY AS c
 							ON c.PDF_ID = p.ID
 							WHERE p.ID = $pdfId 
-							AND p.IS_ASIAN_COUNTRY = '0' 
 							AND c.GROUP_LEVEL_NAME = $glvName 
 							AND c.GROUP_LEVEL_ID = $glvId;
 						";
