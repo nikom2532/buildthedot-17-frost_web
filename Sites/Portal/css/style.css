@@ -769,5 +769,5 @@ span.inactive {
 	margin-bottom: 14px;
 }
 #content #container #content-middle img.thinktank{
-	width:100%;
+	max-width:300px;
 }

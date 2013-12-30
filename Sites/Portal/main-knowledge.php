@@ -503,9 +503,9 @@ include ($rootpath."include/top-menu.php");
 												<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
 													<img class="thinktank" src="images/pdf_image/<?php echo $c_PHOTO_NAME["$i"]; ?>" />
 												</a>
-	<?php
+<?php
 											}
-	?>
+?>
 											
 										</p>
 										
