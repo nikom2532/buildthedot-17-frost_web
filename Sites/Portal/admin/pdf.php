@@ -89,16 +89,18 @@ include("include/header-with-tabs.php");
 					
 					<table class="fixed">
 						<col width="2em" />
-	    				<col width="20em" />
-	    				<col width="5em" />
-	    				<col width="5em" />
+						<col width="5em" />
+    				<col width="20em" />
+    				<col width="5em" />
+    				<col width="5em" />
 					
 						<thead>
 					
 							<tr>
 								<th>No.</th>
+								<th>Country Profile</th>
 								<th>Title</th>
-                                <th>Update dated</th>
+                <th>Update dated</th>
 								<th>Actions</th>
 							</tr>
 						
@@ -116,17 +118,33 @@ include("include/header-with-tabs.php");
 							$i=$page*10;			
 							}
 							$start=($page-1)*$limit;
-							/*---------end Paging------------*/	
-							$strQuery ="SELECT p.ID AS id, 
-										p.NAME AS name,
-										a.GROUP_LEVEL_NAME AS glvName,
-										a.GROUP_LEVEL_ID AS glvId,
-										p.UPDATE_DATE AS updateDate
-										FROM PDF AS p 
-										INNER JOIN PDF_CATEGORY AS a
-										ON p.ID = a.PDF_ID
-										WHERE IS_ASIAN_COUNTRY = '0'
-										ORDER BY ID DESC ";
+							/*---------end Paging------------*/
+							/*	
+							$strQuery ="
+								SELECT p.ID AS id, 
+								p.NAME AS name,
+								a.GROUP_LEVEL_NAME AS glvName,
+								a.GROUP_LEVEL_ID AS glvId,
+								p.UPDATE_DATE AS updateDate
+								FROM PDF AS p 
+								INNER JOIN PDF_CATEGORY AS a
+								ON p.ID = a.PDF_ID
+								WHERE IS_ASIAN_COUNTRY = '0'
+								ORDER BY ID DESC 
+							";
+							*/
+							$strQuery ="
+								SELECT p.ID AS id, 
+								p.NAME AS name,
+								a.GROUP_LEVEL_NAME AS glvName,
+								a.GROUP_LEVEL_ID AS glvId,
+								p.UPDATE_DATE AS updateDate,
+								p.Is_Asian_country
+								FROM PDF AS p 
+								INNER JOIN PDF_CATEGORY AS a
+								ON p.ID = a.PDF_ID
+								ORDER BY ID DESC 
+							";
 							$result = mysql_query($strQuery);	
 							$Num_Rows = mysql_num_rows($result);
 							$strQuery .= "LIMIT $start , $limit";
@@ -141,6 +159,14 @@ include("include/header-with-tabs.php");
 						
 							<tr>
 								<td><?=$i?></td>
+								<td><?php
+									if($row["Is_Asian_country"]==1){
+										echo "Yes";
+									}
+									else{
+										echo "No";
+									}
+								?></td>
 								<td><?=$row['name']?></td>
 								<?php
 									$originalDate = $row['updateDate'];
