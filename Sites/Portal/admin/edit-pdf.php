@@ -117,7 +117,7 @@ include("include/header-with-tabs.php");
 
 			<div class="content-module-main cf">
 
-				<form action="edit-pdf-proc.php" method='POST' name="editpdf" id="editpdf">
+				<form action="edit-pdf-proc.php" method='POST' name="editpdf" id="editpdf" enctype="multipart/form-data">
 					<div class="half-size-column fl">
 <?php
 						include ("include/side-menu-knowledge.php");
