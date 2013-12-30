@@ -25,7 +25,7 @@ if(!(!file_exists($_FILES['pdfUpload']['tmp_name']) || !is_uploaded_file($_FILES
 	if (move_uploaded_file($_FILES["pdfUpload"]['tmp_name'], $pdf_target_path)) {
 		//echo "The file " . basename($_FILES["pdfUpload"]['name']) . " has been uploaded". "<br />";
 		$SQLFindPath="
-			SELECT * FROM PDF WHERE ID={$pdfId};
+			SELECT * FROM PDF WHERE ID={$PDF_ID};
 		";
 		$result_FindPath=@mysql_query($SQLFindPath);
 		while ($rsFindPath=@mysql_fetch_array($result_FindPath)) {
@@ -34,7 +34,7 @@ if(!(!file_exists($_FILES['pdfUpload']['tmp_name']) || !is_uploaded_file($_FILES
 		$sqlPdf = "
 			UPDATE `PDF` 
 			SET 
-				`PATH` = '{$pdfFileName}' ,
+				`PATH` = '{$pdfFileName}'
 			WHERE `ID` = '{$PDF_ID}'
 		;";
 		$insertPdfResult = @mysql_query($sqlPdf);
@@ -114,7 +114,7 @@ if(!(!file_exists($_FILES['imageUpload']['tmp_name']) || !is_uploaded_file($_FIL
 	}
 	*/
 	$SQLFindPath="
-		SELECT * FROM PDF WHERE ID = {$pdfId};
+		SELECT * FROM `PDF` WHERE ID = {$PDF_ID};
 	";
 	$result_FindPath=@mysql_query($SQLFindPath);
 	while ($rsFindPath=@mysql_fetch_array($result_FindPath)) {
@@ -123,8 +123,8 @@ if(!(!file_exists($_FILES['imageUpload']['tmp_name']) || !is_uploaded_file($_FIL
 	$sqlPdf = "
 		UPDATE `PDF` 
 		SET 
-			`PHOTO_NAME` = '{$imageFileName}' ,
-		WHERE `ID` = '{$PDF_ID}'
+			`PHOTO_NAME` = '{$imageFileName}'
+		WHERE `ID` = {$PDF_ID}
 	;";
 	$insertPdfResult = @mysql_query($sqlPdf);
 }
