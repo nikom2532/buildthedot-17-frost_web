@@ -18,38 +18,34 @@ $tag = $_POST['tags'];
 
 //upload pdf
 if(!(!file_exists($_FILES['pdfUpload']['tmp_name']) || !is_uploaded_file($_FILES['pdfUpload']['tmp_name']))){
-	if ($_FILES["pdfUpload"]["error"] > 0) {
-		//echo "Error: " . $_FILES["pdfUpload"]["error"] . "<br>";
-	}
-	else {
-		// echo "Upload: " . $_FILES["pdfUpload"]["name"] . "<br>";
-		// echo "Type: " . $_FILES["pdfUpload"]["type"] . "<br>";
-		// echo "Size: " . ($_FILES["pdfUpload"]["size"] / 1024) . " kB<br>";
-		// echo "Stored in: " . $_FILES["pdfUpload"]["tmp_name"]. "<br>";
-	}
 	$pdf_target_path = "../pdf/";
 	$pdfFileName = strtotime("now")."_".basename($_FILES["pdfUpload"]['name']);
 	$pdf_target_path = $pdf_target_path . $pdfFileName;
 	echo "target_path >".$pdf_target_path. "<br>";
 	if (move_uploaded_file($_FILES["pdfUpload"]['tmp_name'], $pdf_target_path)) {
 		//echo "The file " . basename($_FILES["pdfUpload"]['name']) . " has been uploaded". "<br />";
-	} else {
+		$SQLFindPath="
+			SELECT * FROM PDF WHERE ID={$pdfId};
+		";
+		$result_FindPath=@mysql_query($SQLFindPath);
+		while ($rsFindPath=@mysql_fetch_array($result_FindPath)) {
+			unlink($rootpath."pdf/".$rsFindPath["PATH"]);
+		}
+		$sqlPdf = "
+			UPDATE `PDF` 
+			SET 
+				`PATH` = '{$pdfFileName}' ,
+			WHERE `ID` = '{$PDF_ID}'
+		;";
+		$insertPdfResult = @mysql_query($sqlPdf);
+	}
+	else {
 		echo "There was an error uploading the file, please try again!". "<br />";
-	}				
+	}
 }
 
 // upload image
 if(!(!file_exists($_FILES['imageUpload']['tmp_name']) || !is_uploaded_file($_FILES['imageUpload']['tmp_name']))){
-		
-		if ($_FILES["imageUpload"]["error"] > 0) {
-			echo "Error: " . $_FILES["imageUpload"]["error"] . "<br>";
-		} else {
-			// echo "Upload: " . $_FILES["imageUpload"]["name"] . "<br>";
-			// echo "Type: " . $_FILES["imageUpload"]["type"] . "<br>";
-			// echo "Size: " . ($_FILES["imageUpload"]["size"] / 1024) . " kB<br>";
-			// echo "Stored in: " . $_FILES["imageUpload"]["tmp_name"] . "<br>";
-		}
-	
 		$image_target_path = "../images/pdf_image/";
 		$imageFileName = strtotime("now")."_".basename($_FILES["imageUpload"]['name']);
 		$image_target_path = $image_target_path.$imageFileName;
@@ -119,19 +115,33 @@ if(!(!file_exists($_FILES['imageUpload']['tmp_name']) || !is_uploaded_file($_FIL
 		}
 		 * 
 		 */
-}else{
+	$SQLFindPath="
+		SELECT * FROM PDF WHERE ID={$pdfId};
+	";
+	$result_FindPath=@mysql_query($SQLFindPath);
+	while ($rsFindPath=@mysql_fetch_array($result_FindPath)) {
+		unlink($rootpath."images/pdf_image/".$rsFindPath["PHOTO_NAME"]);
+	}
+	$sqlPdf = "
+		UPDATE `PDF` 
+		SET 
+			`PHOTO_NAME` = '{$imageFileName}' ,
+		WHERE `ID` = '{$PDF_ID}'
+	;";
+	$insertPdfResult = @mysql_query($sqlPdf);
+}
+else{
 	$imageFileName = "no-image.png";
 }
+
 $current_time = date("Y-m-d H:i:s");
 $sqlPdf = "
 	UPDATE `PDF` 
 	SET 
 		`NAME` =  '{$_POST["name"]}' ,
-		`PHOTO_NAME` = '{$imageFileName}' ,
 		`DESCRIPTION` = '{$_POST["description"]}' ,
 		`PRICE` = '{$_POST["price"]}' ,
 		`UPDATE_DATE` = '{$current_time}' ,
-		`PATH` = '{$pdfFileName}' ,
 		`Is_Asian_country` = '{$_POST["asian"]}'
 	WHERE `ID` = '{$PDF_ID}'
 ;";
