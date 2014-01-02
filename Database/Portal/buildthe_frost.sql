@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.6deb1
+-- version 3.4.3.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 27, 2013 at 12:34 PM
--- Server version: 5.5.34-0ubuntu0.13.10.1
--- PHP Version: 5.5.3-1ubuntu2.1
+-- Generation Time: Jan 02, 2014 at 03:28 PM
+-- Server version: 5.1.66
+-- PHP Version: 5.3.3-7+squeeze15
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `buildthedot_17mckansys`
+-- Database: `mckansys`
 --
 
 -- --------------------------------------------------------
@@ -378,7 +378,14 @@ CREATE TABLE IF NOT EXISTS `DOWNLOAD_STATISTICS` (
   `PDF_ID` int(100) NOT NULL,
   `DOWNLOAD_DATETIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `DOWNLOAD_STATISTICS`
+--
+
+INSERT INTO `DOWNLOAD_STATISTICS` (`ID`, `USER_ID`, `PDF_ID`, `DOWNLOAD_DATETIME`) VALUES
+(1, 1, 41, '2013-12-30 22:26:28');
 
 -- --------------------------------------------------------
 
@@ -597,7 +604,7 @@ CREATE TABLE IF NOT EXISTS `PDF` (
   `PATH` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Is_Asian_country` tinyint(1) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=41 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=42 ;
 
 --
 -- Dumping data for table `PDF`
@@ -610,8 +617,8 @@ INSERT INTO `PDF` (`ID`, `NAME`, `PHOTO_NAME`, `DESCRIPTION`, `BY`, `PRICE`, `UP
 (26, 'ภาพรวมสถานการณ์อุตสาหกรรมการสื่อสารโทรคมนาคมก่อนสิ้นปี 2556', '4_CoverOverall.jpg', 'ภาพรวมของสถานการณ์เศรษฐกิจภายในประเทศตั้งแต่ช่วงต้นปี 2555 เป็นต้นมา อุตสาหกรรมการสื่อสารโทรคมนาคมอยู่ในทิศทางที่ดีขึ้นอย่างต่อเนื่อง ความต้องการใช้บริการทางการสื่อสารมีการเติบโตอย่างชัดเจน   ', 'Mckansys', NULL, '2013-11-21 00:00:00', NULL, '4_TelecomOVERALL2013.pdf', 0),
 (27, 'ภาพรวมสถานการณ์อุตสาหกรรมโทรคมนาคมก่อนปิดปี 2556 ในภาคส่วนของกลุ่มบริการเสียงแบบไร้สาย (Mobile services)', '5_CoverMobile.jpg', 'การเติบโตของการใช้งานโทรศัพท์เคลื่อนที่ในประเทศไทยนั้น เริ่มจากการใช้บริการเสียงที่มีโปรโมชั่นแข่งขันกันอย่างหลากหลาย ตั้งแต่ปี 2553 เป็นต้นเริ่มมีกระแสนิยมในการใช้โทรศัพท์เคลื่อนที่แบบสมาร์ทโฟนในประเทศไทยมากขึ้น', 'Mckansys', NULL, '2013-11-21 00:00:00', NULL, '5_TelcomVoice2013.pdf', 0),
 (28, 'ภาพรวมสถานการณ์อุตสาหกรรมโทรคมนาคมก่อนปิดปี 2556 ในภาคส่วนของกลุ่มบริการเสียงพื้นฐาน (Fixed-voice services)', '6_CoverFixed.jpg', 'กลุ่มบริการเสียงพื้นฐานเงียบเหงามามากกว่า 5 ปี หลังจากโทรศัพท์เคลื่อนที่ได้เข้ามาแทนที่และได้รับความนิยมอย่างต่อเนื่อง  การลดลงที่เห็นผลกระทบได้ชัดเจนนั้น เพิ่งจะเกิดขึ้นในช่วงปี 2553  เนื่องจากความสามารถของบริการโทรศัพท์เคลื่อนที่และบริการอินเทอร์เน็ตความเร็วสูงเข้ามามีบทบาทและได้รับความนิยมมากขึ้นในประเทศไทย', 'Mckansys', NULL, '2013-11-21 00:00:00', NULL, '6_TelecomMobile2013.pdf', 0),
-(29, 'ภาพรวมสถานการณ์อุตสาหกรรมโทรคมนาคมก่อนปิดปี 2556 ในภาคส่วนของกลุ่มสื่อสารข้อมูล (Data Services)', '7_CoverData.jpg', 'ตลอดช่วงระยะเวลาในปี 2554-2555 ที่ผ่านมา กลุ่มบริการสื่อสารข้อมูลได้ถูกขับเคลื่อนการใช้งานจาก ผู้ให้บริการโทรศัพท์เคลื่อนที่, กลุ่มการเงินธนาคาร และกลุ่มขายปลีก-ส่ง เพราะผู้ใช้บริการกลุ่มนี้ได้มีการขยายพื้นที่การให้บริการและสาขาไปยังตามชุมชนต่างจังหวัดมากขึ้น ', 'Mckansys', NULL, '2013-11-21 00:00:00', NULL, '7_TelecomData2013.pdf', 0),
-(30, 'Country Profile - Brunei', '8_CoverBrunei.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศบรูไน', 'Mckansys', NULL, '2013-12-16 00:00:00', NULL, '8_CountryProfile-Brunei.pdf', 1),
+(29, 'ภาพรวมสถานการณ์กลุ่มสื่อสารข้อมูล (Data Services) 2556 ', '7_CoverData.jpg', 'ตลอดช่วงระยะเวลาในปี 2554-2555 ที่ผ่านมา กลุ่มบริการสื่อสารข้อมูลได้ถูกขับเคลื่อนการใช้งานจาก ผู้ให้บริการโทรศัพท์เคลื่อนที่, กลุ่มการเงินธนาคาร และกลุ่มขายปลีก-ส่ง เพราะผู้ใช้บริการกลุ่มนี้ได้มีการขยายพื้นที่การให้บริการและสาขาไปยังตามชุมชนต่างจังหวัดมากขึ้น ', 'Mckansys', 0, '2013-12-31 10:29:30', NULL, '7_TelecomData2013.pdf', 0),
+(30, 'Country Profile - Brunei', '1388460638_brunei.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศบรูไน', 'Mckansys', 0, '2013-12-31 10:30:39', NULL, '8_CountryProfile-Brunei.pdf', 0),
 (31, 'Country Profile - Cambodia', '9_CoverCambodia.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศกัมพูชา', 'Mckansys', NULL, '2013-12-16 00:00:00', NULL, '9_CountryProfile-Cambodia.pdf', 1),
 (32, 'Country Profile - Indonesia', '10_CoverIndo.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศอินโดนีเซีย', 'Mckansys', NULL, '2013-12-16 00:00:00', NULL, '10_CountryProfile-Indonesia.pdf', 1),
 (33, 'Country Profile - Laos', '11_CoverLaos.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศลาว', 'Mckansys', NULL, '2013-12-16 00:00:00', NULL, '11_CountryProfile-Laos.pdf', 1),
@@ -634,7 +641,7 @@ CREATE TABLE IF NOT EXISTS `PDF_CATEGORY` (
   `GROUP_LEVEL_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `PDF_ID` (`PDF_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=55 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=56 ;
 
 --
 -- Dumping data for table `PDF_CATEGORY`
@@ -731,7 +738,7 @@ CREATE TABLE IF NOT EXISTS `TAG` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NAME` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `TAG`
@@ -742,7 +749,8 @@ INSERT INTO `TAG` (`ID`, `NAME`) VALUES
 (2, 'tag2'),
 (3, 'tag3'),
 (4, 'tag4'),
-(5, 'tag5');
+(5, 'tag5'),
+(6, '');
 
 -- --------------------------------------------------------
 
@@ -757,6 +765,14 @@ CREATE TABLE IF NOT EXISTS `TAG_RELATIONSHIP` (
   KEY `fk_PDF_has_TAG_TAG1_idx` (`TAG_ID`),
   KEY `fk_PDF_has_TAG_PDF1_idx` (`PDF_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `TAG_RELATIONSHIP`
+--
+
+INSERT INTO `TAG_RELATIONSHIP` (`PDF_ID`, `TAG_ID`) VALUES
+(29, 6),
+(30, 6);
 
 -- --------------------------------------------------------
 
