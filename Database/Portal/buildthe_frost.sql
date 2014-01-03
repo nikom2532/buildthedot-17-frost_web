@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 02, 2014 at 03:28 PM
+-- Generation Time: Jan 03, 2014 at 01:58 PM
 -- Server version: 5.1.66
 -- PHP Version: 5.3.3-7+squeeze15
 
@@ -405,8 +405,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV1` (
 --
 
 INSERT INTO `GROUP_LV1` (`ID`, `NAME`, `DESCRIPTION`) VALUES
-(1, 'Think Tank', ''),
-(2, 'News Release', '');
+(1, 'Think Tank', '');
 
 -- --------------------------------------------------------
 
@@ -431,13 +430,7 @@ INSERT INTO `GROUP_LV2` (`ID`, `NAME`, `GROUP_LV1_ID`, `DESCRIPTION`) VALUES
 (1, 'Market', 1, 'Thailand Market Outlook'),
 (2, 'Knowledge', 1, ''),
 (3, 'Strategy', 1, ''),
-(4, 'Around ASEAN', 1, ''),
-(5, 'E-Business', 2, ''),
-(6, 'Customer Experience Management', 2, ''),
-(7, 'Value Innovation', 2, ''),
-(8, 'Process Improvement', 2, ''),
-(9, 'Go to Market', 2, ''),
-(10, 'Competitive Analysis', 2, '');
+(4, 'Around ASEAN', 1, '');
 
 -- --------------------------------------------------------
 
@@ -466,7 +459,6 @@ INSERT INTO `GROUP_LV3` (`ID`, `NAME`, `GROUP_LV2_ID`, `DESCRIPTION`) VALUES
 (9, 'Update AEC News', 4, 'This is a description text.'),
 (10, 'Competency Index', 4, 'This is a description text.'),
 (11, 'Country Profile', 4, 'This is a description text.'),
-(12, 'Company', 5, ''),
 (15, 'ICT Market', 1, ''),
 (16, 'TechTrend Report', 1, ''),
 (17, 'Infrastructure', 2, ''),
