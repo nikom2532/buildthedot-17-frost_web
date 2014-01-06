@@ -8,8 +8,8 @@ include ($rootpath . "lib/func_date.php");
 if (!$db -> open()) {
 	die($db -> error());
 }
-	$glvId = $_POST["glvId"];
-	$glvName = $_POST["glvName"];
+echo	$glvId = $_POST["glvId"];
+echo	$glvName = $_POST["glvName"];
 	$flagFindLevelIsEmpty=0;
 	
 	//Fine Group level Child is Empty?
