@@ -13,14 +13,14 @@ if (!$db -> open()) {
 	$flagFindLevelIsEmpty=0;
 	
 	//Fine Group level Child is Empty?
-	$SQLFindLevelIsEmpty="
+	$SQLFindLevelIsEmpty = "
 		SELECT * FROM `GROUP_LV".($glvName+1)."` WHERE `GROUP_LV".$glvName."_ID` = {$glvId};
 	";
 	$result_FindLevelIsEmpty=@mysql_query($SQLFindLevelIsEmpty);
-	while ($rsFindPath=@mysql_fetch_array($result_FindPath)) {
+	while ($rsFindPath=@mysql_fetch_array($result_FindLevelIsEmpty)) {
 		$flagFindLevelIsEmpty++;
 	}
-	if ($flagFindLevelIsEmpty==0) {
+	if ($flagFindLevelIsEmpty>0) {
 		?><script>window.location = "group.php?grouplevel=<?php echo $glvName; ?>&msg=dum";</script><?php
 	}
 	else{
@@ -36,7 +36,7 @@ if (!$db -> open()) {
 		$result_findPdfCategory = @mysql_query($findPdfCategory);
 		while ($rs_findPdfCategory = @mysql_fetch_array($result_findPdfCategory)) {
 			$ID_array[] = $rs_findPdfCategory["ID"];
-			$NAME_array[] = $rs_findPdfCategory["NAME"]; 
+			$NAME_array[] = $rs_findPdfCategory["NAME"];
 		}
 		
 		?>There are <br /><br /><?php
