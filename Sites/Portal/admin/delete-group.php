@@ -38,19 +38,31 @@ echo	$glvName = $_POST["glvName"];
 			$ID_array[] = $rs_findPdfCategory["ID"];
 			$NAME_array[] = $rs_findPdfCategory["NAME"];
 		}
-		
-		?>There are <br /><br /><?php
-		for($i=0; $i<count($ID_array); $i++){
-			if($i % 2 == 0){
-				echo "<div style=\"background:#129793;\">";
-			}
-			else {
-				echo "<div style=\"background:#EB500B;\">";
-			}
-			echo $NAME_array[$i]."</div>";
+		if(count($ID_array)==0){
+			$deleteGroup="
+				DELETE FROM `GROUP_LV".$glvName."` 
+				WHERE `ID` = {$glvId};
+			";
+			@mysql_query($deleteGroup);
+				
+			// header("location: group.php");
+			
+			?><script>window.location = "group.php?msg=Success";</script><?php
 		}
-		?><br />That already join with this group<br />Do you want to delete? <br />
-		<a href="./delete-group2.php?glvId=<?php echo $glvId;?>&glvName=<?php echo $glvName; ?>">Yes</a><br /><a href="./group.php">No</a><?php
+		else{
+			?>There are <br /><br /><?php
+			for($i=0; $i<count($ID_array); $i++){
+				if($i % 2 == 0){
+					echo "<div style=\"background:#129793;\">";
+				}
+				else {
+					echo "<div style=\"background:#EB500B;\">";
+				}
+				echo $NAME_array[$i]."</div>";
+			}
+			?><br />That already join with this group<br />Do you want to delete? <br />
+			<a href="./delete-group2.php?glvId=<?php echo $glvId;?>&glvName=<?php echo $glvName; ?>">Yes</a><br /><a href="./group.php">No</a><?php
+		}
 	}
 	/*
 	$deletePdf = mysql_query("DELETE FROM PDF WHERE ID=$pdfId");

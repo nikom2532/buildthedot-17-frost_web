@@ -12,7 +12,7 @@ if (!$db -> open()) {
 	$glvName = $_GET["glvName"];
 	$flagFindLevelIsEmpty=0;
 	
-echo	$deletePdfCategory = "
+	$deletePdfCategory = "
 		DELETE FROM `PDF`
 		WHERE `ID` IN
 			(SELECT `PDF_ID`
@@ -20,17 +20,15 @@ echo	$deletePdfCategory = "
 			WHERE `GROUP_LEVEL_NAME` = '".$glvName."'
 			AND `GROUP_LEVEL_ID` = '".$glvId."')
 	;";
-	/*
 	@mysql_query($deletePdfCategory);
-	*/
 	
-echo	$deleteGroup="
-		SELECT * FROM `GROUP_LV".$glvName."` WHERE `GROUP_LV".$glvName."_ID` = {$glvId};
+	$deleteGroup="
+		DELETE FROM `GROUP_LV".$glvName."` 
+		WHERE `ID` = {$glvId};
 	";
-	/*
 	@mysql_query($deleteGroup);
 		
-	header("location: group.php");
+	// header("location: group.php");
 	
 	?><script>window.location = "group.php?msg=Success";</script><?php
 ?>
