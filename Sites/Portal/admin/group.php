@@ -14,13 +14,13 @@ include("lib/func_pagination.php");
 $msg = $_GET['msg'];
 if ($msg=="Success") {
     $message = "Process Complete";
-    ?>
+?>
      <script type="text/javascript">
         showNotification({
             message: "<?php echo $message; ?>",
             type: "success",
             autoClose: true,
-            duration: 5                                        
+            duration: 5
         });
     </script>
     <?php
