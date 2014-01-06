@@ -164,9 +164,8 @@ include("include/header-with-tabs.php");
 											<input type='hidden' name='glvl_glvl' value="<?php echo $_GET["grouplevel"]; ?>"/>
 										</form>
 										<form method='post' action='delete-group.php' id='submitform' name='submitform'>
-											<input type='hidden' name='pdfId' value="<?=$row['ID']?>"/>
-											<input type='hidden' name='glvId' value="<?=$row['glvId']?>"/>	
-											<input type='hidden' name='glvName' value="<?=$row['glvName']?>"/>	
+											<input type='hidden' name='pdfId' value="<?php echo $row['ID']; ?>"/>
+											<input type='hidden' name='glvName' value="<?php echo $_GET["grouplevel"]; ?>"/>	
 											<input type='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0' ALT='DELETE'  onClick='return confirmSubmit()'>
 										</form>
 									</td>

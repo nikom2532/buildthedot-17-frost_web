@@ -771,3 +771,15 @@ span.inactive {
 #content #container #content-middle img.thinktank{
 	max-width:300px;
 }
+.paddingleft10{
+	padding-left: 10px;
+}
+.paddingright10{
+	padding-right: 10px;
+}
+.textalignleft{
+	text-align: inherit;
+}
+#content-middle section.mainknowledge{
+	text-align: inherit;
+}

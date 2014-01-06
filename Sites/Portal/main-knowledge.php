@@ -482,10 +482,10 @@ include ($rootpath."include/top-menu.php");
 	?>
 										<section <?php 
 											if($i%2==0){
-												echo "class=\"grid_4\" ";
+												echo "class=\"grid_4 mainknowledge\" ";
 											}
 											else{
-												echo "class=\"grid_4\" style=\"margin:0\"";
+												echo "class=\"grid_4 mainknowledge\" style=\"margin:0\"";
 											}
 										?>>
 	<?php
@@ -509,8 +509,8 @@ include ($rootpath."include/top-menu.php");
 											
 										</p>
 										
-										<p>
-											<span class="text-lightgreen bold head-desc">Title: </span>
+										<div class=" ">
+											<span class="text-lightgreen bold head-desc  ">Title: </span>
 											<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
 												<?php echo $c_NAME["$i"]; ?>
 												<span id="ic-lock">
@@ -523,16 +523,22 @@ include ($rootpath."include/top-menu.php");
 	*/ ?>
 												</span>
 											</a>
-										</p>
-										<p>
-											<span class="text-lightgreen bold head-desc">Update: </span><span class="date"><?php echo convertDate2String($c_UPDATE_DATE["$i"]); ?></span>
-										</p>
-										<p class="text-desc">
+										</div>
+										<div class=" ">
+											<span class="text-lightgreen bold head-desc ">Update: </span><span class="date"><?php echo convertDate2String($c_UPDATE_DATE["$i"]); ?></span>
+										</div>
+										<!-- <p class="text-desc">
 											<span class="text-lightgreen bold head-desc">Description: </span><?php echo substr_replace($c_DESCRIPTION["$i"],' ..',220); ?>
 											<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
 												<span class='italic text-orange'>Read More</span>
 											</a>
-										</p>
+										</p> -->
+										<div class=" ">
+											<span class="text-lightgreen bold ">Description: </span><?php echo substr_replace($c_DESCRIPTION["$i"],' ..',220); ?>
+											<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
+												<span class='italic text-orange'>Read More</span>
+											</a>
+										</div>
 									</section>
 	<?php
 								}
