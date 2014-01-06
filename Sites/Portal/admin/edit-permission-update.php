@@ -29,5 +29,6 @@ if (!$db -> open()) {
 	$strSQL .= "WHERE ID='".$editId."'";
 	// echo "strQuery=>".$strSQL ;
 	$cmdQuery = mysql_query($strSQL);
-	header("location: permission.php?userId=$userId");
+	//header("location: permission.php?userId=$userId");
+	?><script>window.location = "permission.php?userId=<?php echo $userId; ?>";</script><?php
 ?>

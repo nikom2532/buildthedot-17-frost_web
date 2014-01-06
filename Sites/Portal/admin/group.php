@@ -12,7 +12,7 @@ include("include/top-bar.php");
 include("lib/func_pagination.php");
 
 $msg = $_GET['msg'];
-if ($msg=="Sucess") {
+if ($msg=="Success") {
     $message = "Process Complete";
     ?>
      <script type="text/javascript">
@@ -24,7 +24,8 @@ if ($msg=="Sucess") {
         });
     </script>
     <?php
-}if($msg=="Failed"){
+}
+elseif($msg=="Failed"){
 	$message = "Process Failed! Please try again";
     ?>
      <script type="text/javascript">
@@ -37,6 +38,20 @@ if ($msg=="Sucess") {
     </script>
     <?php
 }
+elseif($msg=="dum"){
+	$message = "There are Child group insite, cannot delete";
+    ?>
+     <script type="text/javascript">
+        showNotification({
+            message: "<?php echo $message; ?>",
+            type: "error",
+            autoClose: true,
+            duration: 5                                        
+        });
+    </script>
+    <?php
+}
+
 $header_with_tag = "group";
 include("include/header-with-tabs.php");
 ?>
@@ -164,7 +179,7 @@ include("include/header-with-tabs.php");
 											<input type='hidden' name='glvl_glvl' value="<?php echo $_GET["grouplevel"]; ?>"/>
 										</form>
 										<form method='post' action='delete-group.php' id='submitform' name='submitform'>
-											<input type='hidden' name='pdfId' value="<?php echo $row['ID']; ?>"/>
+											<input type='hidden' name='glvId' value="<?php echo $row['ID']; ?>"/>
 											<input type='hidden' name='glvName' value="<?php echo $_GET["grouplevel"]; ?>"/>	
 											<input type='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0' ALT='DELETE'  onClick='return confirmSubmit()'>
 										</form>
