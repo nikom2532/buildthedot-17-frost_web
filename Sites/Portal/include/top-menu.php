@@ -91,8 +91,8 @@
 <?php
 				}
 ?>
-<?php /* 
 				<li><a href="contact-us.php">Contact us</a></li>
+<?php /* 
 				<li>
 					<a href="">Knowledge</a>
 					<span>
