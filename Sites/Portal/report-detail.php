@@ -148,7 +148,7 @@ include ("include/top-menu.php");
 <?php 
 							if($_GET["id"]==11 && $_GET["glvl"]==3){
 ?>
-								<img src="images/pdf_image/<?php echo $row["PHOTO_NAME"]; ?>" width="250" height="172" /><br />
+								<img class="pdf-image" src="images/pdf_image/<?php echo $row["PHOTO_NAME"]; /*width="250" height="172"*/ ?>" /><br />
 <?php
 							}else{
 							// elseif(!(
@@ -157,7 +157,7 @@ include ("include/top-menu.php");
 								// ($_GET["id"]==10 && $_GET["glvl"]==3)
 							// )){
 ?>
-								<img src="images/pdf_image/<?php echo $row["PHOTO_NAME"]; ?>" /><br />
+								<img class="pdf-image" src="images/pdf_image/<?php echo $row["PHOTO_NAME"]; ?>" /><br />
 <?php 
 							}
 ?>

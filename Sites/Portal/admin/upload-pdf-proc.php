@@ -44,7 +44,7 @@ if(!(!file_exists($_FILES['pdfUpload']['tmp_name']) || !is_uploaded_file($_FILES
 			//echo "The file " . basename($_FILES["pdfUpload"]['name']) . " has been uploaded". "<br />";
 		} else {
 			echo "There was an error uploading the file, please try again!". "<br />";
-		}				
+		}
 }
 
 // upload image
@@ -63,10 +63,18 @@ if(!(!file_exists($_FILES['imageUpload']['tmp_name']) || !is_uploaded_file($_FIL
 		$imageFileName = strtotime("now")."_".basename($_FILES["imageUpload"]['name']);
 		$image_target_path = $image_target_path.$imageFileName;
 		
+		if (move_uploaded_file($_FILES["imageUpload"]['tmp_name'], $image_target_path)) {
+			echo "The file " . basename($_FILES["pdfUpload"]['name']) . " has been uploaded". "<br />";
+		} else {
+			echo "There was an error uploading the file, please try again!". "<br />";
+		}	
+		
+		
+		/*
 	    // resize
 		$images = $_FILES["imageUpload"]["tmp_name"];
         $new_images = "_".$_FILES["imageUpload"]["name"];
-        $width=150; //*** Fix Width & Heigh (Autu caculate) ***//
+        $width=150; // *** Fix Width & Heigh (Autu caculate) *** //
         $height=150;
         $size=GetimageSize($images);
 		if(($_FILES["imageUpload"]["type"] == "image/jpg") ||($_FILES["imageUpload"]["type"] == "image/jpeg")){
@@ -99,7 +107,7 @@ if(!(!file_exists($_FILES['imageUpload']['tmp_name']) || !is_uploaded_file($_FIL
 	        ImageDestroy($images_orig);
 	        ImageDestroy($images_fin);
 		}
-		
+		*/
         
 		/*		
 		$allowedExts = array("gif", "jpeg", "jpg", "png");
@@ -126,11 +134,11 @@ if(!(!file_exists($_FILES['imageUpload']['tmp_name']) || !is_uploaded_file($_FIL
 		} else {
 			echo "Invalid file";
 		}
-		 * 
-		 */
+		*/
 }else{
 	$imageFileName = "no-image.png";
 }
+
 $current_time = date("Y-m-d H:i:s");
 $sqlPdf = "
 	INSERT INTO `PDF` (
@@ -169,6 +177,7 @@ foreach($string_tag as $tag) {
 	$result_tag_to_id = @mysql_query($tag_to_id);
 	while ($rs_tag_to_id = @mysql_fetch_array($result_tag_to_id)) {
 	*/
+	
 	$sqTag="
 		INSERT INTO `TAG_RELATIONSHIP` (
 			`PDF_ID`,

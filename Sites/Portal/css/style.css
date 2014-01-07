@@ -344,6 +344,9 @@ ul#topnav li span a:hover {text-decoration: none; color:#484949;}
 .report-detail p {
 	margin-bottom: 10px;
 }
+.report-detail img.pdf-image{
+	max-width: 300px;
+}
 ul.report-tag {
 	list-style-type: none;
 	margin-top:-5px;
