@@ -14,9 +14,9 @@ function array_to_csv_download($array, $filename = "User_Statistic_Report.csv", 
     // open raw memory as file so no temp files needed, you might run out of memory though
     $f = fopen('php://memory', 'w'); 
     // loop over the input array
-    foreach ($array as $line) { 
+    foreach ($array as $line) {
         // generate csv lines from the inner arrays
-        fputcsv($f, $line, $delimiter); 
+        fputcsv($f, $line, $delimiter);
     }
     // rewrind the "file" with the csv lines
     fseek($f, 0);
@@ -31,7 +31,7 @@ function array_to_csv_download($array, $filename = "User_Statistic_Report.csv", 
 $i=1;
 $startDate = $_POST["startDate"];
 $endDate = $_POST["endDate"];
-echo $sql_download_statistic="
+$sql_download_statistic="
 	SELECT *, Date(`DOWNLOAD_DATETIME`) AS download_date, Time(`DOWNLOAD_DATETIME`) AS download_time
 	FROM  `DOWNLOAD_STATISTICS`
 	WHERE Date(`DOWNLOAD_DATETIME`) >= '{$startDate}'
@@ -76,11 +76,11 @@ for($i=0; $i<count($stat_user_No); $i++){
 	$user_array[$i][2] = $pdf_name[$i];
 	$user_array[$i][3] = $DOWNLOAD_DATETIME[$i];
 }
-/*
+
 array_to_csv_download(
 	$user_array, // this array is going to be the second row
   "User_Statistic_Report.csv"
 );
-*/
+
 ob_end_flush();
 ?>
