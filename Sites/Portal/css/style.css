@@ -45,7 +45,7 @@ h5 { font-size: 0.625em; /* 10/16 */ }
 
 
 /* ---------- LINK ---------- */
-	a, a:visited {color:white;text-decoration: none; outline: 0; }
+	a, a:visited {color:#666;text-decoration: none; outline: 0; }
 	p a, p a:visited { line-height: inherit; }
 
 /* ---------- BUTTONS ---------- */

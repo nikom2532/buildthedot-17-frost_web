@@ -58,7 +58,7 @@ if(!(!file_exists($_FILES['imageUpload']['tmp_name']) || !is_uploaded_file($_FIL
 			// echo "Size: " . ($_FILES["imageUpload"]["size"] / 1024) . " kB<br>";
 			// echo "Stored in: " . $_FILES["imageUpload"]["tmp_name"] . "<br>";
 		}
-	
+		
 		$image_target_path = "../images/pdf_image/";
 		$imageFileName = strtotime("now")."_".basename($_FILES["imageUpload"]['name']);
 		$image_target_path = $image_target_path.$imageFileName;

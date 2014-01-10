@@ -46,17 +46,37 @@ if(!(!file_exists($_FILES['pdfUpload']['tmp_name']) || !is_uploaded_file($_FILES
 
 // upload image
 if(!(!file_exists($_FILES['imageUpload']['tmp_name']) || !is_uploaded_file($_FILES['imageUpload']['tmp_name']))){
+	
+	if ($_FILES["imageUpload"]["error"] > 0) {
+		echo "Error: " . $_FILES["imageUpload"]["error"] . "<br>";
+	} else {
+		// echo "Upload: " . $_FILES["imageUpload"]["name"] . "<br>";
+		// echo "Type: " . $_FILES["imageUpload"]["type"] . "<br>";
+		// echo "Size: " . ($_FILES["imageUpload"]["size"] / 1024) . " kB<br>";
+		// echo "Stored in: " . $_FILES["imageUpload"]["tmp_name"] . "<br>";
+	}
+	
 	$image_target_path = "../images/pdf_image/";
 	$imageFileName = strtotime("now")."_".basename($_FILES["imageUpload"]['name']);
 	$image_target_path = $image_target_path.$imageFileName;
 	
+	if (move_uploaded_file($_FILES["imageUpload"]['tmp_name'], $image_target_path)) {
+		echo "The file " . basename($_FILES["pdfUpload"]['name']) . " has been uploaded". "<br />";
+	} else {
+		echo "There was an error uploading the file, please try again!". "<br />";
+	}
+	
+	
+	
+	
+	/*
     // resize
 	$images = $_FILES["imageUpload"]["tmp_name"];
   $new_images = "_".$_FILES["imageUpload"]["name"];
-  $width=150; //*** Fix Width & Heigh (Autu caculate) ***//
+  $width=150; // Fix Width & Heigh (Autu caculate)
   $height=150;//#
   $size=GetimageSize($images);
-	if(($_FILES["imageUpload"]["type"] == "image/jpg") ||($_FILES["imageUpload"]["type"] == "image/jpeg")){
+	if(($_FILES["imageUpload"]["type"] == "image/jpg") || ($_FILES["imageUpload"]["type"] == "image/jpeg")){
 	  $images_orig = ImageCreateFromJPEG($images);
 	  $photoX = ImagesX($images_orig);
 	  $photoY = ImagesY($images_orig);
@@ -86,6 +106,7 @@ if(!(!file_exists($_FILES['imageUpload']['tmp_name']) || !is_uploaded_file($_FIL
 	  ImageDestroy($images_orig);
 	  ImageDestroy($images_fin);
 	}
+	*/
 	
 	/*		
 	$allowedExts = array("gif", "jpeg", "jpg", "png");
