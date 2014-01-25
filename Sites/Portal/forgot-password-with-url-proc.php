@@ -18,11 +18,11 @@
 		$_SESSION['forgotPassStart'] = time();
 		$_SESSION['forgotPassExpire'] = $_SESSION['forgotPassStart'] + (10 * 60) ; // 10 minute
 
-		$to      = "voravan@buildthedot.com";
-		$subject = "[Mckansys] Forgot password";
-		$message = "You activation link is: http://mckansys.buildthedot.com/activation.php?email=$email&key=$key";
-		$headers = "From: team@buildthedot.com" . "\r\n" .
-	    "Reply-To: team@buildthedot.com" . "\r\n" .
+		$to      = "arming@buildthedot.com";
+		$subject = "[Mckansys Portal] Forgot password";
+		$message = "You activation link is: http://portal.mckansys.com/activation.php?email=$email&key=$key";
+		$headers = "From: buildthedot@mckansys.com" . "\r\n" .
+	    "Reply-To: arming@mckansys.com" . "\r\n" .
 	    "X-Mailer: PHP/" . phpversion();
 	
 		if (mail($to, $subject, $message, $headers)) {
