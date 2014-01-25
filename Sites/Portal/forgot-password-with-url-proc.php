@@ -22,7 +22,7 @@
 		$subject = "[Mckansys Portal] Forgot password";
 		$message = "You activation link is: http://portal.mckansys.com/activation.php?email=$email&key=$key";
 		$headers = "From: noreply@mckansys.com " . "\r\n" .
-	    "Reply-To: buildthedot@mckansys.com" . "\r\n" .
+	    "Reply-To: buildthedot@mckansys.com, admin@mckansys.com, sukanya@mckansys.com" . "\r\n" .
 	    "X-Mailer: PHP/" . phpversion();
 	
 		if (mail($to, $subject, $message, $headers)) {
