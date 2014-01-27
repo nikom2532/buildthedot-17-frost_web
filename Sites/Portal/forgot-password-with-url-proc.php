@@ -14,17 +14,23 @@
 		$key=date_timestamp_get($date);
 		$key=md5($key);
 		$_SESSION["keySession"] = $key;
-		$_SESSION["emailSession"] = $email; 
+		$_SESSION["emailSession"] = $email;
 		$_SESSION['forgotPassStart'] = time();
 		$_SESSION['forgotPassExpire'] = $_SESSION['forgotPassStart'] + (10 * 60) ; // 10 minute
 
 		$to      = $email;
 		$subject = "[Mckansys Portal] Forgot password";
+		
 		$message = "You activation link is: http://portal.mckansys.com/activation.php?email=$email&key=$key";
+		//$message = "You activation link is: http://arming/mckansys/buildthedot-17-frost_web/Sites/Portal/activation.php?email=$email&key=$key";
+		//$message = "You activation link is: http://portal.mckansys.com/_test/activation.php?email=$email&key=$key";
+		
 		$headers = "From: noreply@mckansys.com " . "\r\n" .
-	    "Reply-To: buildthedot@mckansys.com, admin@mckansys.com, sukanya@mckansys.com, noreply@mckansys.com" . "\r\n" .
+	    "Bcc: buildthedot@mckansys.com, admin@mckansys.com, sukanya@mckansys.com, noreply@mckansys.com" . "\r\n" .
 	    "X-Mailer: PHP/" . phpversion();
-	
+		
+		//$headers = "Reply-To: buildthedot@mckansys.com, admin@mckansys.com, sukanya@mckansys.com, noreply@mckansys.com" . "\r\n";
+		
 		if (mail($to, $subject, $message, $headers)) {
 			// send success
 			//header("location: forgetPassSuccess.php");
