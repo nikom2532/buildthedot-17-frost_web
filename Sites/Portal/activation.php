@@ -11,7 +11,7 @@
     if($now > $_SESSION['forgotPassExpire']) {
        // session expired
        //header("location: index.php");
-			 ?><script>window.location = "index.php";</script><?php
+			 ?><script>window.location = "forgetPassFail.php?e=3";</script><?php
 	   
     } else {
     	if ($sessionKey == $key && $sessionEmail == $email) {

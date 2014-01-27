@@ -21,6 +21,8 @@
 				<h1 class="fail-msg">Activation email can not be sent.</h1>
 			<?php } else if ($error == "2"){?>
 				<h1 class="fail-msg">Record not found.</h1>
+			<?php } else if ($error == "3"){?>
+				<h1 class="fail-msg">The session for reseted password expired, please try to reset password again.</h1>
 			<?php } else {?>
 				<h1 class="fail-msg">The session expired, please try again.</h1>
 			<?php }
