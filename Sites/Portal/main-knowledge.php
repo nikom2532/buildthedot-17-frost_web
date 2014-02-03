@@ -495,10 +495,9 @@ include ($rootpath."include/top-menu.php");
 	<?php
 											//if Group --> Around Asian
 											if(!(
-												($_GET["id"]==3 && $_GET["glvl"]==2) ||
 												($_GET["id"]==9 && $_GET["glvl"]==3) ||
 												($_GET["id"]==10 && $_GET["glvl"]==3)
-											)){
+											)){ //($_GET["id"]==3 && $_GET["glvl"]==2)
 	?>
 												<a href="<?php echo $rootpath; ?>report-detail.php?pdf_id=<?php echo $c_PDF_ID["$i"]; ?>&id=<?php echo $c_ID["$i"];?>&glvl=<?php echo $c_glvl["$i"]; ?>">
 													<img class="thinktank" src="images/pdf_image/<?php echo $c_PHOTO_NAME["$i"]; ?>" />
