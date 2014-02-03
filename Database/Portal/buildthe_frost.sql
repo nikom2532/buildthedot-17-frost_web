@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 06, 2014 at 01:45 AM
--- Server version: 5.1.66
--- PHP Version: 5.3.3-7+squeeze15
+-- Generation Time: Feb 03, 2014 at 03:02 PM
+-- Server version: 5.1.73
+-- PHP Version: 5.3.3-7+squeeze18
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -378,7 +378,7 @@ CREATE TABLE IF NOT EXISTS `DOWNLOAD_STATISTICS` (
   `PDF_ID` int(100) NOT NULL,
   `DOWNLOAD_DATETIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=27 ;
 
 --
 -- Dumping data for table `DOWNLOAD_STATISTICS`
@@ -394,7 +394,23 @@ INSERT INTO `DOWNLOAD_STATISTICS` (`ID`, `USER_ID`, `PDF_ID`, `DOWNLOAD_DATETIME
 (7, 1, 33, '2014-01-05 00:02:03'),
 (8, 1, 34, '2014-01-05 00:02:12'),
 (9, 1, 36, '2014-01-05 00:02:28'),
-(10, 1, 37, '2014-01-05 00:02:39');
+(10, 1, 37, '2014-01-05 00:02:39'),
+(11, 7, 42, '2014-01-06 03:35:17'),
+(12, 14, 23, '2014-01-06 05:00:31'),
+(13, 13, 39, '2014-01-06 07:45:27'),
+(14, 13, 26, '2014-01-06 07:46:06'),
+(15, 10, 29, '2014-01-06 10:12:17'),
+(16, 7, 27, '2014-01-06 10:19:37'),
+(17, 7, 25, '2014-01-06 10:20:15'),
+(18, 7, 38, '2014-01-06 10:21:09'),
+(19, 7, 30, '2014-01-06 10:26:11'),
+(20, 7, 31, '2014-01-06 10:27:51'),
+(21, 13, 23, '2014-01-15 01:19:40'),
+(22, 7, 32, '2014-01-22 08:35:47'),
+(23, 7, 36, '2014-01-22 09:10:19'),
+(24, 1, 32, '2014-01-24 08:11:29'),
+(25, 1, 36, '2014-01-24 08:12:47'),
+(26, 1, 36, '2014-01-24 08:15:43');
 
 -- --------------------------------------------------------
 
@@ -407,7 +423,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV1` (
   `NAME` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `DESCRIPTION` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `GROUP_LV1`
@@ -429,7 +445,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV2` (
   `DESCRIPTION` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_GROUP_LV2_GROUP_LV11_idx` (`GROUP_LV1_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `GROUP_LV2`
@@ -454,7 +470,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV3` (
   `DESCRIPTION` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_GROUP_LV3_GROUP_LV21_idx` (`GROUP_LV2_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `GROUP_LV3`
@@ -478,7 +494,7 @@ CREATE TABLE IF NOT EXISTS `GROUP_LV4` (
   `DESCRIPTION` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_GROUP_LV4_GROUP_LV31_idx` (`GROUP_LV3_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -547,8 +563,8 @@ CREATE TABLE IF NOT EXISTS `INFO` (
 
 INSERT INTO `INFO` (`ID`, `DESCRIPTION`, `DETAIL`, `UPDATE`) VALUES
 (1, 'welcome to mckansys.. ยินดีต้อนรับสู่ Omni Knowledge Portal ', 'รายละเอียดหน้าแรก', '2013-11-11 00:00:00'),
-(2, 'Please sign in to download ', 'หัวข้อใน download box', '2013-11-18 00:00:00'),
-(3, 'or contact us to be a membership', 'รายละเอียดใน download box', '2013-11-18 00:00:00');
+(2, 'Please <a href="http://portal.mckansys.com/login.php">sign in</a> to download', 'หัวข้อใน download box', '2013-11-18 00:00:00'),
+(3, 'or <a href="http://portal.mckansys.com/contact-us.php">contact us</a> to be a membership', 'รายละเอียดใน download box', '2013-11-18 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -587,30 +603,35 @@ CREATE TABLE IF NOT EXISTS `PDF` (
   `PATH` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Is_Asian_country` tinyint(1) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=43 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=49 ;
 
 --
 -- Dumping data for table `PDF`
 --
 
 INSERT INTO `PDF` (`ID`, `NAME`, `PHOTO_NAME`, `DESCRIPTION`, `BY`, `PRICE`, `UPDATE_DATE`, `COMPANY_ID`, `PATH`, `Is_Asian_country`) VALUES
-(23, 'แนวโน้ม Near Field Communication ในประเทศไทย', '1_CoverNFC.jpg', 'มัคคานซิสเชื่อว่า ภายในปี 2557  Near Field Communication (NFC) ซึ่งเป็นเทคโนโลยีการสื่อสารระยะสั้น จะเป็นช่วงเวลาแห่งการเติบโตและการใช้งานจริงอย่างแพร่หลายกับตลาดผู้บริโภคในประเทศไทย', 'Mckansys', 100, '2014-01-04 21:16:03', NULL, '1_Tech-NFC-271013_FINAL-Cover2.pdf', 0),
+(23, 'แนวโน้ม Near Field Communication ในประเทศไทย', '1391377563_1_CoverNFC.jpg', 'มัคคานซิสเชื่อว่า ภายในปี 2557  Near Field Communication (NFC) ซึ่งเป็นเทคโนโลยีการสื่อสารระยะสั้น จะเป็นช่วงเวลาแห่งการเติบโตและการใช้งานจริงอย่างแพร่หลายกับตลาดผู้บริโภคในประเทศไทย', 'Mckansys', 100, '2014-02-03 04:46:03', NULL, '1_Tech-NFC-271013_FINAL-Cover2.pdf', 0),
 (24, 'ทิศทาง OTT โมเดลในประเทศไทย', '2_CoverOTT.jpg', 'ทิศทางรูปแบบธุรกิจ OTT หรือ Over-The-Top ที่กำลังเกิดขึ้นและได้รับความนิยมในปัจจุบันจากผู้พัฒนาโมบายแอพพลิเคชั่น และส่งผลกระทบโดยตรงต่อผู้ให้บริการสื่อสารข้อมูลไร้สายทั่วโลก', 'Mckansys', NULL, '2013-12-05 00:00:00', NULL, '2_OTT_Complete_Cover.pdf', 0),
-(25, 'การบูรณาการองค์กรด้วย Business Intelligence', '3_CoverBI.jpg', 'Business Intelligence (BI) คือ เทคโนโลยีในรูปแบบซอฟแวร์ เป็นระบบที่ถูกนำมาใช้เพื่อวิเคราะห์ข้อมูลในการปรับปรุงการบริการและผลิตภัณฑ์ รวมทั้งกลยุทธ์ในการเปิดตลาดใหม่ๆเป็นอันดับต้นๆใน 4-5 ปีมานี้ ', 'Mckansys', 100, '2014-01-04 21:20:39', NULL, '3_BusinessIntelligence-yah-cover.pdf', 0),
-(26, 'ภาพรวมการสื่อสารโทรคมนาคม 2556', '4_CoverOverall.jpg', 'ภาพรวมของสถานการณ์เศรษฐกิจภายในประเทศตั้งแต่ช่วงต้นปี 2555 เป็นต้นมา อุตสาหกรรมการสื่อสารโทรคมนาคมอยู่ในทิศทางที่ดีขึ้นอย่างต่อเนื่อง ความต้องการใช้บริการทางการสื่อสารมีการเติบโตอย่างชัดเจน   ', 'Mckansys', 100, '2014-01-04 21:23:01', NULL, '4_TelecomOVERALL2013.pdf', 0),
+(25, 'การบูรณาการองค์กรด้วย Business Intelligence', '1391377295_3_CoverBI.jpg', 'Business Intelligence (BI) คือ เทคโนโลยีในรูปแบบซอฟแวร์ เป็นระบบที่ถูกนำมาใช้เพื่อวิเคราะห์ข้อมูลในการปรับปรุงการบริการและผลิตภัณฑ์ รวมทั้งกลยุทธ์ในการเปิดตลาดใหม่ๆเป็นอันดับต้นๆใน 4-5 ปีมานี้ ', 'Mckansys', 100, '2014-02-03 04:41:35', NULL, '3_BusinessIntelligence-yah-cover.pdf', 0),
+(26, 'ภาพรวมการสื่อสารโทรคมนาคม 2556', '1391377445_4_CoverOverall.jpg', 'ภาพรวมของสถานการณ์เศรษฐกิจภายในประเทศตั้งแต่ช่วงต้นปี 2555 เป็นต้นมา อุตสาหกรรมการสื่อสารโทรคมนาคมอยู่ในทิศทางที่ดีขึ้นอย่างต่อเนื่อง ความต้องการใช้บริการทางการสื่อสารมีการเติบโตอย่างชัดเจน   ', 'Mckansys', 100, '2014-02-03 04:44:06', NULL, '4_TelecomOVERALL2013.pdf', 0),
 (27, 'ภาพรวมกลุ่มบริการเสียงแบบไร้สาย (Mobile services) 2556 ', '5_CoverMobile.jpg', 'การเติบโตของการใช้งานโทรศัพท์เคลื่อนที่ในประเทศไทยนั้น เริ่มจากการใช้บริการเสียงที่มีโปรโมชั่นแข่งขันกันอย่างหลากหลาย ตั้งแต่ปี 2553 เป็นต้นเริ่มมีกระแสนิยมในการใช้โทรศัพท์เคลื่อนที่แบบสมาร์ทโฟนในประเทศไทยมากขึ้น', 'Mckansys', 100, '2014-01-04 21:22:53', NULL, '5_TelcomVoice2013.pdf', 0),
 (28, 'ภาพรวมกลุ่มบริการเสียงพื้นฐาน (Fixed-voice services) 2556 ', '6_CoverFixed.jpg', 'กลุ่มบริการเสียงพื้นฐานเงียบเหงามามากกว่า 5 ปี หลังจากโทรศัพท์เคลื่อนที่ได้เข้ามาแทนที่และได้รับความนิยมอย่างต่อเนื่อง  การลดลงที่เห็นผลกระทบได้ชัดเจนนั้น เพิ่งจะเกิดขึ้นในช่วงปี 2553  เนื่องจากความสามารถของบริการโทรศัพท์เคลื่อนที่และบริการอินเทอร์เน็ตความเร็วสูงเข้ามามีบทบาทและได้รับความนิยมมากขึ้นในประเทศไทย', 'Mckansys', 100, '2014-01-04 21:22:43', NULL, '6_TelecomMobile2013.pdf', 0),
 (29, 'ภาพรวมสถานการณ์กลุ่มสื่อสารข้อมูล (Data Services) 2556 ', '7_CoverData.jpg', 'ตลอดช่วงระยะเวลาในปี 2554-2555 ที่ผ่านมา กลุ่มบริการสื่อสารข้อมูลได้ถูกขับเคลื่อนการใช้งานจาก ผู้ให้บริการโทรศัพท์เคลื่อนที่, กลุ่มการเงินธนาคาร และกลุ่มขายปลีก-ส่ง เพราะผู้ใช้บริการกลุ่มนี้ได้มีการขยายพื้นที่การให้บริการและสาขาไปยังตามชุมชนต่างจังหวัดมากขึ้น ', 'Mckansys', 100, '2014-01-04 21:17:44', NULL, '7_TelecomData2013.pdf', 0),
-(30, 'Country Profile - Brunei', '1388460638_brunei.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศบรูไน', 'Mckansys', 100, '2014-01-04 22:42:04', NULL, '1388850124_CountryProfile-Brunei2013.pdf', 0),
+(30, 'Country Profile - Brunei', '1388460638_brunei.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศบรูไน', 'Mckansys', 100, '2014-01-07 06:25:50', NULL, '1389050725_CountryProfile-Brunei2013.pdf', 0),
 (31, 'Country Profile - Cambodia', '1388838551_cambodia.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศกัมพูชา', 'Mckansys', 100, '2014-01-04 22:32:13', NULL, '1388849533_CountryProfile-Cambodia2013.pdf', 0),
-(32, 'Country Profile - Indonesia', '1388838542_indonesia.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศอินโดนีเซีย', 'Mckansys', 100, '2014-01-04 22:31:45', NULL, '1388849504_CountryProfile-Indonesia2013.pdf', 0),
+(32, 'Country Profile - Indonesia', '1388838542_indonesia.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศอินโดนีเซีย', 'Mckansys', 100, '2014-01-24 15:11:15', NULL, '1390551075_CountryProfile-Indonesia2014.pdf', 0),
 (33, 'Country Profile - Laos', '1388838534_lao.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศลาว', 'Mckansys', 100, '2014-01-04 22:31:03', NULL, '1388849463_CountryProfile-Laos2013.pdf', 0),
 (34, 'Country Profile - Malaysia', '1388838524_malaysia.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศมาเลเซีย', 'Mckansys', 100, '2014-01-04 22:30:39', NULL, '1388849439_CountryProfile-Malaysia2013.pdf', 0),
-(36, 'Country Profile - Myanmar', '1388838507_myanmar.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศพม่า', 'Mckansys', 100, '2014-01-04 22:29:54', NULL, '1388849394_CountryProfile-Myanmar2013.pdf', 0),
+(36, 'Country Profile - Myanmar', '1388838507_myanmar.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศพม่า', 'Mckansys', 100, '2014-01-24 15:15:37', NULL, '1390551337_CountryProfile-Myanmar2014.pdf', 0),
 (37, 'Country Profile - Philippines', '1388838497_philipine.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศฟิลิปปินส์', 'Mckansys', 100, '2014-01-04 22:29:30', NULL, '1388849370_CountryProfile-Philippines2013.pdf', 0),
-(38, 'Country Profile - Singapore', '1388838485_singapore.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศสิงคโปร์', 'Mckansys', 100, '2014-01-04 22:29:02', NULL, '1388849342_CountryProfile-Singapore2013.pdf', 0),
-(39, 'Country Profile - Vietnam', '1388837804_vietnam.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศเวียดนาม', 'Mckansys', 100, '2014-01-04 22:28:38', NULL, '1388849318_CountryProfile-Vietnam2013.pdf', 0),
-(42, 'Country Profile - Thailand', '1388838637_thailand.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ ประเทศไทย', 'Mckansys', 100, '2014-01-04 22:23:43', NULL, '1388849023_CountryProfile-Thailand2013.pdf', 0);
+(38, 'Country Profile - Singapore', '1388838485_singapore.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศสิงคโปร์', 'Mckansys', 100, '2014-01-07 06:26:19', NULL, '1389050695_CountryProfile-Singapore2013.pdf', 0),
+(39, 'Country Profile - Vietnam', '1389216425_vietnam.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ และ Outlook ประเทศเวียดนาม', 'Mckansys', 100, '2014-01-09 04:27:05', NULL, '1388849318_CountryProfile-Vietnam2013.pdf', 0),
+(42, 'Country Profile - Thailand', '1389216389_thailand.jpg', 'ข้อมูลพื้นฐาน ตัวเลขเศรษฐกิจ ประเทศไทย', 'Mckansys', 100, '2014-01-09 04:26:29', NULL, '1388849023_CountryProfile-Thailand2013.pdf', 0),
+(43, 'ความเคลื่อนไหวของพรบ.คอมพิวเตอร์', '1391375544_18_PRB.jpg', 'จากการสำรวจตลาดของการใช้คอมพิวเตอร์และอุปกรณ์สื่อสารโทรคมนาคมของประเทศไทยเมื่อปี 2550 ของสำนักงานสถิติแห่งชาติ กระทรวงเทคโนโลยีสารสนเทศและการสื่อสาร(ไอซีที) พบว่า มีผู้ใช้งานคอมพิวเตอร์ทุกประเภทประมาณ 16 ล้านคน(ตั้งแต่อายุ 6 ปีขึ้นไป) หรือ ร้อยละ 26.8 ของประชากรทั้งหมด โดยมีการเพิ่มการใช้งานขึ้นร้อยละ 4 เมื่อเทียบกับปี 2549 ', '', 100, '2014-02-03 04:13:09', NULL, '1391375544_18_ComputerCrimesThailand.pdf', 0),
+(45, 'แนวโน้มการใช้งาน IaaS ในประเทศไทย', '1391375844_19_IaaS.jpg', 'IaaS หรือ infrastructure as a service เกิดเนื่องมาจากความเป็นจริงที่ว่า การลงทุนใน infrastructure นั้นใช้เงินลงทุนค่อนข้างสูง ทั้งค่าอุปกรณ์และค่าดูแลรักษาระบบ นอกจากนี้ยังพบว่าเจ้าของระบบเองก็ไม่ได้ใช้งานอย่างเต็มประสิทธิภาพเทียบกับเงินที่ลงทุนไป และการขยายการใช้งานก็ต้องใช้เงินลงทุนเพิ่มค่อนข้างสูง จึงเกิดแนวความคิดจากผู้ที่มีระบบอยู่ในมือว่า จะทำอย่างไรให้ใช้ประโยชน์จากสิ่งที่ลงทุนไปแล้วให้ได้ประโยชน์สูงที่สุด? IaaS จึงถือกำเนิดขึ้น โดยการนำระบบส่วนที่ยังไม่ได้ใช้งานไปจัดสรรให้แก่ผู้ที่ไม่มีเงินทุนเพียงพอเช่าใช้', '', 100, '2014-02-03 04:17:24', NULL, '1391375704_19_IaaS_TrendinThailand.pdf', 0),
+(46, 'การประเมินมูลค่าทรัพย์สินทางปัญญา', '1391376046_20_IPV.jpg', 'การประเมินทรัพย์สินทางปัญญาเกิดขึ้นเนื่องจากการทำธุรกรรมซื้อ/ขายสินทรัพย์ โดยมีวัตถุประสงค์เพื่อให้ทั้งผู้ซื้อและผู้ขายรู้มูลค่าของสินทรัพย์ที่แท้จริงก่อนจะมีการตกลงซื้อหรือขายกัน', '', 100, '2014-02-03 04:38:45', NULL, '1391375949_20_IntellectualPropertyValuation.pdf', 0),
+(47, 'Dynamic Consumption Behavior', '1391376199_21_DCB.jpg', 'Dynamic Consumption Behavior หรือการเปลี่ยนแปลงในแนวโน้มพฤติกรรมกลุ่มผู้บริโภค ถือเป็นการพลิกฟื้นคืนชีพของธุรกิจไอซีทีแบบครบวงจร (ICT Ecosystem) ตั้งแต่ผู้ให้บริการ content, platform, infrastructure ไปจนถึงผู้ผลิตอุปกรณ์และชิ้นส่วน ตลอดจนผู้ให้บริการประเภท system integration และ managed services ', '', 100, '2014-02-03 04:23:37', NULL, '1391376199_21_DynamicConsumptionBehavior.pdf', 0),
+(48, 'เทรนด์ธุรกิจยุคดิจิตัล 2557', '1391377050_22_BusinessTrend.jpg', 'จากการสำรวจเทรนด์ในองค์กรยุคดิจิตัล ที่ต้องจับตาในปี 2557 พบว่า มี 4 เรื่องหลักที่เกี่ยวข้องกับการพัฒนาวิสัยทัศน์ขององค์กร ', '', 100, '2014-02-03 04:37:30', NULL, '1391377050_22_TrendBusinessDigitalAge.pdf', 0);
 
 -- --------------------------------------------------------
 
@@ -625,7 +646,7 @@ CREATE TABLE IF NOT EXISTS `PDF_CATEGORY` (
   `GROUP_LEVEL_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `PDF_ID` (`PDF_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=57 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=63 ;
 
 --
 -- Dumping data for table `PDF_CATEGORY`
@@ -648,7 +669,12 @@ INSERT INTO `PDF_CATEGORY` (`ID`, `PDF_ID`, `GROUP_LEVEL_NAME`, `GROUP_LEVEL_ID`
 (51, 37, '3', 11),
 (52, 38, '3', 11),
 (53, 39, '3', 11),
-(56, 42, '3', 11);
+(56, 42, '3', 11),
+(57, 43, '3', 15),
+(59, 45, '3', 16),
+(60, 46, '2', 2),
+(61, 47, '3', 16),
+(62, 48, '3', 16);
 
 -- --------------------------------------------------------
 
@@ -674,14 +700,14 @@ CREATE TABLE IF NOT EXISTS `PERMISSION` (
 
 INSERT INTO `PERMISSION` (`ID`, `USER_PROFILE_ID`, `GROUP_LV2_ID`, `IS_ACTIVE`, `START_DATE`, `END_DATE`) VALUES
 (1, 1, 2, 'Y', '2013-09-01 00:00:00', '2014-09-28 00:00:00'),
-(2, 3, 1, 'N', '2013-10-03 00:00:00', '2014-10-17 00:00:00'),
+(2, 3, 1, 'Y', '2013-10-03 00:00:00', '2014-10-17 00:00:00'),
 (3, 4, 3, 'Y', '2013-09-01 00:00:00', '2014-09-28 00:00:00'),
 (4, 4, 1, 'N', '2013-01-01 00:00:00', '2013-01-01 00:00:00'),
 (5, 3, 3, 'N', '2013-10-01 00:00:00', '2013-10-01 00:00:00'),
 (6, 1, 3, 'Y', '2013-10-17 00:00:00', '2014-10-31 00:00:00'),
 (7, 1, 4, 'Y', '1970-01-01 00:00:00', '2014-12-31 00:00:00'),
-(8, 3, 3, 'Y', '2013-11-05 00:00:00', '2013-11-30 00:00:00'),
-(9, 3, 4, 'Y', '2013-11-05 00:00:00', '2013-11-30 00:00:00'),
+(8, 3, 3, 'N', '2013-11-05 00:00:00', '2013-11-30 00:00:00'),
+(9, 3, 4, 'N', '2013-11-05 00:00:00', '2013-11-30 00:00:00'),
 (10, 7, 1, 'Y', '2014-01-01 00:00:00', '2014-06-30 00:00:00'),
 (11, 7, 2, 'Y', '2014-01-01 00:00:00', '2014-06-30 00:00:00'),
 (12, 7, 3, 'Y', '2014-01-01 00:00:00', '2014-06-30 00:00:00'),
@@ -799,7 +825,11 @@ INSERT INTO `TAG_RELATIONSHIP` (`PDF_ID`, `TAG_ID`) VALUES
 (37, 6),
 (38, 6),
 (39, 6),
-(42, 6);
+(42, 6),
+(43, 6),
+(45, 6),
+(46, 6),
+(47, 6);
 
 -- --------------------------------------------------------
 
@@ -865,7 +895,7 @@ CREATE TABLE IF NOT EXISTS `USER_PROFILE` (
 
 INSERT INTO `USER_PROFILE` (`ID`, `FIRSTNAME`, `LASTNAME`, `EMAIL`, `COMPANY`, `PASSWORD`, `JOB_TITLE`, `ADDRESS`, `CITY`, `ZIP`, `PHONE`, `FAX`, `IS_ACTIVE`, `IS_ADMIN`, `JOB_LEVEL`, `DEPARTMENT_ID`, `INDUSTRY_ID`, `COUNTRY_ID`, `TECHNOLOGY_ID`, `USER_PROFILEcol`, `PHOTO_NAME`, `QUESTION_ID`, `ANSWER`) VALUES
 (1, 'sukanya', 'AA', 'a@a.com', 'AA', 'f51fc62cdba8a6e536d604b47e30b49551c560256dac08ccfc8204823a492775d669a57e', 'test', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 221, 1, NULL, 'testUserProfile.jpg', 1, 'a'),
-(3, 'B', 'B', 'b@b.com', 'B', '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e', NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'N', 1, 1, 1, 1, 1, NULL, '', 2, 'b'),
+(3, 'B', 'B', 'nikom2532@gmail.com', 'B', '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e', '', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 1, 1, NULL, '', 2, 'b'),
 (4, 'Voravan', 'Charn', 'wc.fone@yahoo.com', 'Buildthedot', '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e', NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'N', 1, 1, 1, 1, 1, NULL, '', 3, 'fon'),
 (7, 'Yuthana', 'Siri', 'yuthana@mckansys.com', 'Mckansys (Thailand) Co., Ltd.', 'f51fc62cdba8a6e536d604b47e30b49551c560256dac08ccfc8204823a492775d669a57e', '', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 221, 1, NULL, 'no-image.png', 0, ''),
 (9, 'Warunee', 'P', 'warunee.p@oto.samartcorp.com', 'One to One Contact Center', '48ee13603e6787fcb67f822b3ea35835cbfeef0cf18bfcb92f1fe02755b61c3112c7bbcd', '', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 221, 1, NULL, 'no-image.png', 0, ''),
