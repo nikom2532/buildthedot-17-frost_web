@@ -416,7 +416,7 @@ include ($rootpath."include/top-menu.php");
 					//#####################################################
 					elseif($_GET["gp"]=="n" || $_GET["gp"]=="N"){
 						
-						if (!(($_GET["id"]==11 && $_GET["glvl"]==3) || ($_GET["id"]==3&&$_GET["glvl"]==2) )) {
+						if (!(($_GET["id"]==11 && $_GET["glvl"]==3) )) { //($_GET["id"]==3&&$_GET["glvl"]==2)
 						
 	?>
 							<h2 class="text-lightgreen2"> Latest Updates</h2>
