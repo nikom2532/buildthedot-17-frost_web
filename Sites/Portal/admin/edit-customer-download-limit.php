@@ -37,7 +37,7 @@ include("include/header-with-tabs.php");
 
 				<div class="half-size-column fl">
 
-					<form action="edit-customer-update.php" method="POST" enctype="multipart/form-data">
+					<form action="edit-customer-download-limit-proc.php" method="POST" enctype="multipart/form-data">
 
 						<fieldset>
 
