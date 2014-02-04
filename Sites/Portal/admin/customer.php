@@ -124,7 +124,7 @@ include("include/header-with-tabs.php");
 						$start=($page-1)*$limit;
 						/*---------end Paging------------*/	
 						$strQuery = "SELECT DISTINCT 
-									a.ID AS id
+									a.ID AS id,
 									a.FIRSTNAME AS firstname,
 									a.ID AS userId,
 									a.LASTNAME AS lastname,
@@ -171,22 +171,22 @@ include("include/header-with-tabs.php");
 							<?php } ?>
 								<td>
 									<form method='post' action='edit-customer.php' id='submitform' name='submitform'>
-									<input type='hidden' name='userId' value="<?=$row['userId']?>">
-									<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 55px;' ALT='EDIT'>
+										<input type='hidden' name='userId' value="<?=$row['userId']?>">
+										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 55px;' ALT='EDIT'>
 									</form>
 							
 									<form method='post' action='permission.php' id='submitform' name='submitform'>
-									<input type='hidden' name='userId' value="<?=$row['userId']?>" >
-									<input type='hidden' name='firstName' value="<?=$row['firstname']?>"> 
-									<input type='hidden' name='lastName' value="<?=$row['lastname']?>" >
-									<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-lock.png' BORDER='0' style='margin:5px 15px 5px 5px;' ALT='PERMISSION'>
+										<input type='hidden' name='userId' value="<?=$row['userId']?>" >
+										<input type='hidden' name='firstName' value="<?=$row['firstname']?>"> 
+										<input type='hidden' name='lastName' value="<?=$row['lastname']?>" >
+										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-lock.png' BORDER='0' style='margin:5px 15px 5px 5px;' ALT='PERMISSION'>
 									</form>
 								
 									<form method='post' action='customer_delete.php' id='submitform' name='submitform'>
-									<input type='hidden' name='userId' value="<?=$row['userId']?>">
-									<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0'ALT='DELETE'  onClick='return confirmSubmit()'>
-								</form>
-							</td>
+										<input type='hidden' name='userId' value="<?=$row['userId']?>">
+										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0'ALT='DELETE'  onClick='return confirmSubmit()'>
+									</form>
+								</td>
 
 							</tr>
 						<?php 
