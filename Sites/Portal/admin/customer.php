@@ -88,12 +88,13 @@ include("include/header-with-tabs.php");
 				</div>
 
 				<table class="fixed">
-					 <col width="2em" />
-    				 <col width="10em" />
-    				 <col width="10em" />
-    				 <col width="8em" />
-    				 <col width="5em" />
-    				 <col width="6em" />
+					<col width="2em" />
+    				<col width="8em" />
+    				<col width="8em" />
+    				<col width="7em" />
+    				<col width="5em" />
+    				<col width="5em" />
+    				<col width="6em" />
 					<thead>
 
 						<tr>
@@ -101,6 +102,7 @@ include("include/header-with-tabs.php");
 							<th>Name</th>
 							<th>Company</th>
 							<th>Username</th>
+							<th>Download Status</th>
 							<th>Status</th>
 							<th>Actions</th>
 						</tr>
@@ -121,7 +123,9 @@ include("include/header-with-tabs.php");
 						}
 						$start=($page-1)*$limit;
 						/*---------end Paging------------*/	
-						$strQuery = "SELECT DISTINCT a.FIRSTNAME AS firstname,
+						$strQuery = "SELECT DISTINCT 
+									a.ID AS id
+									a.FIRSTNAME AS firstname,
 									a.ID AS userId,
 									a.LASTNAME AS lastname,
 									a.COMPANY AS company,
@@ -139,12 +143,25 @@ include("include/header-with-tabs.php");
 						}
 							
 						while ($row = mysql_fetch_array($result)) {
-							?>
+?>
 							<tr>
 							<td><?=$i?></td>
 							<td><?=$row['firstname'] . "&nbsp;" . $row['lastname']?></td>
 							<td><?=$row['company']?></td>
 							<td><?=$row['email']?></td>
+							<td>
+<?php
+								$sql_limit_download = "
+									SELECT * 
+									FROM  `USER_LIMIT_DOWNLOAD` 
+									WHERE `USER_ID` = '{$row["id"]}'
+								";
+								$result_limit_download = @mysql_query($sql_limit_download);
+								while ($rs_limit_download) {
+									
+								}
+?>
+							</td>
 
 							<?php if ($row['userActive'] == "Y") {
 							?>

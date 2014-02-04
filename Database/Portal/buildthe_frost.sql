@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.3.1
+-- version 4.0.6deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 03, 2014 at 03:02 PM
--- Server version: 5.1.73
--- PHP Version: 5.3.3-7+squeeze18
+-- Generation Time: Feb 04, 2014 at 08:59 AM
+-- Server version: 5.5.35-0ubuntu0.13.10.2
+-- PHP Version: 5.5.3-1ubuntu2.1
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `mckansys`
+-- Database: `buildthedot_17mckansys`
 --
 
 -- --------------------------------------------------------
@@ -849,6 +849,19 @@ CREATE TABLE IF NOT EXISTS `TECHNOLOGY_ID` (
 
 INSERT INTO `TECHNOLOGY_ID` (`ID`, `NAME`) VALUES
 (1, 'A');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `USER_LIMIT_DOWNLOAD`
+--
+
+CREATE TABLE IF NOT EXISTS `USER_LIMIT_DOWNLOAD` (
+  `ID` int(100) NOT NULL AUTO_INCREMENT,
+  `USER_ID` int(100) NOT NULL,
+  `LIMIT_DOWNLOAD` int(20) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
