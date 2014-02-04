@@ -141,7 +141,7 @@ include("include/header-with-tabs.php");
 						if($page ==1){
 								$i = 1;
 						}
-							
+							//qi soft - 
 						while ($row = mysql_fetch_array($result)) {
 ?>
 							<tr>
@@ -161,6 +161,10 @@ include("include/header-with-tabs.php");
 									echo $rs_limit_download["LIMIT_DOWNLOAD"];
 								}
 ?>
+								<form method='post' action='edit-customer-download-limit.php' id='submitform' name='submitform'>
+									<input type='hidden' name='userId' value="<?=$row['userId']?>">
+									<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 55px;' ALT='EDIT'>
+								</form>
 							</td>
 
 							<?php if ($row['userActive'] == "Y") {
