@@ -15,40 +15,35 @@ if (!$db -> open()) {
 	$userID = $_POST['userId'];
 	$LIMIT_DOWNLOAD = $_POST["LIMIT_DOWNLOAD"];
 	
-	$sql_download_limit = "
+	$sql_read_limit = "
 		SELECT * 
 		FROM  `USER_LIMIT_DOWNLOAD`
 		WHERE `USER_ID` = '{$userID}' ;
 	";
-	
-		
-		$strSQL = "UPDATE USER_PROFILE SET 
-		FIRSTNAME='$firstname',
-		LASTNAME='$lastname',
-		EMAIL='$email',
-		COMPANY='$company',
-		JOB_TITLE='$jobTitle',
-		DEPARTMENT_ID='$department_id',
-		INDUSTRY_ID='$industry_id',
-		ADDRESS='$address',
-		CITY='$city',
-		ZIP='$zip',
-		COUNTRY_ID='$country_id',
-		PHONE='$phone',
-		FAX='$fax'";
-		
-		$strSQL .= "WHERE ID='$userID'";
-		//echo "strQuery=>".$strSQL ;
-		$cmdQuery = mysql_query($strSQL);
-		//echo $filename;
-		if ($cmdQuery) {
-			$msg = "Sucess";
-			//header("location: customer.php?msg=$msg");
-			?><script>window.location = "customer.php?msg=<?php echo $msg; ?>";</script><?php
-		} else {
-			$msg = "Failed";
-			//header("location: customer.php?msg=$msg");
-			?><script>window.location = "customer.php?msg=<?php echo $msg; ?>";</script><?php
-		}
-		
+	$result_read_limit = @mysql_query($sql_read_limit);
+	if($rs_read_limit = @mysql_fetch_array($result_read_limit)) {
+		$sql_update_limit = "
+			UPDATE `USER_LIMIT_DOWNLOAD`
+			SET
+				`LIMIT_DOWNLOAD` = '{$LIMIT_DOWNLOAD}'
+			WHERE 
+				`USER_ID` = '{$userID}' ;
+		";
+		@mysql_query($sql_update_limit);
+		$msg = "Sucess";
+		//header("location: customer.php?msg=$msg");
+		?><script>window.location = "customer.php?msg=<?php echo $msg; ?>";</script><?php
+	}
+	else{
+		$sql_insert_limit = "
+			INSERT INTO `USER_LIMIT_DOWNLOAD`
+			(`USER_ID`, `LIMIT_DOWNLOAD`)
+			VALUES
+			('{$userID}', '{$LIMIT_DOWNLOAD}')
+		";
+		@mysql_query($sql_insert_limit);
+		$msg = "Sucess";
+		//header("location: customer.php?msg=$msg");
+		?><script>window.location = "customer.php?msg=<?php echo $msg; ?>";</script><?php
+	}
 ?>
