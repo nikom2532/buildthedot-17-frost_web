@@ -149,8 +149,7 @@ include("include/header-with-tabs.php");
 							<td><?=$row['firstname'] . "&nbsp;" . $row['lastname']?></td>
 							<td><?=$row['company']?></td>
 							<td><?=$row['email']?></td>
-							<td>
-<?php
+							<td><?php
 								$sql_limit_download = "
 									SELECT * 
 									FROM  `USER_LIMIT_DOWNLOAD` 
@@ -158,13 +157,15 @@ include("include/header-with-tabs.php");
 								";
 								$result_limit_download = @mysql_query($sql_limit_download);
 								while ($rs_limit_download = @mysql_fetch_array($result_limit_download)) {
-									echo $rs_limit_download["LIMIT_DOWNLOAD"];
+									$LIMIT_DOWNLOAD = trim($rs_limit_download["LIMIT_DOWNLOAD"]);
 								}
-?>
-								<form method='post' action='edit-customer-download-limit.php' id='submitform' name='submitform'>
-									<input type='hidden' name='userId' value="<?=$row['userId']?>">
-									<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 55px;' ALT='EDIT'>
+								?><form method='post' action='edit-customer-download-limit.php' id='submitform' name='submitform'>
+									<div>
+										<input TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 55px;' ALT='EDIT'>
+										<input type='hidden' name='userId' value="<?=$row['userId']?>">
+									</div>
 								</form>
+								<?php echo $LIMIT_DOWNLOAD; ?>
 							</td>
 
 							<?php if ($row['userActive'] == "Y") {
