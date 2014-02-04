@@ -157,8 +157,8 @@ include("include/header-with-tabs.php");
 									WHERE `USER_ID` = '{$row["id"]}'
 								";
 								$result_limit_download = @mysql_query($sql_limit_download);
-								while ($rs_limit_download) {
-									
+								while ($rs_limit_download = @mysql_fetch_array($result_limit_download)) {
+									echo $rs_limit_download["LIMIT_DOWNLOAD"];
 								}
 ?>
 							</td>
@@ -170,22 +170,22 @@ include("include/header-with-tabs.php");
 								<td id='status'><img src='images/icons/message-boxes/error.png' alt='active'></td>
 							<?php } ?>
 								<td>
-								<form method='post' action='edit-customer.php' id='submitform' name='submitform'>
-							<input type='hidden' name='userId' value="<?=$row['userId']?>">
-							<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 55px;' ALT='EDIT'>
-							</form>
-					
-							<form method='post' action='permission.php' id='submitform' name='submitform'>
-							<input type='hidden' name='userId' value="<?=$row['userId']?>" >
-							<input type='hidden' name='firstName' value="<?=$row['firstname']?>"> 
-							<input type='hidden' name='lastName' value="<?=$row['lastname']?>" >
-							<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-lock.png' BORDER='0' style='margin:5px 15px 5px 5px;' ALT='PERMISSION'>
-							</form>
-						
-							<form method='post' action='customer_delete.php' id='submitform' name='submitform'>
-							<input type='hidden' name='userId' value="<?=$row['userId']?>">
-							<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0'ALT='DELETE'  onClick='return confirmSubmit()'>
-							</form>
+									<form method='post' action='edit-customer.php' id='submitform' name='submitform'>
+									<input type='hidden' name='userId' value="<?=$row['userId']?>">
+									<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 55px;' ALT='EDIT'>
+									</form>
+							
+									<form method='post' action='permission.php' id='submitform' name='submitform'>
+									<input type='hidden' name='userId' value="<?=$row['userId']?>" >
+									<input type='hidden' name='firstName' value="<?=$row['firstname']?>"> 
+									<input type='hidden' name='lastName' value="<?=$row['lastname']?>" >
+									<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-lock.png' BORDER='0' style='margin:5px 15px 5px 5px;' ALT='PERMISSION'>
+									</form>
+								
+									<form method='post' action='customer_delete.php' id='submitform' name='submitform'>
+									<input type='hidden' name='userId' value="<?=$row['userId']?>">
+									<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0'ALT='DELETE'  onClick='return confirmSubmit()'>
+								</form>
 							</td>
 
 							</tr>
