@@ -24,7 +24,7 @@ if(($email!="")&&($password!="")) {
 	//echo "pass ".$password."<br/>";
 	$SQL="
 		SELECT `ID`, `EMAIL`, `PASSWORD`
-		FROM  `ADMIN` 
+		FROM  `USER_PROFILE` 
 		WHERE  `EMAIL` =  \"{$email}\"
 		AND  `PASSWORD` =  \"{$password}\"
 	;";

@@ -264,6 +264,32 @@ include ("include/top-menu.php");
 <?php
 					}
 					elseif($PERMISSION_Is_Lockkey=="N"){ //#### if you can download ####
+					
+						//read how many limit download per user //## 2014/02/05 ##
+						$download_time = "";
+						$sql_read_download = "
+							SELECT * 
+							FROM  `USER_LIMIT_DOWNLOAD` ;
+							WHERE  `USER_ID` = '".$_SESSION["userid"]."' ;
+						";
+						$result_read_download = @mysql_query($sql_read_download);
+						while ($rs_read_download = @mysql_fetch_array($result_read_download)) {
+							$download_time = $rs_read_download["LIMIT_DOWNLOAD"];
+						}
+						
+						//Find is Admin?
+						$is_admin = "";
+						$sql_read_download = "
+							SELECT * 
+							FROM  `USER_PROFILE`
+							WHERE  `USER_ID` = '".$_SESSION["userid"]."' ;
+						";
+						$result_read_download = @mysql_query($sql_read_download);
+						while ($rs_read_download = @mysql_fetch_array($result_read_download)) {
+							$is_admin = $rs_read_download["IS_ADMIN"];
+						}
+						
+						
 						$SQL_Is_download_5_pdfs_a_day="
 							SELECT COUNT(`PDF_ID`) AS Download_Count
 							FROM `DOWNLOAD_STATISTICS`
@@ -272,9 +298,9 @@ include ("include/top-menu.php");
 						;";
 						$result_Is_download_5_pdfs_a_day = @mysql_query($SQL_Is_download_5_pdfs_a_day);
 						while($rs_Is_download_5_pdfs_a_day = @mysql_fetch_array($result_Is_download_5_pdfs_a_day)) {
-							if($rs_Is_download_5_pdfs_a_day["Download_Count"]>5) { //if user download more than 5 Downloads on 1 day.
+							if(($rs_Is_download_5_pdfs_a_day["Download_Count"]>$download_time) || $is_admin == "N") { //if user download more than 5 Downloads on 1 day.
 ?>
-								<a href="#" onclick="window.alert('You download more than 5 times a day');">
+								<a href="#" onclick="window.alert('You download more than <?php echo $download_time; ?> times a day');">
 									<b class="button darkgreen" id="download-button">Download</b>
 								</a>
 <?php
@@ -297,7 +323,7 @@ include ("include/top-menu.php");
 ?>
 				<!--end content-middle -->
 				
-				<?php if(!($row['PRICE'] == null || $row['PRICE'] == 0)){?>
+				<?php if(!($row['PRICE'] == null || $row['PRICE'] == 0)){ ?>
 					<p class="center"><b id="download-no">
 	<?php
 					$sql_amount_download="
