@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 04, 2014 at 08:59 AM
+-- Generation Time: Feb 05, 2014 at 02:14 PM
 -- Server version: 5.5.35-0ubuntu0.13.10.2
 -- PHP Version: 5.5.3-1ubuntu2.1
 
@@ -907,8 +907,8 @@ CREATE TABLE IF NOT EXISTS `USER_PROFILE` (
 --
 
 INSERT INTO `USER_PROFILE` (`ID`, `FIRSTNAME`, `LASTNAME`, `EMAIL`, `COMPANY`, `PASSWORD`, `JOB_TITLE`, `ADDRESS`, `CITY`, `ZIP`, `PHONE`, `FAX`, `IS_ACTIVE`, `IS_ADMIN`, `JOB_LEVEL`, `DEPARTMENT_ID`, `INDUSTRY_ID`, `COUNTRY_ID`, `TECHNOLOGY_ID`, `USER_PROFILEcol`, `PHOTO_NAME`, `QUESTION_ID`, `ANSWER`) VALUES
-(1, 'sukanya', 'AA', 'a@a.com', 'AA', 'f51fc62cdba8a6e536d604b47e30b49551c560256dac08ccfc8204823a492775d669a57e', 'test', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 221, 1, NULL, 'testUserProfile.jpg', 1, 'a'),
-(3, 'B', 'B', 'nikom2532@gmail.com', 'B', '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e', '', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 1, 1, NULL, '', 2, 'b'),
+(1, 'sukanya', 'AA', 'a@a.com', 'AA', 'f51fc62cdba8a6e536d604b47e30b49551c560256dac08ccfc8204823a492775d669a57e', 'test', '', '', '', '', '', 'Y', 'Y', 1, 1, 1, 221, 1, NULL, 'testUserProfile.jpg', 1, 'a'),
+(3, 'B', 'B', 'nikom2532@gmail.com', 'B', '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e', '', '', '', '', '', '', 'Y', 'Y', 1, 1, 1, 1, 1, NULL, '', 2, 'b'),
 (4, 'Voravan', 'Charn', 'wc.fone@yahoo.com', 'Buildthedot', '7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e', NULL, NULL, NULL, NULL, NULL, NULL, 'Y', 'N', 1, 1, 1, 1, 1, NULL, '', 3, 'fon'),
 (7, 'Yuthana', 'Siri', 'yuthana@mckansys.com', 'Mckansys (Thailand) Co., Ltd.', 'f51fc62cdba8a6e536d604b47e30b49551c560256dac08ccfc8204823a492775d669a57e', '', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 221, 1, NULL, 'no-image.png', 0, ''),
 (9, 'Warunee', 'P', 'warunee.p@oto.samartcorp.com', 'One to One Contact Center', '48ee13603e6787fcb67f822b3ea35835cbfeef0cf18bfcb92f1fe02755b61c3112c7bbcd', '', '', '', '', '', '', 'Y', 'N', 1, 1, 1, 221, 1, NULL, 'no-image.png', 0, ''),
