@@ -266,10 +266,10 @@ include ("include/top-menu.php");
 					elseif($PERMISSION_Is_Lockkey=="N"){ //#### if you can download ####
 					
 						//read how many limit download per user //## 2014/02/05 ##
-						$download_time = "";
+						$download_time = 0;
 						$sql_read_download = "
 							SELECT * 
-							FROM  `USER_LIMIT_DOWNLOAD` ;
+							FROM  `USER_LIMIT_DOWNLOAD` 
 							WHERE  `USER_ID` = '".$_SESSION["userid"]."' ;
 						";
 						$result_read_download = @mysql_query($sql_read_download);
@@ -282,13 +282,12 @@ include ("include/top-menu.php");
 						$sql_read_download = "
 							SELECT * 
 							FROM  `USER_PROFILE`
-							WHERE  `USER_ID` = '".$_SESSION["userid"]."' ;
+							WHERE  `ID` = '".$_SESSION["userid"]."' ;
 						";
 						$result_read_download = @mysql_query($sql_read_download);
 						while ($rs_read_download = @mysql_fetch_array($result_read_download)) {
 							$is_admin = $rs_read_download["IS_ADMIN"];
 						}
-						
 						
 						$SQL_Is_download_5_pdfs_a_day="
 							SELECT COUNT(`PDF_ID`) AS Download_Count
@@ -298,7 +297,10 @@ include ("include/top-menu.php");
 						;";
 						$result_Is_download_5_pdfs_a_day = @mysql_query($SQL_Is_download_5_pdfs_a_day);
 						while($rs_Is_download_5_pdfs_a_day = @mysql_fetch_array($result_Is_download_5_pdfs_a_day)) {
-							if(($rs_Is_download_5_pdfs_a_day["Download_Count"]>$download_time) || $is_admin == "N") { //if user download more than 5 Downloads on 1 day.
+							
+							// echo $rs_Is_download_5_pdfs_a_day["Download_Count"];
+							
+							if(($rs_Is_download_5_pdfs_a_day["Download_Count"]>$download_time) && $is_admin == "N") { //if user download more than 5 Downloads on 1 day.
 ?>
 								<a href="#" onclick="window.alert('You download more than <?php echo $download_time; ?> times a day');">
 									<b class="button darkgreen" id="download-button">Download</b>
