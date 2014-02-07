@@ -1,7 +1,7 @@
 ﻿<?php
 	$host="localhost";
 	$username="buildthe_arming";
-	$password="123456";
-	$database="buildthe_frost3";
+	$password="cominter";
+	$database="buildthe_frost5";
 	$db=new DB($host,$username,$password,$database);
 ?>

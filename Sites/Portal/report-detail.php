@@ -266,7 +266,7 @@ include ("include/top-menu.php");
 					elseif($PERMISSION_Is_Lockkey=="N"){ //#### if you can download ####
 					
 						//read how many limit download per user //## 2014/02/05 ##
-						$download_time = 0;
+						$download_time = null;
 						$sql_read_download = "
 							SELECT * 
 							FROM  `USER_LIMIT_DOWNLOAD` 
@@ -275,6 +275,9 @@ include ("include/top-menu.php");
 						$result_read_download = @mysql_query($sql_read_download);
 						while ($rs_read_download = @mysql_fetch_array($result_read_download)) {
 							$download_time = $rs_read_download["LIMIT_DOWNLOAD"];
+						}
+						if($download_time == null){
+							$download_time = 10;
 						}
 						
 						//Find is Admin?
@@ -298,8 +301,8 @@ include ("include/top-menu.php");
 						$result_Is_download_5_pdfs_a_day = @mysql_query($SQL_Is_download_5_pdfs_a_day);
 						while($rs_Is_download_5_pdfs_a_day = @mysql_fetch_array($result_Is_download_5_pdfs_a_day)) {
 							
-							// echo $rs_Is_download_5_pdfs_a_day["Download_Count"];
-							// echo $download_time;
+							echo $rs_Is_download_5_pdfs_a_day["Download_Count"];
+							echo $download_time;
 							// echo $is_admin;
 							
 							if(($rs_Is_download_5_pdfs_a_day["Download_Count"]>$download_time) && $is_admin == "N") { //if user download more than 5 Downloads on 1 day.
