@@ -165,7 +165,10 @@ include("include/header-with-tabs.php");
 										<input type='hidden' name='userId' value="<?=$row['userId']?>">
 									</div>
 								</form>
-								<?php echo $LIMIT_DOWNLOAD; ?>
+<?php 
+								echo $LIMIT_DOWNLOAD;
+								unset($LIMIT_DOWNLOAD);
+?>
 							</td>
 
 							<?php if ($row['userActive'] == "Y") {
