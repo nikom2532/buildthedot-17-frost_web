@@ -27,6 +27,7 @@ if(($email!="")&&($password!="")) {
 		FROM  `USER_PROFILE` 
 		WHERE  `EMAIL` =  \"{$email}\"
 		AND  `PASSWORD` =  \"{$password}\"
+		AND  ( `IS_ADMIN` = \"Y\" OR `IS_ADMIN` = \"y\" )
 	;";
 	$result=mysql_query($SQL);
 	$num=mysql_num_rows($result);
