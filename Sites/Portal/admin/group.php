@@ -66,7 +66,7 @@ include("include/header-with-tabs.php");
 				</div> <!-- end content-module-heading -->
 				<div class="content-module-main">
 					<div id="wrap-add-customer">
-						<a href="upload-pdf.php" class="round button orange ic-add image-left" >Upload PDF</a>
+						<a href="upload-pdf.php" class="round button orange ic-add image-left" >Upload Group</a>
           </div>
 <?php
 					//include ("include/side-menu-knowledge3.php");
