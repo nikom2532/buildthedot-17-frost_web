@@ -84,6 +84,15 @@
 					}
 				?>" class="bold"><?php echo $rs["NAME"]; ?></a>
 <?php
+			echo	$SQLcontent="
+					SELECT * 
+					FROM  `PDF`
+					INNER JOIN `PDF_CATEGORY`  
+					WHERE `PDF_CATEGORY`.`GROUP_LEVEL_NAME` = '3'
+					AND `PDF_CATEGORY`.`GROUP_LEVEL_ID` = '{$rs["ID"]}'
+					AND `PDF_CATEGORY`.`PDF_ID` = `PDF`.`ID`
+				;";
+				
 				//&& $_GET["id"]==$rs["ID"] && $rs["GROUP_LV1_ID"]==1
 				//&& $_GET["id"]=="1"
 				if($_GET["glvl"]>=2){
