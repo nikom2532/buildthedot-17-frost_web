@@ -291,7 +291,7 @@ include ("include/top-menu.php");
 						while ($rs_read_download = @mysql_fetch_array($result_read_download)) {
 							$is_admin = $rs_read_download["IS_ADMIN"];
 						}
-						echo $is_admin;
+						// echo $is_admin;
 						
 						$SQL_Is_download_5_pdfs_a_day="
 							SELECT COUNT(`PDF_ID`) AS Download_Count
