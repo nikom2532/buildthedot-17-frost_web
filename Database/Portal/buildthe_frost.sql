@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 07, 2014 at 01:36 PM
+-- Generation Time: Feb 14, 2014 at 06:11 PM
 -- Server version: 5.1.73
 -- PHP Version: 5.3.3-7+squeeze18
 
@@ -378,7 +378,7 @@ CREATE TABLE IF NOT EXISTS `DOWNLOAD_STATISTICS` (
   `PDF_ID` int(100) NOT NULL,
   `DOWNLOAD_DATETIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=27 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=49 ;
 
 --
 -- Dumping data for table `DOWNLOAD_STATISTICS`
@@ -410,7 +410,29 @@ INSERT INTO `DOWNLOAD_STATISTICS` (`ID`, `USER_ID`, `PDF_ID`, `DOWNLOAD_DATETIME
 (23, 7, 36, '2014-01-22 09:10:19'),
 (24, 1, 32, '2014-01-24 08:11:29'),
 (25, 1, 36, '2014-01-24 08:12:47'),
-(26, 1, 36, '2014-01-24 08:15:43');
+(26, 1, 36, '2014-01-24 08:15:43'),
+(27, 7, 23, '2014-02-10 08:04:08'),
+(28, 7, 46, '2014-02-10 08:07:53'),
+(29, 7, 26, '2014-02-10 08:10:30'),
+(30, 7, 43, '2014-02-10 08:12:11'),
+(31, 7, 27, '2014-02-10 08:12:54'),
+(32, 7, 49, '2014-02-10 08:16:50'),
+(33, 7, 49, '2014-02-10 08:17:01'),
+(34, 1, 49, '2014-02-10 23:14:18'),
+(35, 1, 49, '2014-02-10 23:14:21'),
+(36, 1, 49, '2014-02-10 23:14:23'),
+(37, 1, 49, '2014-02-10 23:14:24'),
+(38, 1, 49, '2014-02-10 23:14:25'),
+(39, 1, 49, '2014-02-10 23:14:27'),
+(40, 1, 49, '2014-02-10 23:14:28'),
+(41, 1, 49, '2014-02-10 23:14:29'),
+(42, 1, 49, '2014-02-10 23:14:30'),
+(43, 1, 49, '2014-02-10 23:14:32'),
+(44, 1, 49, '2014-02-10 23:14:33'),
+(45, 1, 49, '2014-02-10 23:14:35'),
+(46, 1, 49, '2014-02-10 23:14:37'),
+(47, 1, 49, '2014-02-10 23:14:38'),
+(48, 7, 26, '2014-02-11 10:08:09');
 
 -- --------------------------------------------------------
 
@@ -603,7 +625,7 @@ CREATE TABLE IF NOT EXISTS `PDF` (
   `PATH` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Is_Asian_country` tinyint(1) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=49 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=50 ;
 
 --
 -- Dumping data for table `PDF`
@@ -631,7 +653,8 @@ INSERT INTO `PDF` (`ID`, `NAME`, `PHOTO_NAME`, `DESCRIPTION`, `BY`, `PRICE`, `UP
 (45, 'แนวโน้มการใช้งาน IaaS ในประเทศไทย', '1391375844_19_IaaS.jpg', 'IaaS หรือ infrastructure as a service เกิดเนื่องมาจากความเป็นจริงที่ว่า การลงทุนใน infrastructure นั้นใช้เงินลงทุนค่อนข้างสูง ทั้งค่าอุปกรณ์และค่าดูแลรักษาระบบ นอกจากนี้ยังพบว่าเจ้าของระบบเองก็ไม่ได้ใช้งานอย่างเต็มประสิทธิภาพเทียบกับเงินที่ลงทุนไป และการขยายการใช้งานก็ต้องใช้เงินลงทุนเพิ่มค่อนข้างสูง จึงเกิดแนวความคิดจากผู้ที่มีระบบอยู่ในมือว่า จะทำอย่างไรให้ใช้ประโยชน์จากสิ่งที่ลงทุนไปแล้วให้ได้ประโยชน์สูงที่สุด? IaaS จึงถือกำเนิดขึ้น โดยการนำระบบส่วนที่ยังไม่ได้ใช้งานไปจัดสรรให้แก่ผู้ที่ไม่มีเงินทุนเพียงพอเช่าใช้', '', 100, '2014-02-03 04:17:24', NULL, '1391375704_19_IaaS_TrendinThailand.pdf', 0),
 (46, 'การประเมินมูลค่าทรัพย์สินทางปัญญา', '1391376046_20_IPV.jpg', 'การประเมินทรัพย์สินทางปัญญาเกิดขึ้นเนื่องจากการทำธุรกรรมซื้อ/ขายสินทรัพย์ โดยมีวัตถุประสงค์เพื่อให้ทั้งผู้ซื้อและผู้ขายรู้มูลค่าของสินทรัพย์ที่แท้จริงก่อนจะมีการตกลงซื้อหรือขายกัน', '', 100, '2014-02-03 04:38:45', NULL, '1391375949_20_IntellectualPropertyValuation.pdf', 0),
 (47, 'Dynamic Consumption Behavior', '1391376199_21_DCB.jpg', 'Dynamic Consumption Behavior หรือการเปลี่ยนแปลงในแนวโน้มพฤติกรรมกลุ่มผู้บริโภค ถือเป็นการพลิกฟื้นคืนชีพของธุรกิจไอซีทีแบบครบวงจร (ICT Ecosystem) ตั้งแต่ผู้ให้บริการ content, platform, infrastructure ไปจนถึงผู้ผลิตอุปกรณ์และชิ้นส่วน ตลอดจนผู้ให้บริการประเภท system integration และ managed services ', '', 100, '2014-02-03 04:23:37', NULL, '1391376199_21_DynamicConsumptionBehavior.pdf', 0),
-(48, 'เทรนด์ธุรกิจยุคดิจิตัล 2557', '1391377050_22_BusinessTrend.jpg', 'จากการสำรวจเทรนด์ในองค์กรยุคดิจิตัล ที่ต้องจับตาในปี 2557 พบว่า มี 4 เรื่องหลักที่เกี่ยวข้องกับการพัฒนาวิสัยทัศน์ขององค์กร ', '', 100, '2014-02-03 04:37:30', NULL, '1391377050_22_TrendBusinessDigitalAge.pdf', 0);
+(48, 'เทรนด์ธุรกิจยุคดิจิตัล 2557', '1391377050_22_BusinessTrend.jpg', 'จากการสำรวจเทรนด์ในองค์กรยุคดิจิตัล ที่ต้องจับตาในปี 2557 พบว่า มี 4 เรื่องหลักที่เกี่ยวข้องกับการพัฒนาวิสัยทัศน์ขององค์กร ', '', 100, '2014-02-03 04:37:30', NULL, '1391377050_22_TrendBusinessDigitalAge.pdf', 0),
+(49, 'เทรนด์การใช้งาน Smart Device', '1391987825_22_SmartDeviceTrend.jpg', 'มัคคานซิส เผยผลการศึกษาผู้ใช้งานสมาร์ทดีไวซ์เกินครึ่ง ถือครองมากกว่า 1 เครื่องในเวลาเดียวกัน ส่งผลดีต่อการเติบโตของปริมาณการใช้งานดาต้า', '', 100, '2014-02-10 06:18:22', NULL, '1391987825_23_SmartDeviceUsage.pdf', 0);
 
 -- --------------------------------------------------------
 
@@ -646,7 +669,7 @@ CREATE TABLE IF NOT EXISTS `PDF_CATEGORY` (
   `GROUP_LEVEL_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `PDF_ID` (`PDF_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=63 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=64 ;
 
 --
 -- Dumping data for table `PDF_CATEGORY`
@@ -674,7 +697,8 @@ INSERT INTO `PDF_CATEGORY` (`ID`, `PDF_ID`, `GROUP_LEVEL_NAME`, `GROUP_LEVEL_ID`
 (59, 45, '3', 16),
 (60, 46, '2', 2),
 (61, 47, '3', 16),
-(62, 48, '3', 16);
+(62, 48, '3', 16),
+(63, 49, '3', 15);
 
 -- --------------------------------------------------------
 
@@ -692,7 +716,7 @@ CREATE TABLE IF NOT EXISTS `PERMISSION` (
   PRIMARY KEY (`ID`),
   KEY `fk_USER_PROFILE_has_GROUP_LV2_GROUP_LV21_idx` (`GROUP_LV2_ID`),
   KEY `fk_USER_PROFILE_has_GROUP_LV2_USER_PROFILE1_idx` (`USER_PROFILE_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=38 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=39 ;
 
 --
 -- Dumping data for table `PERMISSION`
@@ -735,7 +759,8 @@ INSERT INTO `PERMISSION` (`ID`, `USER_PROFILE_ID`, `GROUP_LV2_ID`, `IS_ACTIVE`, 
 (34, 14, 1, 'Y', '2014-01-01 00:00:00', '2014-06-30 00:00:00'),
 (35, 14, 2, 'Y', '2014-01-01 00:00:00', '2014-06-30 00:00:00'),
 (36, 14, 3, 'Y', '2014-01-01 00:00:00', '2014-06-30 00:00:00'),
-(37, 14, 4, 'Y', '2014-01-01 00:00:00', '2014-06-30 00:00:00');
+(37, 14, 4, 'Y', '2014-01-01 00:00:00', '2014-06-30 00:00:00'),
+(38, 1, 1, 'Y', '2014-02-03 00:00:00', '2014-07-31 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -829,7 +854,8 @@ INSERT INTO `TAG_RELATIONSHIP` (`PDF_ID`, `TAG_ID`) VALUES
 (43, 6),
 (45, 6),
 (46, 6),
-(47, 6);
+(47, 6),
+(49, 6);
 
 -- --------------------------------------------------------
 
