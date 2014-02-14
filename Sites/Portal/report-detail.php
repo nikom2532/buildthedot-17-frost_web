@@ -291,6 +291,7 @@ include ("include/top-menu.php");
 						while ($rs_read_download = @mysql_fetch_array($result_read_download)) {
 							$is_admin = $rs_read_download["IS_ADMIN"];
 						}
+						echo $is_admin;
 						
 						$SQL_Is_download_5_pdfs_a_day="
 							SELECT COUNT(`PDF_ID`) AS Download_Count
@@ -306,6 +307,7 @@ include ("include/top-menu.php");
 							// echo $is_admin;
 							
 							if(($rs_Is_download_5_pdfs_a_day["Download_Count"]>$download_time) && $is_admin == "N") { //if user download more than 5 Downloads on 1 day.
+								$flag_download_limit = "Y";
 ?>
 								<a href="#" onclick="window.alert('You download more than <?php echo $download_time; ?> times a day');">
 									<b class="button darkgreen" id="download-button">Download</b>
@@ -371,8 +373,11 @@ include ("include/top-menu.php");
 	</div><!--end container_12 -->
 </div><!--end content -->
 
-
-
 <?php
 include("include/footer.php");
+
+//For alert the limit download
+if($flag_download_limit == "Y"){
+	?><script>window.alert('You download more than <?php echo $download_time; ?> times a day');</script><?php
+}
 ?>
