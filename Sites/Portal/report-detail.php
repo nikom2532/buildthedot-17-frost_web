@@ -302,8 +302,8 @@ include ("include/top-menu.php");
 						$result_Is_download_5_pdfs_a_day = @mysql_query($SQL_Is_download_5_pdfs_a_day);
 						while($rs_Is_download_5_pdfs_a_day = @mysql_fetch_array($result_Is_download_5_pdfs_a_day)) {
 							
-							echo $rs_Is_download_5_pdfs_a_day["Download_Count"];
-							echo $download_time;
+							// echo $rs_Is_download_5_pdfs_a_day["Download_Count"];
+							// echo $download_time;
 							// echo $is_admin;
 							
 							if(($rs_Is_download_5_pdfs_a_day["Download_Count"]>$download_time) && $is_admin == "N") { //if user download more than 5 Downloads on 1 day.
