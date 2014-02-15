@@ -84,7 +84,7 @@
 					}
 				?>" class="bold"><?php echo $rs["NAME"]; ?></a>
 <?php
-			echo	$SQLcontent="
+				$SQLcontent="
 					SELECT * 
 					FROM  `PDF`
 					INNER JOIN `PDF_CATEGORY`  
@@ -116,7 +116,7 @@
 									$SQL3="
 										SELECT * 
 										FROM  `GROUP_LV4`
-										WHERE `GROUP_LV3_ID` = '{$rs2["ID"]}'
+										WHERE `GROUP_LV3_ID` = '{$rs2["ID"]}' ;
 									";
 									$result3=@mysql_query($SQL3);
 									if($rs3=@mysql_fetch_array($result3)){
@@ -125,8 +125,17 @@
 									else{
 										echo "n";
 									}
-								?>" class="bold text-green"><?php echo $rs2["NAME"]; ?></a>
+									?>" class="bold text-green"><?php echo $rs2["NAME"]; ?></a>
 <?php
+									// $temp_glvl_content = $_GET["glvl"];
+									// $temp_id_content = $_GET["id"];
+									
+									$temp_glvl_list = 4;
+									$temp_id_list = $rs2["ID"];
+									// echo $rs2["ID"];
+									include("include/main-knowledge-pdflist.php");
+									// main_knowledge_pdflist($temp_glvl_list, $temp_id_list);
+									
 									if($_GET["glvl"]>=3){ //&& $_GET["id"]==$rs2["ID"]
 										
 										$SQL3="

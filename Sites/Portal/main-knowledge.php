@@ -180,6 +180,8 @@ include ($rootpath."include/top-menu.php");
 					if(mysql_num_rows($resultcontent) > 0){
 						$Is_there_are_content1++;
 					}
+					// var_dump($c_NAME);
+					
 			
 					//#################################
 					//####### Query 2nd List ##########
@@ -239,6 +241,7 @@ include ($rootpath."include/top-menu.php");
 							)
 							AND `PDF_CATEGORY`.`PDF_ID` = `PDF`.`ID`
 						;";
+						
 						$resultcontent = @mysql_query($SQLcontent);
 						while ($rscontent = @mysql_fetch_array($resultcontent)) {
 							//print_r($rscontent);
@@ -255,6 +258,7 @@ include ($rootpath."include/top-menu.php");
 							
 							$temp_c_ID[] = $rscontent["GROUP_LEVEL_ID"];
 						}
+						
 						$SQLcontent2="
 							SELECT * 
 							FROM  `GROUP_LV{$temp_glvl_content}`
@@ -285,6 +289,9 @@ include ($rootpath."include/top-menu.php");
 							$Is_there_are_content2++;
 						}
 					}//end while
+					
+					
+					// var_dump($c_NAME);
 					
 					// echo $Is_there_are_content1;
 					// echo $Is_there_are_content2;
