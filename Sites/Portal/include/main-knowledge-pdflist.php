@@ -25,7 +25,7 @@
 	$c_NAME = array();
 	$c_UPDATE_DATE = array();
 	$c_DESCRIPTION = array();
-	echo	$SQLcontent="
+	$SQLcontent="
 		SELECT *, COUNT(`PDF_ID`) AS num
 		FROM  `PDF`
 		INNER JOIN `PDF_CATEGORY`  

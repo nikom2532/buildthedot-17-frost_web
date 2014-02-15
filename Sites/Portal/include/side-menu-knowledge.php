@@ -130,7 +130,7 @@
 									// $temp_glvl_content = $_GET["glvl"];
 									// $temp_id_content = $_GET["id"];
 									
-									$temp_glvl_list = 4;
+									$temp_glvl_list = 3;
 									$temp_id_list = $rs2["ID"];
 									// echo $rs2["ID"];
 									include("include/main-knowledge-pdflist.php");
