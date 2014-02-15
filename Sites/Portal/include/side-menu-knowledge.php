@@ -84,6 +84,11 @@
 					}
 				?>" class="bold"><?php echo $rs["NAME"]; ?></a>
 <?php
+				//Show how many pdf
+				$temp_glvl_list = 2;
+				$temp_id_list = $rs2["ID"];
+				include("include/main-knowledge-pdflist.php");
+				
 				$SQLcontent="
 					SELECT * 
 					FROM  `PDF`
@@ -127,14 +132,10 @@
 									}
 									?>" class="bold text-green"><?php echo $rs2["NAME"]; ?></a>
 <?php
-									// $temp_glvl_content = $_GET["glvl"];
-									// $temp_id_content = $_GET["id"];
-									
+									//Show how many pdf
 									$temp_glvl_list = 3;
 									$temp_id_list = $rs2["ID"];
-									// echo $rs2["ID"];
 									include("include/main-knowledge-pdflist.php");
-									// main_knowledge_pdflist($temp_glvl_list, $temp_id_list);
 									
 									if($_GET["glvl"]>=3){ //&& $_GET["id"]==$rs2["ID"]
 										
@@ -167,6 +168,11 @@
 														}
 													?>" class="bold"><?php echo $rs3["NAME"]; ?></a>
 <?php
+														//Show how many pdf
+														$temp_glvl_list = 4;
+														$temp_id_list = $rs2["ID"];
+														include("include/main-knowledge-pdflist.php");
+
 														if($_GET["glvl"]>=4){
 															
 															$SQL4="
@@ -198,6 +204,11 @@
 																		}
 																	?>"><?php echo $rs4["NAME"]; ?></a>
 <?php
+																		//Show how many pdf
+																		$temp_glvl_list = 5;
+																		$temp_id_list = $rs2["ID"];
+																		include("include/main-knowledge-pdflist.php");
+														
 																		if($_GET["glvl"]>=5){
 																			$SQL5="
 																				SELECT * 
