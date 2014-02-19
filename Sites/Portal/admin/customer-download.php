@@ -72,8 +72,7 @@ include("include/header-with-tabs.php");
 	<div class="page-full-width cf">
 
 		<div class="content-module">
-
-			Customer Management --> Customer Download
+			<div style="margin-top: 15px; margin-bottom: 15px; margin-left: 15px;"><a href="./customer.php">Customer Management</a> --&gt; Customer Download</div>
 			<div class="content-module-heading cf">
 
 				<h3 class="fl">Customer</h3>
