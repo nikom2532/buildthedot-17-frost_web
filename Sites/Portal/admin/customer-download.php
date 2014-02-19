@@ -73,6 +73,7 @@ include("include/header-with-tabs.php");
 
 		<div class="content-module">
 
+			Customer Management --> Customer Download
 			<div class="content-module-heading cf">
 
 				<h3 class="fl">Customer</h3>
@@ -90,16 +91,15 @@ include("include/header-with-tabs.php");
     				<col width="8em" />
     				<col width="7em" />
     				<col width="5em" />
-    				<col width="5em" />
     				<col width="6em" />
 					<thead>
 
 						<tr>
 							<th>No.</th>
-							<th>Username</th>
-							<th>Name Surname</th>
-							<th>PDF</th>
 							<th>Download Datetime</th>
+							<th>Username</th>
+							<th>PDF</th>
+							<!-- <th>Name Surname</th> -->
 						</tr>
 
 					</thead>
@@ -120,7 +120,7 @@ include("include/header-with-tabs.php");
 						/*---------end Paging------------*/	
 						$strQuery = "
 							SELECT * 
-							FROM  `DOWNLOAD_STATISTICS` ;
+							FROM  `DOWNLOAD_STATISTICS`
 						";
 						$result = mysql_query($strQuery);
 						$Num_Rows = mysql_num_rows($result);
@@ -129,75 +129,27 @@ include("include/header-with-tabs.php");
 						$result = mysql_query($strQuery);
 							
 						if($page ==1){
-								$i = 1;
 						}
+								$i = 1;
 							//qi soft - 
 						while ($row = mysql_fetch_array($result)) {
 ?>
 							<tr>
-							<td><?=$i?></td>
-							<td><?=$row['firstname'] . "&nbsp;" . $row['lastname']?></td>
-							<td><?=$row['company']?></td>
-							<td><?=$row['email']?></td>
-							<td><?php
-								$sql_limit_download = "
-									SELECT * 
-									FROM  `USER_LIMIT_DOWNLOAD` 
-									WHERE `USER_ID` = '{$row["id"]}'
-								";
-								$result_limit_download = @mysql_query($sql_limit_download);
-								while ($rs_limit_download = @mysql_fetch_array($result_limit_download)) {
-									$LIMIT_DOWNLOAD = trim($rs_limit_download["LIMIT_DOWNLOAD"]);
-								}
-								?><form method='post' action='edit-customer-download-limit.php' id='submitform' name='submitform'>
-									<div>
-										<input TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 55px;' ALT='EDIT'>
-										<input type='hidden' name='userId' value="<?=$row['userId']?>">
-									</div>
-								</form>
-<?php 
-								echo $LIMIT_DOWNLOAD;
-								unset($LIMIT_DOWNLOAD);
-?>
-							</td>
-
-							<?php if ($row['userActive'] == "Y") {
-							?>
-								<td id='status'><img src='images/icons/message-boxes/confirmation.png' alt='active'></td>
-							<?php } else { ?>
-								<td id='status'><img src='images/icons/message-boxes/error.png' alt='active'></td>
-							<?php } ?>
-								<td>
-									<form method='post' action='edit-customer.php' id='submitform' name='submitform'>
-										<input type='hidden' name='userId' value="<?=$row['userId']?>">
-										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-edit.png' BORDER='0' style='margin:5px 10px 5px 55px;' ALT='EDIT'>
-									</form>
-							
-									<form method='post' action='permission.php' id='submitform' name='submitform'>
-										<input type='hidden' name='userId' value="<?=$row['userId']?>" >
-										<input type='hidden' name='firstName' value="<?=$row['firstname']?>"> 
-										<input type='hidden' name='lastName' value="<?=$row['lastname']?>" >
-										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-lock.png' BORDER='0' style='margin:5px 15px 5px 5px;' ALT='PERMISSION'>
-									</form>
-								
-									<form method='post' action='customer_delete.php' id='submitform' name='submitform'>
-										<input type='hidden' name='userId' value="<?=$row['userId']?>">
-										<INPUT TYPE='image' class='left' SRC='images/icons/table/actions-delete.png' BORDER='0' style='margin:5px 0'ALT='DELETE'  onClick='return confirmSubmit()'>
-									</form>
-								</td>
-
+								<td><?=$i?></td>
+								<td><?php echo $row['DOWNLOAD_DATETIME']; ?></td>
+								<td><?php echo $row["USER_ID"]; ?></td>
+								<td><?php echo $row["PDF_ID"]; ?></td>
+								<!-- <td><?=$row['firstname'] . "&nbsp;" . $row['lastname']?></td> -->
 							</tr>
-						<?php 
-							$i = $i + 1;
+<?php
 						}
-						?>
-						
+?>
 					</tbody>
 
 				</table>
-					<?php
-							echo pagination($limit, $page, "customer.php?page=", $Num_Rows);
-					?>
+				<?php
+					echo pagination($limit, $page, "customer-download.php?page=", $Num_Rows);
+				?>
 			</div>
 			<!-- end content-module-main -->
 
