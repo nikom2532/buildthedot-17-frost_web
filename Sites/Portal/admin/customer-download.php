@@ -89,14 +89,11 @@ include("include/header-with-tabs.php");
     				<col width="8em" />
     				<col width="8em" />
     				<col width="7em" />
-    				<col width="5em" />
-    				<col width="6em" />
 					<thead>
 
 						<tr>
 							<th>No.</th>
 							<th>Download Datetime</th>
-							<th>Username</th>
 							<th>PDF</th>
 							<!-- <th>Name Surname</th> -->
 						</tr>
@@ -113,13 +110,14 @@ include("include/header-with-tabs.php");
 						$start=0;//starts displaying records from 0
 						if(isset($_GET['page']) && $_GET['page']!=''){
 						$page=$_GET['page'];
-						$i=$page*10;			
+						$i=$page*10;
 						}
 						$start=($page-1)*$limit;
 						/*---------end Paging------------*/	
 						$strQuery = "
 							SELECT * 
 							FROM  `DOWNLOAD_STATISTICS`
+							WHERE `USER_ID` = '{$_POST["userId"]}'
 						";
 						$result = mysql_query($strQuery);
 						$Num_Rows = mysql_num_rows($result);
@@ -134,15 +132,37 @@ include("include/header-with-tabs.php");
 						while ($row = mysql_fetch_array($result)) {
 ?>
 							<tr>
-								<td><?=$i?></td>
+								<td><?=$i++?></td>
 								<td><?php echo $row['DOWNLOAD_DATETIME']; ?></td>
-								<td><?php echo $row["USER_ID"]; ?></td>
-								<td><?php echo $row["PDF_ID"]; ?></td>
+								<td><?php
+								// echo $row["PDF_ID"];
+									$sql_readpdf = "
+										SELECT *
+										FROM  `PDF`
+										where `ID` = '{$row["PDF_ID"]}' ;
+									";
+									$result_readpdf = @mysql_query($sql_readpdf);
+									while ($rs_readpdf = @mysql_fetch_array($result_readpdf)) {
+										?><!--<a href="#" id="pdf_read"><?php echo $rs_readpdf["NAME"]; ?></a>-->
+										<form method='post' action='edit-pdf.php' id='pdf_form' name='submitform'>
+											<input type='hidden' name='pdfId' value="<?php echo $rs_readpdf['id']; ?>"/>
+<?php
+											
+?>
+											<input type="submit" value="<?php echo $rs_readpdf["NAME"]; ?>" />
+										</form><?php
+									}
+								?></td>
 								<!-- <td><?=$row['firstname'] . "&nbsp;" . $row['lastname']?></td> -->
 							</tr>
 <?php
 						}
 ?>
+						<script>
+							//$("#pdf_read").click(function(){
+							//	$("#pdf_form").submit();
+							//});
+						</script>
 					</tbody>
 
 				</table>
