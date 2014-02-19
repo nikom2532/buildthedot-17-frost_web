@@ -165,6 +165,7 @@ include ($rootpath."include/top-menu.php");
 						WHERE `PDF_CATEGORY`.`GROUP_LEVEL_NAME` = '{$temp_glvl_content}'
 						AND `PDF_CATEGORY`.`GROUP_LEVEL_ID` = '{$temp_id_content}'
 						AND `PDF_CATEGORY`.`PDF_ID` = `PDF`.`ID`
+						ORDER BY `UPDATE_DATE` DESC
 					;";
 					$resultcontent = @mysql_query($SQLcontent);
 					while ($rscontent = @mysql_fetch_array($resultcontent)) {
