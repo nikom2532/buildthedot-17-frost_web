@@ -529,6 +529,14 @@ include ($rootpath."include/top-menu.php");
 	*/ ?>
 												</span>
 											</a>
+<?php
+											$upload_time = strtotime($c_UPDATE_DATE["$i"]);
+											$nextweek_from_upload = $upload_time + (7 * 24 * 60 * 60);
+											$today = time();
+											if($today <= $nextweek_from_upload){
+												?>&nbsp;<span style="color: #EB500B"><strong>NEW</strong></span><?php
+											}
+?>
 										</div>
 										<div class=" ">
 											<span class="text-lightgreen bold head-desc ">Update: </span><span class="date"><?php echo convertDate2String($c_UPDATE_DATE["$i"]); ?></span>
