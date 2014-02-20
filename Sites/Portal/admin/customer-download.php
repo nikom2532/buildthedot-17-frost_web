@@ -158,7 +158,7 @@ include("include/header-with-tabs.php");
 												?><input type='hidden' name='glvName' value="<?php echo $rs_pdf_category['GROUP_LEVEL_NAME']; ?>"/><?php
 											}
 ?>
-											<input type="submit" value="<?php echo $rs_readpdf["NAME"]; ?>" />
+											<input type="submit" value="<?php echo $rs_readpdf["NAME"]; ?>" style="color: rgb(97, 72, 72);" />
 										</form><?php
 									}
 								?></td>
