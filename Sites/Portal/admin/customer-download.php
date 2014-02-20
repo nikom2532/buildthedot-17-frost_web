@@ -135,7 +135,7 @@ include("include/header-with-tabs.php");
 								<td><?=$i++?></td>
 								<td><?php echo $row['DOWNLOAD_DATETIME']; ?></td>
 								<td><?php
-								// echo $row["PDF_ID"];
+									// echo $row["PDF_ID"];
 									$sql_readpdf = "
 										SELECT *
 										FROM  `PDF`
@@ -145,9 +145,18 @@ include("include/header-with-tabs.php");
 									while ($rs_readpdf = @mysql_fetch_array($result_readpdf)) {
 										?><!--<a href="#" id="pdf_read"><?php echo $rs_readpdf["NAME"]; ?></a>-->
 										<form method='post' action='edit-pdf.php' id='pdf_form' name='submitform'>
-											<input type='hidden' name='pdfId' value="<?php echo $rs_readpdf['id']; ?>"/>
+											<input type='hidden' name='pdfId' value="<?php echo $rs_readpdf['ID']; ?>"/>
 <?php
-											
+											$sql_pdf_category = "
+												SELECT * 
+												FROM  `PDF_CATEGORY`
+												WHERE `PDF_ID` = '{$row["PDF_ID"]}' ;
+											";
+											$result_pdf_category = @mysql_query($sql_pdf_category);
+											while ($rs_pdf_category = @mysql_fetch_array($result_pdf_category)) {
+												?><input type='hidden' name='glvId' value="<?php echo $rs_pdf_category['GROUP_LEVEL_ID']; ?>"/><?php
+												?><input type='hidden' name='glvName' value="<?php echo $rs_pdf_category['GROUP_LEVEL_NAME']; ?>"/><?php
+											}
 ?>
 											<input type="submit" value="<?php echo $rs_readpdf["NAME"]; ?>" />
 										</form><?php
