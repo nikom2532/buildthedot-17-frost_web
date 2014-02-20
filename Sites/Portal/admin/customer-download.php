@@ -144,7 +144,7 @@ include("include/header-with-tabs.php");
 									$result_readpdf = @mysql_query($sql_readpdf);
 									while ($rs_readpdf = @mysql_fetch_array($result_readpdf)) {
 										?><!--<a href="#" id="pdf_read"><?php echo $rs_readpdf["NAME"]; ?></a>-->
-										<form method='post' action='edit-pdf.php' id='pdf_form' name='submitform'>
+										<form method='post' action='customer-download-view-pdf.php' id='pdf_form' name='submitform'>
 											<input type='hidden' name='pdfId' value="<?php echo $rs_readpdf['ID']; ?>"/>
 <?php
 											$sql_pdf_category = "
