@@ -26,8 +26,8 @@
 	// var_dump($c_ID);
 // }
 	
-	$temp2_glvl_list = $temp_glvl_list;
-	$temp2_id_list = $temp_id_list;
+echo	$temp2_glvl_list = $temp_glvl_list;
+echo	$temp2_id_list = $temp_id_list;
 	
 	// if($temp2_glvl_list == 2){
 		
@@ -38,7 +38,7 @@
 	";
 	$resultGroupNum = @mysql_query($SQLgroupNum);
 	while($rsGroupNum = @mysql_fetch_array($resultGroupNum) ){
-			echo $rsGroupNum["ID"];
+			// echo $rsGroupNum["ID"];
 	}
 	
 	// }
