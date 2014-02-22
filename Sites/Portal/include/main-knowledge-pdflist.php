@@ -7,7 +7,7 @@
   ############## Find Children ####################
 	
 	//####### Query List ##########
-	
+	$totalnum = 0;
 	$SQLcontent="
 		SELECT COUNT(`PDF_ID`) AS num
 		FROM  `PDF`
@@ -18,10 +18,29 @@
 	;";
 	$resultcontent = @mysql_query($SQLcontent);
 	while ($rscontent = @mysql_fetch_array($resultcontent)) {
+		$totalnum += $rscontent["num"];
 		echo "(".$rscontent["num"].")";
 	}
 	
 	// echo $SQLcontent;
 	// var_dump($c_ID);
 // }
+	
+	$temp2_glvl_list = $temp_glvl_list;
+	$temp2_id_list = $temp_id_list;
+	
+	// if($temp2_glvl_list == 2){
+		
+	echo $SQLgroupNum = "
+		SELECT *
+		FROM  `GROUP_LV".($temp_glvl_list+1)."`
+		WHERE `GROUP_LV".($temp_glvl_list)."_ID` = '{$temp2_id_list}' ; 
+	";
+	$resultGroupNum = @mysql_query($SQLgroupNum);
+	while($rsGroupNum = @mysql_fetch_array($resultGroupNum) ){
+			echo $rsGroupNum["ID"];
+	}
+	
+	// }
+	
 ?>
