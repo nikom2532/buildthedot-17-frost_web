@@ -19,7 +19,7 @@
 	$resultcontent = @mysql_query($SQLcontent);
 	while ($rscontent = @mysql_fetch_array($resultcontent)) {
 		$totalnum += $rscontent["num"];
-		echo "(".$rscontent["num"].")";
+		// echo "(".$totalnum.")";
 	}
 	
 	// echo $SQLcontent;
@@ -41,25 +41,25 @@
 		// echo $rsGroupNum["ID"];
 		
 		
+		// $temp2_glvl_list = $temp2_glvl_list+1;
+		$temp2_id_list = $rsGroupNum["ID"];
+		
+		
 		$SQLcontent="
 			SELECT COUNT(`PDF_ID`) AS num
 			FROM  `PDF`
 			INNER JOIN `PDF_CATEGORY`  
-			WHERE `PDF_CATEGORY`.`GROUP_LEVEL_NAME` = '{$temp_glvl_list_lv2}'
-			AND `PDF_CATEGORY`.`GROUP_LEVEL_ID` = '{$temp_id_list_lv2}'
+			WHERE `PDF_CATEGORY`.`GROUP_LEVEL_NAME` = '".($temp2_glvl_list+1)."'
+			AND `PDF_CATEGORY`.`GROUP_LEVEL_ID` = '{$temp2_id_list}'
 			AND `PDF_CATEGORY`.`PDF_ID` = `PDF`.`ID`
 		;";
 		$resultcontent = @mysql_query($SQLcontent);
 		while ($rscontent = @mysql_fetch_array($resultcontent)) {
-			// $totalnum += $rscontent["num"];
+			$totalnum += $rscontent["num"];
 			// echo "(".$rscontent["num"].")";
-			
-			
-			
 		}
-		
-		
 	}
+	echo "(".$totalnum.")";
 	
 	// }
 	
