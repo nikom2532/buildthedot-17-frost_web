@@ -85,9 +85,9 @@
 				?>" class="bold"><?php echo $rs["NAME"]; ?></a>
 <?php
 				//Show how many pdf
-				$temp_glvl_list = 2;
-				$temp_id_list = $rs2["ID"];
-				include("include/main-knowledge-pdflist.php");
+				$temp_glvl_list_lv2 = 2;
+				$temp_id_list_lv2 = $rs2["ID"];
+				include("include/main-knowledge-pdflist-lv2.php");
 				
 				//&& $_GET["id"]==$rs["ID"] && $rs["GROUP_LV1_ID"]==1
 				//&& $_GET["id"]=="1"

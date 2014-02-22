@@ -12,8 +12,8 @@
 		SELECT COUNT(`PDF_ID`) AS num
 		FROM  `PDF`
 		INNER JOIN `PDF_CATEGORY`  
-		WHERE `PDF_CATEGORY`.`GROUP_LEVEL_NAME` = '{$temp_glvl_list}'
-		AND `PDF_CATEGORY`.`GROUP_LEVEL_ID` = '{$temp_id_list}'
+		WHERE `PDF_CATEGORY`.`GROUP_LEVEL_NAME` = '{$temp_glvl_list_lv2}'
+		AND `PDF_CATEGORY`.`GROUP_LEVEL_ID` = '{$temp_id_list_lv2}'
 		AND `PDF_CATEGORY`.`PDF_ID` = `PDF`.`ID`
 	;";
 	$resultcontent = @mysql_query($SQLcontent);
@@ -26,8 +26,8 @@
 	// var_dump($c_ID);
 // }
 	
-	$temp2_glvl_list = $temp_glvl_list;
-	$temp2_id_list = $temp_id_list;
+	$temp2_glvl_list = $temp_glvl_list_lv2;
+	$temp2_id_list = $temp_id_list_lv2;
 	
 	// if($temp2_glvl_list == 2){
 		
