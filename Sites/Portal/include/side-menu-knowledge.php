@@ -86,7 +86,7 @@
 <?php
 				//Show how many pdf
 				$temp_glvl_list_lv2 = 2;
-				$temp_id_list_lv2 = $rs2["ID"];
+				$temp_id_list_lv2 = $rs["ID"];
 				include("include/main-knowledge-pdflist-lv2.php");
 				
 				//&& $_GET["id"]==$rs["ID"] && $rs["GROUP_LV1_ID"]==1
@@ -124,9 +124,9 @@
 									?>" class="bold text-green"><?php echo $rs2["NAME"]; ?></a>
 <?php
 									//Show how many pdf
-									$temp_glvl_list = 3;
-									$temp_id_list = $rs2["ID"];
-									include("include/main-knowledge-pdflist.php");
+									$temp_glvl_list_lv3 = 3;
+									$temp_id_list_lv3 = $rs2["ID"];
+									include("include/main-knowledge-pdflist-lv3.php");
 									
 									if($_GET["glvl"]>=3){ //&& $_GET["id"]==$rs2["ID"]
 										

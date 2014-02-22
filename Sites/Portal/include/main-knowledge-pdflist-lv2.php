@@ -31,14 +31,34 @@
 	
 	// if($temp2_glvl_list == 2){
 		
-echo	$SQLgroupNum = "
+	$SQLgroupNum = "
 		SELECT *
 		FROM  `GROUP_LV".($temp2_glvl_list+1)."`
-		WHERE `ID` = '{$temp2_id_list}' ; 
+		WHERE `GROUP_LV".$temp2_glvl_list."_ID` = '{$temp2_id_list}' ; 
 	";
 	$resultGroupNum = @mysql_query($SQLgroupNum);
 	while($rsGroupNum = @mysql_fetch_array($resultGroupNum) ){
 		// echo $rsGroupNum["ID"];
+		
+		
+		$SQLcontent="
+			SELECT COUNT(`PDF_ID`) AS num
+			FROM  `PDF`
+			INNER JOIN `PDF_CATEGORY`  
+			WHERE `PDF_CATEGORY`.`GROUP_LEVEL_NAME` = '{$temp_glvl_list_lv2}'
+			AND `PDF_CATEGORY`.`GROUP_LEVEL_ID` = '{$temp_id_list_lv2}'
+			AND `PDF_CATEGORY`.`PDF_ID` = `PDF`.`ID`
+		;";
+		$resultcontent = @mysql_query($SQLcontent);
+		while ($rscontent = @mysql_fetch_array($resultcontent)) {
+			// $totalnum += $rscontent["num"];
+			// echo "(".$rscontent["num"].")";
+			
+			
+			
+		}
+		
+		
 	}
 	
 	// }
