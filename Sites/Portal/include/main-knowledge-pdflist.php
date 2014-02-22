@@ -31,10 +31,10 @@
 	
 	// if($temp2_glvl_list == 2){
 		
-	echo $SQLgroupNum = "
+	$SQLgroupNum = "
 		SELECT *
-		FROM  `GROUP_LV".($temp_glvl_list+1)."`
-		WHERE `GROUP_LV".($temp_glvl_list)."_ID` = '{$temp2_id_list}' ; 
+		FROM  `GROUP_LV".($temp2_glvl_list+1)."`
+		WHERE `ID` = '{$temp2_id_list}' ; 
 	";
 	$resultGroupNum = @mysql_query($SQLgroupNum);
 	while($rsGroupNum = @mysql_fetch_array($resultGroupNum) ){
