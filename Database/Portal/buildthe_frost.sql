@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 14, 2014 at 06:11 PM
+-- Generation Time: Feb 23, 2014 at 10:54 PM
 -- Server version: 5.1.73
 -- PHP Version: 5.3.3-7+squeeze18
 
@@ -378,7 +378,7 @@ CREATE TABLE IF NOT EXISTS `DOWNLOAD_STATISTICS` (
   `PDF_ID` int(100) NOT NULL,
   `DOWNLOAD_DATETIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=49 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=50 ;
 
 --
 -- Dumping data for table `DOWNLOAD_STATISTICS`
@@ -432,7 +432,8 @@ INSERT INTO `DOWNLOAD_STATISTICS` (`ID`, `USER_ID`, `PDF_ID`, `DOWNLOAD_DATETIME
 (45, 1, 49, '2014-02-10 23:14:35'),
 (46, 1, 49, '2014-02-10 23:14:37'),
 (47, 1, 49, '2014-02-10 23:14:38'),
-(48, 7, 26, '2014-02-11 10:08:09');
+(48, 7, 26, '2014-02-11 10:08:09'),
+(49, 7, 25, '2014-02-20 02:38:50');
 
 -- --------------------------------------------------------
 
