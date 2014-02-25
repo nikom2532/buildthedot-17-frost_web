@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 25, 2014 at 07:19 PM
+-- Generation Time: Feb 25, 2014 at 11:59 PM
 -- Server version: 5.1.73
 -- PHP Version: 5.3.3-7+squeeze18
 
@@ -577,7 +577,7 @@ INSERT INTO `INDUSTRY` (`ID`, `NAME`) VALUES
 
 CREATE TABLE IF NOT EXISTS `INFO` (
   `ID` int(2) NOT NULL AUTO_INCREMENT,
-  `NONLOGIN_DESCRIPTION` varchar(800) COLLATE utf8_unicode_ci NOT NULL,
+  `LOGIN_DESCRIPTION` varchar(800) COLLATE utf8_unicode_ci NOT NULL,
   `DESCRIPTION` varchar(800) COLLATE utf8_unicode_ci NOT NULL,
   `DETAIL` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `UPDATE` datetime NOT NULL,
@@ -588,7 +588,7 @@ CREATE TABLE IF NOT EXISTS `INFO` (
 -- Dumping data for table `INFO`
 --
 
-INSERT INTO `INFO` (`ID`, `NONLOGIN_DESCRIPTION`, `DESCRIPTION`, `DETAIL`, `UPDATE`) VALUES
+INSERT INTO `INFO` (`ID`, `LOGIN_DESCRIPTION`, `DESCRIPTION`, `DETAIL`, `UPDATE`) VALUES
 (1, '', 'welcome to mckansys.. ยินดีต้อนรับสู่ Omni Knowledge Portal ', 'รายละเอียดหน้าแรก', '2013-11-11 00:00:00'),
 (2, '', 'Please <a href="http://portal.mckansys.com/login.php">sign in</a> to download', 'หัวข้อใน download box', '2013-11-18 00:00:00'),
 (3, '', 'or <a href="http://portal.mckansys.com/contact-us.php">contact us</a> to be a membership', 'รายละเอียดใน download box', '2013-11-18 00:00:00');
