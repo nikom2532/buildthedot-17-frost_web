@@ -86,7 +86,8 @@ include("include/header-with-tabs.php");
 					
 					<table class="fixed">
 						<col width="5em" />
-						<col width="17em" />
+						<col width="12em" />
+						<col width="12em" />
 	    				<col width="5em" />
 	    				<col width="5em" />
 					
@@ -95,6 +96,7 @@ include("include/header-with-tabs.php");
 							<tr>
 								<th>Detail</th>
 								<th>Description</th>
+								<th>Login-Description</th>
                                 <th>Update dated</th>
 								<th>Actions</th>
 							</tr>
@@ -113,8 +115,9 @@ include("include/header-with-tabs.php");
 							?>
 						
 							<tr>
-								<td class="left"><?=$row['DETAIL']?></td>
-								<td class="left"><?=$row['DESCRIPTION']?></td>
+								<td class=""><?=$row['DETAIL']?></td>
+								<td class=""><?=$row['DESCRIPTION']?></td>
+								<td class=""><?=$row['LOGIN_DESCRIPTION']?></td>
 								<?php
 									$originalDate = $row['UPDATE'];
 									$newDate = date("M d, Y", strtotime($originalDate));
