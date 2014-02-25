@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 23, 2014 at 11:13 PM
+-- Generation Time: Feb 25, 2014 at 07:19 PM
 -- Server version: 5.1.73
 -- PHP Version: 5.3.3-7+squeeze18
 
@@ -378,7 +378,7 @@ CREATE TABLE IF NOT EXISTS `DOWNLOAD_STATISTICS` (
   `PDF_ID` int(100) NOT NULL,
   `DOWNLOAD_DATETIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=50 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=53 ;
 
 --
 -- Dumping data for table `DOWNLOAD_STATISTICS`
@@ -433,7 +433,10 @@ INSERT INTO `DOWNLOAD_STATISTICS` (`ID`, `USER_ID`, `PDF_ID`, `DOWNLOAD_DATETIME
 (46, 1, 49, '2014-02-10 23:14:37'),
 (47, 1, 49, '2014-02-10 23:14:38'),
 (48, 7, 26, '2014-02-11 10:08:09'),
-(49, 7, 25, '2014-02-20 02:38:50');
+(49, 7, 25, '2014-02-20 02:38:50'),
+(50, 7, 32, '2014-02-24 04:21:15'),
+(51, 7, 25, '2014-02-24 04:21:33'),
+(52, 7, 26, '2014-02-24 05:21:08');
 
 -- --------------------------------------------------------
 
@@ -574,6 +577,7 @@ INSERT INTO `INDUSTRY` (`ID`, `NAME`) VALUES
 
 CREATE TABLE IF NOT EXISTS `INFO` (
   `ID` int(2) NOT NULL AUTO_INCREMENT,
+  `NONLOGIN_DESCRIPTION` varchar(800) COLLATE utf8_unicode_ci NOT NULL,
   `DESCRIPTION` varchar(800) COLLATE utf8_unicode_ci NOT NULL,
   `DETAIL` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `UPDATE` datetime NOT NULL,
@@ -584,10 +588,10 @@ CREATE TABLE IF NOT EXISTS `INFO` (
 -- Dumping data for table `INFO`
 --
 
-INSERT INTO `INFO` (`ID`, `DESCRIPTION`, `DETAIL`, `UPDATE`) VALUES
-(1, 'welcome to mckansys.. ยินดีต้อนรับสู่ Omni Knowledge Portal ', 'รายละเอียดหน้าแรก', '2013-11-11 00:00:00'),
-(2, 'Please <a href="http://portal.mckansys.com/login.php">sign in</a> to download', 'หัวข้อใน download box', '2013-11-18 00:00:00'),
-(3, 'or <a href="http://portal.mckansys.com/contact-us.php">contact us</a> to be a membership', 'รายละเอียดใน download box', '2013-11-18 00:00:00');
+INSERT INTO `INFO` (`ID`, `NONLOGIN_DESCRIPTION`, `DESCRIPTION`, `DETAIL`, `UPDATE`) VALUES
+(1, '', 'welcome to mckansys.. ยินดีต้อนรับสู่ Omni Knowledge Portal ', 'รายละเอียดหน้าแรก', '2013-11-11 00:00:00'),
+(2, '', 'Please <a href="http://portal.mckansys.com/login.php">sign in</a> to download', 'หัวข้อใน download box', '2013-11-18 00:00:00'),
+(3, '', 'or <a href="http://portal.mckansys.com/contact-us.php">contact us</a> to be a membership', 'รายละเอียดใน download box', '2013-11-18 00:00:00');
 
 -- --------------------------------------------------------
 
