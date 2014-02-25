@@ -349,23 +349,29 @@ include ("include/top-menu.php");
 					}
 	?>	
 				  </b></p>
-			  <?php }
+<?php
+				}
 			
-			 }?><!-- end price-box -->
+			 }
+?><!-- end price-box -->
 			 <div id="wrap-description">
-			 	<?php 
-			 		  $sqlDesc1 = "SELECT * FROM  INFO WHERE ID = '2' ";
-					  $resultDesc1 = @mysql_query($sqlDesc1);					  
-			          $rowDesc1 = @mysql_fetch_array($resultDesc1);
-					  
-					  $sqlDesc2 = "SELECT * FROM  INFO WHERE ID = '3' ";
-					  $resultDesc2 = @mysql_query($sqlDesc2);					  
-			          $rowDesc2 = @mysql_fetch_array($resultDesc2);
-				?>
-				
-				 <b><?=$rowDesc1["DESCRIPTION"]?></b>
-				 <p><?=$rowDesc2["DESCRIPTION"]?></p>
-		
+<?php 
+					$sqlDesc1 = "SELECT * FROM INFO WHERE ID = '2' ";
+					$resultDesc1 = @mysql_query($sqlDesc1);					  
+					$rowDesc1 = @mysql_fetch_array($resultDesc1);
+					
+					$sqlDesc2 = "SELECT * FROM  INFO WHERE ID = '3' ";
+					$resultDesc2 = @mysql_query($sqlDesc2);					  
+					$rowDesc2 = @mysql_fetch_array($resultDesc2);
+					if($_SESSION["userid"] == ""){
+						?><b><?=$rowDesc1["DESCRIPTION"]?></b>
+				 		<p><?=$rowDesc2["DESCRIPTION"]?></p><?php
+					}
+					else{
+						?><b><?=$rowDesc1["LOGIN_DESCRIPTION"]?></b>
+						<p><?=$rowDesc2["LOGIN_DESCRIPTION"]?></p><?php
+					}
+?>
 			 </div>
 			</div>
 		</div><!-- end description -->
