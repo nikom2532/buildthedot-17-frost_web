@@ -11,7 +11,7 @@ if (!$db -> open()) {
 include("include/top-bar.php");?>
 <?php include("lib/func_pagination.php");?>
 <script type="text/javascript">
- 	$(document).ready(function(){ 
+ 	$(document).ready(function(){
     });
 	 function confirmSubmit()
 		{
@@ -20,7 +20,7 @@ include("include/top-bar.php");?>
 			return true ;
 		else
 			return false ;
-		}   
+		}
         function showSuccessMessage(){
             showNotification({
                 type : "error",
@@ -31,8 +31,8 @@ include("include/top-bar.php");?>
 	        showNotification({
 	                    type : "error",
 	                    message: "This is a sample success notification"
-	                });    
-	            }                                    
+	                });
+	            }
 </script>
 <?php 
 $msg = $_GET['msg'];

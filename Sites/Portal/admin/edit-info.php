@@ -79,6 +79,11 @@ include("include/header-with-tabs.php");
 								<label for="description">Description</label>
 								<textarea id="description" class="round full-width-textarea" name="description" ><?=$row['DESCRIPTION']; ?></textarea>
 							</p>
+							
+							<p>
+								<label for="description">Description</label>
+								<textarea id="description" class="round full-width-textarea" name="logins_description" ><?=$row['LOGIN_DESCRIPTION']; ?></textarea>
+							</p>
 
 						</fieldset>
 						<input type='hidden' name='infoId' value="<?=$infoId?>"/>	
