@@ -26,7 +26,12 @@ if(($email!="")&&($password!="")) {
 		
 		//Add Login Log to Database
 		
-		
+		$sql_login_log = "
+			INSERT INTO `USER_LOGIN_LOG`
+			(`USER_ID`, `DATETIME`)
+			VALUE ('{$rs["ID"]}', 'NOW() ) ;
+		";
+		@mysql_query($sql_login_log);
 		
 		//*************************
 		
