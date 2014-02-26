@@ -897,6 +897,19 @@ CREATE TABLE IF NOT EXISTS `USER_LIMIT_DOWNLOAD` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `USER_LOGIN_LOG`
+--
+
+CREATE TABLE IF NOT EXISTS `USER_LOGIN_LOG` (
+  `ID` int(200) NOT NULL AUTO_INCREMENT,
+  `USER_ID` int(200) NOT NULL,
+  `DATETIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `USER_PROFILE`
 --
 

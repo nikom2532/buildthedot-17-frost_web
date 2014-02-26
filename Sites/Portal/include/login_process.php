@@ -22,7 +22,15 @@ if(($email!="")&&($password!="")) {
 	$db->query($SQL);
 	if($rs=$db->fetchAssoc()){
 		$_SESSION["userid"]=$rs["ID"];
-		?>
+		
+		
+		//Add Login Log to Database
+		
+		
+		
+		//*************************
+		
+?>
 		<form id="login_finish" action="<?php echo $rootpath.urldecode($_POST["pa"]); ?>" method="POST"></form>
 		<script>
 			document.getElementById("login_finish").submit();
