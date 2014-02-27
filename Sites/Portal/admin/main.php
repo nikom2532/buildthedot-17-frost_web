@@ -229,11 +229,17 @@ include("include/header-with-tabs.php");
 						<tbody>
 <?php
 							$i=1;
+							/*
 							$sql_download_statistic="
 								SELECT *, Date(DOWNLOAD_DATETIME) AS download_date, Time(DOWNLOAD_DATETIME) AS download_time
 								FROM  `DOWNLOAD_STATISTICS`
 								GROUP BY `USER_ID`
 								ORDER BY `USER_ID` ;
+							";
+							*/
+							$sql_download_statistic="
+								SELECT *, Date(DOWNLOAD_DATETIME) AS download_date, Time(DOWNLOAD_DATETIME) AS download_time
+								FROM  `DOWNLOAD_STATISTICS` ;
 							";
 							$Result_download_statistic=@mysql_query($sql_download_statistic);
 							while($rs_download_statistic=@mysql_fetch_array($Result_download_statistic)){
