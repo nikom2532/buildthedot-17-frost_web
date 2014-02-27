@@ -98,7 +98,11 @@ include("include/header-with-tabs.php");
 										";
 										$result_user=@mysql_query($sql_user);
 										if($rs_user=@mysql_fetch_array($result_user)){
-											echo $rs_user["FIRSTNAME"]." ".$rs_user["LASTNAME"];
+											?><?php
+											?><form method='post' action='customer-download.php' id='submitform' name='submitform'>
+												<input type='hidden' name='userId' value="<?=$rs_user['ID']?>">
+												<a href="#" onclick="parentNode.submit(); "><?php echo $rs_user["FIRSTNAME"]." ".$rs_user["LASTNAME"]; ?></a>
+											</form><?php
 										}
 									?></td>
 									<td><?php
