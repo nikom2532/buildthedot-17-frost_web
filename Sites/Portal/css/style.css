@@ -25,6 +25,9 @@
 	text-decoration: underline;
 	margin-left: 10px;
 }
+.underline{	
+	text-decoration: underline;
+}
 .center{
 	text-align:center;
 }
@@ -45,7 +48,7 @@ h5 { font-size: 0.625em; /* 10/16 */ }
 
 
 /* ---------- LINK ---------- */
-	a, a:visited {color:#666;text-decoration: none; outline: 0; }
+	a, a:visited {color:white;text-decoration: none; outline: 0; }
 	p a, p a:visited { line-height: inherit; }
 
 /* ---------- BUTTONS ---------- */
@@ -343,9 +346,6 @@ ul#topnav li span a:hover {text-decoration: none; color:#484949;}
 }
 .report-detail p {
 	margin-bottom: 10px;
-}
-.report-detail img.pdf-image{
-	max-width: 300px;
 }
 ul.report-tag {
 	list-style-type: none;
@@ -750,7 +750,7 @@ span.inactive {
 	color:#036D67;
 }
 #wrap-download{
-	margin-top:20px;
+	margin-top:10px;
 	padding:18px;
 	background-color: #EDF0F2;
 	font-size:0.9em;
@@ -770,19 +770,4 @@ span.inactive {
 }
 #change-pass2{
 	margin-bottom: 14px;
-}
-#content #container #content-middle img.thinktank{
-	max-width:300px;
-}
-.paddingleft10{
-	padding-left: 10px;
-}
-.paddingright10{
-	padding-right: 10px;
-}
-.textalignleft{
-	text-align: inherit;
-}
-#content-middle section.mainknowledge{
-	text-align: inherit;
 }

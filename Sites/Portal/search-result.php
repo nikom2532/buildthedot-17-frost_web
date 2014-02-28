@@ -90,16 +90,20 @@ function hightlight($string,$keyword){
                         </p> -->
                     </section>
                    <?php } 
+
       ?>
                    <div class="grid_12" id="page-num">
                     <ul class="left">
 
 					<?php		
-					 echo pagination($limit,$page,"advance-search-result.php?keyword=$keyword&categoryID=$categoryID&year=$year&page=",$Num_Rows); //call function to show pagination
+					 echo pagination($limit,$page,"search-result.php?keyword=$keyword&categoryID=$categoryID&year=$year&page=",$Num_Rows); //call function to show pagination
 					?>		
                     </ul>
 					</div><!--end page-num -->
-                    <?php }?>
+            <?php }else{?>
+            	<h2 class="text-lightgreen2 grid_12">No results founds for <?="<span class='text-orange'>\"".$keyword."\"</span>"?> Cant find you are looking for, please <a href="contact-us.php" ><span class='text-orange underline'>contact us</span></a> for more information</h1>
+				
+           <?php }?>
               </div><!--end advancesearch-year -->
              
         </div><!--end content-middle -->
