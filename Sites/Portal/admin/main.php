@@ -98,7 +98,6 @@ include("include/header-with-tabs.php");
 										";
 										$result_user=@mysql_query($sql_user);
 										if($rs_user=@mysql_fetch_array($result_user)){
-											?><?php
 											?><form method='post' action='customer-download.php' id='submitform' name='submitform'>
 												<input type='hidden' name='userId' value="<?=$rs_user['ID']?>">
 												<a href="#" onclick="parentNode.submit(); "><?php echo $rs_user["FIRSTNAME"]." ".$rs_user["LASTNAME"]; ?></a>
@@ -175,6 +174,10 @@ include("include/header-with-tabs.php");
 										";
 										$Result_pdf=@mysql_query($sql_pdf);
 										if($rs_pdf=@mysql_fetch_array($Result_pdf)){
+											?><form method='post' action='main_grouptitle.php' id='submitform' name='submitform'>
+												<input type='hidden' name='userId' value="<?=$rs_user['ID']?>">
+												<a href="#" onclick="parentNode.submit(); "><?php echo $rs_statistic_each_pdf["NAME"]; ?></a>
+											</form><?php
 											echo $rs_pdf["NAME"];
 										}
 									?></td>
