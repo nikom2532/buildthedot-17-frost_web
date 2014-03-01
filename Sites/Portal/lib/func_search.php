@@ -2,7 +2,7 @@
 
 	function highlightkeyword($str, $search) {
     $highlightcolor = "#EB500B";
-    $occurrences = substr_count(strtolower($str), strtolower($search));
+    $occurrences = @substr_count(strtolower($str), strtolower($search));
     $newstring = $str;
     $match = array();
  
