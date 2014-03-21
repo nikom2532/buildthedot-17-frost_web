@@ -140,7 +140,7 @@ if(!(!file_exists($_FILES['imageUpload']['tmp_name']) || !is_uploaded_file($_FIL
 }
 
 $current_time = date("Y-m-d H:i:s");
-$sqlPdf = "
+echo $sqlPdf = "
 	INSERT INTO `PDF` (
 		`NAME`, 
 		`PHOTO_NAME`,
@@ -160,11 +160,28 @@ $sqlPdf = "
 		'{$_POST["asian"]}'
 	)
 ;";
-//echo $sqlPdf;
 $insertPdfResult = mysql_query($sqlPdf);
-//echo mysql_insert_id(). "<br />";
-$result = @mysql_query($sql);
+
 $PDF_ID = mysql_insert_id();
+echo "PDF_ID = ".$PDF_ID;
+
+
+// $sqlPdf = "
+	// SELECT `ID`
+	// FROM `PDF`
+	// WHERE `NAME` = '{$_POST["name"]}'
+	// AND `PHOTO_NAME` = '{$imageFileName}'
+	// AND `DESCRIPTION` = '{$_POST["description"]}'
+	// AND `PRICE` = '{$_POST["price"]}'
+	// AND `UPDATE_DATE` = '{$current_time}'
+	// AND `PATH` = '{$pdfFileName}'
+	// AND `Is_Asian_country` = '{$_POST["asian"]}'
+// ";
+// $ResultPdf = @mysql_query($sqlPdf);
+// while ($rsPdf = @mysql_fetch_array($ResultPdf)) {
+	// $PDF_ID = 
+// }
+
 
 $string_tag = explode(',', $tag);
 foreach($string_tag as $tag) {
@@ -215,7 +232,7 @@ elseif($gLv1 != 0 || $gLv1 !="") {
 	$GROUP_LEVEL_NAME = "1";
 }
 
-$sqlCat="
+echo $sqlCat="
 INSERT INTO `PDF_CATEGORY` (
 	`PDF_ID`,
 	`GROUP_LEVEL_NAME`,
@@ -233,6 +250,6 @@ $msg = "Sucess";
 ?>
 <script>
 <!--
-window.location = "pdf.php?msg=<?php echo $msg; ?>";
+//window.location = "pdf.php?msg=<?php echo $msg; ?>";
 //-->
 </script>
