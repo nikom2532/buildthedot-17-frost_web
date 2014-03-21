@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 25, 2014 at 11:59 PM
+-- Generation Time: Mar 21, 2014 at 01:41 PM
 -- Server version: 5.1.73
 -- PHP Version: 5.3.3-7+squeeze18
 
@@ -378,7 +378,7 @@ CREATE TABLE IF NOT EXISTS `DOWNLOAD_STATISTICS` (
   `PDF_ID` int(100) NOT NULL,
   `DOWNLOAD_DATETIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=53 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=72 ;
 
 --
 -- Dumping data for table `DOWNLOAD_STATISTICS`
@@ -436,7 +436,26 @@ INSERT INTO `DOWNLOAD_STATISTICS` (`ID`, `USER_ID`, `PDF_ID`, `DOWNLOAD_DATETIME
 (49, 7, 25, '2014-02-20 02:38:50'),
 (50, 7, 32, '2014-02-24 04:21:15'),
 (51, 7, 25, '2014-02-24 04:21:33'),
-(52, 7, 26, '2014-02-24 05:21:08');
+(52, 7, 26, '2014-02-24 05:21:08'),
+(53, 7, 23, '2014-02-26 10:32:55'),
+(54, 7, 43, '2014-02-26 11:03:02'),
+(55, 7, 25, '2014-03-05 10:28:35'),
+(56, 7, 49, '2014-03-15 08:35:56'),
+(57, 7, 45, '2014-03-15 08:37:41'),
+(58, 7, 43, '2014-03-15 08:38:11'),
+(59, 7, 43, '2014-03-15 08:38:13'),
+(60, 7, 43, '2014-03-15 08:38:22'),
+(61, 7, 26, '2014-03-15 08:38:55'),
+(62, 7, 42, '2014-03-15 08:39:51'),
+(63, 7, 36, '2014-03-15 08:45:22'),
+(64, 7, 25, '2014-03-15 08:47:54'),
+(65, 7, 25, '2014-03-15 08:47:56'),
+(66, 1, 50, '2014-03-18 04:59:54'),
+(67, 1, 46, '2014-03-18 05:00:10'),
+(68, 1, 46, '2014-03-18 05:00:39'),
+(69, 1, 50, '2014-03-18 05:00:46'),
+(70, 1, 50, '2014-03-18 05:01:18'),
+(71, 1, 50, '2014-03-18 05:04:07');
 
 -- --------------------------------------------------------
 
@@ -630,7 +649,7 @@ CREATE TABLE IF NOT EXISTS `PDF` (
   `PATH` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Is_Asian_country` tinyint(1) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=50 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=51 ;
 
 --
 -- Dumping data for table `PDF`
@@ -659,7 +678,8 @@ INSERT INTO `PDF` (`ID`, `NAME`, `PHOTO_NAME`, `DESCRIPTION`, `BY`, `PRICE`, `UP
 (46, 'การประเมินมูลค่าทรัพย์สินทางปัญญา', '1391376046_20_IPV.jpg', 'การประเมินทรัพย์สินทางปัญญาเกิดขึ้นเนื่องจากการทำธุรกรรมซื้อ/ขายสินทรัพย์ โดยมีวัตถุประสงค์เพื่อให้ทั้งผู้ซื้อและผู้ขายรู้มูลค่าของสินทรัพย์ที่แท้จริงก่อนจะมีการตกลงซื้อหรือขายกัน', '', 100, '2014-02-03 04:38:45', NULL, '1391375949_20_IntellectualPropertyValuation.pdf', 0),
 (47, 'Dynamic Consumption Behavior', '1391376199_21_DCB.jpg', 'Dynamic Consumption Behavior หรือการเปลี่ยนแปลงในแนวโน้มพฤติกรรมกลุ่มผู้บริโภค ถือเป็นการพลิกฟื้นคืนชีพของธุรกิจไอซีทีแบบครบวงจร (ICT Ecosystem) ตั้งแต่ผู้ให้บริการ content, platform, infrastructure ไปจนถึงผู้ผลิตอุปกรณ์และชิ้นส่วน ตลอดจนผู้ให้บริการประเภท system integration และ managed services ', '', 100, '2014-02-03 04:23:37', NULL, '1391376199_21_DynamicConsumptionBehavior.pdf', 0),
 (48, 'เทรนด์ธุรกิจยุคดิจิตัล 2557', '1391377050_22_BusinessTrend.jpg', 'จากการสำรวจเทรนด์ในองค์กรยุคดิจิตัล ที่ต้องจับตาในปี 2557 พบว่า มี 4 เรื่องหลักที่เกี่ยวข้องกับการพัฒนาวิสัยทัศน์ขององค์กร ', '', 100, '2014-02-03 04:37:30', NULL, '1391377050_22_TrendBusinessDigitalAge.pdf', 0),
-(49, 'เทรนด์การใช้งาน Smart Device', '1391987825_22_SmartDeviceTrend.jpg', 'มัคคานซิส เผยผลการศึกษาผู้ใช้งานสมาร์ทดีไวซ์เกินครึ่ง ถือครองมากกว่า 1 เครื่องในเวลาเดียวกัน ส่งผลดีต่อการเติบโตของปริมาณการใช้งานดาต้า', '', 100, '2014-02-10 06:18:22', NULL, '1391987825_23_SmartDeviceUsage.pdf', 0);
+(49, 'เทรนด์การใช้งาน Smart Device', '1391987825_22_SmartDeviceTrend.jpg', 'มัคคานซิส เผยผลการศึกษาผู้ใช้งานสมาร์ทดีไวซ์เกินครึ่ง ถือครองมากกว่า 1 เครื่องในเวลาเดียวกัน ส่งผลดีต่อการเติบโตของปริมาณการใช้งานดาต้า', '', 100, '2014-02-10 06:18:22', NULL, '1391987825_23_SmartDeviceUsage.pdf', 0),
+(50, 'The New Chapter of Customer Relation Management', '1395118867_CoverCRM.jpg', 'ในปัจจุบัน ช่องทางการสื่อสารระหว่างบริษัทและลูกค้ามีอยู่หลากหลายช่องทาง ซึ่งข้อมูลต่างๆของลูกค้าแพร่กระจายอยู่่ในทุกช่องทาง การดึงข้อมูลเหล่านั้นมาใช้ให้เกิดประโยชน์สูงสุดได้ นับเป็นสิ่งจำเป็นเพื่อให้บริษัทเข้าถึงความต้องการของลูกค้า โดยเครื่องมือเหล่านี้ Customer Data Management (CDM), Personalization และ Contextualization มีบทบาทสำคัญที่จะในการนำข้อมูลมาวิเคราะห์ และพิจารณาเพื่อกำหนดแผนงานดำเนินงานของบริษัทต่อไป', '', 100, '2014-03-18 12:01:07', NULL, '1395118401_New_Chapter_CRM_032014.pdf', 0);
 
 -- --------------------------------------------------------
 
@@ -674,7 +694,7 @@ CREATE TABLE IF NOT EXISTS `PDF_CATEGORY` (
   `GROUP_LEVEL_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `PDF_ID` (`PDF_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=64 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=65 ;
 
 --
 -- Dumping data for table `PDF_CATEGORY`
@@ -703,7 +723,8 @@ INSERT INTO `PDF_CATEGORY` (`ID`, `PDF_ID`, `GROUP_LEVEL_NAME`, `GROUP_LEVEL_ID`
 (60, 46, '2', 2),
 (61, 47, '3', 16),
 (62, 48, '3', 16),
-(63, 49, '3', 15);
+(63, 49, '3', 15),
+(64, 50, '2', 2);
 
 -- --------------------------------------------------------
 
@@ -860,7 +881,8 @@ INSERT INTO `TAG_RELATIONSHIP` (`PDF_ID`, `TAG_ID`) VALUES
 (45, 6),
 (46, 6),
 (47, 6),
-(49, 6);
+(49, 6),
+(50, 6);
 
 -- --------------------------------------------------------
 
@@ -891,19 +913,6 @@ CREATE TABLE IF NOT EXISTS `USER_LIMIT_DOWNLOAD` (
   `ID` int(100) NOT NULL AUTO_INCREMENT,
   `USER_ID` int(100) NOT NULL,
   `LIMIT_DOWNLOAD` int(20) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `USER_LOGIN_LOG`
---
-
-CREATE TABLE IF NOT EXISTS `USER_LOGIN_LOG` (
-  `ID` int(200) NOT NULL AUTO_INCREMENT,
-  `USER_ID` int(200) NOT NULL,
-  `DATETIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
