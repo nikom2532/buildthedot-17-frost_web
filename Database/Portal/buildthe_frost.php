@@ -313,7 +313,52 @@ $DOWNLOAD_STATISTICS = array(
   array('ID'=>'23','USER_ID'=>'7','PDF_ID'=>'36','DOWNLOAD_DATETIME'=>'2014-01-22 16:10:19'),
   array('ID'=>'24','USER_ID'=>'1','PDF_ID'=>'32','DOWNLOAD_DATETIME'=>'2014-01-24 15:11:29'),
   array('ID'=>'25','USER_ID'=>'1','PDF_ID'=>'36','DOWNLOAD_DATETIME'=>'2014-01-24 15:12:47'),
-  array('ID'=>'26','USER_ID'=>'1','PDF_ID'=>'36','DOWNLOAD_DATETIME'=>'2014-01-24 15:15:43')
+  array('ID'=>'26','USER_ID'=>'1','PDF_ID'=>'36','DOWNLOAD_DATETIME'=>'2014-01-24 15:15:43'),
+  array('ID'=>'27','USER_ID'=>'7','PDF_ID'=>'23','DOWNLOAD_DATETIME'=>'2014-02-10 15:04:08'),
+  array('ID'=>'28','USER_ID'=>'7','PDF_ID'=>'46','DOWNLOAD_DATETIME'=>'2014-02-10 15:07:53'),
+  array('ID'=>'29','USER_ID'=>'7','PDF_ID'=>'26','DOWNLOAD_DATETIME'=>'2014-02-10 15:10:30'),
+  array('ID'=>'30','USER_ID'=>'7','PDF_ID'=>'43','DOWNLOAD_DATETIME'=>'2014-02-10 15:12:11'),
+  array('ID'=>'31','USER_ID'=>'7','PDF_ID'=>'27','DOWNLOAD_DATETIME'=>'2014-02-10 15:12:54'),
+  array('ID'=>'32','USER_ID'=>'7','PDF_ID'=>'49','DOWNLOAD_DATETIME'=>'2014-02-10 15:16:50'),
+  array('ID'=>'33','USER_ID'=>'7','PDF_ID'=>'49','DOWNLOAD_DATETIME'=>'2014-02-10 15:17:01'),
+  array('ID'=>'34','USER_ID'=>'1','PDF_ID'=>'49','DOWNLOAD_DATETIME'=>'2014-02-11 06:14:18'),
+  array('ID'=>'35','USER_ID'=>'1','PDF_ID'=>'49','DOWNLOAD_DATETIME'=>'2014-02-11 06:14:21'),
+  array('ID'=>'36','USER_ID'=>'1','PDF_ID'=>'49','DOWNLOAD_DATETIME'=>'2014-02-11 06:14:23'),
+  array('ID'=>'37','USER_ID'=>'1','PDF_ID'=>'49','DOWNLOAD_DATETIME'=>'2014-02-11 06:14:24'),
+  array('ID'=>'38','USER_ID'=>'1','PDF_ID'=>'49','DOWNLOAD_DATETIME'=>'2014-02-11 06:14:25'),
+  array('ID'=>'39','USER_ID'=>'1','PDF_ID'=>'49','DOWNLOAD_DATETIME'=>'2014-02-11 06:14:27'),
+  array('ID'=>'40','USER_ID'=>'1','PDF_ID'=>'49','DOWNLOAD_DATETIME'=>'2014-02-11 06:14:28'),
+  array('ID'=>'41','USER_ID'=>'1','PDF_ID'=>'49','DOWNLOAD_DATETIME'=>'2014-02-11 06:14:29'),
+  array('ID'=>'42','USER_ID'=>'1','PDF_ID'=>'49','DOWNLOAD_DATETIME'=>'2014-02-11 06:14:30'),
+  array('ID'=>'43','USER_ID'=>'1','PDF_ID'=>'49','DOWNLOAD_DATETIME'=>'2014-02-11 06:14:32'),
+  array('ID'=>'44','USER_ID'=>'1','PDF_ID'=>'49','DOWNLOAD_DATETIME'=>'2014-02-11 06:14:33'),
+  array('ID'=>'45','USER_ID'=>'1','PDF_ID'=>'49','DOWNLOAD_DATETIME'=>'2014-02-11 06:14:35'),
+  array('ID'=>'46','USER_ID'=>'1','PDF_ID'=>'49','DOWNLOAD_DATETIME'=>'2014-02-11 06:14:37'),
+  array('ID'=>'47','USER_ID'=>'1','PDF_ID'=>'49','DOWNLOAD_DATETIME'=>'2014-02-11 06:14:38'),
+  array('ID'=>'48','USER_ID'=>'7','PDF_ID'=>'26','DOWNLOAD_DATETIME'=>'2014-02-11 17:08:09'),
+  array('ID'=>'49','USER_ID'=>'7','PDF_ID'=>'25','DOWNLOAD_DATETIME'=>'2014-02-20 09:38:50'),
+  array('ID'=>'50','USER_ID'=>'7','PDF_ID'=>'32','DOWNLOAD_DATETIME'=>'2014-02-24 11:21:15'),
+  array('ID'=>'51','USER_ID'=>'7','PDF_ID'=>'25','DOWNLOAD_DATETIME'=>'2014-02-24 11:21:33'),
+  array('ID'=>'52','USER_ID'=>'7','PDF_ID'=>'26','DOWNLOAD_DATETIME'=>'2014-02-24 12:21:08'),
+  array('ID'=>'53','USER_ID'=>'7','PDF_ID'=>'23','DOWNLOAD_DATETIME'=>'2014-02-26 17:32:55'),
+  array('ID'=>'54','USER_ID'=>'7','PDF_ID'=>'43','DOWNLOAD_DATETIME'=>'2014-02-26 18:03:02'),
+  array('ID'=>'55','USER_ID'=>'7','PDF_ID'=>'25','DOWNLOAD_DATETIME'=>'2014-03-05 17:28:35'),
+  array('ID'=>'56','USER_ID'=>'7','PDF_ID'=>'49','DOWNLOAD_DATETIME'=>'2014-03-15 15:35:56'),
+  array('ID'=>'57','USER_ID'=>'7','PDF_ID'=>'45','DOWNLOAD_DATETIME'=>'2014-03-15 15:37:41'),
+  array('ID'=>'58','USER_ID'=>'7','PDF_ID'=>'43','DOWNLOAD_DATETIME'=>'2014-03-15 15:38:11'),
+  array('ID'=>'59','USER_ID'=>'7','PDF_ID'=>'43','DOWNLOAD_DATETIME'=>'2014-03-15 15:38:13'),
+  array('ID'=>'60','USER_ID'=>'7','PDF_ID'=>'43','DOWNLOAD_DATETIME'=>'2014-03-15 15:38:22'),
+  array('ID'=>'61','USER_ID'=>'7','PDF_ID'=>'26','DOWNLOAD_DATETIME'=>'2014-03-15 15:38:55'),
+  array('ID'=>'62','USER_ID'=>'7','PDF_ID'=>'42','DOWNLOAD_DATETIME'=>'2014-03-15 15:39:51'),
+  array('ID'=>'63','USER_ID'=>'7','PDF_ID'=>'36','DOWNLOAD_DATETIME'=>'2014-03-15 15:45:22'),
+  array('ID'=>'64','USER_ID'=>'7','PDF_ID'=>'25','DOWNLOAD_DATETIME'=>'2014-03-15 15:47:54'),
+  array('ID'=>'65','USER_ID'=>'7','PDF_ID'=>'25','DOWNLOAD_DATETIME'=>'2014-03-15 15:47:56'),
+  array('ID'=>'66','USER_ID'=>'1','PDF_ID'=>'50','DOWNLOAD_DATETIME'=>'2014-03-18 11:59:54'),
+  array('ID'=>'67','USER_ID'=>'1','PDF_ID'=>'46','DOWNLOAD_DATETIME'=>'2014-03-18 12:00:10'),
+  array('ID'=>'68','USER_ID'=>'1','PDF_ID'=>'46','DOWNLOAD_DATETIME'=>'2014-03-18 12:00:39'),
+  array('ID'=>'69','USER_ID'=>'1','PDF_ID'=>'50','DOWNLOAD_DATETIME'=>'2014-03-18 12:00:46'),
+  array('ID'=>'70','USER_ID'=>'1','PDF_ID'=>'50','DOWNLOAD_DATETIME'=>'2014-03-18 12:01:18'),
+  array('ID'=>'71','USER_ID'=>'1','PDF_ID'=>'50','DOWNLOAD_DATETIME'=>'2014-03-18 12:04:07')
 );
 
 // mckansys.GROUP_LV1
@@ -349,9 +394,9 @@ $INDUSTRY = array(
 
 // mckansys.INFO
 $INFO = array(
-  array('ID'=>'1','DESCRIPTION'=>'welcome to mckansys.. ยินดีต้อนรับสู่ Omni Knowledge Portal ','DETAIL'=>'รายละเอียดหน้าแรก','UPDATE'=>'2013-11-11 00:00:00'),
-  array('ID'=>'2','DESCRIPTION'=>'Please <a href="http://portal.mckansys.com/login.php">sign in</a> to download','DETAIL'=>'หัวข้อใน download box','UPDATE'=>'2013-11-18 00:00:00'),
-  array('ID'=>'3','DESCRIPTION'=>'or <a href="http://portal.mckansys.com/contact-us.php">contact us</a> to be a membership','DETAIL'=>'รายละเอียดใน download box','UPDATE'=>'2013-11-18 00:00:00')
+  array('ID'=>'1','LOGIN_DESCRIPTION'=>'','DESCRIPTION'=>'welcome to mckansys.. ยินดีต้อนรับสู่ Omni Knowledge Portal ','DETAIL'=>'รายละเอียดหน้าแรก','UPDATE'=>'2013-11-11 00:00:00'),
+  array('ID'=>'2','LOGIN_DESCRIPTION'=>'','DESCRIPTION'=>'Please <a href="http://portal.mckansys.com/login.php">sign in</a> to download','DETAIL'=>'หัวข้อใน download box','UPDATE'=>'2013-11-18 00:00:00'),
+  array('ID'=>'3','LOGIN_DESCRIPTION'=>'','DESCRIPTION'=>'or <a href="http://portal.mckansys.com/contact-us.php">contact us</a> to be a membership','DETAIL'=>'รายละเอียดใน download box','UPDATE'=>'2013-11-18 00:00:00')
 );
 
 // mckansys.JOB_LEVEL
@@ -382,7 +427,9 @@ $PDF = array(
   array('ID'=>'45','NAME'=>'แนวโน้มการใช้งาน IaaS ในประเทศไทย','PHOTO_NAME'=>'1391375844_19_IaaS.jpg','DESCRIPTION'=>'IaaS หรือ infrastructure as a service เกิดเนื่องมาจากความเป็นจริงที่ว่า การลงทุนใน infrastructure นั้นใช้เงินลงทุนค่อนข้างสูง ทั้งค่าอุปกรณ์และค่าดูแลรักษาระบบ นอกจากนี้ยังพบว่าเจ้าของระบบเองก็ไม่ได้ใช้งานอย่างเต็มประสิทธิภาพเทียบกับเงินที่ลงทุนไป และการขยายการใช้งานก็ต้องใช้เงินลงทุนเพิ่มค่อนข้างสูง จึงเกิดแนวความคิดจากผู้ที่มีระบบอยู่ในมือว่า จะทำอย่างไรให้ใช้ประโยชน์จากสิ่งที่ลงทุนไปแล้วให้ได้ประโยชน์สูงที่สุด? IaaS จึงถือกำเนิดขึ้น โดยการนำระบบส่วนที่ยังไม่ได้ใช้งานไปจัดสรรให้แก่ผู้ที่ไม่มีเงินทุนเพียงพอเช่าใช้','BY'=>'','PRICE'=>'100','UPDATE_DATE'=>'2014-02-03 04:17:24','COMPANY_ID'=>NULL,'PATH'=>'1391375704_19_IaaS_TrendinThailand.pdf','Is_Asian_country'=>'0'),
   array('ID'=>'46','NAME'=>'การประเมินมูลค่าทรัพย์สินทางปัญญา','PHOTO_NAME'=>'1391376046_20_IPV.jpg','DESCRIPTION'=>'การประเมินทรัพย์สินทางปัญญาเกิดขึ้นเนื่องจากการทำธุรกรรมซื้อ/ขายสินทรัพย์ โดยมีวัตถุประสงค์เพื่อให้ทั้งผู้ซื้อและผู้ขายรู้มูลค่าของสินทรัพย์ที่แท้จริงก่อนจะมีการตกลงซื้อหรือขายกัน','BY'=>'','PRICE'=>'100','UPDATE_DATE'=>'2014-02-03 04:38:45','COMPANY_ID'=>NULL,'PATH'=>'1391375949_20_IntellectualPropertyValuation.pdf','Is_Asian_country'=>'0'),
   array('ID'=>'47','NAME'=>'Dynamic Consumption Behavior','PHOTO_NAME'=>'1391376199_21_DCB.jpg','DESCRIPTION'=>'Dynamic Consumption Behavior หรือการเปลี่ยนแปลงในแนวโน้มพฤติกรรมกลุ่มผู้บริโภค ถือเป็นการพลิกฟื้นคืนชีพของธุรกิจไอซีทีแบบครบวงจร (ICT Ecosystem) ตั้งแต่ผู้ให้บริการ content, platform, infrastructure ไปจนถึงผู้ผลิตอุปกรณ์และชิ้นส่วน ตลอดจนผู้ให้บริการประเภท system integration และ managed services ','BY'=>'','PRICE'=>'100','UPDATE_DATE'=>'2014-02-03 04:23:37','COMPANY_ID'=>NULL,'PATH'=>'1391376199_21_DynamicConsumptionBehavior.pdf','Is_Asian_country'=>'0'),
-  array('ID'=>'48','NAME'=>'เทรนด์ธุรกิจยุคดิจิตัล 2557','PHOTO_NAME'=>'1391377050_22_BusinessTrend.jpg','DESCRIPTION'=>'จากการสำรวจเทรนด์ในองค์กรยุคดิจิตัล ที่ต้องจับตาในปี 2557 พบว่า มี 4 เรื่องหลักที่เกี่ยวข้องกับการพัฒนาวิสัยทัศน์ขององค์กร ','BY'=>'','PRICE'=>'100','UPDATE_DATE'=>'2014-02-03 04:37:30','COMPANY_ID'=>NULL,'PATH'=>'1391377050_22_TrendBusinessDigitalAge.pdf','Is_Asian_country'=>'0')
+  array('ID'=>'48','NAME'=>'เทรนด์ธุรกิจยุคดิจิตัล 2557','PHOTO_NAME'=>'1391377050_22_BusinessTrend.jpg','DESCRIPTION'=>'จากการสำรวจเทรนด์ในองค์กรยุคดิจิตัล ที่ต้องจับตาในปี 2557 พบว่า มี 4 เรื่องหลักที่เกี่ยวข้องกับการพัฒนาวิสัยทัศน์ขององค์กร ','BY'=>'','PRICE'=>'100','UPDATE_DATE'=>'2014-02-03 04:37:30','COMPANY_ID'=>NULL,'PATH'=>'1391377050_22_TrendBusinessDigitalAge.pdf','Is_Asian_country'=>'0'),
+  array('ID'=>'49','NAME'=>'เทรนด์การใช้งาน Smart Device','PHOTO_NAME'=>'1391987825_22_SmartDeviceTrend.jpg','DESCRIPTION'=>'มัคคานซิส เผยผลการศึกษาผู้ใช้งานสมาร์ทดีไวซ์เกินครึ่ง ถือครองมากกว่า 1 เครื่องในเวลาเดียวกัน ส่งผลดีต่อการเติบโตของปริมาณการใช้งานดาต้า','BY'=>'','PRICE'=>'100','UPDATE_DATE'=>'2014-02-10 06:18:22','COMPANY_ID'=>NULL,'PATH'=>'1391987825_23_SmartDeviceUsage.pdf','Is_Asian_country'=>'0'),
+  array('ID'=>'50','NAME'=>'The New Chapter of Customer Relation Management','PHOTO_NAME'=>'1395118867_CoverCRM.jpg','DESCRIPTION'=>'ในปัจจุบัน ช่องทางการสื่อสารระหว่างบริษัทและลูกค้ามีอยู่หลากหลายช่องทาง ซึ่งข้อมูลต่างๆของลูกค้าแพร่กระจายอยู่่ในทุกช่องทาง การดึงข้อมูลเหล่านั้นมาใช้ให้เกิดประโยชน์สูงสุดได้ นับเป็นสิ่งจำเป็นเพื่อให้บริษัทเข้าถึงความต้องการของลูกค้า โดยเครื่องมือเหล่านี้ Customer Data Management (CDM), Personalization และ Contextualization มีบทบาทสำคัญที่จะในการนำข้อมูลมาวิเคราะห์ และพิจารณาเพื่อกำหนดแผนงานดำเนินงานของบริษัทต่อไป','BY'=>'','PRICE'=>'100','UPDATE_DATE'=>'2014-03-18 12:01:07','COMPANY_ID'=>NULL,'PATH'=>'1395118401_New_Chapter_CRM_032014.pdf','Is_Asian_country'=>'0')
 );
 
 // mckansys.PDF_CATEGORY
@@ -408,7 +455,9 @@ $PDF_CATEGORY = array(
   array('ID'=>'59','PDF_ID'=>'45','GROUP_LEVEL_NAME'=>'3','GROUP_LEVEL_ID'=>'16'),
   array('ID'=>'60','PDF_ID'=>'46','GROUP_LEVEL_NAME'=>'2','GROUP_LEVEL_ID'=>'2'),
   array('ID'=>'61','PDF_ID'=>'47','GROUP_LEVEL_NAME'=>'3','GROUP_LEVEL_ID'=>'16'),
-  array('ID'=>'62','PDF_ID'=>'48','GROUP_LEVEL_NAME'=>'3','GROUP_LEVEL_ID'=>'16')
+  array('ID'=>'62','PDF_ID'=>'48','GROUP_LEVEL_NAME'=>'3','GROUP_LEVEL_ID'=>'16'),
+  array('ID'=>'63','PDF_ID'=>'49','GROUP_LEVEL_NAME'=>'3','GROUP_LEVEL_ID'=>'15'),
+  array('ID'=>'64','PDF_ID'=>'50','GROUP_LEVEL_NAME'=>'2','GROUP_LEVEL_ID'=>'2')
 );
 
 // mckansys.PERMISSION
@@ -449,7 +498,8 @@ $PERMISSION = array(
   array('ID'=>'34','USER_PROFILE_ID'=>'14','GROUP_LV2_ID'=>'1','IS_ACTIVE'=>'Y','START_DATE'=>'2014-01-01 00:00:00','END_DATE'=>'2014-06-30 00:00:00'),
   array('ID'=>'35','USER_PROFILE_ID'=>'14','GROUP_LV2_ID'=>'2','IS_ACTIVE'=>'Y','START_DATE'=>'2014-01-01 00:00:00','END_DATE'=>'2014-06-30 00:00:00'),
   array('ID'=>'36','USER_PROFILE_ID'=>'14','GROUP_LV2_ID'=>'3','IS_ACTIVE'=>'Y','START_DATE'=>'2014-01-01 00:00:00','END_DATE'=>'2014-06-30 00:00:00'),
-  array('ID'=>'37','USER_PROFILE_ID'=>'14','GROUP_LV2_ID'=>'4','IS_ACTIVE'=>'Y','START_DATE'=>'2014-01-01 00:00:00','END_DATE'=>'2014-06-30 00:00:00')
+  array('ID'=>'37','USER_PROFILE_ID'=>'14','GROUP_LV2_ID'=>'4','IS_ACTIVE'=>'Y','START_DATE'=>'2014-01-01 00:00:00','END_DATE'=>'2014-06-30 00:00:00'),
+  array('ID'=>'38','USER_PROFILE_ID'=>'1','GROUP_LV2_ID'=>'1','IS_ACTIVE'=>'Y','START_DATE'=>'2014-02-03 00:00:00','END_DATE'=>'2014-07-31 00:00:00')
 );
 
 // mckansys.QUESTION
@@ -499,7 +549,9 @@ $TAG_RELATIONSHIP = array(
   array('PDF_ID'=>'43','TAG_ID'=>'6'),
   array('PDF_ID'=>'45','TAG_ID'=>'6'),
   array('PDF_ID'=>'46','TAG_ID'=>'6'),
-  array('PDF_ID'=>'47','TAG_ID'=>'6')
+  array('PDF_ID'=>'47','TAG_ID'=>'6'),
+  array('PDF_ID'=>'49','TAG_ID'=>'6'),
+  array('PDF_ID'=>'50','TAG_ID'=>'6')
 );
 
 // mckansys.TECHNOLOGY_ID
@@ -514,7 +566,7 @@ $USER_PROFILE = array(
   array('ID'=>'1','FIRSTNAME'=>'sukanya','LASTNAME'=>'AA','EMAIL'=>'a@a.com','COMPANY'=>'AA','PASSWORD'=>'f51fc62cdba8a6e536d604b47e30b49551c560256dac08ccfc8204823a492775d669a57e','JOB_TITLE'=>'test','ADDRESS'=>'','CITY'=>'','ZIP'=>'','PHONE'=>'','FAX'=>'','IS_ACTIVE'=>'Y','IS_ADMIN'=>'Y','JOB_LEVEL'=>'1','DEPARTMENT_ID'=>'1','INDUSTRY_ID'=>'1','COUNTRY_ID'=>'221','TECHNOLOGY_ID'=>'1','USER_PROFILEcol'=>NULL,'PHOTO_NAME'=>'testUserProfile.jpg','QUESTION_ID'=>'1','ANSWER'=>'a'),
   array('ID'=>'3','FIRSTNAME'=>'B','LASTNAME'=>'B','EMAIL'=>'nikom2532@gmail.com','COMPANY'=>'B','PASSWORD'=>'7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e','JOB_TITLE'=>'','ADDRESS'=>'','CITY'=>'','ZIP'=>'','PHONE'=>'','FAX'=>'','IS_ACTIVE'=>'Y','IS_ADMIN'=>'Y','JOB_LEVEL'=>'1','DEPARTMENT_ID'=>'1','INDUSTRY_ID'=>'1','COUNTRY_ID'=>'1','TECHNOLOGY_ID'=>'1','USER_PROFILEcol'=>NULL,'PHOTO_NAME'=>'','QUESTION_ID'=>'2','ANSWER'=>'b'),
   array('ID'=>'4','FIRSTNAME'=>'Voravan','LASTNAME'=>'Charn','EMAIL'=>'wc.fone@yahoo.com','COMPANY'=>'Buildthedot','PASSWORD'=>'7014de06693eca5c7a6f258b98fa2048ef7ad6c1faf1e46a706cd0615ada442bbc570b0e','JOB_TITLE'=>NULL,'ADDRESS'=>NULL,'CITY'=>NULL,'ZIP'=>NULL,'PHONE'=>NULL,'FAX'=>NULL,'IS_ACTIVE'=>'Y','IS_ADMIN'=>'Y','JOB_LEVEL'=>'1','DEPARTMENT_ID'=>'1','INDUSTRY_ID'=>'1','COUNTRY_ID'=>'1','TECHNOLOGY_ID'=>'1','USER_PROFILEcol'=>NULL,'PHOTO_NAME'=>'','QUESTION_ID'=>'3','ANSWER'=>'fon'),
-  array('ID'=>'7','FIRSTNAME'=>'Yuthana','LASTNAME'=>'Siri','EMAIL'=>'yuthana@mckansys.com','COMPANY'=>'Mckansys (Thailand) Co., Ltd.','PASSWORD'=>'f51fc62cdba8a6e536d604b47e30b49551c560256dac08ccfc8204823a492775d669a57e','JOB_TITLE'=>'','ADDRESS'=>'','CITY'=>'','ZIP'=>'','PHONE'=>'','FAX'=>'','IS_ACTIVE'=>'Y','IS_ADMIN'=>'N','JOB_LEVEL'=>'1','DEPARTMENT_ID'=>'1','INDUSTRY_ID'=>'1','COUNTRY_ID'=>'221','TECHNOLOGY_ID'=>'1','USER_PROFILEcol'=>NULL,'PHOTO_NAME'=>'no-image.png','QUESTION_ID'=>'0','ANSWER'=>''),
+  array('ID'=>'7','FIRSTNAME'=>'Yuthana','LASTNAME'=>'Siri','EMAIL'=>'yuthana@mckansys.com','COMPANY'=>'Mckansys (Thailand) Co., Ltd.','PASSWORD'=>'f51fc62cdba8a6e536d604b47e30b49551c560256dac08ccfc8204823a492775d669a57e','JOB_TITLE'=>'','ADDRESS'=>'','CITY'=>'','ZIP'=>'','PHONE'=>'','FAX'=>'','IS_ACTIVE'=>'Y','IS_ADMIN'=>'Y','JOB_LEVEL'=>'1','DEPARTMENT_ID'=>'1','INDUSTRY_ID'=>'1','COUNTRY_ID'=>'221','TECHNOLOGY_ID'=>'1','USER_PROFILEcol'=>NULL,'PHOTO_NAME'=>'no-image.png','QUESTION_ID'=>'0','ANSWER'=>''),
   array('ID'=>'9','FIRSTNAME'=>'Warunee','LASTNAME'=>'P','EMAIL'=>'warunee.p@oto.samartcorp.com','COMPANY'=>'One to One Contact Center','PASSWORD'=>'48ee13603e6787fcb67f822b3ea35835cbfeef0cf18bfcb92f1fe02755b61c3112c7bbcd','JOB_TITLE'=>'','ADDRESS'=>'','CITY'=>'','ZIP'=>'','PHONE'=>'','FAX'=>'','IS_ACTIVE'=>'Y','IS_ADMIN'=>'N','JOB_LEVEL'=>'1','DEPARTMENT_ID'=>'1','INDUSTRY_ID'=>'1','COUNTRY_ID'=>'221','TECHNOLOGY_ID'=>'1','USER_PROFILEcol'=>NULL,'PHOTO_NAME'=>'no-image.png','QUESTION_ID'=>'0','ANSWER'=>''),
   array('ID'=>'10','FIRSTNAME'=>'Yugijo','LASTNAME'=>'D','EMAIL'=>'Yugijo.d@aapico.com','COMPANY'=>'Aapica','PASSWORD'=>'fdd6a13634952d950883fd6d4e40274f94836ddcda485e1e19f409322e0da43066fabd13','JOB_TITLE'=>'','ADDRESS'=>'','CITY'=>'','ZIP'=>'','PHONE'=>'','FAX'=>'','IS_ACTIVE'=>'Y','IS_ADMIN'=>'N','JOB_LEVEL'=>'1','DEPARTMENT_ID'=>'1','INDUSTRY_ID'=>'1','COUNTRY_ID'=>'221','TECHNOLOGY_ID'=>'1','USER_PROFILEcol'=>NULL,'PHOTO_NAME'=>'no-image.png','QUESTION_ID'=>'0','ANSWER'=>''),
   array('ID'=>'11','FIRSTNAME'=>'Siribhorn','LASTNAME'=>'','EMAIL'=>'siribhorn@etda.or.th','COMPANY'=>'ETDA','PASSWORD'=>'9519950266969f700abfbe7ae55a1bd188736b4a7919bc0543ba54e39a4624d125665f0d','JOB_TITLE'=>'','ADDRESS'=>'','CITY'=>'','ZIP'=>'','PHONE'=>'','FAX'=>'','IS_ACTIVE'=>'Y','IS_ADMIN'=>'N','JOB_LEVEL'=>'1','DEPARTMENT_ID'=>'1','INDUSTRY_ID'=>'1','COUNTRY_ID'=>'221','TECHNOLOGY_ID'=>'1','USER_PROFILEcol'=>NULL,'PHOTO_NAME'=>'no-image.png','QUESTION_ID'=>'0','ANSWER'=>''),
