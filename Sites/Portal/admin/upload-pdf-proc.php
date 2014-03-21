@@ -16,12 +16,12 @@ $gLv3 = $_POST['gLv3'];
 $gLv4 = $_POST['gLv4'];
 $gLv5 = $_POST['gLv5'];
 $tag = $_POST['tags'];
-echo "glv1 > ".$gLv1."<br>";
-echo "glv2 > ".$gLv2."<br>";
-echo "glv3 > ".$gLv3."<br>";
-echo "glv4 > ".$gLv4."<br>";
-echo "glv5 > ".$gLv5."<br>";
-echo "tag > ".$tag."<br>";
+// echo "glv1 > ".$gLv1."<br>";
+// echo "glv2 > ".$gLv2."<br>";
+// echo "glv3 > ".$gLv3."<br>";
+// echo "glv4 > ".$gLv4."<br>";
+// echo "glv5 > ".$gLv5."<br>";
+// echo "tag > ".$tag."<br>";
 
 //upload pdf
 if(!(!file_exists($_FILES['pdfUpload']['tmp_name']) || !is_uploaded_file($_FILES['pdfUpload']['tmp_name']))){
@@ -39,7 +39,7 @@ if(!(!file_exists($_FILES['pdfUpload']['tmp_name']) || !is_uploaded_file($_FILES
 		$pdf_target_path = "../pdf/";
 		$pdfFileName = strtotime("now")."_".basename($_FILES["pdfUpload"]['name']);
 		$pdf_target_path = $pdf_target_path . $pdfFileName;
-		echo "target_path >".$pdf_target_path. "<br>";	
+		// echo "target_path >".$pdf_target_path. "<br>";	
 		if (move_uploaded_file($_FILES["pdfUpload"]['tmp_name'], $pdf_target_path)) {
 			//echo "The file " . basename($_FILES["pdfUpload"]['name']) . " has been uploaded". "<br />";
 		} else {
@@ -140,7 +140,7 @@ if(!(!file_exists($_FILES['imageUpload']['tmp_name']) || !is_uploaded_file($_FIL
 }
 
 $current_time = date("Y-m-d H:i:s");
-echo $sqlPdf = "
+$sqlPdf = "
 	INSERT INTO `PDF` (
 		`NAME`, 
 		`PHOTO_NAME`,
@@ -163,7 +163,7 @@ echo $sqlPdf = "
 $insertPdfResult = mysql_query($sqlPdf);
 
 $PDF_ID = mysql_insert_id();
-echo "PDF_ID = ".$PDF_ID;
+// echo "PDF_ID = ".$PDF_ID;
 
 
 // $sqlPdf = "
@@ -232,7 +232,7 @@ elseif($gLv1 != 0 || $gLv1 !="") {
 	$GROUP_LEVEL_NAME = "1";
 }
 
-echo $sqlCat="
+$sqlCat="
 INSERT INTO `PDF_CATEGORY` (
 	`PDF_ID`,
 	`GROUP_LEVEL_NAME`,
@@ -250,6 +250,6 @@ $msg = "Sucess";
 ?>
 <script>
 <!--
-//window.location = "pdf.php?msg=<?php echo $msg; ?>";
+window.location = "pdf.php?msg=<?php echo $msg; ?>";
 //-->
 </script>
